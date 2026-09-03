@@ -8,12 +8,6 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com",
         pathname: "/**",
       },
-      // Demo/seed imagery only — safe to remove once real uploads replace it.
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
     ],
   },
 };

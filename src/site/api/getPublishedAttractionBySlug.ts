@@ -14,6 +14,8 @@ export type PublicAttractionDetail = {
     address: string
     city_name: string
     city_id: number
+    city_state: string
+    city_country: string
     category_name: string
     latitude: string | null
     longitude: string | null
@@ -49,6 +51,8 @@ export async function getPublishedAttractionBySlug(slug: string): Promise<{
             address: attractionTable.address,
             city_name: cityTable.name,
             city_id: attractionTable.city_id,
+            city_state: cityTable.state,
+            city_country: cityTable.country,
             category_name: categoryTable.name,
             latitude: attractionTable.latitude,
             longitude: attractionTable.longitude,

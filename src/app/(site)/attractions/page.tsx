@@ -7,14 +7,12 @@ import { getPublishedAttractions } from '@/site/api/getPublishedAttractions'
 import { AttractionCard } from '@/site/components/AttractionCard'
 
 export const metadata = {
-    title: 'All attractions — TravelBuddy',
-    description:
-        'Browse every published attraction and filter by destination, category or keyword.',
+    title: 'Every place I know — TravelBuddy',
+    description: 'Browse every published place, filtered by what kind of trip you are after.',
 }
 
 type SearchParams = {
     page?: string
-    cityId?: string
     categoryId?: string
     search?: string
 }
@@ -32,25 +30,23 @@ export default async function AttractionsPage({
 }) {
     const params = await searchParams
     const page = toPositiveInt(params.page) ?? 1
-    const cityId = toPositiveInt(params.cityId)
     const categoryId = toPositiveInt(params.categoryId)
     const search = params.search?.trim() || undefined
 
     const [result, cities, categories] = await Promise.all([
-        getPublishedAttractions({ page, cityId, categoryId, search, pageSize: 12 }),
+        getPublishedAttractions({ page, categoryId, search, pageSize: 12 }),
         getCitiesWithAttractionCount(),
         getCategoriesWithAttractionCount(),
     ])
 
     const { rows, total, pageCount } = result
-    const hasFilters = Boolean(cityId || categoryId || search)
-    const selectedCity = cities.find((city) => city.id === cityId)
+    const hasFilters = Boolean(categoryId || search)
     const selectedCategory = categories.find((category) => category.id === categoryId)
+    const homeCity = cities.length === 1 ? cities[0] : null
 
     function buildHref(overrides: Partial<Record<keyof SearchParams, string | undefined>>) {
         const next = { ...params, page: undefined, ...overrides }
         const query = new URLSearchParams()
-        if (next.cityId) query.set('cityId', next.cityId)
         if (next.categoryId) query.set('categoryId', next.categoryId)
         if (next.search) query.set('search', next.search)
         if (next.page && next.page !== '1') query.set('page', next.page)
@@ -69,15 +65,15 @@ export default async function AttractionsPage({
         <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
             <header className="max-w-2xl">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-brand">
-                    {selectedCity ? 'Destination' : 'Everything published'}
+                    {homeCity ? `${homeCity.state}, ${homeCity.country}` : 'Everything published'}
                 </p>
                 <h1 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">
-                    {selectedCity ? selectedCity.name : 'Explore attractions'}
+                    {homeCity ? `Every place I know in ${homeCity.name}` : 'Every place I know'}
                 </h1>
                 <p className="mt-4 text-base text-ink-soft/70">
                     {total === 0
                         ? 'Nothing matches these filters yet.'
-                        : `${total} place${total === 1 ? '' : 's'} to discover${
+                        : `${total} place${total === 1 ? '' : 's'} I can walk you through${
                               selectedCategory ? ` in ${selectedCategory.name}` : ''
                           }.`}
                 </p>
@@ -94,16 +90,6 @@ export default async function AttractionsPage({
                             “{search}”
                             <X className="size-3.5" aria-hidden="true" />
                             <span className="sr-only">Remove search filter</span>
-                        </Link>
-                    )}
-                    {selectedCity && (
-                        <Link
-                            href={buildHref({ cityId: undefined })}
-                            className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-white px-3.5 py-1.5 text-xs font-medium text-ink outline-none transition hover:border-ink focus-visible:ring-2 focus-visible:ring-teal-brand"
-                        >
-                            {selectedCity.name}
-                            <X className="size-3.5" aria-hidden="true" />
-                            <span className="sr-only">Remove city filter</span>
                         </Link>
                     )}
                     {selectedCategory && (
@@ -144,7 +130,6 @@ export default async function AttractionsPage({
 
                         <div className="space-y-7 px-6 pb-6">
                             <form action="/attractions" method="GET" role="search">
-                                {cityId && <input type="hidden" name="cityId" value={cityId} />}
                                 {categoryId && (
                                     <input type="hidden" name="categoryId" value={categoryId} />
                                 )}
@@ -178,40 +163,7 @@ export default async function AttractionsPage({
 
                             <div>
                                 <h3 className="text-[11px] font-semibold uppercase tracking-widest text-ink-soft/50">
-                                    Destination
-                                </h3>
-                                <ul className="mt-2.5 max-h-64 space-y-0.5 overflow-y-auto">
-                                    <li>
-                                        <Link
-                                            href={buildHref({ cityId: undefined })}
-                                            aria-current={!cityId ? 'true' : undefined}
-                                            className={filterLinkClass(!cityId)}
-                                        >
-                                            All destinations
-                                        </Link>
-                                    </li>
-                                    {cities.map((city) => (
-                                        <li key={city.id}>
-                                            <Link
-                                                href={buildHref({ cityId: String(city.id) })}
-                                                aria-current={
-                                                    cityId === city.id ? 'true' : undefined
-                                                }
-                                                className={filterLinkClass(cityId === city.id)}
-                                            >
-                                                <span className="truncate">{city.name}</span>
-                                                <span className="shrink-0 text-xs opacity-60">
-                                                    {city.attraction_count}
-                                                </span>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h3 className="text-[11px] font-semibold uppercase tracking-widest text-ink-soft/50">
-                                    Category
+                                    Kind of place
                                 </h3>
                                 <ul className="mt-2.5 max-h-64 space-y-0.5 overflow-y-auto">
                                     <li>
@@ -220,7 +172,7 @@ export default async function AttractionsPage({
                                             aria-current={!categoryId ? 'true' : undefined}
                                             className={filterLinkClass(!categoryId)}
                                         >
-                                            All categories
+                                            Everything
                                         </Link>
                                     </li>
                                     {categories.map((category) => (
@@ -257,12 +209,12 @@ export default async function AttractionsPage({
                                 <Search className="size-5" aria-hidden="true" />
                             </span>
                             <h2 className="mt-5 font-display text-2xl text-ink">
-                                No attractions found
+                                Nothing here yet
                             </h2>
                             <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-soft/70">
                                 {hasFilters
                                     ? 'Try widening your filters — or clear them to see everything.'
-                                    : 'Once an attraction is marked Published in the content manager it will appear here.'}
+                                    : 'Once a place is marked Published in the content manager it will appear here.'}
                             </p>
                             {hasFilters && (
                                 <Link

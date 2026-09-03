@@ -17,6 +17,8 @@ export type PublicAttractionCard = {
     entry_fee: string
     currency_code: string
     short_description: string
+    latitude: string | null
+    longitude: string | null
     primary_image: string | null
     primary_image_alt: string | null
 }
@@ -80,6 +82,8 @@ export async function getPublishedAttractions(options?: {
             entry_fee: attractionTable.entry_fee,
             currency_code: attractionTable.currency_code,
             short_description: attractionTable.short_description,
+            latitude: attractionTable.latitude,
+            longitude: attractionTable.longitude,
             primary_image: primaryImages.image_url,
             primary_image_alt: primaryImages.alt_text,
         })
@@ -118,6 +122,8 @@ export async function getFeaturedAttractions(limit = 6): Promise<PublicAttractio
             entry_fee: attractionTable.entry_fee,
             currency_code: attractionTable.currency_code,
             short_description: attractionTable.short_description,
+            latitude: attractionTable.latitude,
+            longitude: attractionTable.longitude,
             primary_image: primaryImages.image_url,
             primary_image_alt: primaryImages.alt_text,
         })

@@ -9,6 +9,8 @@ export type CityWithCount = {
     name: string
     state: string
     country: string
+    latitude: string | null
+    longitude: string | null
     attraction_count: number
 }
 
@@ -24,6 +26,8 @@ export async function getCitiesWithAttractionCount(): Promise<CityWithCount[]> {
             name: cityTable.name,
             state: cityTable.state,
             country: cityTable.country,
+            latitude: cityTable.latitude,
+            longitude: cityTable.longitude,
             attraction_count: count(attractionTable.id),
         })
         .from(cityTable)
@@ -36,7 +40,14 @@ export async function getCitiesWithAttractionCount(): Promise<CityWithCount[]> {
             )
         )
         .where(eq(cityTable.is_active, true))
-        .groupBy(cityTable.id, cityTable.name, cityTable.state, cityTable.country)
+        .groupBy(
+            cityTable.id,
+            cityTable.name,
+            cityTable.state,
+            cityTable.country,
+            cityTable.latitude,
+            cityTable.longitude
+        )
         .orderBy(asc(cityTable.name))
 
     return rows

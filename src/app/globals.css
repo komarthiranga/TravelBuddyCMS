@@ -195,7 +195,134 @@
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
   }
+}
+
+@keyframes buddy-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes buddy-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes path-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@utility animate-buddy-float {
+  animation: buddy-float 4.5s ease-in-out infinite;
+}
+
+@utility animate-buddy-rise {
+  animation: buddy-rise 0.7s ease-out both;
+}
+
+@utility walk-path-line {
+    transform-origin: top;
+    animation: path-draw 1.1s ease-out both;
+}
+
+/* ── The buddy character ─────────────────────────────────────────
+   Rotation pivots (shoulders, hips) are set per-element with an
+   inline transform-origin in view-box units, so the joints stay put
+   at every size. These utilities only supply the motion.           */
+@keyframes buddy-wave-arm {
+    0%,
+    100% {
+        transform: rotate(-11deg);
+    }
+    50% {
+        transform: rotate(13deg);
+    }
+}
+
+@keyframes buddy-gesture-arm {
+    0%,
+    100% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes buddy-step {
+    0%,
+    100% {
+        transform: rotate(-11deg);
+    }
+    50% {
+        transform: rotate(11deg);
+    }
+}
+
+@keyframes buddy-blink {
+    0%,
+    91%,
+    100% {
+        transform: scaleY(1);
+    }
+    95% {
+        transform: scaleY(0.06);
+    }
+}
+
+@keyframes buddy-bob {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@utility buddy-anim-wave {
+    animation: buddy-wave-arm 1.3s ease-in-out infinite;
+}
+
+@utility buddy-anim-gesture {
+    animation: buddy-gesture-arm 3.2s ease-in-out infinite;
+}
+
+@utility buddy-anim-step {
+    animation: buddy-step 0.9s ease-in-out infinite;
+}
+
+@utility buddy-anim-step-offset {
+    animation: buddy-step 0.9s ease-in-out infinite reverse;
+}
+
+@utility buddy-anim-blink {
+    animation: buddy-blink 5.4s ease-in-out infinite;
+}
+
+@utility buddy-anim-bob {
+    animation: buddy-bob 3.4s ease-in-out infinite;
+}
+
+@utility buddy-anim-bob-quick {
+    animation: buddy-bob 0.9s ease-in-out infinite;
 }

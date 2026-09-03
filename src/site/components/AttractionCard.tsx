@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowUpRight, MapPin } from 'lucide-react'
 
 import type { PublicAttractionCard } from '@/site/api/getPublishedAttractions'
+import { DistanceBadge } from '@/site/components/DistanceBadge'
 
 export function formatFee(fee: string, currency: string) {
     const amount = Number.parseFloat(fee)
@@ -62,10 +63,16 @@ export function AttractionCard({
             </div>
 
             <div className="flex flex-1 flex-col p-6">
-                <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-teal-brand">
-                    <MapPin className="size-3.5" aria-hidden="true" />
-                    {attraction.city_name}
-                </p>
+                <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                    <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-teal-brand">
+                        <MapPin className="size-3.5" aria-hidden="true" />
+                        {attraction.city_name}
+                    </p>
+                    <DistanceBadge
+                        latitude={attraction.latitude}
+                        longitude={attraction.longitude}
+                    />
+                </div>
 
                 <h3 className="mt-2 font-display text-xl leading-snug text-ink">
                     <Link
@@ -81,7 +88,7 @@ export function AttractionCard({
                 </p>
 
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors group-hover:text-amber-brand-dark">
-                    Explore
+                    Walk me through
                     <ArrowUpRight
                         className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                         aria-hidden="true"
