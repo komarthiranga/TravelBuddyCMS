@@ -49,7 +49,7 @@ async function CategoryPage({
             <PageHeader
                 eyebrow="Master data"
                 title="Categories"
-                description="Shared labels for grouping attractions and other travel records."
+                description="Shared labels for grouping travel records."
                 count={total}
                 actions={
                     <Link href="/category/new" className={cn(buttonVariants())}>

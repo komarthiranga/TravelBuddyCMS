@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Travel Buddy CMS",
-  description: "Manage destinations, attractions, and travel content.",
+  description: "Manage travel content.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

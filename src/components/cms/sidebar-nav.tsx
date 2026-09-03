@@ -2,14 +2,10 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Compass, Landmark, Tags } from 'lucide-react'
+import { Compass, Tags } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
-
-const contentLinks = [
-    { href: '/attractions', label: 'Attractions', icon: Landmark },
-]
 
 const masterLinks = [
     { href: '/category', label: 'Categories', icon: Tags },
@@ -22,7 +18,7 @@ function NavLink({
 }: {
     href: string
     label: string
-    icon: typeof Landmark
+    icon: typeof Tags
 }) {
     const pathname = usePathname()
     const isActive = pathname === href || pathname.startsWith(`${href}/`)
@@ -75,11 +71,6 @@ export function SidebarNav() {
             </div>
 
             <nav className="flex gap-4 overflow-x-auto px-3 py-3 md:min-h-0 md:flex-1 md:flex-col md:gap-6 md:overflow-y-auto">
-                <NavGroup title="Content">
-                    {contentLinks.map((item) => (
-                        <NavLink key={item.href} {...item} />
-                    ))}
-                </NavGroup>
                 <NavGroup title="Master data">
                     {masterLinks.map((item) => (
                         <NavLink key={item.href} {...item} />

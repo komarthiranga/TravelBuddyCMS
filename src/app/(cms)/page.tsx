@@ -1,9 +1,7 @@
+import { redirect } from 'next/navigation'
+
 function CMSPage() {
-    return (
-        <div>
-            <h1>CMS Page</h1>
-        </div>
-    )
+    redirect('/category')
 }
 
-export default CMSPage;
+export default CMSPage

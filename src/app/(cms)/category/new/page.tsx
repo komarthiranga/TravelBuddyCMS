@@ -11,7 +11,7 @@ function NewCategoryPage() {
             <PageHeader
                 eyebrow="Master data"
                 title="New category"
-                description="Add a name, type, and unique code. You can use this label on attractions later."
+                description="Add a name, type, and unique code."
                 actions={
                     <Link href="/category" className={cn(buttonVariants({ variant: 'outline' }))}>
                         Back to list
