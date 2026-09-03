@@ -22,6 +22,30 @@ export function isUniqueViolation(error: unknown) {
     return false
 }
 
+export function isForeignKeyViolation(error: unknown) {
+    let current: unknown = error
+
+    for (let i = 0; i < 4; i += 1) {
+        if (
+            typeof current === 'object' &&
+            current !== null &&
+            'code' in current &&
+            current.code === '23503'
+        ) {
+            return true
+        }
+
+        if (typeof current === 'object' && current !== null && 'cause' in current) {
+            current = current.cause
+            continue
+        }
+
+        break
+    }
+
+    return false
+}
+
 export function parseCategoryId(value: string | string[] | undefined) {
     const raw = Array.isArray(value) ? value[0] : value
     const id = Number(raw)
