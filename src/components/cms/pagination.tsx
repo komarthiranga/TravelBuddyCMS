@@ -8,18 +8,25 @@ import type { ChangeEvent } from 'react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import {
-    CATEGORY_PAGE_SIZES,
-    categoryListPath,
-} from '@/master/category/pagination'
+    MASTER_PAGE_SIZES,
+    masterListPath,
+} from '@/master/list-pagination'
 
 type PaginationProps = {
+    basePath: string
     page: number
     pageCount: number
     pageSize: number
     total: number
 }
 
-export function Pagination({ page, pageCount, pageSize, total }: PaginationProps) {
+export function Pagination({
+    basePath,
+    page,
+    pageCount,
+    pageSize,
+    total,
+}: PaginationProps) {
     const router = useRouter()
 
     if (total === 0) {
@@ -30,7 +37,7 @@ export function Pagination({ page, pageCount, pageSize, total }: PaginationProps
     const nextPage = page < pageCount ? page + 1 : null
 
     const handlePageSizeChange = (event: ChangeEvent<HTMLSelectElement>) => {
-        router.push(categoryListPath(1, Number(event.target.value)))
+        router.push(masterListPath(basePath, 1, Number(event.target.value)))
     }
 
     return (
@@ -47,7 +54,7 @@ export function Pagination({ page, pageCount, pageSize, total }: PaginationProps
                         aria-label="Rows per page"
                         className="h-7 rounded-lg border border-input bg-transparent px-2 text-xs text-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
                     >
-                        {CATEGORY_PAGE_SIZES.map((size) => (
+                        {MASTER_PAGE_SIZES.map((size) => (
                             <option key={size} value={size}>
                                 {size}
                             </option>
@@ -57,7 +64,11 @@ export function Pagination({ page, pageCount, pageSize, total }: PaginationProps
             </div>
             <div className="flex items-center gap-1.5">
                 <Link
-                    href={previousPage ? categoryListPath(previousPage, pageSize) : categoryListPath(1, pageSize)}
+                    href={
+                        previousPage
+                            ? masterListPath(basePath, previousPage, pageSize)
+                            : masterListPath(basePath, 1, pageSize)
+                    }
                     aria-disabled={!previousPage}
                     tabIndex={previousPage ? undefined : -1}
                     className={cn(
@@ -69,7 +80,11 @@ export function Pagination({ page, pageCount, pageSize, total }: PaginationProps
                     Previous
                 </Link>
                 <Link
-                    href={nextPage ? categoryListPath(nextPage, pageSize) : categoryListPath(page, pageSize)}
+                    href={
+                        nextPage
+                            ? masterListPath(basePath, nextPage, pageSize)
+                            : masterListPath(basePath, page, pageSize)
+                    }
                     aria-disabled={!nextPage}
                     tabIndex={nextPage ? undefined : -1}
                     className={cn(

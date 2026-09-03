@@ -2,13 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Compass, Tags } from 'lucide-react'
+import { Compass, MapPin, Tags, type LucideIcon } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
 
 const masterLinks = [
     { href: '/category', label: 'Categories', icon: Tags },
+    { href: '/city', label: 'Cities', icon: MapPin },
 ]
 
 function NavLink({
@@ -18,7 +19,7 @@ function NavLink({
 }: {
     href: string
     label: string
-    icon: typeof Tags
+    icon: LucideIcon
 }) {
     const pathname = usePathname()
     const isActive = pathname === href || pathname.startsWith(`${href}/`)

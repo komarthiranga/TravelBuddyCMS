@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Plus, Tags } from 'lucide-react'
+import { MapPin, Plus } from 'lucide-react'
 
 import { PageHeader } from '@/components/cms/page-header'
 import { Pagination } from '@/components/cms/pagination'
@@ -13,10 +13,10 @@ import {
     EmptyTitle,
 } from '@/components/ui/empty'
 import { cn } from '@/lib/utils'
-import { getCategories } from '@/master/category/api/getCategories'
-import CategoryList from '@/master/category/components/List'
+import { getCities } from '@/master/city/api/getCities'
+import CityList from '@/master/city/components/List'
+import type { city } from '@/master/city/types'
 import { parsePage, parsePageSize } from '@/master/list-pagination'
-import type { category } from '@/master/category/types'
 
 function toIsoString(value: Date | string) {
     if (value instanceof Date) {
@@ -26,20 +26,22 @@ function toIsoString(value: Date | string) {
     return value
 }
 
-async function CategoryPage({
-    searchParams,
-}: PageProps<'/category'>) {
+async function CityPage({ searchParams }: PageProps<'/city'>) {
     const params = await searchParams
-    const { rows, total, page, pageCount, pageSize } = await getCategories({
+    const { rows, total, page, pageCount, pageSize } = await getCities({
         page: parsePage(params.page),
         pageSize: parsePageSize(params.perPage),
     })
 
-    const categories: category[] = rows.map((row) => ({
+    const cities: city[] = rows.map((row) => ({
         id: row.id,
         name: row.name,
-        category_type: row.category_type,
         code: row.code,
+        state: row.state,
+        country: row.country,
+        latitude: row.latitude,
+        longitude: row.longitude,
+        is_active: row.is_active,
         created_at: toIsoString(row.created_at),
         updated_at: toIsoString(row.updated_at),
     }))
@@ -48,11 +50,11 @@ async function CategoryPage({
         <div className="flex flex-col gap-5">
             <PageHeader
                 eyebrow="Master data"
-                title="Categories"
-                description="Shared labels for grouping travel records."
+                title="Cities"
+                description="Places used to locate travel content."
                 count={total}
                 actions={
-                    <Link href="/category/new" className={cn(buttonVariants())}>
+                    <Link href="/city/new" className={cn(buttonVariants())}>
                         <Plus data-icon="inline-start" />
                         Create
                     </Link>
@@ -63,26 +65,26 @@ async function CategoryPage({
                 <Empty className="border bg-card py-16 shadow-sm">
                     <EmptyHeader>
                         <EmptyMedia variant="icon">
-                            <Tags />
+                            <MapPin />
                         </EmptyMedia>
-                        <EmptyTitle>No categories yet</EmptyTitle>
+                        <EmptyTitle>No cities yet</EmptyTitle>
                         <EmptyDescription>
-                            Create a category to start grouping travel content.
+                            Add a city with name, code, state, and country.
                         </EmptyDescription>
                     </EmptyHeader>
                     <EmptyContent>
-                        <Link href="/category/new" className={cn(buttonVariants())}>
+                        <Link href="/city/new" className={cn(buttonVariants())}>
                             <Plus data-icon="inline-start" />
                             Create
                         </Link>
                     </EmptyContent>
                 </Empty>
             ) : (
-                <CategoryList
-                    categories={categories}
+                <CityList
+                    cities={cities}
                     pagination={
                         <Pagination
-                            basePath="/category"
+                            basePath="/city"
                             page={page}
                             pageCount={pageCount}
                             pageSize={pageSize}
@@ -95,4 +97,4 @@ async function CategoryPage({
     )
 }
 
-export default CategoryPage
+export default CityPage
