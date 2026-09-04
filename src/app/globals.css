@@ -326,3 +326,140 @@
 @utility buddy-anim-bob-quick {
     animation: buddy-bob 0.9s ease-in-out infinite;
 }
+
+@keyframes buddy-wing {
+    0%,
+    100% {
+        transform: rotate(-8deg);
+    }
+    50% {
+        transform: rotate(22deg);
+    }
+}
+
+@keyframes buddy-tail {
+    0%,
+    100% {
+        transform: rotate(-4deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+@utility buddy-anim-wing {
+    transform-box: view-box;
+    animation: buddy-wing 0.55s ease-in-out infinite;
+}
+
+@utility buddy-anim-wing-slow {
+    transform-box: view-box;
+    animation: buddy-wing 1.4s ease-in-out infinite;
+}
+
+@utility buddy-anim-tail {
+    transform-box: view-box;
+    animation: buddy-tail 1.8s ease-in-out infinite;
+}
+
+/* ── Riding along: wheels, pedals and scrolling scenery ─────────── */
+@keyframes wheel-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes vehicle-jiggle {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-0.4deg);
+    }
+    50% {
+        transform: translateY(-3px) rotate(0.4deg);
+    }
+}
+
+/* The scenery strip is rendered twice side by side, so sliding it half
+   its width and looping reads as an endless road. */
+@keyframes scene-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@utility wheel-spin {
+    transform-box: view-box;
+    animation: wheel-spin 0.7s linear infinite;
+}
+
+@utility wheel-spin-slow {
+    transform-box: view-box;
+    animation: wheel-spin 1.6s linear infinite;
+}
+
+@utility vehicle-jiggle {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    animation: vehicle-jiggle 0.55s ease-in-out infinite;
+}
+
+@utility scene-scroll-far {
+    animation: scene-scroll 42s linear infinite;
+}
+
+@utility scene-scroll-mid {
+    animation: scene-scroll 17s linear infinite;
+}
+
+@utility scene-scroll-near {
+    animation: scene-scroll 7s linear infinite;
+}
+
+@utility scene-scroll-road {
+    animation: scene-scroll 2.4s linear infinite;
+}
+
+/* Leaflet paints inside our map pane; keep it filling the host and quiet. */
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+    background: #1d2430;
+    font-family: inherit;
+}
+
+.leaflet-control-attribution {
+    background: rgb(26 35 48 / 0.72) !important;
+    color: rgb(255 255 255 / 0.5) !important;
+    font-size: 10px;
+}
+
+@keyframes live-pulse {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.55;
+    }
+    70% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+.buddy-live-pulse {
+    position: relative;
+}
+
+.buddy-live-pulse::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 999px;
+    background: #22c55e;
+    animation: live-pulse 1.8s ease-out infinite;
+}

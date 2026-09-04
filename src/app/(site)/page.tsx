@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, BedDouble, LifeBuoy, Utensils } from 'lucide-react'
 
 import { getCitiesWithAttractionCount } from '@/site/api/getCitiesWithAttractionCount'
+import { getPlacesForJourney } from '@/site/api/getPlacesForJourney'
 import { getFeaturedAttractions } from '@/site/api/getPublishedAttractions'
 import { AttractionCard } from '@/site/components/AttractionCard'
 import { BuddyJourney } from '@/site/components/BuddyJourney'
@@ -34,9 +35,10 @@ const NOT_YET = [
 ]
 
 export default async function HomePage() {
-    const [attractions, cities] = await Promise.all([
+    const [attractions, cities, places] = await Promise.all([
         getFeaturedAttractions(24),
         getCitiesWithAttractionCount(),
+        getPlacesForJourney(),
     ])
 
     /* The journey greets you for whichever city you are nearest to, so it needs
@@ -45,7 +47,7 @@ export default async function HomePage() {
 
     return (
         <>
-            <BuddyJourney cities={cities} attractions={attractions} />
+            <BuddyJourney cities={cities} places={places} />
 
             {/* ── Everything he knows, plainly listed ───────────── */}
             <section

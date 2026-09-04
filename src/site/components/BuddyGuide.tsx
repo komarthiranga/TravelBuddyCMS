@@ -2,10 +2,11 @@
 
 import { useMemo, useState } from 'react'
 import Image from 'next/image'
-import { ArrowLeft, ArrowRight, Navigation, RotateCcw } from 'lucide-react'
+import { ArrowLeft, ArrowRight, RotateCcw } from 'lucide-react'
 
+import { TakeMeThere } from '@/site/components/TakeMeThere'
 import { useLocation } from '@/site/components/location-provider'
-import { BuddyAvatar } from '@/site/components/BuddyAvatar'
+import { BuddyMascot } from '@/site/components/BuddyMascot'
 import type { Greeting } from '@/site/lib/greetings'
 import { distanceKm, formatDistance, toCoords, travelSummary } from '@/site/lib/geo'
 
@@ -35,7 +36,6 @@ export function BuddyGuide({
     hours,
     bestTime,
     address,
-    mapUrl,
     latitude,
     longitude,
     images,
@@ -222,7 +222,7 @@ export function BuddyGuide({
 
                 {/* Buddy + speech */}
                 <div className="flex items-end gap-4 sm:gap-6">
-                    <BuddyAvatar
+                    <BuddyMascot
                         pose={step.pose}
                         title={`Your local buddy in ${cityName}`}
                         className="h-40 w-auto shrink-0 sm:h-52"
@@ -290,15 +290,11 @@ export function BuddyGuide({
 
                     {isLast ? (
                         <>
-                            <a
-                                href={mapUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-full bg-amber-brand px-6 py-2.5 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white focus-visible:ring-2 focus-visible:ring-white"
-                            >
-                                <Navigation className="size-4" aria-hidden="true" />
-                                Take me there
-                            </a>
+                            <TakeMeThere
+                                destination={toCoords(latitude, longitude)}
+                                destinationName={name}
+                                className="inline-flex items-center gap-2 rounded-full bg-amber-brand px-6 py-2.5 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-white"
+                            />
                             <button
                                 type="button"
                                 onClick={() => setIndex(0)}

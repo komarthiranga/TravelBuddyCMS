@@ -1,4 +1,5 @@
 import {
+    BedDouble,
     Building2,
     Castle,
     Compass,
@@ -12,6 +13,7 @@ import {
     ShoppingBag,
     Tent,
     Trees,
+    UtensilsCrossed,
     type LucideIcon,
 } from 'lucide-react'
 
@@ -28,6 +30,8 @@ const ICONS: Record<string, LucideIcon> = {
     ADVENTURE: Tent,
     MARKET: ShoppingBag,
     TEA_PLANTATION: Leaf,
+    RESTAURANT: UtensilsCrossed,
+    HOTEL: BedDouble,
 }
 
 export function categoryIcon(code: string): LucideIcon {

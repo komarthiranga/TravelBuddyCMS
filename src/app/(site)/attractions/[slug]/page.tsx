@@ -2,29 +2,20 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import {
-    ArrowUpRight,
-    Bike,
-    Bus,
-    Car,
-    Clock,
-    Footprints,
-    MapPin,
-    Navigation,
-    Train,
-    type LucideIcon,
-} from 'lucide-react'
+import { ArrowUpRight, Clock, MapPin, Navigation } from 'lucide-react'
 
 import { getNearbyAttractions } from '@/site/api/getNearbyAttractions'
 import { getPublishedAttractionBySlug } from '@/site/api/getPublishedAttractionBySlug'
 import { formatFee } from '@/site/components/AttractionCard'
-import { BuddyAvatar } from '@/site/components/BuddyAvatar'
+import { BuddyMascot } from '@/site/components/BuddyMascot'
 import { BuddyGuide } from '@/site/components/BuddyGuide'
 import { BuddyMark } from '@/site/components/BuddyMark'
 import { BuddySay, WalkChapter } from '@/site/components/BuddyVoice'
 import { DistanceBadge } from '@/site/components/DistanceBadge'
+import { TakeMeThere } from '@/site/components/TakeMeThere'
 import { formatDistance, toCoords, travelSummary } from '@/site/lib/geo'
 import { greetingForPlace } from '@/site/lib/greetings'
+import { normaliseMode, TRAVEL_MODES, type TravelMode } from '@/site/lib/travelModes'
 
 export async function generateMetadata({
     params,
@@ -49,37 +40,14 @@ export async function generateMetadata({
     }
 }
 
-const TRAVEL_MODES: Record<string, { icon: LucideIcon; label: string; line: string }> = {
-    TRAIN: {
-        icon: Train,
-        label: 'Train',
-        line: 'Hop off at the nearest station — autos wait outside.',
-    },
-    BUS: {
-        icon: Bus,
-        label: 'Bus',
-        line: 'State buses and locals both stop near enough to walk.',
-    },
-    CAR: {
-        icon: Car,
-        label: 'Car',
-        line: 'Drive in — parking is usually somewhere near the entrance.',
-    },
-    AUTO: {
-        icon: Car,
-        label: 'Auto',
-        line: 'Just say the name. Every driver here knows this place.',
-    },
-    BIKE: {
-        icon: Bike,
-        label: 'Bike',
-        line: 'Two-wheelers weave through faster than anything else.',
-    },
-    WALK: {
-        icon: Footprints,
-        label: 'Walk',
-        line: 'If you are already nearby, just follow your feet.',
-    },
+/** How he describes each way of getting here. Keyed on the canonical mode,
+ *  because `travel_modes` is free text in the CMS ("Auto, Bus, Car"). */
+const MODE_LINES: Record<TravelMode, string> = {
+    walk: 'If you are already nearby, just follow your feet.',
+    cycle: 'Two-wheelers weave through faster than anything else.',
+    auto: 'Just say the name. Every driver here knows this place.',
+    bus: 'State buses and locals both stop near enough to walk.',
+    car: 'Drive in — parking is usually somewhere near the entrance.',
 }
 
 function formatTime(value: string | null) {
@@ -131,11 +99,14 @@ export default async function AttractionDetailPage({
 
     const greeting = greetingForPlace(attraction.city_state, attraction.city_country)
 
-    const resolvedModes = attraction.travel_modes.map((mode) => {
-        const config = TRAVEL_MODES[mode]
+    /* Only plain values here — this array crosses into a client component,
+       and an icon component cannot be serialised. */
+    const resolvedModes = attraction.travel_modes.map((raw) => {
+        const mode = normaliseMode(raw)
         return {
-            label: config?.label ?? mode,
-            line: config?.line ?? 'Works fine from most parts of town.',
+            mode,
+            label: mode ? TRAVEL_MODES[mode].label : raw,
+            line: mode ? MODE_LINES[mode] : 'Works fine from most parts of town.',
         }
     })
 
@@ -209,7 +180,7 @@ export default async function AttractionDetailPage({
 
                     <div className="max-w-3xl pb-6">
                         <div className="mb-8 flex items-end gap-2 animate-buddy-rise">
-                            <BuddyAvatar
+                            <BuddyMascot
                                 pose="wave"
                                 title={`Your local buddy in ${attraction.city_name}`}
                                 className="h-40 w-auto shrink-0 sm:h-52"
@@ -237,15 +208,11 @@ export default async function AttractionDetailPage({
                         )}
 
                         <div className="mt-8 flex flex-wrap items-center gap-3">
-                            <a
-                                href={mapUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-full bg-amber-brand px-6 py-3 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white focus-visible:ring-2 focus-visible:ring-white"
-                            >
-                                <Navigation className="size-4" aria-hidden="true" />
-                                Take me there
-                            </a>
+                            <TakeMeThere
+                                destination={origin}
+                                destinationName={attraction.short_name}
+                                className="inline-flex items-center gap-2 rounded-full bg-amber-brand px-6 py-3 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-white"
+                            />
                             <DistanceBadge
                                 latitude={attraction.latitude}
                                 longitude={attraction.longitude}
@@ -337,17 +304,14 @@ export default async function AttractionDetailPage({
                             </p>
                         </div>
 
-                        {attraction.travel_modes.length > 0 && (
+                        {resolvedModes.length > 0 && (
                             <ul className="divide-y divide-hairline">
-                                {attraction.travel_modes.map((mode, index) => {
-                                    const config = TRAVEL_MODES[mode] ?? {
-                                        icon: Navigation,
-                                        label: mode,
-                                        line: 'Works fine from most parts of town.',
-                                    }
-                                    const Icon = config.icon
+                                {resolvedModes.map((config, index) => {
+                                    const Icon = config.mode
+                                        ? TRAVEL_MODES[config.mode].icon
+                                        : Navigation
                                     return (
-                                        <li key={mode} className="flex gap-4 px-6 py-4">
+                                        <li key={config.label} className="flex gap-4 px-6 py-4">
                                             <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-ink text-amber-brand">
                                                 <Icon className="size-4" aria-hidden="true" />
                                             </span>
@@ -572,15 +536,11 @@ export default async function AttractionDetailPage({
                                 follow the pin. I&apos;ll be here when you pick the next place.
                             </p>
                             <div className="mt-6 flex flex-wrap gap-3">
-                                <a
-                                    href={mapUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full bg-amber-brand px-5 py-2.5 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white focus-visible:ring-2 focus-visible:ring-white"
-                                >
-                                    <Navigation className="size-4" aria-hidden="true" />
-                                    Navigate now
-                                </a>
+                                <TakeMeThere
+                                    destination={origin}
+                                    destinationName={attraction.short_name}
+                                    className="inline-flex items-center gap-2 rounded-full bg-amber-brand px-5 py-2.5 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-white"
+                                />
                                 <Link
                                     href="/attractions"
                                     className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold text-white outline-none transition hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white"
