@@ -4,7 +4,7 @@ import { useEffect, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import { LoaderCircle, Navigation, X } from 'lucide-react'
 
-import { BuddyMapRide } from '@/site/components/BuddyMapRide'
+import { BuddyWaypointRide } from '@/site/components/BuddyWaypointRide'
 import { useLocation } from '@/site/components/location-provider'
 import type { Coords } from '@/site/lib/geo'
 import { TRAVEL_MODE_ORDER, TRAVEL_MODES, type TravelMode } from '@/site/lib/travelModes'
@@ -77,7 +77,7 @@ export function TakeMeThere({
                         className="absolute right-4 top-4 z-20 inline-flex size-11 items-center justify-center rounded-full border border-white/20 bg-ink/60 text-white outline-none backdrop-blur-md hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white"
                     >
                         <X className="size-5" aria-hidden="true" />
-                        <span className="sr-only">Close the map</span>
+                        <span className="sr-only">Close</span>
                     </button>
 
                     {!coords || !mode || finished ? (
@@ -92,8 +92,7 @@ export function TakeMeThere({
                                             {destinationName}. Go on in.
                                         </p>
                                         <p className="mt-4 text-sm leading-relaxed text-white/70">
-                                            I rode the actual road with you. If you need the phone
-                                            to keep guiding after this, say the word — otherwise
+                                            I took you past every pointer on the way. Go on in —
                                             I&apos;ll wait here.
                                         </p>
                                         <button
@@ -117,8 +116,8 @@ export function TakeMeThere({
                                             I need your pin so I can start from here.
                                         </p>
                                         <p className="mt-4 text-sm leading-relaxed text-white/70">
-                                            Same as a Zomato order — I pick you up from where you
-                                            are, then I ride the actual road to {destinationName}.
+                                            I pick you up from where you are, then we ride past
+                                            each pointer to {destinationName}.
                                         </p>
                                         <button
                                             type="button"
@@ -190,7 +189,7 @@ export function TakeMeThere({
                             </div>
                         </div>
                     ) : (
-                        <BuddyMapRide
+                        <BuddyWaypointRide
                             origin={coords}
                             destination={destination}
                             destinationName={destinationName}

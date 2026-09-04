@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 
 import type { JourneyPlace } from '@/site/api/getPlacesForJourney'
-import { BuddyMapRide } from '@/site/components/BuddyMapRide'
+import { BuddyWaypointRide } from '@/site/components/BuddyWaypointRide'
 import { BuddyMascot, type BuddyPose } from '@/site/components/BuddyMascot'
 import { categoryIcon } from '@/site/components/category-icon'
 import { useLocation } from '@/site/components/location-provider'
@@ -207,7 +207,7 @@ export function BuddyJourney({
             </h1>
 
             {phase === 'ride' && leg && origin && destination ? (
-                <BuddyMapRide
+                <BuddyWaypointRide
                     origin={origin}
                     destination={destination}
                     destinationName={leg.place.short_name}

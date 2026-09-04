@@ -129,15 +129,22 @@ function Road() {
 export function JourneyScene({
     mode,
     moving = true,
+    framed = true,
+    lift = false,
     className = '',
 }: {
     mode: TravelMode
     moving?: boolean
+    framed?: boolean
+    /** Sit the rider higher so a caption panel doesn't cover the wheels. */
+    lift?: boolean
     className?: string
 }) {
     return (
         <div
-            className={`relative isolate overflow-hidden rounded-[1.5rem] border border-white/10 ${className}`}
+            className={`relative isolate overflow-hidden ${
+                framed ? 'rounded-[1.5rem] border border-white/10' : ''
+            } ${className}`}
         >
             {/* dusk sky */}
             <div
@@ -184,7 +191,11 @@ export function JourneyScene({
                 rather than against the dark hills behind it. */}
             <div
                 className={`absolute left-1/2 -translate-x-1/2 ${
-                    mode === 'walk' ? 'bottom-0 h-[76%]' : 'bottom-[8%] h-[74%]'
+                    lift
+                        ? 'bottom-[8%] h-[64%] sm:bottom-[10%] sm:h-[68%]'
+                        : mode === 'walk'
+                          ? 'bottom-0 h-[76%]'
+                          : 'bottom-[8%] h-[74%]'
                 }`}
             >
                 <BuddyRide mode={mode} className="h-full w-auto" />

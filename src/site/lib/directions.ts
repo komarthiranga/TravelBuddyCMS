@@ -1,3 +1,5 @@
+import type { RouteWaypoint } from '@/site/lib/waypoints'
+
 export type DirectionsResult = {
     points: { lat: number; lng: number }[]
     /** Road distance in kilometres. */
@@ -5,4 +7,6 @@ export type DirectionsResult = {
     /** Typical duration in minutes. */
     minutes: number
     provider: 'google' | 'osm'
+    /** Named pointers along the ride, start to destination. */
+    waypoints: RouteWaypoint[]
 }

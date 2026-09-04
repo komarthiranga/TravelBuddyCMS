@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
 import { ArrowLeft, ArrowRight, RotateCcw } from 'lucide-react'
 
@@ -178,17 +178,26 @@ export function BuddyGuide({
     const step = steps[safeIndex]
     const isFirst = safeIndex === 0
     const isLast = safeIndex === steps.length - 1
+    const chipsRef = useRef<HTMLDivElement>(null)
+    const progress = steps.length > 1 ? (safeIndex / (steps.length - 1)) * 100 : 100
+
+    useEffect(() => {
+        const root = chipsRef.current
+        const chip = root?.querySelector<HTMLElement>(`[data-step="${safeIndex}"]`)
+        if (!root || !chip) return
+        const left = chip.offsetLeft - (root.clientWidth - chip.clientWidth) / 2
+        root.scrollTo({ left: Math.max(0, left), behavior: 'smooth' })
+    }, [safeIndex])
 
     return (
         <section
             aria-labelledby="buddy-guide-heading"
-            className="relative isolate overflow-hidden rounded-[2rem] border border-hairline bg-ink text-white"
+            className="relative isolate overflow-hidden rounded-[1.5rem] border border-hairline bg-ink text-white sm:rounded-[2rem]"
         >
             <h2 id="buddy-guide-heading" className="sr-only">
                 A guided walk through {name} with your local buddy
             </h2>
 
-            {/* Backdrop: crossfades as the buddy moves you through */}
             <div aria-hidden="true" className="absolute inset-0">
                 {images.length > 0 ? (
                     images.map((image, i) => (
@@ -197,7 +206,7 @@ export function BuddyGuide({
                             src={image.url}
                             alt=""
                             fill
-                            sizes="(max-width: 1024px) 100vw, 900px"
+                            sizes="(max-width: 768px) 100vw, 1100px"
                             className={`object-cover transition-opacity duration-700 ${
                                 i === step.imageIndex ? 'opacity-100' : 'opacity-0'
                             }`}
@@ -206,39 +215,82 @@ export function BuddyGuide({
                 ) : (
                     <div className="size-full grain" />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/45" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/88 to-ink/50" />
             </div>
 
-            <div className="relative flex min-h-[34rem] flex-col justify-between gap-8 p-6 sm:p-9">
-                {/* Progress */}
-                <div className="flex items-center justify-between gap-4">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-brand">
-                        {step.chip}
-                    </p>
-                    <p className="text-xs text-white/45">
-                        Step {safeIndex + 1} of {steps.length}
-                    </p>
+            <div className="relative flex min-h-[min(38rem,88svh)] flex-col justify-between gap-5 p-4 sm:min-h-[36rem] sm:gap-8 sm:p-8 lg:p-10">
+                <div className="space-y-3">
+                    <div className="flex items-center justify-between gap-3">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-brand">
+                            Walk with me
+                        </p>
+                        <p className="text-xs tabular-nums text-white/45">
+                            {safeIndex + 1} / {steps.length}
+                        </p>
+                    </div>
+                    <div
+                        className="h-1 overflow-hidden rounded-full bg-white/15"
+                        role="progressbar"
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-valuenow={Math.round(progress)}
+                        aria-label="Walkthrough progress"
+                    >
+                        <div
+                            className="h-full rounded-full bg-amber-brand transition-[width] duration-500"
+                            style={{ width: `${progress}%` }}
+                        />
+                    </div>
+                    <div
+                        ref={chipsRef}
+                        className="pointer-carousel -mx-1 flex snap-x snap-mandatory gap-2 overflow-x-auto px-1 pb-1"
+                    >
+                        {steps.map((item, i) => {
+                            const active = i === safeIndex
+                            const passed = i < safeIndex
+                            return (
+                                <button
+                                    key={item.id}
+                                    type="button"
+                                    data-step={i}
+                                    onClick={() => setIndex(i)}
+                                    aria-current={active ? 'step' : undefined}
+                                    className={`snap-center shrink-0 rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] outline-none transition focus-visible:ring-2 focus-visible:ring-white ${
+                                        active
+                                            ? 'bg-amber-brand text-ink'
+                                            : passed
+                                              ? 'bg-white/15 text-white/70 hover:bg-white/25'
+                                              : 'bg-white/10 text-white/45 hover:bg-white/15 hover:text-white/70'
+                                    }`}
+                                >
+                                    {item.chip}
+                                </button>
+                            )
+                        })}
+                    </div>
                 </div>
 
-                {/* Buddy + speech */}
-                <div className="flex items-end gap-4 sm:gap-6">
+                <div
+                    key={step.id}
+                    className="flex flex-1 flex-col items-center gap-4 animate-buddy-rise sm:flex-row sm:items-end sm:gap-8"
+                >
                     <BuddyMascot
                         pose={step.pose}
                         title={`Your local buddy in ${cityName}`}
-                        className="h-40 w-auto shrink-0 sm:h-52"
+                        className="h-32 w-auto shrink-0 sm:h-48 lg:h-56"
                     />
 
                     <div
                         aria-live="polite"
-                        className="relative mb-4 flex-1 rounded-3xl rounded-bl-md border border-white/15 bg-white/10 p-5 backdrop-blur-md sm:p-6"
+                        className="relative w-full min-w-0 rounded-[1.35rem] border border-white/15 bg-ink/55 p-4 backdrop-blur-md sm:mb-2 sm:rounded-[1.75rem] sm:p-6"
                     >
                         <span
                             aria-hidden="true"
-                            className="absolute -left-1.5 bottom-4 size-3 rotate-45 border-b border-l border-white/15 bg-white/10"
+                            className="absolute left-1/2 top-0 size-3 -translate-x-1/2 -translate-y-1/2 rotate-45 border-l border-t border-white/15 bg-ink/55 sm:left-0 sm:top-auto sm:bottom-8 sm:translate-x-[-50%] sm:translate-y-0 sm:rotate-45 sm:border-b sm:border-l sm:border-t-0"
                         />
 
                         <p
-                            className="font-display text-2xl leading-tight sm:text-3xl"
+                            className="font-display text-[1.65rem] leading-tight sm:text-3xl lg:text-4xl"
                             lang={
                                 step.id === 'hello' || step.id === 'bye' ? greeting.lang : undefined
                             }
@@ -246,16 +298,14 @@ export function BuddyGuide({
                             {step.heading}
                         </p>
 
-                        {step.body
-                            .filter(Boolean)
-                            .map((paragraph, i) => (
-                                <p
-                                    key={i}
-                                    className="mt-3 text-[15px] leading-relaxed text-white/75"
-                                >
-                                    {paragraph}
-                                </p>
-                            ))}
+                        {step.body.filter(Boolean).map((paragraph, i) => (
+                            <p
+                                key={i}
+                                className="mt-3 text-[15px] leading-relaxed text-white/78"
+                            >
+                                {paragraph}
+                            </p>
+                        ))}
 
                         {step.bullets && step.bullets.length > 0 && (
                             <ul className="mt-4 space-y-2.5">
@@ -276,62 +326,46 @@ export function BuddyGuide({
                     </div>
                 </div>
 
-                {/* Controls */}
-                <div className="flex flex-wrap items-center gap-3">
-                    <button
-                        type="button"
-                        onClick={() => setIndex(safeIndex - 1)}
-                        disabled={isFirst}
-                        className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold text-white outline-none transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 focus-visible:ring-white"
-                    >
-                        <ArrowLeft className="size-4" aria-hidden="true" />
-                        Back
-                    </button>
+                <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+                    <div className="flex gap-2 sm:contents">
+                        <button
+                            type="button"
+                            onClick={() => setIndex(safeIndex - 1)}
+                            disabled={isFirst}
+                            className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-white/20 px-4 py-2.5 text-sm font-semibold text-white outline-none transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 focus-visible:ring-white sm:flex-none sm:px-5"
+                        >
+                            <ArrowLeft className="size-4" aria-hidden="true" />
+                            Back
+                        </button>
 
-                    {isLast ? (
-                        <>
+                        {isLast ? (
                             <TakeMeThere
                                 destination={toCoords(latitude, longitude)}
                                 destinationName={name}
-                                className="inline-flex items-center gap-2 rounded-full bg-amber-brand px-6 py-2.5 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-white"
+                                className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-amber-brand px-4 py-2.5 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-white sm:flex-none sm:px-6"
                             />
+                        ) : (
                             <button
                                 type="button"
-                                onClick={() => setIndex(0)}
-                                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold text-white outline-none transition hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white"
+                                onClick={() => setIndex(safeIndex + 1)}
+                                className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-amber-brand px-4 py-2.5 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white focus-visible:ring-2 focus-visible:ring-white sm:flex-none sm:px-6"
                             >
-                                <RotateCcw className="size-4" aria-hidden="true" />
-                                Tell me again
+                                {isFirst ? "Let's go in" : 'Then what?'}
+                                <ArrowRight className="size-4" aria-hidden="true" />
                             </button>
-                        </>
-                    ) : (
+                        )}
+                    </div>
+
+                    {isLast && (
                         <button
                             type="button"
-                            onClick={() => setIndex(safeIndex + 1)}
-                            className="inline-flex items-center gap-2 rounded-full bg-amber-brand px-6 py-2.5 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white focus-visible:ring-2 focus-visible:ring-white"
+                            onClick={() => setIndex(0)}
+                            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/20 px-4 py-2.5 text-sm font-semibold text-white outline-none transition hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white sm:px-5"
                         >
-                            {isFirst ? "Let's go in" : 'Then what?'}
-                            <ArrowRight className="size-4" aria-hidden="true" />
+                            <RotateCcw className="size-4" aria-hidden="true" />
+                            Tell me again
                         </button>
                     )}
-
-                    <ol className="ml-auto flex items-center gap-1.5">
-                        {steps.map((item, i) => (
-                            <li key={item.id}>
-                                <button
-                                    type="button"
-                                    onClick={() => setIndex(i)}
-                                    aria-current={i === safeIndex ? 'step' : undefined}
-                                    aria-label={`Step ${i + 1}: ${item.chip}`}
-                                    className={`block h-1.5 rounded-full outline-none transition-all focus-visible:ring-2 focus-visible:ring-white ${
-                                        i === safeIndex
-                                            ? 'w-6 bg-amber-brand'
-                                            : 'w-1.5 bg-white/30 hover:bg-white/60'
-                                    }`}
-                                />
-                            </li>
-                        ))}
-                    </ol>
                 </div>
             </div>
         </section>

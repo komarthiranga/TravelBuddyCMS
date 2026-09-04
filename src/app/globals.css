@@ -463,3 +463,42 @@
     background: #22c55e;
     animation: live-pulse 1.8s ease-out infinite;
 }
+
+@keyframes waypoint-flyby {
+    0% {
+        transform: translate(18vw, 10%) scale(0.55);
+        opacity: 0;
+    }
+    18% {
+        opacity: 1;
+    }
+    52% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-22vw, 14%) scale(0.72);
+        opacity: 0;
+    }
+}
+
+.waypoint-flyby {
+    animation: waypoint-flyby 2.1s ease-in-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .waypoint-flyby {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.pointer-carousel {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.pointer-carousel::-webkit-scrollbar {
+    display: none;
+}

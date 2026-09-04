@@ -225,7 +225,7 @@ export default async function AttractionDetailPage({
             </header>
 
             {/* ── Guided walk with the buddy ──────────────────────── */}
-            <div className="mx-auto w-full max-w-3xl px-5 pt-14 sm:px-8 sm:pt-16">
+            <div className="mx-auto w-full max-w-5xl px-4 pt-10 sm:px-8 sm:pt-16">
                 <BuddyGuide
                     name={attraction.short_name}
                     cityName={attraction.city_name}

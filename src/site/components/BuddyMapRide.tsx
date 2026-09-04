@@ -237,6 +237,10 @@ export function BuddyMapRide({
                         km: 0,
                         minutes: 1,
                         provider: 'osm',
+                        waypoints: [
+                            { id: 'start', name: 'Where you are', kind: 'start', metres: 0, metresFromPrev: 0 },
+                            { id: 'end', name: 'The place', kind: 'end', metres: 200, metresFromPrev: 200 },
+                        ],
                     })
                 }
             })
