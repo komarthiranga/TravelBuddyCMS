@@ -61,6 +61,29 @@ export function travelSummary(km: number): string {
     return `about ${formatDuration(minutes)} ${mode}`
 }
 
+/** Whether a place is open right now, using India Standard Time. */
+export function isOpenNow(
+    opening: string | null | undefined,
+    closing: string | null | undefined,
+    now = new Date()
+): boolean {
+    if (!opening || !closing) return false
+    const parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23',
+    }).formatToParts(now)
+    const hour = parts.find((part) => part.type === 'hour')?.value
+    const minute = parts.find((part) => part.type === 'minute')?.value
+    if (!hour || !minute) return false
+    const current = `${hour}:${minute}`
+    const open = opening.slice(0, 5)
+    const close = closing.slice(0, 5)
+    if (open <= close) return current >= open && current < close
+    return current >= open || current < close
+}
+
 export function nearest<T>(
     from: Coords,
     items: readonly T[],

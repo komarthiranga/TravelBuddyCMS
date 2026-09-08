@@ -22,7 +22,7 @@ export function AttractionCard({
     const isFree = Number.parseFloat(attraction.entry_fee) === 0
 
     return (
-        <article className="group relative flex flex-col overflow-hidden rounded-3xl border border-hairline bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover focus-within:-translate-y-1 focus-within:shadow-card-hover">
+        <article className="group relative flex flex-col overflow-hidden rounded-3xl border border-hairline bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover focus-within:-translate-y-1 focus-within:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0">
             <div className="relative aspect-[4/3] overflow-hidden bg-teal-wash">
                 {attraction.primary_image ? (
                     <Image
@@ -31,7 +31,7 @@ export function AttractionCard({
                         fill
                         preload={eager}
                         sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06] motion-reduce:transition-none"
                     />
                 ) : (
                     <div
@@ -42,20 +42,13 @@ export function AttractionCard({
                     </div>
                 )}
 
-                <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/45 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                />
-
-                <span className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-ink backdrop-blur-md">
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink backdrop-blur-md">
                     {attraction.category_name}
                 </span>
 
                 <span
-                    className={`absolute right-4 top-4 rounded-full px-3 py-1 text-[11px] font-semibold backdrop-blur-md ${
-                        isFree
-                            ? 'bg-emerald-500/90 text-white'
-                            : 'bg-ink/80 text-white'
+                    className={`absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur-md ${
+                        isFree ? 'bg-emerald-700 text-white' : 'bg-ink/85 text-white'
                     }`}
                 >
                     {formatFee(attraction.entry_fee, attraction.currency_code)}
@@ -64,7 +57,7 @@ export function AttractionCard({
 
             <div className="flex flex-1 flex-col p-6">
                 <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-                    <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-teal-brand">
+                    <p className="flex items-center gap-1.5 text-sm font-medium text-teal-brand-dark">
                         <MapPin className="size-3.5" aria-hidden="true" />
                         {attraction.city_name}
                     </p>
@@ -83,16 +76,13 @@ export function AttractionCard({
                     </Link>
                 </h3>
 
-                <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-ink-soft/75">
+                <p className="mt-2 line-clamp-2 flex-1 text-base leading-relaxed text-ink-soft">
                     {attraction.short_description}
                 </p>
 
-                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors group-hover:text-amber-brand-dark">
-                    Walk me through
-                    <ArrowUpRight
-                        className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        aria-hidden="true"
-                    />
+                <span className="mt-5 inline-flex min-h-12 items-center gap-1.5 text-base font-semibold text-ink group-hover:text-amber-brand-dark">
+                    View details
+                    <ArrowUpRight className="size-4" aria-hidden="true" />
                 </span>
             </div>
         </article>

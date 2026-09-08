@@ -1,4 +1,4 @@
-import { and, count, desc, eq, ilike, or } from 'drizzle-orm'
+import { and, count, desc, eq, ilike, or, sql } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
 import { attractionTable } from '@/master/attraction/schema'
@@ -16,6 +16,8 @@ export type PublicAttractionCard = {
     category_id: number
     entry_fee: string
     currency_code: string
+    opening_time: string | null
+    closing_time: string | null
     short_description: string
     latitude: string | null
     longitude: string | null
@@ -29,6 +31,7 @@ export async function getPublishedAttractions(options?: {
     cityId?: number
     categoryId?: number
     search?: string
+    free?: boolean
 }): Promise<{ rows: PublicAttractionCard[]; total: number; page: number; pageCount: number; pageSize: number }> {
     const pageSize = options?.pageSize ?? 12
     const page = Math.max(1, options?.page ?? 1)
@@ -43,6 +46,9 @@ export async function getPublishedAttractions(options?: {
                 ilike(attractionTable.short_description, `%${options.search}%`),
             )!
         )
+    }
+    if (options?.free) {
+        conditions.push(sql`cast(${attractionTable.entry_fee} as numeric) = 0`)
     }
 
     const where = and(...conditions)
@@ -81,6 +87,8 @@ export async function getPublishedAttractions(options?: {
             category_id: attractionTable.category_id,
             entry_fee: attractionTable.entry_fee,
             currency_code: attractionTable.currency_code,
+            opening_time: attractionTable.opening_time,
+            closing_time: attractionTable.closing_time,
             short_description: attractionTable.short_description,
             latitude: attractionTable.latitude,
             longitude: attractionTable.longitude,
@@ -121,6 +129,8 @@ export async function getFeaturedAttractions(limit = 6): Promise<PublicAttractio
             category_id: attractionTable.category_id,
             entry_fee: attractionTable.entry_fee,
             currency_code: attractionTable.currency_code,
+            opening_time: attractionTable.opening_time,
+            closing_time: attractionTable.closing_time,
             short_description: attractionTable.short_description,
             latitude: attractionTable.latitude,
             longitude: attractionTable.longitude,

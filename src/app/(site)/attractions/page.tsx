@@ -1,20 +1,25 @@
 import Link from 'next/link'
-import { Search, SlidersHorizontal, X } from 'lucide-react'
+import { Search } from 'lucide-react'
 
 import { getCategoriesWithAttractionCount } from '@/site/api/getCategoriesWithAttractionCount'
 import { getCitiesWithAttractionCount } from '@/site/api/getCitiesWithAttractionCount'
 import { getPublishedAttractions } from '@/site/api/getPublishedAttractions'
 import { AttractionCard } from '@/site/components/AttractionCard'
+import { AttractionFilters } from '@/site/components/AttractionFilters'
+import { LocationNotice } from '@/site/components/LocationNotice'
+import { isOpenNow } from '@/site/lib/geo'
 
 export const metadata = {
-    title: 'Every place I know — TravelBuddy',
-    description: 'Browse every published place, filtered by what kind of trip you are after.',
+    title: 'Explore places — TravelBuddy',
+    description: 'Browse every published place, filtered by the kind of trip you are after.',
 }
 
 type SearchParams = {
     page?: string
     categoryId?: string
     search?: string
+    free?: string
+    open?: string
 }
 
 function toPositiveInt(value: string | undefined) {
@@ -32,249 +37,146 @@ export default async function AttractionsPage({
     const page = toPositiveInt(params.page) ?? 1
     const categoryId = toPositiveInt(params.categoryId)
     const search = params.search?.trim() || undefined
+    const free = params.free === '1'
+    const open = params.open === '1'
 
     const [result, cities, categories] = await Promise.all([
-        getPublishedAttractions({ page, categoryId, search, pageSize: 12 }),
+        getPublishedAttractions({ page, categoryId, search, pageSize: 12, free }),
         getCitiesWithAttractionCount(),
         getCategoriesWithAttractionCount(),
     ])
 
-    const { rows, total, pageCount } = result
-    const hasFilters = Boolean(categoryId || search)
+    let { rows, total, pageCount } = result
+    if (open) {
+        rows = rows.filter((row) => isOpenNow(row.opening_time, row.closing_time))
+        total = rows.length
+        pageCount = 1
+    }
+
+    const hasFilters = Boolean(categoryId || search || free || open)
     const selectedCategory = categories.find((category) => category.id === categoryId)
     const homeCity = cities.length === 1 ? cities[0] : null
+    const liveCategories = categories.filter((category) => category.attraction_count > 0)
 
     function buildHref(overrides: Partial<Record<keyof SearchParams, string | undefined>>) {
         const next = { ...params, page: undefined, ...overrides }
         const query = new URLSearchParams()
         if (next.categoryId) query.set('categoryId', next.categoryId)
         if (next.search) query.set('search', next.search)
+        if (next.free) query.set('free', next.free)
+        if (next.open) query.set('open', next.open)
         if (next.page && next.page !== '1') query.set('page', next.page)
         const qs = query.toString()
         return qs ? `/attractions?${qs}` : '/attractions'
     }
 
-    const filterLinkClass = (active: boolean) =>
-        `flex items-center justify-between gap-3 rounded-xl px-3 py-2 text-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-teal-brand ${
-            active
-                ? 'bg-ink font-semibold text-white'
-                : 'text-ink-soft/75 hover:bg-teal-wash hover:text-ink'
-        }`
+    const chips = [
+        { href: buildHref({ categoryId: undefined, free: undefined, open: undefined }), label: 'All', active: !categoryId && !free && !open },
+        ...liveCategories.map((category) => ({
+            href: buildHref({ categoryId: String(category.id), free: undefined, open: undefined }),
+            label: category.name,
+            active: categoryId === category.id && !free && !open,
+        })),
+        { href: buildHref({ free: '1', categoryId: undefined, open: undefined }), label: 'Free entry', active: free },
+        { href: buildHref({ open: '1', categoryId: undefined, free: undefined }), label: 'Open now', active: open },
+    ]
 
     return (
-        <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
+        <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
             <header className="max-w-2xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-brand">
-                    {homeCity ? `${homeCity.state}, ${homeCity.country}` : 'Everything published'}
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-teal-brand-dark">
+                    {homeCity ? `${homeCity.state}, ${homeCity.country}` : 'Published places'}
                 </p>
                 <h1 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">
-                    {homeCity ? `Every place I know in ${homeCity.name}` : 'Every place I know'}
+                    {homeCity ? `Explore places in ${homeCity.name}` : 'Explore places'}
                 </h1>
-                <p className="mt-4 text-base text-ink-soft/70">
+                <p className="mt-4 text-lg text-ink-soft">
                     {total === 0
                         ? 'Nothing matches these filters yet.'
-                        : `${total} place${total === 1 ? '' : 's'} I can walk you through${
+                        : `${total} place${total === 1 ? '' : 's'}${
                               selectedCategory ? ` in ${selectedCategory.name}` : ''
                           }.`}
                 </p>
             </header>
 
-            {/* Active filter chips */}
-            {hasFilters && (
-                <div className="mt-7 flex flex-wrap items-center gap-2">
-                    {search && (
-                        <Link
-                            href={buildHref({ search: undefined })}
-                            className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-white px-3.5 py-1.5 text-xs font-medium text-ink outline-none transition hover:border-ink focus-visible:ring-2 focus-visible:ring-teal-brand"
-                        >
-                            “{search}”
-                            <X className="size-3.5" aria-hidden="true" />
-                            <span className="sr-only">Remove search filter</span>
-                        </Link>
-                    )}
-                    {selectedCategory && (
-                        <Link
-                            href={buildHref({ categoryId: undefined })}
-                            className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-white px-3.5 py-1.5 text-xs font-medium text-ink outline-none transition hover:border-ink focus-visible:ring-2 focus-visible:ring-teal-brand"
-                        >
-                            {selectedCategory.name}
-                            <X className="size-3.5" aria-hidden="true" />
-                            <span className="sr-only">Remove category filter</span>
-                        </Link>
-                    )}
-                    <Link
-                        href="/attractions"
-                        className="rounded-full px-3 py-1.5 text-xs font-semibold text-ink-soft/60 underline-offset-4 outline-none hover:text-ink hover:underline focus-visible:ring-2 focus-visible:ring-teal-brand"
-                    >
-                        Clear all
-                    </Link>
-                </div>
-            )}
+            <LocationNotice className="mt-6" />
 
-            <div className="mt-10 grid gap-10 lg:grid-cols-[16rem_1fr]">
-                {/* ── Filters ─────────────────────────────────── */}
-                <aside aria-labelledby="filters-heading">
-                    <details
-                        open
-                        className="rounded-3xl border border-hairline bg-white lg:sticky lg:top-24 [&_summary::-webkit-details-marker]:hidden"
-                    >
-                        <summary className="flex cursor-pointer list-none items-center gap-2 rounded-3xl px-6 py-5 lg:cursor-default">
-                            <SlidersHorizontal
-                                className="size-4 text-teal-brand"
-                                aria-hidden="true"
-                            />
-                            <h2 id="filters-heading" className="text-sm font-semibold text-ink">
-                                Filters
-                            </h2>
-                        </summary>
+            <AttractionFilters
+                search={search}
+                chips={chips}
+                buildSearchHref={buildHref({ search })}
+                hiddenFields={{
+                    ...(categoryId ? { categoryId: String(categoryId) } : {}),
+                    ...(free ? { free: '1' } : {}),
+                    ...(open ? { open: '1' } : {}),
+                }}
+            />
 
-                        <div className="space-y-7 px-6 pb-6">
-                            <form action="/attractions" method="GET" role="search">
-                                {categoryId && (
-                                    <input type="hidden" name="categoryId" value={categoryId} />
-                                )}
-                                <label
-                                    htmlFor="search"
-                                    className="text-[11px] font-semibold uppercase tracking-widest text-ink-soft/50"
-                                >
-                                    Search
-                                </label>
-                                <div className="mt-2.5 flex items-center gap-2 rounded-xl border border-hairline bg-cream px-3 focus-within:border-teal-brand">
-                                    <Search
-                                        className="size-4 shrink-0 text-ink-soft/40"
-                                        aria-hidden="true"
-                                    />
-                                    <input
-                                        id="search"
-                                        type="search"
-                                        name="search"
-                                        defaultValue={search ?? ''}
-                                        placeholder="Name or keyword"
-                                        className="min-w-0 flex-1 bg-transparent py-2.5 text-sm text-ink placeholder:text-ink-soft/40 focus:outline-none"
-                                    />
-                                </div>
-                                <button
-                                    type="submit"
-                                    className="mt-2.5 w-full rounded-xl bg-ink py-2.5 text-sm font-semibold text-white outline-none transition hover:bg-ink-soft focus-visible:ring-2 focus-visible:ring-teal-brand focus-visible:ring-offset-2"
-                                >
-                                    Apply
-                                </button>
-                            </form>
+            <div className="mt-10 min-w-0">
+                {rows.length === 0 ? (
+                    <div className="rounded-3xl border border-dashed border-hairline bg-white px-8 py-20 text-center">
+                        <span className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-teal-wash text-teal-brand-dark">
+                            <Search className="size-5" aria-hidden="true" />
+                        </span>
+                        <h2 className="mt-5 font-display text-2xl text-ink">Nothing here yet</h2>
+                        <p className="mx-auto mt-3 max-w-sm text-base leading-relaxed text-ink-soft">
+                            {hasFilters
+                                ? 'Try widening your filters — or clear them to see everything.'
+                                : 'Once a place is marked Published in the content manager it will appear here.'}
+                        </p>
+                        {hasFilters && (
+                            <Link
+                                href="/attractions"
+                                className="mt-7 inline-flex min-h-12 items-center rounded-full bg-ink px-5 text-base font-semibold text-white outline-none hover:bg-ink-soft focus-visible:ring-2 focus-visible:ring-teal-brand"
+                            >
+                                Clear filters
+                            </Link>
+                        )}
+                    </div>
+                ) : (
+                    <>
+                        <ul className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                            {rows.map((attraction, index) => (
+                                <li key={attraction.id}>
+                                    <AttractionCard attraction={attraction} eager={index < 3} />
+                                </li>
+                            ))}
+                        </ul>
 
-                            <div>
-                                <h3 className="text-[11px] font-semibold uppercase tracking-widest text-ink-soft/50">
-                                    Kind of place
-                                </h3>
-                                <ul className="mt-2.5 max-h-64 space-y-0.5 overflow-y-auto">
-                                    <li>
-                                        <Link
-                                            href={buildHref({ categoryId: undefined })}
-                                            aria-current={!categoryId ? 'true' : undefined}
-                                            className={filterLinkClass(!categoryId)}
-                                        >
-                                            Everything
-                                        </Link>
-                                    </li>
-                                    {categories.map((category) => (
-                                        <li key={category.id}>
-                                            <Link
-                                                href={buildHref({
-                                                    categoryId: String(category.id),
-                                                })}
-                                                aria-current={
-                                                    categoryId === category.id ? 'true' : undefined
-                                                }
-                                                className={filterLinkClass(
-                                                    categoryId === category.id
-                                                )}
-                                            >
-                                                <span className="truncate">{category.name}</span>
-                                                <span className="shrink-0 text-xs opacity-60">
-                                                    {category.attraction_count}
-                                                </span>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </details>
-                </aside>
-
-                {/* ── Results ─────────────────────────────────── */}
-                <div className="min-w-0">
-                    {rows.length === 0 ? (
-                        <div className="rounded-3xl border border-dashed border-hairline bg-white px-8 py-20 text-center">
-                            <span className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-teal-wash text-teal-brand-dark">
-                                <Search className="size-5" aria-hidden="true" />
-                            </span>
-                            <h2 className="mt-5 font-display text-2xl text-ink">
-                                Nothing here yet
-                            </h2>
-                            <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-soft/70">
-                                {hasFilters
-                                    ? 'Try widening your filters — or clear them to see everything.'
-                                    : 'Once a place is marked Published in the content manager it will appear here.'}
-                            </p>
-                            {hasFilters && (
+                        {pageCount > 1 && (
+                            <nav
+                                aria-label="Pagination"
+                                className="mt-14 flex items-center justify-center gap-2"
+                            >
                                 <Link
-                                    href="/attractions"
-                                    className="mt-7 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white outline-none transition hover:bg-ink-soft focus-visible:ring-2 focus-visible:ring-teal-brand focus-visible:ring-offset-2"
+                                    href={buildHref({ page: String(page - 1) })}
+                                    aria-disabled={page <= 1}
+                                    className={`inline-flex min-h-12 items-center rounded-full border border-hairline px-4 text-base font-medium outline-none focus-visible:ring-2 focus-visible:ring-teal-brand ${
+                                        page <= 1
+                                            ? 'pointer-events-none opacity-40'
+                                            : 'hover:border-ink hover:bg-white'
+                                    }`}
                                 >
-                                    Clear filters
+                                    Previous
                                 </Link>
-                            )}
-                        </div>
-                    ) : (
-                        <>
-                            <ul className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                                {rows.map((attraction, index) => (
-                                    <li key={attraction.id}>
-                                        <AttractionCard
-                                            attraction={attraction}
-                                            eager={index < 3}
-                                        />
-                                    </li>
-                                ))}
-                            </ul>
-
-                            {pageCount > 1 && (
-                                <nav
-                                    aria-label="Pagination"
-                                    className="mt-14 flex items-center justify-center gap-2"
+                                <span className="px-3 text-base text-ink-soft">
+                                    Page {page} of {pageCount}
+                                </span>
+                                <Link
+                                    href={buildHref({ page: String(page + 1) })}
+                                    aria-disabled={page >= pageCount}
+                                    className={`inline-flex min-h-12 items-center rounded-full border border-hairline px-4 text-base font-medium outline-none focus-visible:ring-2 focus-visible:ring-teal-brand ${
+                                        page >= pageCount
+                                            ? 'pointer-events-none opacity-40'
+                                            : 'hover:border-ink hover:bg-white'
+                                    }`}
                                 >
-                                    <Link
-                                        href={buildHref({ page: String(page - 1) })}
-                                        aria-disabled={page <= 1}
-                                        className={`rounded-full border border-hairline px-4 py-2 text-sm font-medium outline-none transition focus-visible:ring-2 focus-visible:ring-teal-brand ${
-                                            page <= 1
-                                                ? 'pointer-events-none opacity-40'
-                                                : 'hover:border-ink hover:bg-white'
-                                        }`}
-                                    >
-                                        Previous
-                                    </Link>
-
-                                    <span className="px-3 text-sm text-ink-soft/70">
-                                        Page {page} of {pageCount}
-                                    </span>
-
-                                    <Link
-                                        href={buildHref({ page: String(page + 1) })}
-                                        aria-disabled={page >= pageCount}
-                                        className={`rounded-full border border-hairline px-4 py-2 text-sm font-medium outline-none transition focus-visible:ring-2 focus-visible:ring-teal-brand ${
-                                            page >= pageCount
-                                                ? 'pointer-events-none opacity-40'
-                                                : 'hover:border-ink hover:bg-white'
-                                        }`}
-                                    >
-                                        Next
-                                    </Link>
-                                </nav>
-                            )}
-                        </>
-                    )}
-                </div>
+                                    Next
+                                </Link>
+                            </nav>
+                        )}
+                    </>
+                )}
             </div>
         </div>
     )

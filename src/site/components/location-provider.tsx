@@ -5,18 +5,31 @@ import { useCallback, useEffect, useSyncExternalStore, type ReactNode } from 're
 import type { Coords } from '@/site/lib/geo'
 
 export type LocationStatus =
-    | 'idle' // never asked
-    | 'locating' // waiting on the browser
-    | 'ready' // we have coordinates
-    | 'denied' // user said no, or previously blocked
-    | 'unavailable' // no geolocation support
-    | 'error' // lookup failed (timeout, no signal)
+    | 'idle'
+    | 'locating'
+    | 'ready'
+    | 'denied'
+    | 'unavailable'
+    | 'error'
+
+export type CityCentre = {
+    name: string
+    coords: Coords
+}
+
+export type StartPoint = {
+    kind: 'user' | 'centre'
+    coords: Coords
+    label: string
+}
 
 type LocationState = {
     coords: Coords | null
     status: LocationStatus
     /** True once the cache has been read, so the UI can avoid flashing a prompt. */
     hydrated: boolean
+    cityCentre: CityCentre | null
+    startPoint: StartPoint | null
 }
 
 const STORAGE_KEY = 'tb:last-known-location'
@@ -27,7 +40,13 @@ const CACHE_TTL_MS = 6 * 60 * 60 * 1000 // 6 hours
  * This keeps the server and first client render identical (no hydration
  * mismatch) without pushing browser state through setState in an effect.
  */
-const SERVER_STATE: LocationState = { coords: null, status: 'idle', hydrated: false }
+const SERVER_STATE: LocationState = {
+    coords: null,
+    status: 'idle',
+    hydrated: false,
+    cityCentre: null,
+    startPoint: null,
+}
 
 let state: LocationState = SERVER_STATE
 const listeners = new Set<() => void>()
@@ -78,6 +97,10 @@ function writeCache(coords: Coords) {
     }
 }
 
+function asUserStart(coords: Coords): StartPoint {
+    return { kind: 'user', coords, label: 'You' }
+}
+
 function locate() {
     if (typeof navigator === 'undefined' || !navigator.geolocation) {
         setState({ status: 'unavailable' })
@@ -92,7 +115,7 @@ function locate() {
                 lng: position.coords.longitude,
             }
             writeCache(coords)
-            setState({ coords, status: 'ready' })
+            setState({ coords, status: 'ready', startPoint: asUserStart(coords) })
         },
         (error) => {
             setState({ status: error.code === error.PERMISSION_DENIED ? 'denied' : 'error' })
@@ -107,7 +130,7 @@ function clearLocation() {
     } catch {
         // ignore
     }
-    setState({ coords: null, status: 'idle' })
+    setState({ coords: null, status: 'idle', startPoint: null })
 }
 
 let initialised = false
@@ -123,7 +146,12 @@ function initialise() {
 
     const cached = readCache()
     if (cached) {
-        setState({ coords: cached, status: 'ready', hydrated: true })
+        setState({
+            coords: cached,
+            status: 'ready',
+            hydrated: true,
+            startPoint: asUserStart(cached),
+        })
     } else {
         setState({ hydrated: true })
     }
@@ -139,7 +167,7 @@ function initialise() {
         .query({ name: 'geolocation' })
         .then((permission) => {
             if (permission.state === 'granted' && !cached) locate()
-            if (permission.state === 'denied') setState({ status: 'denied' })
+            if (permission.state === 'denied' && !cached) setState({ status: 'denied' })
         })
         .catch(() => {
             // Permissions API unsupported for geolocation; the explicit button
@@ -166,5 +194,21 @@ export function useLocation() {
         clearLocation()
     }, [])
 
-    return { ...snapshot, request, clear }
+    const setCityCentre = useCallback((cityCentre: CityCentre | null) => {
+        setState({ cityCentre })
+    }, [])
+
+    const chooseCentre = useCallback(() => {
+        const city = state.cityCentre
+        if (!city) return
+        setState({
+            startPoint: {
+                kind: 'centre',
+                coords: city.coords,
+                label: `${city.name} city centre`,
+            },
+        })
+    }, [])
+
+    return { ...snapshot, request, clear, setCityCentre, chooseCentre }
 }

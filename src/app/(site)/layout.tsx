@@ -1,108 +1,122 @@
 import Link from 'next/link'
 
+import { getCitiesWithAttractionCount } from '@/site/api/getCitiesWithAttractionCount'
 import { BuddyLogo } from '@/site/components/BuddyLogo'
+import { CityCentreSync } from '@/site/components/CityCentreSync'
+import { LocaleProvider } from '@/site/components/locale-provider'
 import { LocationProvider } from '@/site/components/location-provider'
+import { MobileNav } from '@/site/components/MobileNav'
+import { SiteHeader } from '@/site/components/SiteHeader'
 
-const NAV_LINKS = [
-    { href: '/attractions', label: 'Every place' },
-    { href: '/#soon', label: "What's next" },
-]
+export default async function SiteLayout({ children }: { children: React.ReactNode }) {
+    const cities = await getCitiesWithAttractionCount()
+    const city = cities[0] ?? null
 
-export default function SiteLayout({ children }: { children: React.ReactNode }) {
     return (
         <LocationProvider>
-            <div className="flex min-h-full flex-col bg-cream text-ink">
-                <a
-                    href="#main"
-                    className="sr-only rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[100]"
-                >
-                    Skip to main content
-                </a>
-
-                <header className="sticky top-0 z-50 border-b border-hairline/70 bg-cream/80 backdrop-blur-xl">
-                    <nav
-                        aria-label="Main"
-                        className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-6 px-5 sm:px-8"
+            <LocaleProvider>
+                {city && (
+                    <CityCentreSync
+                        name={city.name}
+                        latitude={city.latitude}
+                        longitude={city.longitude}
+                    />
+                )}
+                <div className="flex min-h-full flex-col bg-cream text-ink">
+                    <a
+                        href="#main"
+                        className="sr-only rounded-full bg-ink px-5 py-3 text-base font-semibold text-white focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[100]"
                     >
-                        <Link
-                            href="/"
-                            className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-teal-brand focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
-                        >
-                            <BuddyLogo size="sm" />
-                        </Link>
+                        Skip to main content
+                    </a>
 
-                        <ul className="hidden items-center gap-1 md:flex">
-                            {NAV_LINKS.map((link) => (
-                                <li key={link.href}>
-                                    <Link
-                                        href={link.href}
-                                        className="rounded-full px-4 py-2 text-sm font-medium text-ink-soft/80 outline-none transition-colors hover:bg-white hover:text-ink focus-visible:ring-2 focus-visible:ring-teal-brand"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                    <SiteHeader cities={cities} activeCityName={city?.name ?? 'Eluru'} />
 
-                        <Link
-                            href="/"
-                            className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white outline-none transition hover:bg-ink-soft focus-visible:ring-2 focus-visible:ring-teal-brand focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
-                        >
-                            Take my hand
-                        </Link>
-                    </nav>
-                </header>
+                    <main id="main" className="flex-1 pb-20 md:pb-0">
+                        {children}
+                    </main>
 
-                <main id="main" className="flex-1">
-                    {children}
-                </main>
+                    <footer className="mt-8 border-t border-hairline bg-ink text-white">
+                        <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.5fr_1fr_1fr]">
+                            <div>
+                                <BuddyLogo size="md" tone="dark" />
+                                <p className="mt-4 max-w-sm text-base leading-relaxed text-white/80">
+                                    A local friend in your pocket — directions, the good places, and
+                                    eventually eats, stays and help when you need it.
+                                </p>
+                            </div>
 
-                <footer className="mt-8 border-t border-hairline bg-ink text-white">
-                    <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.5fr_1fr_1fr]">
-                        <div>
-                            <BuddyLogo size="md" tone="dark" />
-                            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/55">
-                                A local friend in your pocket — directions, the good places, and
-                                eventually eats, stays and help when you need it.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h2 className="text-xs font-semibold uppercase tracking-widest text-white/40">
-                                Walk with me
-                            </h2>
-                            <ul className="mt-4 space-y-2.5">
-                                {NAV_LINKS.map((link) => (
-                                    <li key={link.href}>
+                            <div>
+                                <h2 className="text-sm font-semibold uppercase tracking-widest text-white/70">
+                                    Explore
+                                </h2>
+                                <ul className="mt-4 space-y-2.5">
+                                    <li>
                                         <Link
-                                            href={link.href}
-                                            className="text-sm text-white/65 outline-none transition-colors hover:text-white focus-visible:underline"
+                                            href="/attractions"
+                                            className="text-base text-white/85 outline-none hover:text-white focus-visible:underline"
                                         >
-                                            {link.label}
+                                            Explore places
                                         </Link>
                                     </li>
-                                ))}
-                            </ul>
+                                    <li>
+                                        <Link
+                                            href="/#guide"
+                                            className="text-base text-white/85 outline-none hover:text-white focus-visible:underline"
+                                        >
+                                            Guide me
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            href="/help"
+                                            className="text-base text-white/85 outline-none hover:text-white focus-visible:underline"
+                                        >
+                                            Help
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h2 className="text-sm font-semibold uppercase tracking-widest text-white/70">
+                                    Coming soon
+                                </h2>
+                                <ul className="mt-4 space-y-2.5 text-base text-white/85">
+                                    <li>
+                                        <Link href="/food" className="hover:text-white">
+                                            Food
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/hotels" className="hover:text-white">
+                                            Hotels
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/transport" className="hover:text-white">
+                                            Getting around
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/emergency" className="hover:text-white">
+                                            Emergency help
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <div>
-                            <h2 className="text-xs font-semibold uppercase tracking-widest text-white/40">
-                                Coming next
-                            </h2>
-                            <p className="mt-4 text-sm leading-relaxed text-white/55">
-                                Restaurants, places to stay, and emergency contacts — so I can cover
-                                a full day out, not just the sightseeing.
+                        <div className="border-t border-white/10">
+                            <p className="mx-auto w-full max-w-6xl px-5 py-6 text-sm text-white/70 sm:px-8">
+                                © {new Date().getFullYear()} TravelBuddy
                             </p>
                         </div>
-                    </div>
+                    </footer>
 
-                    <div className="border-t border-white/10">
-                        <p className="mx-auto w-full max-w-6xl px-5 py-6 text-xs text-white/35 sm:px-8">
-                            © {new Date().getFullYear()} TravelBuddy
-                        </p>
-                    </div>
-                </footer>
-            </div>
+                    <MobileNav />
+                </div>
+            </LocaleProvider>
         </LocationProvider>
     )
 }

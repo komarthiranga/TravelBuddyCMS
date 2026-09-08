@@ -2,12 +2,14 @@
 
 import { useEffect, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { LoaderCircle, Navigation, X } from 'lucide-react'
+import { ExternalLink, Navigation, X } from 'lucide-react'
 
-import { BuddyPathGuide } from '@/site/components/BuddyPathGuide'
+import { LocationNotice } from '@/site/components/LocationNotice'
 import { useLocation } from '@/site/components/location-provider'
 import type { Coords } from '@/site/lib/geo'
-import { TRAVEL_MODE_ORDER, TRAVEL_MODES, type TravelMode } from '@/site/lib/travelModes'
+import { distanceKm, formatDistance, formatDuration } from '@/site/lib/geo'
+import { googleMapsDirUrl, recommendMode } from '@/site/lib/maps'
+import { minutesFor, TRAVEL_MODES, type TravelMode } from '@/site/lib/travelModes'
 
 export function TakeMeThere({
     destination,
@@ -16,7 +18,7 @@ export function TakeMeThere({
     children = (
         <>
             <Navigation className="size-4" aria-hidden="true" />
-            Take me there
+            Get directions
         </>
     ),
 }: {
@@ -25,9 +27,8 @@ export function TakeMeThere({
     className?: string
     children?: ReactNode
 }) {
-    const { coords, status, request } = useLocation()
+    const { startPoint } = useLocation()
     const [open, setOpen] = useState(false)
-    const [mode, setMode] = useState<TravelMode | null>(null)
 
     useEffect(() => {
         if (!open) return
@@ -43,16 +44,14 @@ export function TakeMeThere({
         }
     }, [open])
 
-    function start() {
-        if (!destination) return
-        setMode(null)
-        setOpen(true)
-        if (!coords) request()
-    }
-
     return (
         <>
-            <button type="button" onClick={start} disabled={!destination} className={className}>
+            <button
+                type="button"
+                onClick={() => setOpen(true)}
+                disabled={!destination}
+                className={className}
+            >
                 {children}
             </button>
 
@@ -61,127 +60,147 @@ export function TakeMeThere({
                 typeof document !== 'undefined' &&
                 createPortal(
                     <div
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label={`Take you to ${destinationName}`}
-                    className={`fixed inset-0 z-[100] ${coords && mode ? 'bg-cream' : 'bg-ink'}`}
-                >
-                    <button
-                        type="button"
-                        onClick={() => {
-                            setOpen(false)
-                            setMode(null)
-                        }}
-                        className={`absolute right-4 top-4 z-20 inline-flex size-11 items-center justify-center rounded-full outline-none ${
-                            coords && mode
-                                ? 'border border-ink/15 bg-white text-ink hover:bg-cream focus-visible:ring-2 focus-visible:ring-teal-brand'
-                                : 'border border-white/20 bg-ink/60 text-white backdrop-blur-md hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white'
-                        }`}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={`Directions to ${destinationName}`}
+                        className="fixed inset-0 z-[100] flex items-end justify-center bg-ink/70 p-4 sm:items-center"
                     >
-                        <X className="size-5" aria-hidden="true" />
-                        <span className="sr-only">Close</span>
-                    </button>
-
-                    {!coords || !mode ? (
-                        <div className="flex h-full items-center justify-center px-5">
-                            <div className="w-full max-w-md rounded-[1.75rem] border border-white/15 bg-white/10 p-6 text-white backdrop-blur-md sm:p-8">
-                                {!coords ? (
-                                    <>
-                                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-brand">
-                                            First, where are you
-                                        </p>
-                                        <p className="mt-3 font-display text-3xl leading-tight">
-                                            I need your pin so I can start from here.
-                                        </p>
-                                        <p className="mt-4 text-sm leading-relaxed text-white/70">
-                                            Then I write down every turn from here to{' '}
-                                            {destinationName} — you can read it like a bus route.
-                                        </p>
-                                        <button
-                                            type="button"
-                                            onClick={request}
-                                            disabled={status === 'locating' || status === 'unavailable'}
-                                            className="mt-7 inline-flex items-center gap-2 rounded-full bg-amber-brand px-6 py-3 text-sm font-semibold text-ink outline-none hover:bg-amber-brand-dark hover:text-white disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-white"
-                                        >
-                                            {status === 'locating' ? (
-                                                <>
-                                                    <LoaderCircle
-                                                        className="size-4 animate-spin"
-                                                        aria-hidden="true"
-                                                    />
-                                                    Finding you…
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <Navigation className="size-4" aria-hidden="true" />
-                                                    Use my location
-                                                </>
-                                            )}
-                                        </button>
-                                        {(status === 'denied' || status === 'error' || status === 'unavailable') && (
-                                            <p className="mt-4 text-sm text-white/55">
-                                                Location is blocked. I can still open the outside
-                                                maps app if you want the blue-dot navigation.
-                                            </p>
-                                        )}
-                                    </>
-                                ) : (
-                                    <>
-                                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-brand">
-                                            {destinationName}
-                                        </p>
-                                        <p className="mt-3 font-display text-3xl leading-tight">
-                                            How do you want to go?
-                                        </p>
-                                        <ul className="mt-6 grid gap-2">
-                                            {TRAVEL_MODE_ORDER.map((option) => {
-                                                const config = TRAVEL_MODES[option]
-                                                return (
-                                                    <li key={option}>
-                                                        <button
-                                                            type="button"
-                                                            onClick={() => setMode(option)}
-                                                            className="flex w-full items-center gap-3 rounded-2xl border border-white/20 bg-white/5 px-4 py-3 text-left outline-none hover:border-amber-brand hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white"
-                                                        >
-                                                            <span className="flex size-10 items-center justify-center rounded-xl bg-amber-brand text-ink">
-                                                                <config.icon
-                                                                    className="size-4"
-                                                                    aria-hidden="true"
-                                                                />
-                                                            </span>
-                                                            <span>
-                                                                <span className="block text-sm font-semibold">
-                                                                    {config.label}
-                                                                </span>
-                                                                <span className="block text-xs text-white/55">
-                                                                    {config.hint}
-                                                                </span>
-                                                            </span>
-                                                        </button>
-                                                    </li>
-                                                )
-                                            })}
-                                        </ul>
-                                    </>
-                                )}
-                            </div>
-                        </div>
-                    ) : (
-                        <BuddyPathGuide
-                            origin={coords}
-                            destination={destination}
-                            destinationName={destinationName}
-                            mode={mode}
-                            onDone={() => {
-                                setOpen(false)
-                                setMode(null)
-                            }}
-                            className="h-full w-full"
+                        <button
+                            type="button"
+                            aria-label="Close"
+                            className="absolute inset-0 cursor-default"
+                            onClick={() => setOpen(false)}
                         />
-                    )}
+                        <div className="relative z-10 w-full max-w-md rounded-[1.75rem] bg-cream p-6 text-ink shadow-card-hover sm:p-8">
+                            <button
+                                type="button"
+                                onClick={() => setOpen(false)}
+                                className="absolute right-4 top-4 inline-flex size-12 items-center justify-center rounded-full border border-ink/15 bg-white text-ink outline-none hover:bg-cream focus-visible:ring-2 focus-visible:ring-teal-brand"
+                            >
+                                <X className="size-5" aria-hidden="true" />
+                                <span className="sr-only">Close</span>
+                            </button>
+                            {startPoint ? (
+                                <DirectionsSummary
+                                    origin={startPoint.coords}
+                                    originLabel={startPoint.label}
+                                    fromCentre={startPoint.kind === 'centre'}
+                                    destination={destination}
+                                    destinationName={destinationName}
+                                />
+                            ) : (
+                                <>
+                                    <p className="pr-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-brand-dark">
+                                        Starting point
+                                    </p>
+                                    <h2 className="mt-2 font-display text-2xl leading-tight">
+                                        Confirm where to start before I give directions
+                                    </h2>
+                                    <LocationNotice className="mt-5" />
+                                </>
+                            )}
+                        </div>
                     </div>,
                     document.body
                 )}
         </>
+    )
+}
+
+export function DirectionsSummary({
+    origin,
+    originLabel,
+    fromCentre,
+    destination,
+    destinationName,
+    mode: forcedMode,
+    onContinue,
+    continueLabel = "I'm there",
+}: {
+    origin: Coords
+    originLabel: string
+    fromCentre: boolean
+    destination: Coords
+    destinationName: string
+    mode?: TravelMode
+    onContinue?: () => void
+    continueLabel?: string
+}) {
+    const km = distanceKm(origin, destination)
+    const mode = forcedMode ?? recommendMode(km)
+    const minutes = minutesFor(km, mode)
+    const Icon = TRAVEL_MODES[mode].icon
+    const mapsUrl = googleMapsDirUrl(origin, destination, mode)
+
+    return (
+        <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-brand-dark">
+                Directions
+            </p>
+            <h2 className="mt-2 font-display text-2xl leading-tight sm:text-3xl">
+                {destinationName}
+            </h2>
+            <p className="mt-2 text-base text-ink-soft">
+                From {originLabel.toLowerCase()}. Open Google Maps for turn-by-turn.
+            </p>
+
+            {fromCentre && (
+                <p className="mt-3 rounded-xl bg-ink px-4 py-3 text-base text-white">
+                    Location unavailable. Distances are currently measured from {originLabel}.
+                </p>
+            )}
+
+            <dl className="mt-5 grid grid-cols-3 gap-2">
+                <Fact label="Distance" value={formatDistance(km)} />
+                <Fact label="Time" value={`about ${formatDuration(minutes)}`} />
+                <Fact
+                    label="Transport"
+                    value={TRAVEL_MODES[mode].label}
+                    icon={<Icon className="size-4" aria-hidden="true" />}
+                />
+            </dl>
+
+            <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-amber-brand px-5 text-base font-semibold text-ink outline-none hover:bg-amber-brand-dark hover:text-white focus-visible:ring-2 focus-visible:ring-teal-brand"
+            >
+                <ExternalLink className="size-4" aria-hidden="true" />
+                Open in Google Maps
+            </a>
+
+            {onContinue && (
+                <button
+                    type="button"
+                    onClick={onContinue}
+                    className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-ink/15 bg-white px-5 text-base font-semibold text-ink outline-none hover:bg-cream focus-visible:ring-2 focus-visible:ring-teal-brand"
+                >
+                    {continueLabel}
+                </button>
+            )}
+        </div>
+    )
+}
+
+function Fact({
+    label,
+    value,
+    icon,
+}: {
+    label: string
+    value: string
+    icon?: ReactNode
+}) {
+    return (
+        <div className="rounded-2xl border border-hairline bg-white px-3 py-3 text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
+                {label}
+            </p>
+            <p className="mt-1 flex items-center justify-center gap-1 font-display text-lg leading-tight">
+                {icon}
+                {value}
+            </p>
+        </div>
     )
 }

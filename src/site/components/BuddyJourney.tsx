@@ -8,18 +8,17 @@ import {
     ArrowLeft,
     ArrowRight,
     Hand,
-    LoaderCircle,
     MapPin,
-    Navigation,
     RotateCcw,
     TriangleAlert,
 } from 'lucide-react'
 
 import type { JourneyPlace } from '@/site/api/getPlacesForJourney'
-import { BuddyPathGuide } from '@/site/components/BuddyPathGuide'
+import { LocationNotice } from '@/site/components/LocationNotice'
 import { BuddyMascot, type BuddyPose } from '@/site/components/BuddyMascot'
 import { categoryIcon } from '@/site/components/category-icon'
 import { useLocation } from '@/site/components/location-provider'
+import { DirectionsSummary } from '@/site/components/TakeMeThere'
 import { distanceKm, formatDistance, formatDuration, nearest, toCoords } from '@/site/lib/geo'
 import { greetingForPlace, type Greeting } from '@/site/lib/greetings'
 import {
@@ -71,7 +70,7 @@ export function BuddyJourney({
     cities: JourneyCity[]
     places: JourneyPlace[]
 }) {
-    const { coords, status, hydrated, request } = useLocation()
+    const { coords, startPoint } = useLocation()
 
     const [phase, setPhase] = useState<Phase>('hello')
     const [interest, setInterest] = useState<Interest | null>(null)
@@ -88,11 +87,8 @@ export function BuddyJourney({
     const city = here?.item ?? null
     const greeting = greetingForPlace(city?.state ?? null, city?.country ?? null)
 
-    /** Journeys start from you if you shared your location, otherwise from town centre. */
-    const origin = useMemo(
-        () => coords ?? (city ? toCoords(city.latitude, city.longitude) : null),
-        [coords, city]
-    )
+    /** Journeys start only after a starting point is confirmed. */
+    const origin = startPoint?.coords ?? null
 
     const cityPlaces = useMemo(
         () => (city ? places.filter((place) => place.city_id === city.id) : []),
@@ -203,7 +199,7 @@ export function BuddyJourney({
                         fill
                         preload
                         sizes="100vw"
-                        className={`object-cover transition-opacity duration-1000 ${
+                        className={`object-cover transition-opacity duration-1000 motion-reduce:transition-none ${
                             phase === 'arrived' ? 'opacity-70' : 'opacity-35'
                         }`}
                     />
@@ -221,27 +217,28 @@ export function BuddyJourney({
                 origin &&
                 destination &&
                 leg &&
+                startPoint &&
                 typeof document !== 'undefined' &&
                 createPortal(
-                    <BuddyPathGuide
-                        origin={origin}
-                        destination={destination}
-                        destinationName={leg.place.short_name}
-                        mode={mode}
-                        startName={
-                            coords
-                                ? 'Where you are now'
-                                : `The middle of ${city?.name ?? 'town'}`
-                        }
-                        doneLabel="I have the way. Let's go in"
-                        onDone={() => setPhase('arrived')}
-                        className="fixed inset-x-0 bottom-0 top-16 z-[60] w-full"
-                    />,
+                    <div className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/70 p-4 sm:items-center">
+                        <div className="w-full max-w-md rounded-[1.75rem] bg-cream p-6 text-ink shadow-card-hover sm:p-8">
+                            <DirectionsSummary
+                                origin={origin}
+                                originLabel={startPoint.label}
+                                fromCentre={startPoint.kind === 'centre'}
+                                destination={destination}
+                                destinationName={leg.place.short_name}
+                                mode={mode}
+                                onContinue={() => setPhase('arrived')}
+                                continueLabel="I'm there"
+                            />
+                        </div>
+                    </div>,
                     document.body
                 )}
 
             {!riding && (
-            <div className="relative mx-auto flex min-h-[100svh] w-full max-w-6xl flex-col justify-center gap-6 px-5 pb-14 pt-24 sm:px-8 sm:pb-16">
+            <div className="relative mx-auto flex w-full max-w-6xl flex-col justify-center gap-6 px-5 py-12 sm:px-8 sm:py-16">
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
                         {/* ── He stands beside you ──────────────── */}
                         <div className="relative shrink-0 self-start lg:self-center">
@@ -252,7 +249,7 @@ export function BuddyJourney({
                             <BuddyMascot
                                 pose={pose}
                                 title="Your local buddy"
-                                className="relative h-44 w-auto sm:h-56 lg:h-[24rem]"
+                                className="relative h-28 w-auto sm:h-40 lg:h-52"
                             />
                         </div>
 
@@ -266,11 +263,8 @@ export function BuddyJourney({
                                     <HelloPhase
                                         greeting={greeting}
                                         cityName={city?.name ?? null}
-                                        km={here?.km ?? null}
+                                        km={startPoint?.kind === 'user' ? (here?.km ?? null) : null}
                                         placeCount={cityPlaces.length}
-                                        status={status}
-                                        hydrated={hydrated}
-                                        onRequest={request}
                                         onStart={() => setPhase('interest')}
                                     />
                                 )}
@@ -291,9 +285,11 @@ export function BuddyJourney({
                                 {phase === 'mode' && interest && (
                                     <ModePhase
                                         categoryName={interest.label}
-                                        nearestKm={route[0]?.km ?? null}
+                                        nearestKm={origin ? (route[0]?.km ?? null) : null}
                                         placeModes={modesForPlace(route[0]?.place.travel_modes ?? [])}
+                                        startReady={Boolean(startPoint)}
                                         onPick={(picked) => {
+                                            if (!startPoint) return
                                             setMode(picked)
                                             travelTo(0)
                                         }}
@@ -338,18 +334,12 @@ function HelloPhase({
     cityName,
     km,
     placeCount,
-    status,
-    hydrated,
-    onRequest,
     onStart,
 }: {
     greeting: Greeting
     cityName: string | null
     km: number | null
     placeCount: number
-    status: string
-    hydrated: boolean
-    onRequest: () => void
     onStart: () => void
 }) {
     return (
@@ -378,57 +368,27 @@ function HelloPhase({
             </p>
 
             {km !== null && (
-                <p className="mt-3 text-sm text-white/55">
+                <p className="mt-3 text-base text-white/80">
                     You&apos;re {formatDistance(km)} from the middle of town.
                 </p>
             )}
+
+            <LocationNotice tone="night" className="mt-5" />
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
                 <button
                     type="button"
                     onClick={onStart}
                     disabled={!cityName || placeCount === 0}
-                    className="inline-flex items-center gap-2 rounded-full bg-amber-brand px-7 py-3.5 text-sm font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white disabled:cursor-not-allowed disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-white"
+                    className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-brand px-7 text-base font-semibold text-ink outline-none transition hover:bg-amber-brand-dark hover:text-white disabled:cursor-not-allowed disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-white"
                 >
                     <Hand className="size-4" aria-hidden="true" />
-                    Take my hand
+                    Guide me
                 </button>
-
-                {status !== 'ready' && (
-                    <button
-                        type="button"
-                        onClick={onRequest}
-                        disabled={status === 'locating' || status === 'unavailable'}
-                        className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white outline-none transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-white"
-                    >
-                        {status === 'locating' ? (
-                            <>
-                                <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
-                                Finding you…
-                            </>
-                        ) : (
-                            <>
-                                <Navigation className="size-4" aria-hidden="true" />
-                                Use my location
-                            </>
-                        )}
-                    </button>
-                )}
             </div>
-
-            {hydrated && (status === 'denied' || status === 'error') && (
-                <p role="status" className="mt-4 text-sm text-white/50">
-                    {status === 'denied'
-                        ? "Location's blocked — no problem, I'll measure everything from the middle of town instead."
-                        : "Couldn't get a fix on you. I'll start from the town centre, it's close enough."}
-                </p>
-            )}
-
-            {status === 'ready' && (
-                <p className="mt-4 text-xs text-white/40">
-                    Your location stays in this browser. I never send it anywhere.
-                </p>
-            )}
+            <p className="mt-3 text-base text-white/80">
+                Take my hand — I&apos;ll walk you through, one place at a time.
+            </p>
         </>
     )
 }
@@ -538,12 +498,14 @@ function ModePhase({
     categoryName,
     nearestKm,
     placeModes,
+    startReady,
     onPick,
     onBack,
 }: {
     categoryName: string
     nearestKm: number | null
     placeModes: TravelMode[]
+    startReady: boolean
     onPick: (mode: TravelMode) => void
     onBack: () => void
 }) {
@@ -555,11 +517,13 @@ function ModePhase({
             <p className="mt-3 font-display text-3xl leading-tight sm:text-4xl">
                 Good choice. How do you want to get there?
             </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-white/70">
+            <p className="mt-4 text-base leading-relaxed text-white/80">
                 {nearestKm === null
                     ? "Pick whatever suits you and I'll come along."
                     : `The first one is ${formatDistance(nearestKm)} away as the crow flies — the road will be a bit longer. Pick your ride, I'm coming with you either way.`}
             </p>
+
+            {!startReady && <LocationNotice tone="night" className="mt-5" />}
 
             <ul className="mt-7 grid gap-2.5 sm:grid-cols-2">
                 {TRAVEL_MODE_ORDER.map((option) => {
@@ -573,8 +537,9 @@ function ModePhase({
                         <li key={option}>
                             <button
                                 type="button"
-                                onClick={() => onPick(option)}
-                                className={`group flex w-full items-center gap-3.5 rounded-2xl border p-4 text-left outline-none transition focus-visible:ring-2 focus-visible:ring-white ${
+                                onClick={() => startReady && onPick(option)}
+                                disabled={!startReady}
+                                className={`group flex min-h-12 w-full items-center gap-3.5 rounded-2xl border p-4 text-left outline-none transition focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50 ${
                                     recommended
                                         ? 'border-white/25 bg-white/10 hover:border-amber-brand hover:bg-white/20'
                                         : 'border-dashed border-white/20 bg-white/5 hover:bg-white/10'
@@ -618,7 +583,7 @@ function ModePhase({
                 className="mt-6 inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-white/60 outline-none transition hover:text-white focus-visible:ring-2 focus-visible:ring-white"
             >
                 <ArrowLeft className="size-4" aria-hidden="true" />
-                Something else, actually
+                Change my choice
             </button>
         </>
     )
@@ -696,7 +661,7 @@ function ArrivedPhase({
                     className="inline-flex items-center gap-1.5 rounded-full px-3 py-3 text-sm font-medium text-white/60 outline-none transition hover:text-white focus-visible:ring-2 focus-visible:ring-white"
                 >
                     <ArrowLeft className="size-4" aria-hidden="true" />
-                    Change my mind
+                    Change my choice
                 </button>
             </div>
 
