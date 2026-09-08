@@ -1,6 +1,7 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -15,7 +16,7 @@ import {
 } from 'lucide-react'
 
 import type { JourneyPlace } from '@/site/api/getPlacesForJourney'
-import { BuddyWaypointRide } from '@/site/components/BuddyWaypointRide'
+import { BuddyPathGuide } from '@/site/components/BuddyPathGuide'
 import { BuddyMascot, type BuddyPose } from '@/site/components/BuddyMascot'
 import { categoryIcon } from '@/site/components/category-icon'
 import { useLocation } from '@/site/components/location-provider'
@@ -92,7 +93,6 @@ export function BuddyJourney({
         () => coords ?? (city ? toCoords(city.latitude, city.longitude) : null),
         [coords, city]
     )
-    const originLabel = coords ? 'from where you are' : `from the middle of ${city?.name ?? 'town'}`
 
     const cityPlaces = useMemo(
         () => (city ? places.filter((place) => place.city_id === city.id) : []),
@@ -178,6 +178,17 @@ export function BuddyJourney({
     const pose: BuddyPose =
         phase === 'hello' || phase === 'wrapup' ? 'wave' : phase === 'arrived' ? 'point' : 'talk'
 
+    const riding = phase === 'ride' && Boolean(leg && origin && destination)
+
+    useEffect(() => {
+        if (!riding) return
+        const previous = document.body.style.overflow
+        document.body.style.overflow = 'hidden'
+        return () => {
+            document.body.style.overflow = previous
+        }
+    }, [riding])
+
     return (
         <section
             aria-labelledby="journey-heading"
@@ -206,18 +217,30 @@ export function BuddyJourney({
                 TravelBuddy — a local friend who takes you around {city?.name ?? 'your city'}
             </h1>
 
-            {phase === 'ride' && leg && origin && destination ? (
-                <BuddyWaypointRide
-                    origin={origin}
-                    destination={destination}
-                    destinationName={leg.place.short_name}
-                    mode={mode}
-                    originLabel={originLabel}
-                    onArrived={() => setPhase('arrived')}
-                    onSkip={() => setPhase('arrived')}
-                    className="h-[calc(100svh-4rem)] w-full"
-                />
-            ) : (
+            {riding &&
+                origin &&
+                destination &&
+                leg &&
+                typeof document !== 'undefined' &&
+                createPortal(
+                    <BuddyPathGuide
+                        origin={origin}
+                        destination={destination}
+                        destinationName={leg.place.short_name}
+                        mode={mode}
+                        startName={
+                            coords
+                                ? 'Where you are now'
+                                : `The middle of ${city?.name ?? 'town'}`
+                        }
+                        doneLabel="I have the way. Let's go in"
+                        onDone={() => setPhase('arrived')}
+                        className="fixed inset-x-0 bottom-0 top-16 z-[60] w-full"
+                    />,
+                    document.body
+                )}
+
+            {!riding && (
             <div className="relative mx-auto flex min-h-[100svh] w-full max-w-6xl flex-col justify-center gap-6 px-5 pb-14 pt-24 sm:px-8 sm:pb-16">
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
                         {/* ── He stands beside you ──────────────── */}

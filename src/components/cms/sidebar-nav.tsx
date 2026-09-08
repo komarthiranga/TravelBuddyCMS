@@ -2,9 +2,10 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Compass, Landmark, MapPin, Tags, type LucideIcon } from 'lucide-react'
+import { Landmark, MapPin, Tags, type LucideIcon } from 'lucide-react'
 import type { ReactNode } from 'react'
 
+import { BuddyLogoMark } from '@/site/components/BuddyLogo'
 import { cn } from '@/lib/utils'
 
 const contentLinks = [
@@ -66,9 +67,7 @@ export function SidebarNav() {
     return (
         <aside className="flex w-full shrink-0 flex-col border-b bg-sidebar md:sticky md:top-0 md:h-svh md:w-60 md:border-r md:border-b-0">
             <div className="flex h-14 shrink-0 items-center gap-2.5 border-b px-4">
-                <span className="flex size-7 items-center justify-center rounded-lg bg-foreground text-background">
-                    <Compass className="size-3.5" />
-                </span>
+                <BuddyLogoMark className="size-7 shrink-0" />
                 <div className="min-w-0 leading-tight">
                     <p className="truncate text-sm font-semibold tracking-tight">Travel Buddy</p>
                     <p className="text-[11px] text-muted-foreground">Content admin</p>

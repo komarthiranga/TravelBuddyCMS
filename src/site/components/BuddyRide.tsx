@@ -1,4 +1,6 @@
-import { BuddyFace, BuddyMascot, BuddyTorso, SCARF, SHIRT, SKIN } from '@/site/components/BuddyMascot'
+import Image from 'next/image'
+
+import { BUDDY_SRC, BuddyMascot } from '@/site/components/BuddyMascot'
 import type { TravelMode } from '@/site/lib/travelModes'
 
 const TYRE = 'oklch(0.19 0.015 260)'
@@ -6,19 +8,12 @@ const RIM = 'oklch(0.88 0.008 260)'
 const HUB = 'oklch(0.45 0.02 260)'
 const METAL = 'oklch(0.62 0.02 250)'
 const GLASS = 'oklch(0.86 0.03 210)'
+const FRAME = 'oklch(0.55 0.095 195)'
+const ACCENT = 'oklch(0.74 0.155 58)'
 const AUTO_YELLOW = 'oklch(0.82 0.16 92)'
 const AUTO_GREEN = 'oklch(0.52 0.12 155)'
 const BUS_BLUE = 'oklch(0.48 0.09 250)'
 const CAR_RED = 'oklch(0.58 0.16 25)'
-
-function BuddyBust({ cx, cy, scale }: { cx: number; cy: number; scale: number }) {
-    return (
-        <g transform={`translate(${cx - 110 * scale} ${cy - 82 * scale}) scale(${scale})`}>
-            <BuddyTorso />
-            <BuddyFace />
-        </g>
-    )
-}
 
 function Wheel({ cx, cy, r, slow = false }: { cx: number; cy: number; r: number; slow?: boolean }) {
     const spoke = r * 0.55
@@ -51,11 +46,15 @@ function Wheel({ cx, cy, r, slow = false }: { cx: number; cy: number; r: number;
     )
 }
 
-function Grip({ x, y, r = 9 }: { x: number; y: number; r?: number }) {
-    return <circle cx={x} cy={y} r={r} fill={SKIN} />
-}
-
 const RIDE_VIEWBOX = '0 0 340 230'
+
+/** Where he stands relative to each vehicle so he reads as riding, not pasted on. */
+const RIDER: Record<Exclude<TravelMode, 'walk'>, string> = {
+    cycle: 'bottom-[10%] left-[48%] z-[2] h-[92%] -translate-x-1/2',
+    auto: 'bottom-[26%] left-[44%] z-0 h-[78%] -translate-x-1/2',
+    bus: 'bottom-[30%] left-[36%] z-0 h-[62%] -translate-x-1/2',
+    car: 'bottom-[28%] left-[42%] z-0 h-[70%] -translate-x-1/2',
+}
 
 export function BuddyRide({
     mode,
@@ -71,19 +70,36 @@ export function BuddyRide({
     }
 
     return (
-        <svg
-            viewBox={RIDE_VIEWBOX}
+        <span
             role={title ? 'img' : 'presentation'}
             aria-label={title}
-            aria-hidden={title ? undefined : 'true'}
-            className={className}
+            aria-hidden={title ? undefined : true}
+            className={`relative inline-block ${className}`}
+            style={{ aspectRatio: '340 / 230' }}
         >
-            <ellipse cx="170" cy="216" rx="132" ry="8" fill="oklch(0.2 0.03 250)" opacity="0.16" />
-            {mode === 'cycle' && <Cycle />}
-            {mode === 'auto' && <Auto />}
-            {mode === 'bus' && <Bus />}
-            {mode === 'car' && <Car />}
-        </svg>
+            <span
+                className={`pointer-events-none absolute inline-flex ${RIDER[mode]}`}
+            >
+                <span className="buddy-pose-ride inline-flex h-full">
+                    <Image
+                        src={BUDDY_SRC}
+                        alt=""
+                        width={985}
+                        height={1017}
+                        sizes="(max-width: 640px) 200px, 320px"
+                        unoptimized
+                        className="h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_12px_18px_rgba(0,0,0,0.25)]"
+                    />
+                </span>
+            </span>
+            <svg viewBox={RIDE_VIEWBOX} className="relative z-[1] h-full w-full overflow-visible">
+                <ellipse cx="170" cy="216" rx="132" ry="8" fill="oklch(0.2 0.03 250)" opacity="0.16" />
+                {mode === 'cycle' && <Cycle />}
+                {mode === 'auto' && <Auto />}
+                {mode === 'bus' && <Bus />}
+                {mode === 'car' && <Car />}
+            </svg>
+        </span>
     )
 }
 
@@ -93,7 +109,7 @@ function Cycle() {
             <g className="vehicle-jiggle">
                 <path
                     d="M78 186L152 118M152 118L236 132M152 118L142 186M142 186H78M142 186L236 132"
-                    stroke={SHIRT}
+                    stroke={FRAME}
                     strokeWidth="8"
                     strokeLinecap="round"
                     fill="none"
@@ -103,15 +119,6 @@ function Cycle() {
                 <path d="M236 132V96" stroke={METAL} strokeWidth="7" strokeLinecap="round" fill="none" />
                 <path d="M220 92H252" stroke={TYRE} strokeWidth="8" strokeLinecap="round" fill="none" />
                 <circle cx="142" cy="186" r="9" fill={HUB} />
-                <BuddyBust cx={168} cy={58} scale={0.42} />
-                <path
-                    d="M196 96C214 92 228 92 240 92"
-                    stroke={SKIN}
-                    strokeWidth="12"
-                    strokeLinecap="round"
-                    fill="none"
-                />
-                <Grip x={243} y={92} />
             </g>
             <Wheel cx={78} cy={186} r={34} />
             <Wheel cx={236} cy={186} r={34} />
@@ -132,15 +139,6 @@ function Auto() {
                 />
                 <path d="M112 118c0-20 14-34 34-36v46h-34z" fill={GLASS} />
                 <circle cx="103" cy="132" r="9" fill={GLASS} />
-                <BuddyBust cx={150} cy={88} scale={0.4} />
-                <path
-                    d="M124 130C114 132 108 136 104 142"
-                    stroke={SKIN}
-                    strokeWidth="12"
-                    strokeLinecap="round"
-                    fill="none"
-                />
-                <Grip x={102} y={145} r={8} />
             </g>
             <Wheel cx={118} cy={190} r={30} />
             <Wheel cx={250} cy={190} r={30} />
@@ -159,8 +157,7 @@ function Bus() {
                 <rect x="196" y="80" width="52" height="46" rx="9" fill={GLASS} />
                 <rect x="258" y="80" width="46" height="46" rx="9" fill={GLASS} />
                 <rect x="150" y="80" width="34" height="92" rx="8" fill={GLASS} opacity="0.75" />
-                <rect x="42" y="66" width="60" height="10" rx="4" fill={SCARF} />
-                <BuddyBust cx={127} cy={90} scale={0.28} />
+                <rect x="42" y="66" width="60" height="10" rx="4" fill={ACCENT} />
             </g>
             <Wheel cx={92} cy={190} r={30} slow />
             <Wheel cx={252} cy={190} r={30} slow />
@@ -180,16 +177,7 @@ function Car() {
                 <path d="M84 116l26-22c10-8 20-12 34-12h6v34z" fill={GLASS} />
                 <path d="M164 82h50c14 0 24 4 32 12l14 22h-96z" fill={GLASS} />
                 <rect x="24" y="140" width="16" height="12" rx="5" fill={GLASS} />
-                <rect x="292" y="142" width="14" height="12" rx="5" fill={SCARF} />
-                <BuddyBust cx={140} cy={88} scale={0.3} />
-                <path
-                    d="M120 122C112 124 106 128 102 134"
-                    stroke={SKIN}
-                    strokeWidth="10"
-                    strokeLinecap="round"
-                    fill="none"
-                />
-                <Grip x={100} y={136} r={7.5} />
+                <rect x="292" y="142" width="14" height="12" rx="5" fill={ACCENT} />
             </g>
             <Wheel cx={92} cy={184} r={32} />
             <Wheel cx={252} cy={184} r={32} />

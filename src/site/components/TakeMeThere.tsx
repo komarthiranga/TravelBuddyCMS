@@ -4,7 +4,7 @@ import { useEffect, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import { LoaderCircle, Navigation, X } from 'lucide-react'
 
-import { BuddyWaypointRide } from '@/site/components/BuddyWaypointRide'
+import { BuddyPathGuide } from '@/site/components/BuddyPathGuide'
 import { useLocation } from '@/site/components/location-provider'
 import type { Coords } from '@/site/lib/geo'
 import { TRAVEL_MODE_ORDER, TRAVEL_MODES, type TravelMode } from '@/site/lib/travelModes'
@@ -28,7 +28,6 @@ export function TakeMeThere({
     const { coords, status, request } = useLocation()
     const [open, setOpen] = useState(false)
     const [mode, setMode] = useState<TravelMode | null>(null)
-    const [finished, setFinished] = useState(false)
 
     useEffect(() => {
         if (!open) return
@@ -47,7 +46,6 @@ export function TakeMeThere({
     function start() {
         if (!destination) return
         setMode(null)
-        setFinished(false)
         setOpen(true)
         if (!coords) request()
     }
@@ -66,7 +64,7 @@ export function TakeMeThere({
                     role="dialog"
                     aria-modal="true"
                     aria-label={`Take you to ${destinationName}`}
-                    className="fixed inset-0 z-[100] bg-ink"
+                    className={`fixed inset-0 z-[100] ${coords && mode ? 'bg-cream' : 'bg-ink'}`}
                 >
                     <button
                         type="button"
@@ -74,40 +72,20 @@ export function TakeMeThere({
                             setOpen(false)
                             setMode(null)
                         }}
-                        className="absolute right-4 top-4 z-20 inline-flex size-11 items-center justify-center rounded-full border border-white/20 bg-ink/60 text-white outline-none backdrop-blur-md hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white"
+                        className={`absolute right-4 top-4 z-20 inline-flex size-11 items-center justify-center rounded-full outline-none ${
+                            coords && mode
+                                ? 'border border-ink/15 bg-white text-ink hover:bg-cream focus-visible:ring-2 focus-visible:ring-teal-brand'
+                                : 'border border-white/20 bg-ink/60 text-white backdrop-blur-md hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white'
+                        }`}
                     >
                         <X className="size-5" aria-hidden="true" />
                         <span className="sr-only">Close</span>
                     </button>
 
-                    {!coords || !mode || finished ? (
+                    {!coords || !mode ? (
                         <div className="flex h-full items-center justify-center px-5">
                             <div className="w-full max-w-md rounded-[1.75rem] border border-white/15 bg-white/10 p-6 text-white backdrop-blur-md sm:p-8">
-                                {finished ? (
-                                    <>
-                                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-brand">
-                                            We&apos;re here
-                                        </p>
-                                        <p className="mt-3 font-display text-3xl leading-tight">
-                                            {destinationName}. Go on in.
-                                        </p>
-                                        <p className="mt-4 text-sm leading-relaxed text-white/70">
-                                            I took you past every pointer on the way. Go on in —
-                                            I&apos;ll wait here.
-                                        </p>
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setOpen(false)
-                                                setMode(null)
-                                                setFinished(false)
-                                            }}
-                                            className="mt-7 inline-flex items-center gap-2 rounded-full bg-amber-brand px-6 py-3 text-sm font-semibold text-ink outline-none hover:bg-amber-brand-dark hover:text-white focus-visible:ring-2 focus-visible:ring-white"
-                                        >
-                                            Thanks, I&apos;ve got it
-                                        </button>
-                                    </>
-                                ) : !coords ? (
+                                {!coords ? (
                                     <>
                                         <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-brand">
                                             First, where are you
@@ -116,8 +94,8 @@ export function TakeMeThere({
                                             I need your pin so I can start from here.
                                         </p>
                                         <p className="mt-4 text-sm leading-relaxed text-white/70">
-                                            I pick you up from where you are, then we ride past
-                                            each pointer to {destinationName}.
+                                            Then I write down every turn from here to{' '}
+                                            {destinationName} — you can read it like a bus route.
                                         </p>
                                         <button
                                             type="button"
@@ -189,14 +167,15 @@ export function TakeMeThere({
                             </div>
                         </div>
                     ) : (
-                        <BuddyWaypointRide
+                        <BuddyPathGuide
                             origin={coords}
                             destination={destination}
                             destinationName={destinationName}
                             mode={mode}
-                            originLabel="from where you are"
-                            onArrived={() => setFinished(true)}
-                            onSkip={() => setFinished(true)}
+                            onDone={() => {
+                                setOpen(false)
+                                setMode(null)
+                            }}
                             className="h-full w-full"
                         />
                     )}

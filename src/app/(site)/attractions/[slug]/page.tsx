@@ -50,6 +50,25 @@ const MODE_LINES: Record<TravelMode, string> = {
     car: 'Drive in — parking is usually somewhere near the entrance.',
 }
 
+function resolveTravelModes(rawModes: string[]) {
+    const seen = new Set<string>()
+    const modes: { mode: TravelMode | null; label: string; line: string }[] = []
+
+    for (const raw of rawModes) {
+        const mode = normaliseMode(raw)
+        const key = mode ?? raw.trim().toLowerCase()
+        if (!key || seen.has(key)) continue
+        seen.add(key)
+        modes.push({
+            mode,
+            label: mode ? TRAVEL_MODES[mode].label : raw,
+            line: mode ? MODE_LINES[mode] : 'Works fine from most parts of town.',
+        })
+    }
+
+    return modes
+}
+
 function formatTime(value: string | null) {
     if (!value) return null
     const [rawHours, rawMinutes] = value.split(':')
@@ -101,14 +120,7 @@ export default async function AttractionDetailPage({
 
     /* Only plain values here — this array crosses into a client component,
        and an icon component cannot be serialised. */
-    const resolvedModes = attraction.travel_modes.map((raw) => {
-        const mode = normaliseMode(raw)
-        return {
-            mode,
-            label: mode ? TRAVEL_MODES[mode].label : raw,
-            line: mode ? MODE_LINES[mode] : 'Works fine from most parts of town.',
-        }
-    })
+    const resolvedModes = resolveTravelModes(attraction.travel_modes)
 
     const hoursLabel = openingTime && closingTime ? `${openingTime} – ${closingTime}` : null
 
@@ -311,7 +323,10 @@ export default async function AttractionDetailPage({
                                         ? TRAVEL_MODES[config.mode].icon
                                         : Navigation
                                     return (
-                                        <li key={config.label} className="flex gap-4 px-6 py-4">
+                                        <li
+                                            key={config.mode ?? `raw-${index}`}
+                                            className="flex gap-4 px-6 py-4"
+                                        >
                                             <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-ink text-amber-brand">
                                                 <Icon className="size-4" aria-hidden="true" />
                                             </span>

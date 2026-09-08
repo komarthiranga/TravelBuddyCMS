@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { BuddyMark } from '@/site/components/BuddyMark'
+import { BuddyLogo } from '@/site/components/BuddyLogo'
 import { LocationProvider } from '@/site/components/location-provider'
 
 const NAV_LINKS = [
@@ -26,12 +26,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                     >
                         <Link
                             href="/"
-                            className="flex items-center gap-2.5 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-teal-brand focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
+                            className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-teal-brand focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
                         >
-                            <BuddyMark size="sm" />
-                            <span className="font-display text-lg tracking-tight">
-                                Travel<span className="text-amber-brand-dark">Buddy</span>
-                            </span>
+                            <BuddyLogo size="sm" />
                         </Link>
 
                         <ul className="hidden items-center gap-1 md:flex">
@@ -63,12 +60,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 <footer className="mt-8 border-t border-hairline bg-ink text-white">
                     <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.5fr_1fr_1fr]">
                         <div>
-                            <div className="flex items-center gap-3">
-                                <BuddyMark />
-                                <span className="font-display text-xl">
-                                    Travel<span className="text-amber-brand">Buddy</span>
-                                </span>
-                            </div>
+                            <BuddyLogo size="md" tone="dark" />
                             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/55">
                                 A local friend in your pocket — directions, the good places, and
                                 eventually eats, stays and help when you need it.

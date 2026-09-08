@@ -156,17 +156,7 @@ function pinHtml(label: string, tone: 'you' | 'place', live = false): string {
 }
 
 function buddyMarkerHtml(mode: TravelMode): string {
-    const person = `<svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true">
-      <ellipse cx="32" cy="58" rx="16" ry="3" fill="rgba(0,0,0,.2)"/>
-      <path d="M20 58c2-14 8-20 12-20s10 6 12 20z" fill="#2a3344"/>
-      <path d="M18 40c2-10 8-14 14-14s12 4 14 14c-8 4-20 4-28 0z" fill="#3d8a8a"/>
-      <path d="M22 38c6 4 14 4 20 0" stroke="#e8a317" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <circle cx="32" cy="20" r="12" fill="#e0b48a"/>
-      <path d="M21 18c1-8 6-12 11-12s10 4 11 12c-2-4-6-6-11-6s-9 2-11 6z" fill="#2a2433"/>
-      <circle cx="28" cy="20" r="2.2" fill="#1a2330"/>
-      <circle cx="36" cy="20" r="2.2" fill="#1a2330"/>
-      <path d="M28 26c2.5 3 5.5 3 8 0" stroke="#7a4030" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-    </svg>`
+    const person = `<img src="/buddy-compass-face.png" width="52" height="52" alt="" style="width:52px;height:52px;object-fit:cover;object-position:50% 40%;border-radius:999px;display:block;background:#d8eee8"/>`
 
     const vehicle: Record<TravelMode, string> = {
         walk: person,
