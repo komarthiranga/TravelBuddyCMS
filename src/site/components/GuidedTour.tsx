@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import { Headphones } from 'lucide-react'
 
-import { BuddyGuide } from '@/site/components/BuddyGuide'
+import dynamic from 'next/dynamic'
+const BuddyGuide = dynamic(() => import('@/site/components/BuddyGuide').then(module => module.BuddyGuide))
 import type { Greeting } from '@/site/lib/greetings'
 
 export function GuidedTour(props: {
@@ -35,7 +36,7 @@ export function GuidedTour(props: {
                 className="inline-flex min-h-12 items-center gap-2 rounded-full bg-ink px-6 text-base font-semibold text-white outline-none hover:bg-ink-soft focus-visible:ring-2 focus-visible:ring-teal-brand"
             >
                 <Headphones className="size-4" aria-hidden="true" />
-                {open ? "Hide Buddy's guided tour" : "Listen to Buddy's guided tour"}
+                {open ? "Hide Buddy's guided tour" : "Listen to the guide (English)"}
             </button>
             {open && (
                 <div className="mt-6">

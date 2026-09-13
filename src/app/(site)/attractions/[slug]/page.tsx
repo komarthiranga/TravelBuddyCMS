@@ -7,11 +7,13 @@ import { ArrowUpRight, Clock, MapPin } from 'lucide-react'
 import { getNearbyAttractions } from '@/site/api/getNearbyAttractions'
 import { getPublishedAttractionBySlug } from '@/site/api/getPublishedAttractionBySlug'
 import { formatFee } from '@/site/components/AttractionCard'
+import { LocalText, TranslationNotice } from '@/site/components/LocalText'
 import { DistanceBadge } from '@/site/components/DistanceBadge'
+import { SavePlaceButton } from '@/site/components/SavedPlaces'
 import { GuidedTour } from '@/site/components/GuidedTour'
 import { LocationNotice } from '@/site/components/LocationNotice'
 import { TakeMeThere } from '@/site/components/TakeMeThere'
-import { formatDistance, isOpenNow, toCoords, travelSummary } from '@/site/lib/geo'
+import { formatDistance, toCoords } from '@/site/lib/geo'
 import { greetingForPlace } from '@/site/lib/greetings'
 import { normaliseMode, TRAVEL_MODES, type TravelMode } from '@/site/lib/travelModes'
 
@@ -39,11 +41,11 @@ export async function generateMetadata({
 }
 
 const MODE_LINES: Record<TravelMode, string> = {
-    walk: 'If you are already nearby, just follow your feet.',
-    cycle: 'Two-wheelers weave through faster than anything else.',
-    auto: 'Just say the name. Every driver here knows this place.',
-    bus: 'State buses and locals both stop near enough to walk.',
-    car: 'Drive in — parking is usually somewhere near the entrance.',
+    walk: 'Check pedestrian access and crossings before walking.',
+    cycle: 'Check the route and road conditions before cycling.',
+    auto: 'Confirm the destination and agree the fare before you leave.',
+    bus: 'Check local stops, service times and the final walking distance.',
+    car: 'Check parking availability before driving there.',
 }
 
 function resolveTravelModes(rawModes: string[]) {
@@ -58,7 +60,7 @@ function resolveTravelModes(rawModes: string[]) {
         modes.push({
             mode,
             label: mode ? TRAVEL_MODES[mode].label : raw,
-            line: mode ? MODE_LINES[mode] : 'Works fine from most parts of town.',
+            line: mode ? MODE_LINES[mode] : 'Confirm route availability before travelling.',
         })
     }
 
@@ -98,7 +100,6 @@ export default async function AttractionDetailPage({
     const isFree = Number.parseFloat(attraction.entry_fee) === 0
     const feeLabel = formatFee(attraction.entry_fee, attraction.currency_code)
     const hoursLabel = openingTime && closingTime ? `${openingTime} – ${closingTime}` : null
-    const currentlyOpen = isOpenNow(attraction.opening_time, attraction.closing_time)
 
     const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
         origin ? `${origin.lat},${origin.lng}` : `${attraction.full_name}, ${attraction.address}`
@@ -142,7 +143,7 @@ export default async function AttractionDetailPage({
                 dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
             />
 
-            <header className="relative isolate min-h-[52svh] overflow-hidden bg-ink text-white sm:min-h-[58svh]">
+            <header className="relative isolate min-h-[28svh] overflow-hidden bg-ink text-white sm:min-h-[38svh]">
                 {hero ? (
                     <Image
                         src={hero.image_url}
@@ -160,14 +161,14 @@ export default async function AttractionDetailPage({
                     className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/20"
                 />
 
-                <div className="relative mx-auto flex min-h-[52svh] w-full max-w-6xl flex-col justify-between px-5 py-6 sm:min-h-[58svh] sm:px-8 sm:py-8">
+                <div className="relative mx-auto flex min-h-[28svh] w-full max-w-6xl flex-col justify-between px-5 py-6 sm:min-h-[38svh] sm:px-8 sm:py-8">
                     <div className="flex flex-wrap items-center justify-between gap-4">
                         <Link
                             href="/attractions"
                             className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 text-base font-medium text-white outline-none backdrop-blur-md hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
                         >
                             <MapPin className="size-3.5" aria-hidden="true" />
-                            Back to {attraction.city_name}
+                            <LocalText en="Back to places" te="ప్రదేశాల జాబితాకు తిరిగి" />
                         </Link>
                         <span className="rounded-full bg-amber-brand px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink">
                             {attraction.category_name}
@@ -179,7 +180,7 @@ export default async function AttractionDetailPage({
                             {attraction.city_name}
                             {isFree ? ' · Free entry' : ` · ${feeLabel}`}
                         </p>
-                        <h1 className="mt-2 font-display text-4xl leading-[1.05] sm:text-6xl">
+                        <h1 className="mt-2 font-display text-3xl leading-tight sm:text-5xl">
                             {attraction.short_name}
                         </h1>
                         <p className="mt-3 flex items-start gap-2 text-base text-white/85">
@@ -190,27 +191,34 @@ export default async function AttractionDetailPage({
                 </div>
             </header>
 
-            <div className="mx-auto w-full max-w-3xl px-5 py-10 sm:px-8">
-                <LocationNotice className="mb-6" />
+            <div className="mx-auto w-full max-w-3xl px-5 py-6 sm:px-8">
+                <TranslationNotice />
+                <div className="mb-6 flex flex-wrap gap-3">
+                    <TakeMeThere
+                        destination={origin}
+                        destinationName={attraction.short_name}
+                        className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-brand px-6 text-base font-semibold text-ink outline-none hover:bg-amber-brand-dark hover:text-white disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-teal-brand"
+                    />
+                    <SavePlaceButton place={{ id: attraction.id, name: attraction.short_name, slug: attraction.slug, city: attraction.city_name }} />
+                    {!origin && <p className="w-full text-sm text-ink-soft"><LocalText en="Exact coordinates aren’t available. Use the address link below to find this place." te="ఖచ్చితమైన స్థానం అందుబాటులో లేదు. దిగువ చిరునామా లింక్ ఉపయోగించండి." /></p>}
+                </div>
+
+                <h2 className="mb-4 font-display text-2xl text-ink"><LocalText en="Your visit at a glance" te="మీ సందర్శన వివరాలు" /></h2>
 
                 <ul className="grid gap-3 sm:grid-cols-3">
                     <li className="rounded-2xl border border-hairline bg-white px-4 py-4">
-                        <p className="text-sm font-semibold text-ink-soft">Open now</p>
+                        <p className="text-sm font-semibold text-ink-soft"><LocalText en="Opening hours" te="ప్రారంభ సమయాలు" /></p>
                         <p className="mt-1 flex items-center gap-2 text-base font-semibold text-ink">
                             <Clock className="size-4 text-teal-brand-dark" aria-hidden="true" />
-                            {hoursLabel
-                                ? currentlyOpen
-                                    ? `Open · ${hoursLabel}`
-                                    : `Closed · ${hoursLabel}`
-                                : 'Hours not listed'}
+                            {hoursLabel ?? <LocalText en="Opening hours unavailable" te="సమయాల సమాచారం అందుబాటులో లేదు" />}
                         </p>
                     </li>
                     <li className="rounded-2xl border border-hairline bg-white px-4 py-4">
-                        <p className="text-sm font-semibold text-ink-soft">Entry fee</p>
-                        <p className="mt-1 text-base font-semibold text-ink">{feeLabel}</p>
+                        <p className="text-sm font-semibold text-ink-soft"><LocalText en="Entry fee" te="ప్రవేశ రుసుము" /></p>
+                        <p className="mt-1 text-base font-semibold text-ink">{isFree ? <LocalText en="Free entry" te="ఉచిత ప్రవేశం" /> : feeLabel}</p>
                     </li>
                     <li className="rounded-2xl border border-hairline bg-white px-4 py-4">
-                        <p className="text-sm font-semibold text-ink-soft">Distance</p>
+                        <p className="text-sm font-semibold text-ink-soft"><LocalText en="Distance" te="నేరుగా దూరం" /></p>
                         <div className="mt-1 text-base font-semibold text-ink">
                             <DistanceBadge
                                 latitude={attraction.latitude}
@@ -220,25 +228,26 @@ export default async function AttractionDetailPage({
                     </li>
                 </ul>
 
-                <div className="mt-6 flex flex-wrap gap-3">
-                    <TakeMeThere
-                        destination={origin}
-                        destinationName={attraction.short_name}
-                        className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-brand px-6 text-base font-semibold text-ink outline-none hover:bg-amber-brand-dark hover:text-white disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-teal-brand"
-                    />
-                    <a
-                        href={mapUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex min-h-12 items-center rounded-full border border-ink/15 bg-white px-6 text-base font-semibold text-ink outline-none hover:bg-cream focus-visible:ring-2 focus-visible:ring-teal-brand"
-                    >
-                        Open map pin
-                    </a>
-                </div>
 
-                <section className="mt-12">
-                    <h2 className="font-display text-3xl text-ink">Why visit</h2>
-                    <div className="mt-4 space-y-4 text-lg leading-relaxed text-ink-soft">
+                <div className="mt-4 rounded-2xl border border-hairline bg-white p-4">
+                    <p className="text-sm font-semibold text-ink-soft"><LocalText en="Location" te="ప్రదేశం" /></p>
+                    <p lang="en" className="mt-1 text-base text-ink">{attraction.address}</p>
+                    <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 items-center gap-2 rounded font-semibold text-teal-brand-dark underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-teal-brand"><LocalText en="View in Google Maps" te="Google Mapsలో చూడండి" /><ArrowUpRight className="size-4" aria-hidden="true" /><span className="sr-only"><LocalText en="opens a new tab" te="కొత్త ట్యాబ్‌లో తెరుచుకుంటుంది" /></span></a>
+                </div>
+                {!hoursLabel && <p className="mt-3 text-sm leading-relaxed text-ink-soft"><LocalText en="Opening hours haven’t been added yet. Confirm them with the venue before making a special trip." te="సమయాల సమాచారం ఇంకా లేదు. వెళ్లే ముందు ప్రదేశ నిర్వాహకులతో నిర్ధారించుకోండి." /></p>}
+                <details className="mt-4 rounded-xl border border-hairline p-4">
+                    <summary className="min-h-11 cursor-pointer py-2 font-semibold text-teal-brand-dark focus-visible:outline-2 focus-visible:outline-teal-brand"><LocalText en="Set your starting point for distances" te="దూరాల కోసం ప్రారంభ స్థానాన్ని ఎంచుకోండి" /></summary>
+                    <LocationNotice className="mt-3" />
+                </details>
+                <nav aria-label="On this page" className="mt-6 flex flex-wrap gap-x-5 border-y border-hairline py-2 text-sm font-semibold text-teal-brand-dark">
+                    <a href="#about" className="inline-flex min-h-11 items-center underline underline-offset-4"><LocalText en="About this place" te="ప్రదేశం గురించి" /></a>
+                    {tipLines.length > 0 && <a href="#tips" className="inline-flex min-h-11 items-center underline underline-offset-4"><LocalText en="Before you go" te="వెళ్లే ముందు" /></a>}
+                    {gallery.length > 0 && <a href="#photos" className="inline-flex min-h-11 items-center underline underline-offset-4"><LocalText en="Photos" te="ఫోటోలు" /></a>}
+                </nav>
+
+                <section id="about" className="mt-8 scroll-mt-6">
+                    <h2 className="font-display text-3xl text-ink"><LocalText en="Why visit" te="ఎందుకు సందర్శించాలి" /></h2>
+                    <div lang="en" className="mt-4 space-y-4 text-lg leading-relaxed text-ink-soft">
                         {storyParagraphs.map((paragraph, index) => (
                             <p key={index} className="whitespace-pre-line">
                                 {paragraph}
@@ -248,9 +257,9 @@ export default async function AttractionDetailPage({
                 </section>
 
                 {tipLines.length > 0 && (
-                    <section className="mt-12">
-                        <h2 className="font-display text-3xl text-ink">Good to know</h2>
-                        <ul className="mt-4 space-y-3">
+                    <section id="tips" className="mt-8 scroll-mt-6 rounded-2xl bg-teal-wash p-5">
+                        <h2 className="font-display text-3xl text-ink"><LocalText en="Before you go" te="తెలుసుకోవాల్సిన విషయాలు" /></h2>
+                        <ul lang="en" className="mt-4 space-y-3">
                             {tipLines.map((line, index) => (
                                 <li
                                     key={index}
@@ -265,12 +274,12 @@ export default async function AttractionDetailPage({
 
                 {(attraction.best_time_to_visit || resolvedModes.length > 0) && (
                     <section className="mt-12">
-                        <h2 className="font-display text-3xl text-ink">Practical bits</h2>
-                        <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+                        <h2 className="font-display text-3xl text-ink"><LocalText en="Visiting information" te="ఉపయోగకరమైన సమాచారం" /></h2>
+                        <dl lang="en" className="mt-4 grid gap-3 sm:grid-cols-2">
                             {attraction.best_time_to_visit && (
                                 <div className="rounded-2xl border border-hairline bg-white px-4 py-4">
                                     <dt className="text-sm font-semibold text-ink-soft">
-                                        Best visiting time
+                                        <LocalText en="Best visiting time" te="సందర్శించడానికి అనుకూల సమయం" />
                                     </dt>
                                     <dd className="mt-1 text-base text-ink">
                                         {attraction.best_time_to_visit}
@@ -279,7 +288,7 @@ export default async function AttractionDetailPage({
                             )}
                             <div className="rounded-2xl border border-hairline bg-white px-4 py-4">
                                 <dt className="text-sm font-semibold text-ink-soft">
-                                    Type of place
+                                    <LocalText en="Type of place" te="ప్రదేశం రకం" />
                                 </dt>
                                 <dd className="mt-1 text-base text-ink">{attraction.category_name}</dd>
                             </div>
@@ -289,8 +298,8 @@ export default async function AttractionDetailPage({
 
                 {nearby.length > 0 && (
                     <section className="mt-12">
-                        <h2 className="font-display text-3xl text-ink">Nearby places</h2>
-                        <ul className="mt-4 space-y-3">
+                        <h2 className="font-display text-3xl text-ink"><LocalText en="Nearby places" te="దగ్గరలోని ప్రదేశాలు" /></h2>
+                        <ul lang="en" className="mt-4 space-y-3">
                             {nearby.map((place) => (
                                 <li key={place.id}>
                                     <Link
@@ -324,8 +333,7 @@ export default async function AttractionDetailPage({
                                             </span>
                                             {place.km !== null && (
                                                 <span className="mt-1 text-sm text-ink-soft">
-                                                    {formatDistance(place.km)} from here ·{' '}
-                                                    {travelSummary(place.km)}
+                                                    {formatDistance(place.km)} · straight-line from this place
                                                 </span>
                                             )}
                                         </span>
@@ -341,8 +349,8 @@ export default async function AttractionDetailPage({
                 )}
 
                 {gallery.length > 0 && (
-                    <section className="mt-12">
-                        <h2 className="font-display text-3xl text-ink">Photos</h2>
+                    <section id="photos" className="mt-8 scroll-mt-6">
+                        <h2 className="font-display text-3xl text-ink"><LocalText en="Photos" te="ఫోటోలు" /></h2>
                         <ul className="mt-4 grid grid-cols-2 gap-3">
                             {gallery.map((image, index) => (
                                 <li

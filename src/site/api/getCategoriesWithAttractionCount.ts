@@ -11,7 +11,7 @@ export type CategoryWithCount = {
     attraction_count: number
 }
 
-export async function getCategoriesWithAttractionCount(): Promise<CategoryWithCount[]> {
+export async function getCategoriesWithAttractionCount(cityId?: number): Promise<CategoryWithCount[]> {
     const rows = await db
         .select({
             id: categoryTable.id,
@@ -25,7 +25,8 @@ export async function getCategoriesWithAttractionCount(): Promise<CategoryWithCo
             and(
                 eq(attractionTable.category_id, categoryTable.id),
                 eq(attractionTable.status, 'PUBLISHED'),
-                eq(attractionTable.is_active, true)
+                eq(attractionTable.is_active, true),
+                cityId ? eq(attractionTable.city_id, cityId) : undefined
             )
         )
         .groupBy(categoryTable.id, categoryTable.name, categoryTable.code)

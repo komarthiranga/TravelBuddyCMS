@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import { SavePlaceButton } from './SavedPlaces'
+import { LocalText } from './LocalText'
 import Link from 'next/link'
 import { ArrowUpRight, MapPin } from 'lucide-react'
 
@@ -7,7 +9,8 @@ import { DistanceBadge } from '@/site/components/DistanceBadge'
 
 export function formatFee(fee: string, currency: string) {
     const amount = Number.parseFloat(fee)
-    if (!Number.isFinite(amount) || amount === 0) return 'Free entry'
+    if (!Number.isFinite(amount) || amount < 0) return 'Fee unavailable'
+    if (amount === 0) return 'Free entry'
     if (currency === 'INR') return `₹${amount.toLocaleString('en-IN')}`
     return `${currency} ${amount.toLocaleString()}`
 }
@@ -27,7 +30,10 @@ export function AttractionCard({
                 {attraction.primary_image ? (
                     <Image
                         src={attraction.primary_image}
-                        alt={attraction.primary_image_alt ?? attraction.short_name}
+                        alt={
+                            attraction.primary_image_alt ??
+                            attraction.short_name
+                        }
                         fill
                         preload={eager}
                         sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -48,10 +54,19 @@ export function AttractionCard({
 
                 <span
                     className={`absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur-md ${
-                        isFree ? 'bg-emerald-700 text-white' : 'bg-ink/85 text-white'
+                        isFree
+                            ? 'bg-emerald-700 text-white'
+                            : 'bg-ink/85 text-white'
                     }`}
                 >
-                    {formatFee(attraction.entry_fee, attraction.currency_code)}
+                    {isFree ? (
+                        <LocalText en="Free entry" te="ఉచిత ప్రవేశం" />
+                    ) : (
+                        formatFee(
+                            attraction.entry_fee,
+                            attraction.currency_code,
+                        )
+                    )}
                 </span>
             </div>
 
@@ -80,10 +95,21 @@ export function AttractionCard({
                     {attraction.short_description}
                 </p>
 
-                <span className="mt-5 inline-flex min-h-12 items-center gap-1.5 text-base font-semibold text-ink group-hover:text-amber-brand-dark">
-                    View details
-                    <ArrowUpRight className="size-4" aria-hidden="true" />
-                </span>
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-2">
+                    <span className="inline-flex min-h-12 items-center gap-1.5 text-base font-semibold text-ink group-hover:text-amber-brand-dark">
+                        <LocalText en="View details" te="వివరాలు చూడండి" />
+                        <ArrowUpRight className="size-4" aria-hidden="true" />
+                    </span>
+                    <SavePlaceButton
+                        compact
+                        place={{
+                            id: attraction.id,
+                            name: attraction.short_name,
+                            slug: attraction.slug,
+                            city: attraction.city_name,
+                        }}
+                    />
+                </div>
             </div>
         </article>
     )

@@ -33,17 +33,17 @@ const GOOGLE_MODE: Record<TravelMode, string> = {
     car: 'driving',
 }
 
-function readCoord(value: string | null): number | null {
+function readCoord(value: string | null, maximum = 180): number | null {
     if (!value) return null
-    const parsed = Number.parseFloat(value)
-    if (!Number.isFinite(parsed) || Math.abs(parsed) > 180) return null
+    const parsed = Number(value)
+    if (!Number.isFinite(parsed) || Math.abs(parsed) > maximum) return null
     return parsed
 }
 
 export async function GET(request: NextRequest) {
-    const fromLat = readCoord(request.nextUrl.searchParams.get('fromLat'))
+    const fromLat = readCoord(request.nextUrl.searchParams.get('fromLat'), 90)
     const fromLng = readCoord(request.nextUrl.searchParams.get('fromLng'))
-    const toLat = readCoord(request.nextUrl.searchParams.get('toLat'))
+    const toLat = readCoord(request.nextUrl.searchParams.get('toLat'), 90)
     const toLng = readCoord(request.nextUrl.searchParams.get('toLng'))
     const rawMode = request.nextUrl.searchParams.get('mode') ?? 'auto'
     const mode = MODES.includes(rawMode as TravelMode) ? (rawMode as TravelMode) : 'auto'
@@ -57,22 +57,16 @@ export async function GET(request: NextRequest) {
 
     const googleKey = process.env.GOOGLE_MAPS_API_KEY ?? process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     if (googleKey) {
-        const google = await fromGoogle(from, to, mode, googleKey)
+        const google = await fromGoogle(from, to, mode, googleKey).catch(() => null)
         if (google) return NextResponse.json(google)
     }
 
-    const osm = await fromOsm(from, to, mode)
+    const osm = await fromOsm(from, to, mode).catch(() => null)
     if (osm) return NextResponse.json(osm)
 
     return NextResponse.json(
-        {
-            points: [from, to],
-            km: 0,
-            minutes: 1,
-            provider: 'osm',
-            waypoints: fallbackWaypoints(200),
-        } satisfies DirectionsResult,
-        { status: 200 }
+        { error: 'No route is available right now. Try again or open your destination in Maps.' },
+        { status: 503, headers: { 'Cache-Control': 'no-store' } }
     )
 }
 
@@ -88,7 +82,7 @@ async function fromGoogle(
     url.searchParams.set('mode', GOOGLE_MODE[mode])
     url.searchParams.set('key', key)
 
-    const response = await fetch(url, { next: { revalidate: 120 } })
+    const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(5000) })
     if (!response.ok) return null
     const data = (await response.json()) as {
         status: string
@@ -131,10 +125,11 @@ async function fromOsm(
     to: Coords,
     mode: TravelMode
 ): Promise<DirectionsResult | null> {
+    if (mode === 'walk' || mode === 'cycle' || mode === 'bus') return null
     const profile = OSRM_PROFILE[mode]
     const url = `https://router.project-osrm.org/route/v1/${profile}/${from.lng},${from.lat};${to.lng},${to.lat}?overview=full&geometries=geojson&steps=true`
 
-    const response = await fetch(url, { next: { revalidate: 120 } })
+    const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(5000) })
     if (!response.ok) return null
     const data = (await response.json()) as {
         code?: string

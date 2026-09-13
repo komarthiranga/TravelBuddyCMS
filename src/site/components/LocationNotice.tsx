@@ -1,8 +1,8 @@
 'use client'
 
 import { LoaderCircle, MapPin, Navigation } from 'lucide-react'
-
-import { useLocation } from '@/site/components/location-provider'
+import { useLocation } from './location-provider'
+import { useChrome } from './locale-provider'
 
 export function LocationNotice({
     tone = 'day',
@@ -11,67 +11,95 @@ export function LocationNotice({
     tone?: 'day' | 'night'
     className?: string
 }) {
-    const { startPoint, cityCentre, status, request, chooseCentre } = useLocation()
-
-    if (startPoint?.kind === 'user') return null
-
-    const cityName = cityCentre?.name ?? 'the city'
-    const fromCentre = startPoint?.kind === 'centre'
+    const { startPoint, cityCentre, status, request, chooseCentre, clear } =
+        useLocation()
+    const { locale } = useChrome()
+    const te = locale === 'te'
     const locating = status === 'locating'
-    const onDark = tone === 'night'
-
+    const user = startPoint?.kind === 'user'
+    const centre = startPoint?.kind === 'centre'
+    const city = cityCentre?.name ?? ''
+    const message = locating
+        ? te
+            ? 'మీ స్థానాన్ని కనుగొంటున్నాను…'
+            : 'Finding your location…'
+        : status === 'denied'
+          ? te
+              ? 'స్థాన అనుమతి లేదు. నగర కేంద్రాన్ని ఎంచుకోవచ్చు.'
+              : 'Location permission is off. You can use the city centre instead.'
+          : status === 'error' || status === 'unavailable'
+            ? te
+                ? 'స్థానం కనుగొనలేకపోయాను. మళ్లీ ప్రయత్నించండి లేదా నగర కేంద్రాన్ని ఎంచుకోండి.'
+                : 'I couldn’t find your location. Try again or use the city centre.'
+            : user
+              ? te
+                  ? 'మీరు సేవ్ చేసిన స్థానం నుండి దూరాలు చూపిస్తున్నాను.'
+                  : 'Distances use your saved location. Moved since your last visit? Refresh it.'
+              : centre
+                ? te
+                    ? `${city} నగర కేంద్రం నుండి దూరాలు చూపిస్తున్నాను.`
+                    : `Distances use ${city} city centre.`
+                : te
+                  ? 'ఎక్కడి నుండి బయలుదేరుతారు?'
+                  : 'Where would you like to start?'
     return (
         <div
-            role="status"
-            className={`rounded-2xl border px-4 py-4 sm:px-5 ${
-                onDark
-                    ? 'border-white/25 bg-ink text-white'
-                    : 'border-ink/15 bg-white text-ink shadow-card'
-            } ${className}`}
+            lang={locale}
+            className={`rounded-2xl border p-4 ${tone === 'night' ? 'border-white/20 bg-ink text-white' : 'border-hairline bg-white text-ink'} ${className}`}
         >
-            <p className="text-base font-semibold leading-snug">
-                {fromCentre
-                    ? `Location unavailable. Distances are currently measured from ${cityName} city centre.`
-                    : `Location is off. Distances and directions wait until you choose a starting point.`}
+            <p role="status" className="text-base leading-relaxed">
+                {message}
             </p>
-            {!fromCentre && cityCentre && (
-                <p className={`mt-1 text-base ${onDark ? 'text-white/80' : 'text-ink-soft'}`}>
-                    You can use your location, or start from {cityName} city centre.
-                </p>
-            )}
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-3 flex flex-wrap gap-2">
                 <button
                     type="button"
                     onClick={request}
                     disabled={locating || status === 'unavailable'}
-                    className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-base font-semibold outline-none disabled:opacity-40 focus-visible:ring-2 ${
-                        onDark
-                            ? 'bg-amber-brand text-ink hover:bg-amber-brand-dark hover:text-white focus-visible:ring-white'
-                            : 'bg-ink text-white hover:bg-ink-soft focus-visible:ring-teal-brand'
-                    }`}
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full bg-ink px-4 text-sm font-semibold text-white ring-1 ring-white/30 disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-teal-brand"
                 >
                     {locating ? (
-                        <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
+                        <LoaderCircle
+                            className="size-4 animate-spin"
+                            aria-hidden="true"
+                        />
                     ) : (
                         <Navigation className="size-4" aria-hidden="true" />
                     )}
-                    Use my location
+                    {user
+                        ? te
+                            ? 'స్థానం నవీకరించండి'
+                            : 'Refresh location'
+                        : te
+                          ? 'నా స్థానం ఉపయోగించండి'
+                          : 'Use my location'}
                 </button>
-                {cityCentre && !fromCentre && (
+                {cityCentre && !centre && (
                     <button
                         type="button"
                         onClick={chooseCentre}
-                        className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-5 text-base font-semibold outline-none focus-visible:ring-2 ${
-                            onDark
-                                ? 'border-white/40 text-white hover:bg-white/10 focus-visible:ring-white'
-                                : 'border-ink/20 text-ink hover:bg-cream focus-visible:ring-teal-brand'
-                        }`}
+                        className="inline-flex min-h-11 items-center gap-2 rounded-full border border-current px-4 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-teal-brand"
                     >
                         <MapPin className="size-4" aria-hidden="true" />
-                        Choose starting point
+                        {te ? 'నగర కేంద్రం నుండి' : 'Use city centre'}
+                    </button>
+                )}
+                {startPoint && (
+                    <button
+                        type="button"
+                        onClick={clear}
+                        className="min-h-11 rounded-full px-3 text-sm font-semibold underline focus-visible:outline-2 focus-visible:outline-teal-brand"
+                    >
+                        {te ? 'స్థానం తొలగించండి' : 'Clear location'}
                     </button>
                 )}
             </div>
+            {!startPoint && (
+                <p className="mt-2 text-sm opacity-80">
+                    {te
+                        ? 'స్థానం ఇవ్వకుండానే ప్రదేశాలను చూడవచ్చు.'
+                        : 'You can browse places without sharing your location.'}
+                </p>
+            )}
         </div>
     )
 }

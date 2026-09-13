@@ -619,3 +619,6 @@
 .pointer-carousel::-webkit-scrollbar {
     display: none;
 }
+/* Keep Buddy calm while people read and choose. */
+.buddy-pose-talk, .buddy-pose-point, .buddy-shadow-talk, .buddy-shadow-point { animation: none; }
+.buddy-pose-wave, .buddy-pose-wave .buddy-mascot-arm, .buddy-shadow-wave { animation-iteration-count: 2; }

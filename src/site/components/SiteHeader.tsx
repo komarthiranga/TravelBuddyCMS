@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { ChevronDown, LifeBuoy } from 'lucide-react'
-
-import { BuddyLogo } from '@/site/components/BuddyLogo'
-import { useChrome } from '@/site/components/locale-provider'
+import { CityPicker } from './CityPicker'
+import { SavedPlacesButton } from './SavedPlaces'
+import { BuddyLogo } from './BuddyLogo'
+import { useChrome } from './locale-provider'
 import type { CityWithCount } from '@/site/api/getCitiesWithAttractionCount'
 
 export function SiteHeader({
@@ -15,84 +15,52 @@ export function SiteHeader({
     activeCityName: string
 }) {
     const { t, locale, setLocale } = useChrome()
-    const city = cities.find((item) => item.name === activeCityName) ?? cities[0]
-
     return (
-        <header className="sticky top-0 z-50 border-b border-hairline/70 bg-cream/90 backdrop-blur-xl">
+        <header className="border-b border-hairline bg-cream text-ink">
             <nav
                 aria-label="Main"
-                className="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-3 px-5 py-2 sm:px-8"
+                className="mx-auto max-w-6xl px-5 py-3 sm:px-8 md:flex md:items-center md:gap-5"
             >
-                <Link
-                    href="/"
-                    className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-teal-brand focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
-                >
-                    <BuddyLogo size="sm" />
-                </Link>
-
-                <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-                    {city && (
-                        <label className="relative hidden min-h-12 items-center md:inline-flex">
-                            <span className="sr-only">{t.cityMenu}</span>
-                            <select
-                                defaultValue={city.id}
-                                className="h-12 max-w-[10rem] appearance-none rounded-full border border-ink/15 bg-white py-2 pl-4 pr-10 text-base font-semibold text-ink outline-none focus-visible:ring-2 focus-visible:ring-teal-brand"
-                                aria-label={t.cityMenu}
-                            >
-                                {cities.map((item) => (
-                                    <option key={item.id} value={item.id}>
-                                        {item.name}
-                                    </option>
-                                ))}
-                            </select>
-                            <ChevronDown
-                                className="pointer-events-none absolute right-3 size-4 text-ink-soft"
-                                aria-hidden="true"
-                            />
-                        </label>
-                    )}
-
-                    <div
-                        className="hidden items-center rounded-full border border-ink/15 bg-white p-1 md:inline-flex"
-                        role="group"
-                        aria-label="Language"
+                <div className="flex items-center justify-between gap-1 md:contents">
+                    <Link
+                        href="/"
+                        className="rounded md:mr-auto focus-visible:outline-2 focus-visible:outline-teal-brand"
                     >
-                        <button
-                            type="button"
-                            onClick={() => setLocale('en')}
-                            aria-pressed={locale === 'en'}
-                            className={`min-h-10 rounded-full px-3 text-sm font-semibold outline-none focus-visible:ring-2 focus-visible:ring-teal-brand ${
-                                locale === 'en' ? 'bg-ink text-white' : 'text-ink-soft hover:text-ink'
-                            }`}
+                        <BuddyLogo size="sm" />
+                    </Link>
+                    <div className="flex flex-wrap items-center justify-end gap-1 md:order-last">
+                        <div className="hidden md:block"><SavedPlacesButton /></div>
+                        <Link
+                            href="/help"
+                            className="inline-flex min-h-12 items-center rounded-full border border-ink/15 bg-white px-3 font-semibold md:order-last focus-visible:outline-2 focus-visible:outline-teal-brand"
                         >
-                            {t.langEnglish}
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => setLocale('te')}
-                            aria-pressed={locale === 'te'}
-                            className={`min-h-10 rounded-full px-3 text-sm font-semibold outline-none focus-visible:ring-2 focus-visible:ring-teal-brand ${
-                                locale === 'te' ? 'bg-ink text-white' : 'text-ink-soft hover:text-ink'
-                            }`}
-                        >
-                            {t.langTelugu}
-                        </button>
+                            {t.help}
+                        </Link>
                     </div>
-
-                    <Link
-                        href="/help"
-                        className="hidden min-h-12 items-center gap-2 rounded-full px-4 text-base font-semibold text-ink outline-none hover:bg-white focus-visible:ring-2 focus-visible:ring-teal-brand md:inline-flex"
+                </div>
+                <div className="mt-2 flex flex-wrap items-center justify-between gap-2 md:mt-0 md:gap-4">
+                    <CityPicker
+                        cities={cities}
+                        activeCityName={activeCityName}
+                    />
+                    <div
+                        role="group"
+                        aria-label="Language / భాష"
+                        className="flex rounded-full border border-ink/15 bg-white p-1"
                     >
-                        <LifeBuoy className="size-4" aria-hidden="true" />
-                        {t.help}
-                    </Link>
-
-                    <Link
-                        href="/#guide"
-                        className="inline-flex min-h-12 items-center rounded-full bg-ink px-5 text-base font-semibold text-white outline-none hover:bg-ink-soft focus-visible:ring-2 focus-visible:ring-teal-brand focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
-                    >
-                        {t.guideMe}
-                    </Link>
+                        {(['en', 'te'] as const).map((language) => (
+                            <button
+                                key={language}
+                                type="button"
+                                lang={language}
+                                aria-pressed={locale === language}
+                                onClick={() => setLocale(language)}
+                                className={`min-h-11 rounded-full px-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-teal-brand ${locale === language ? 'bg-ink text-white' : 'text-ink'}`}
+                            >
+                                {language === 'en' ? 'English' : 'తెలుగు'}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </nav>
         </header>

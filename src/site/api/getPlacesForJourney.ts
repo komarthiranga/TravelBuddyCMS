@@ -29,7 +29,7 @@ export type JourneyPlace = {
     primary_image_alt: string | null
 }
 
-export async function getPlacesForJourney(): Promise<JourneyPlace[]> {
+export async function getPlacesForJourney(cityId?: number): Promise<JourneyPlace[]> {
     const primaryImages = db
         .select({
             attraction_id: attractionImageTable.attraction_id,
@@ -65,6 +65,6 @@ export async function getPlacesForJourney(): Promise<JourneyPlace[]> {
         .innerJoin(cityTable, eq(attractionTable.city_id, cityTable.id))
         .innerJoin(categoryTable, eq(attractionTable.category_id, categoryTable.id))
         .leftJoin(primaryImages, eq(attractionTable.id, primaryImages.attraction_id))
-        .where(and(eq(attractionTable.status, 'PUBLISHED'), eq(attractionTable.is_active, true)))
+        .where(and(eq(attractionTable.status, 'PUBLISHED'), eq(attractionTable.is_active, true), cityId ? eq(attractionTable.city_id, cityId) : undefined))
         .orderBy(asc(categoryTable.name), asc(attractionTable.short_name))
 }

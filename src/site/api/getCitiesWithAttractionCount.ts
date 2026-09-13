@@ -1,5 +1,6 @@
 import { and, asc, count, eq } from 'drizzle-orm'
 
+import { withReadRetry } from '@/lib/read-retry'
 import { db } from '@/lib/db'
 import { attractionTable } from '@/master/attraction/schema'
 import { cityTable } from '@/master/city/schema'
@@ -20,7 +21,7 @@ export type CityWithCount = {
  * grid is never empty while content is still being drafted.
  */
 export async function getCitiesWithAttractionCount(): Promise<CityWithCount[]> {
-    const rows = await db
+    const rows = await withReadRetry(async () => db
         .select({
             id: cityTable.id,
             name: cityTable.name,
@@ -48,7 +49,7 @@ export async function getCitiesWithAttractionCount(): Promise<CityWithCount[]> {
             cityTable.latitude,
             cityTable.longitude
         )
-        .orderBy(asc(cityTable.name))
+        .orderBy(asc(cityTable.name)))
 
     return rows
         .map((row) => ({ ...row, attraction_count: Number(row.attraction_count) }))

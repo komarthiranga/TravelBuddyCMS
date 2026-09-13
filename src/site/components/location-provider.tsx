@@ -33,7 +33,7 @@ type LocationState = {
 }
 
 const STORAGE_KEY = 'tb:last-known-location'
-const CACHE_TTL_MS = 6 * 60 * 60 * 1000 // 6 hours
+const CACHE_TTL_MS = 15 * 60 * 1000 // 15 minutes; travellers may move between visits
 
 /**
  * Geolocation lives outside React, so it is modelled as an external store.
@@ -77,6 +77,9 @@ function readCache(): Coords | null {
             typeof parsed?.lat !== 'number' ||
             typeof parsed?.lng !== 'number' ||
             typeof parsed?.at !== 'number' ||
+            !Number.isFinite(parsed.lat) || Math.abs(parsed.lat) > 90 ||
+            !Number.isFinite(parsed.lng) || Math.abs(parsed.lng) > 180 ||
+            parsed.at > Date.now() ||
             Date.now() - parsed.at > CACHE_TTL_MS
         ) {
             window.localStorage.removeItem(STORAGE_KEY)

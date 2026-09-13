@@ -32,6 +32,7 @@ export async function getPublishedAttractions(options?: {
     categoryId?: number
     search?: string
     free?: boolean
+    open?: boolean
 }): Promise<{ rows: PublicAttractionCard[]; total: number; page: number; pageCount: number; pageSize: number }> {
     const pageSize = options?.pageSize ?? 12
     const page = Math.max(1, options?.page ?? 1)
@@ -51,6 +52,13 @@ export async function getPublishedAttractions(options?: {
         conditions.push(sql`cast(${attractionTable.entry_fee} as numeric) = 0`)
     }
 
+    if (options?.open) {
+        const now = sql`(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Kolkata')::time`
+        conditions.push(sql`${attractionTable.opening_time} IS NOT NULL AND ${attractionTable.closing_time} IS NOT NULL AND (
+            (${attractionTable.opening_time} < ${attractionTable.closing_time} AND ${now} >= ${attractionTable.opening_time} AND ${now} < ${attractionTable.closing_time}) OR
+            (${attractionTable.opening_time} > ${attractionTable.closing_time} AND (${now} >= ${attractionTable.opening_time} OR ${now} < ${attractionTable.closing_time}))
+        )`)
+    }
     const where = and(...conditions)
 
     const [{ total }] = await db
@@ -107,7 +115,7 @@ export async function getPublishedAttractions(options?: {
     return { rows, total: totalNum, page: safePage, pageCount, pageSize }
 }
 
-export async function getFeaturedAttractions(limit = 6): Promise<PublicAttractionCard[]> {
+export async function getFeaturedAttractions(limit = 6, cityId?: number): Promise<PublicAttractionCard[]> {
     const primaryImages = db
         .select({
             attraction_id: attractionImageTable.attraction_id,
@@ -141,7 +149,7 @@ export async function getFeaturedAttractions(limit = 6): Promise<PublicAttractio
         .innerJoin(cityTable, eq(attractionTable.city_id, cityTable.id))
         .innerJoin(categoryTable, eq(attractionTable.category_id, categoryTable.id))
         .leftJoin(primaryImages, eq(attractionTable.id, primaryImages.attraction_id))
-        .where(and(eq(attractionTable.status, 'PUBLISHED'), eq(attractionTable.is_active, true)))
+        .where(and(eq(attractionTable.status, 'PUBLISHED'), eq(attractionTable.is_active, true), cityId ? eq(attractionTable.city_id, cityId) : undefined))
         .orderBy(desc(attractionTable.id))
         .limit(limit)
 }

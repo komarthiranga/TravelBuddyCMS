@@ -126,14 +126,7 @@ export function BuddyWaypointRide({
             })
             .catch(() => {
                 if (!cancelled) {
-                    setError("Couldn't name the road. I'll still walk you point by point.")
-                    setRoute({
-                        points: [from, to],
-                        km: 0,
-                        minutes: 1,
-                        provider: 'osm',
-                        waypoints: fallbackWaypoints(400),
-                    })
+                    setError("I couldn’t find a route. Please try directions in your maps app.")
                 }
             })
         return () => {
@@ -176,7 +169,7 @@ export function BuddyWaypointRide({
             frame = requestAnimationFrame(tick)
         }
         frame = requestAnimationFrame(tick)
-        return () => cancelAnimationFrame(frame)
+            return () => cancelAnimationFrame(frame)
     }, [route])
 
     useEffect(() => {
@@ -186,6 +179,8 @@ export function BuddyWaypointRide({
         const left = slide.offsetLeft - (root.clientWidth - slide.clientWidth) / 2
         root.scrollTo({ left: Math.max(0, left), behavior: 'smooth' })
     }, [index, route])
+
+    if (error) return <div role="alert" className="rounded-2xl bg-white p-6 text-ink"><p>{error}</p><button type="button" onClick={onSkip} className="mt-4 min-h-12 rounded-full border px-5 font-semibold">Back to place</button></div>
 
     return (
         <div className={`relative isolate overflow-hidden bg-ink ${className}`}>

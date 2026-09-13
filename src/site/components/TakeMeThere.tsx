@@ -1,26 +1,33 @@
 'use client'
 
-import { useEffect, useState, type ReactNode } from 'react'
-import { createPortal } from 'react-dom'
-import { ExternalLink, Navigation, X } from 'lucide-react'
-
-import { LocationNotice } from '@/site/components/LocationNotice'
-import { useLocation } from '@/site/components/location-provider'
+import { useState, type ReactNode } from 'react'
+import { ExternalLink, Navigation } from 'lucide-react'
+import { AccessibleDialog } from './AccessibleDialog'
+import { LocationNotice } from './LocationNotice'
+import { useChrome } from './locale-provider'
+import { useLocation } from './location-provider'
 import type { Coords } from '@/site/lib/geo'
 import { distanceKm, formatDistance, formatDuration } from '@/site/lib/geo'
 import { googleMapsDirUrl, recommendMode } from '@/site/lib/maps'
-import { minutesFor, TRAVEL_MODES, type TravelMode } from '@/site/lib/travelModes'
+import {
+    minutesFor,
+    TRAVEL_MODES,
+    type TravelMode,
+} from '@/site/lib/travelModes'
+
+export const MODE_TE: Record<TravelMode, string> = {
+    walk: 'నడక',
+    cycle: 'సైకిల్',
+    auto: 'ఆటో',
+    bus: 'బస్సు',
+    car: 'కారు',
+}
 
 export function TakeMeThere({
     destination,
     destinationName,
     className,
-    children = (
-        <>
-            <Navigation className="size-4" aria-hidden="true" />
-            Get directions
-        </>
-    ),
+    children,
 }: {
     destination: Coords | null
     destinationName: string
@@ -28,22 +35,9 @@ export function TakeMeThere({
     children?: ReactNode
 }) {
     const { startPoint } = useLocation()
+    const { locale } = useChrome()
+    const te = locale === 'te'
     const [open, setOpen] = useState(false)
-
-    useEffect(() => {
-        if (!open) return
-        const previous = document.body.style.overflow
-        document.body.style.overflow = 'hidden'
-        const onKey = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') setOpen(false)
-        }
-        window.addEventListener('keydown', onKey)
-        return () => {
-            document.body.style.overflow = previous
-            window.removeEventListener('keydown', onKey)
-        }
-    }, [open])
-
     return (
         <>
             <button
@@ -52,57 +46,42 @@ export function TakeMeThere({
                 disabled={!destination}
                 className={className}
             >
-                {children}
-            </button>
-
-            {open &&
-                destination &&
-                typeof document !== 'undefined' &&
-                createPortal(
-                    <div
-                        role="dialog"
-                        aria-modal="true"
-                        aria-label={`Directions to ${destinationName}`}
-                        className="fixed inset-0 z-[100] flex items-end justify-center bg-ink/70 p-4 sm:items-center"
-                    >
-                        <button
-                            type="button"
-                            aria-label="Close"
-                            className="absolute inset-0 cursor-default"
-                            onClick={() => setOpen(false)}
-                        />
-                        <div className="relative z-10 w-full max-w-md rounded-[1.75rem] bg-cream p-6 text-ink shadow-card-hover sm:p-8">
-                            <button
-                                type="button"
-                                onClick={() => setOpen(false)}
-                                className="absolute right-4 top-4 inline-flex size-12 items-center justify-center rounded-full border border-ink/15 bg-white text-ink outline-none hover:bg-cream focus-visible:ring-2 focus-visible:ring-teal-brand"
-                            >
-                                <X className="size-5" aria-hidden="true" />
-                                <span className="sr-only">Close</span>
-                            </button>
-                            {startPoint ? (
-                                <DirectionsSummary
-                                    origin={startPoint.coords}
-                                    originLabel={startPoint.label}
-                                    fromCentre={startPoint.kind === 'centre'}
-                                    destination={destination}
-                                    destinationName={destinationName}
-                                />
-                            ) : (
-                                <>
-                                    <p className="pr-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-brand-dark">
-                                        Starting point
-                                    </p>
-                                    <h2 className="mt-2 font-display text-2xl leading-tight">
-                                        Confirm where to start before I give directions
-                                    </h2>
-                                    <LocationNotice className="mt-5" />
-                                </>
-                            )}
-                        </div>
-                    </div>,
-                    document.body
+                {children ?? (
+                    <>
+                        <Navigation className="size-4" aria-hidden="true" />
+                        <span lang={locale}>
+                            {te ? 'దారి చూపించండి' : 'Get directions'}
+                        </span>
+                    </>
                 )}
+            </button>
+            {open && destination && (
+                <AccessibleDialog
+                    label={
+                        te ? 'ప్రయాణ దిశలు' : `Directions to ${destinationName}`
+                    }
+                    onClose={() => setOpen(false)}
+                >
+                    {startPoint ? (
+                        <DirectionsSummary
+                            origin={startPoint.coords}
+                            originLabel={startPoint.label}
+                            fromCentre={startPoint.kind === 'centre'}
+                            destination={destination}
+                            destinationName={destinationName}
+                        />
+                    ) : (
+                        <div lang={locale}>
+                            <h2 className="font-display text-2xl">
+                                {te
+                                    ? 'ఎక్కడి నుండి బయలుదేరుతారు?'
+                                    : 'Where would you like to start?'}
+                            </h2>
+                            <LocationNotice className="mt-4" />
+                        </div>
+                    )}
+                </AccessibleDialog>
+            )}
         </>
     )
 }
@@ -126,81 +105,80 @@ export function DirectionsSummary({
     onContinue?: () => void
     continueLabel?: string
 }) {
+    const { locale } = useChrome()
+    const te = locale === 'te'
     const km = distanceKm(origin, destination)
     const mode = forcedMode ?? recommendMode(km)
-    const minutes = minutesFor(km, mode)
-    const Icon = TRAVEL_MODES[mode].icon
-    const mapsUrl = googleMapsDirUrl(origin, destination, mode)
-
     return (
-        <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-brand-dark">
-                Directions
+        <div lang={locale}>
+            <p className="text-sm font-semibold text-teal-brand-dark">
+                {te ? 'ప్రయాణ దిశలు' : 'Directions'}
             </p>
-            <h2 className="mt-2 font-display text-2xl leading-tight sm:text-3xl">
+            <h2
+                lang="en"
+                className="mt-2 font-display text-2xl leading-tight sm:text-3xl"
+            >
                 {destinationName}
             </h2>
-            <p className="mt-2 text-base text-ink-soft">
-                From {originLabel.toLowerCase()}. Open Google Maps for turn-by-turn.
+            <p className="mt-3 text-base text-ink-soft">
+                {fromCentre
+                    ? te
+                        ? 'నగర కేంద్రం నుండి'
+                        : `Starting from ${originLabel}`
+                    : te
+                      ? 'మీరు ఎంచుకున్న స్థానం నుండి'
+                      : 'Starting from your saved location'}
             </p>
-
-            {fromCentre && (
-                <p className="mt-3 rounded-xl bg-ink px-4 py-3 text-base text-white">
-                    Location unavailable. Distances are currently measured from {originLabel}.
-                </p>
-            )}
-
-            <dl className="mt-5 grid grid-cols-3 gap-2">
-                <Fact label="Distance" value={formatDistance(km)} />
-                <Fact label="Time" value={`about ${formatDuration(minutes)}`} />
-                <Fact
-                    label="Transport"
-                    value={TRAVEL_MODES[mode].label}
-                    icon={<Icon className="size-4" aria-hidden="true" />}
-                />
+            <dl className="mt-5 grid grid-cols-2 gap-3">
+                <div className="rounded-2xl border border-hairline bg-white p-4">
+                    <dt className="text-sm text-ink-soft">
+                        {te ? 'నేరుగా దూరం' : 'Straight-line distance'}
+                    </dt>
+                    <dd className="mt-1 text-lg font-semibold">
+                        {formatDistance(km)}
+                    </dd>
+                </div>
+                <div className="rounded-2xl border border-hairline bg-white p-4">
+                    <dt className="text-sm text-ink-soft">
+                        {te ? 'ప్రయాణ విధానం' : 'Travel by'}
+                    </dt>
+                    <dd className="mt-1 text-lg font-semibold">
+                        {te ? MODE_TE[mode] : TRAVEL_MODES[mode].label}
+                    </dd>
+                </div>
             </dl>
-
+            <p className="mt-4 text-base leading-relaxed text-ink-soft">
+                {mode === 'bus'
+                    ? te
+                        ? 'బస్సు మార్గాలు, సమయాలు ఇంకా నిర్ధారించలేదు. మ్యాప్స్‌లో తనిఖీ చేయండి.'
+                        : 'Bus services and waiting times are not verified. Check available routes in Maps.'
+                    : te
+                      ? `సుమారు ${formatDuration(minutesFor(km, mode))}. ఇది అంచనా మాత్రమే; అసలు మార్గం, ట్రాఫిక్ ఆధారంగా సమయం మారవచ్చు.`
+                      : `Rough estimate: ${formatDuration(minutesFor(km, mode))}. The actual route may be longer; traffic and waiting time are not included.`}
+            </p>
             <a
-                href={mapsUrl}
+                href={googleMapsDirUrl(origin, destination, mode)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-amber-brand px-5 text-base font-semibold text-ink outline-none hover:bg-amber-brand-dark hover:text-white focus-visible:ring-2 focus-visible:ring-teal-brand"
+                className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-amber-brand px-5 py-3 text-center font-semibold text-ink focus-visible:outline-2 focus-visible:outline-teal-brand"
             >
-                <ExternalLink className="size-4" aria-hidden="true" />
-                Open in Google Maps
+                <ExternalLink className="size-4 shrink-0" aria-hidden="true" />
+                {te ? 'Google Mapsలో తెరవండి' : 'Open in Google Maps'}
             </a>
-
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                {te
+                    ? 'కొత్త ట్యాబ్ లేదా మ్యాప్స్ యాప్ తెరుచుకుంటుంది. మీ ప్రారంభ స్థానం, గమ్యం Googleతో పంచుకోబడతాయి.'
+                    : 'Opens a new tab or the Maps app. Your starting point and destination will be shared with Google.'}
+            </p>
             {onContinue && (
                 <button
                     type="button"
                     onClick={onContinue}
-                    className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-ink/15 bg-white px-5 text-base font-semibold text-ink outline-none hover:bg-cream focus-visible:ring-2 focus-visible:ring-teal-brand"
+                    className="mt-4 min-h-12 w-full rounded-full border border-ink/20 px-4 font-semibold focus-visible:outline-2 focus-visible:outline-teal-brand"
                 >
                     {continueLabel}
                 </button>
             )}
-        </div>
-    )
-}
-
-function Fact({
-    label,
-    value,
-    icon,
-}: {
-    label: string
-    value: string
-    icon?: ReactNode
-}) {
-    return (
-        <div className="rounded-2xl border border-hairline bg-white px-3 py-3 text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
-                {label}
-            </p>
-            <p className="mt-1 flex items-center justify-center gap-1 font-display text-lg leading-tight">
-                {icon}
-                {value}
-            </p>
         </div>
     )
 }

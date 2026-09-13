@@ -22,7 +22,6 @@ function BuddyArt({ src }: { src: string }) {
             width={BUDDY_SIZE.width}
             height={BUDDY_SIZE.height}
             sizes="(max-width: 640px) 180px, (max-width: 1024px) 280px, 384px"
-            unoptimized
             className="buddy-mascot-art"
         />
     )
