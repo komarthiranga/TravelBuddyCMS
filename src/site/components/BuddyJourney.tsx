@@ -41,6 +41,7 @@ export function BuddyJourney({
     const [selectedId, setSelectedId] = useState<number | null>(() => places.find(place => place.slug === initialPlaceSlug)?.id ?? null)
     const [mode, setMode] = useState<TravelMode | null>(null)
     const heading = useRef<HTMLHeadingElement>(null)
+    const browseHeading = useRef<HTMLHeadingElement>(null)
     const [category, setCategory] = useState<number | null>(null)
     const [query, setQuery] = useState('')
     const categories = Array.from(new Map(places.map(place => [place.category_id, place.category_name])))
@@ -66,8 +67,12 @@ export function BuddyJourney({
         [places, startPoint],
     )
     const visible = ordered.filter(({place}) => (!category || place.category_id === category) && `${place.short_name} ${place.category_name}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()))
-    function focusStep() {
-        requestAnimationFrame(() => heading.current?.focus())
+    function focusStep(browse = false) {
+        requestAnimationFrame(() => {
+            const target = browse ? browseHeading.current : heading.current
+            target?.focus({preventScroll:true})
+            target?.scrollIntoView({block:'start', behavior:'instant'})
+        })
     }
     return (
         <section
@@ -85,9 +90,9 @@ export function BuddyJourney({
                     <Link href="/attractions" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-hairline bg-white px-4 text-sm font-semibold text-ink hover:bg-teal-wash focus-visible:outline-2 focus-visible:outline-teal-brand">{te ? 'అన్ని వివరాలు' : 'Browse place details'}<ArrowRight className="size-4" aria-hidden="true" /></Link>
                 </header>
                 <TranslationNotice />
-                <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)]">
-                    <div className="min-w-0">
-                        <h2 className="text-lg font-semibold text-ink">{te ? 'ప్రదేశాన్ని కనుగొనండి' : 'Find your next stop'}</h2>
+                <div className={selected ? "mx-auto max-w-3xl" : "grid items-start gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)]"}>
+                    <div className={selected ? "hidden" : "min-w-0"}>
+                        <h2 ref={browseHeading} tabIndex={-1} className="scroll-mt-6 text-lg font-semibold text-ink focus:outline-none">{te ? 'ప్రదేశాన్ని కనుగొనండి' : 'Find your next stop'}</h2>
                         <div className="mt-3 flex flex-col-reverse gap-3">
                             <div className="flex gap-2 overflow-x-auto pb-2" role="group" aria-label={te ? 'ప్రదేశం రకం' : 'Filter places by category'}>
                                 {[[null, te ? 'అన్నీ' : 'All places'], ...categories].map(([id, name]) => <button key={String(id)} type="button" aria-pressed={category === id} onClick={() => setCategory(id as number | null)} className={`min-h-11 shrink-0 rounded-full border px-4 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-teal-brand ${category === id ? 'border-teal-brand bg-teal-brand text-white' : 'border-hairline text-ink hover:bg-teal-wash'}`}>{name}</button>)}
@@ -159,20 +164,21 @@ export function BuddyJourney({
                         </ul>
                         {ordered.length > 0 && visible.length === 0 && <div className="mt-5 rounded-2xl border border-dashed border-hairline bg-white p-8 text-center"><p className="text-ink-soft">{te ? 'ఈ ఎంపికలకు ప్రదేశాలు లేవు.' : 'No places match just yet. Try another category or name.'}</p><button onClick={() => { setCategory(null); setQuery('') }} className="mt-3 min-h-11 rounded-lg px-4 font-semibold text-teal-brand-dark underline focus-visible:outline-2 focus-visible:outline-teal-brand">{te ? 'ఫిల్టర్లు తొలగించండి' : 'Show all places'}</button></div>}
                     </div>
-                    <div className="min-w-0 lg:sticky lg:top-6">
-                        <h2 id="journey-heading" ref={heading} tabIndex={-1} className="mb-3 text-lg font-semibold text-ink focus:outline-none">{te ? 'మీ సందర్శన' : 'Your visit'}</h2>
+                    <div className={selected ? "min-w-0" : "hidden min-w-0 lg:block"}>
+                        <h2 id="journey-heading" ref={heading} tabIndex={-1} className="mb-3 scroll-mt-6 text-2xl font-semibold text-ink focus:outline-none">{te ? 'మీ సందర్శన' : 'Your visit'}</h2>
+                        {selected && <button type="button" onClick={() => {setSelectedId(null);setMode(null);focusStep(true)}} className="mb-4 inline-flex min-h-11 items-center gap-2 rounded-lg text-sm font-semibold text-teal-brand-dark underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-teal-brand"><ArrowLeft className="size-4" aria-hidden="true" />{te ? 'ప్రదేశం మార్చండి' : 'Change place'}</button>}
                         {!selected ? <div className="overflow-hidden rounded-2xl border border-hairline bg-white">
-                            <div className="relative aspect-[2/1] bg-teal-wash"><PlaceImage name="your next outing" category="Explore" sizes="(max-width: 1024px) 90vw, 480px" /></div>
+                            <div className="relative aspect-[2/1] bg-teal-wash"><PlaceImage name="your next outing" category="Explore" sizes="480px" /></div>
                             <div className="p-6">
                                 <h3 className="font-display text-2xl text-ink">{te ? 'మంచి ప్రదేశంతో మొదలుపెడదాం.' : 'New here? Start with one place.'}</h3>
                                 <p className="mt-3 text-sm leading-relaxed text-ink-soft">{te ? 'జాబితాలోని ప్రదేశాన్ని ఎంచుకోండి. ప్రయాణ వివరాలు ఇక్కడ కనిపిస్తాయి.' : 'You don’t need to recognise the names. Read what each place is, then choose “Plan a visit”. I’ll help you with the next step.'}</p>
                                 <ol className="mt-6 space-y-4 text-sm text-ink-soft">{(te ? ['ఒక ప్రదేశాన్ని ఎంచుకోండి', 'ప్రారంభ స్థానం ఎంచుకోండి', 'ప్రయాణ విధానం, దిశలు'] : ['A place you want to see', 'A starting point that suits you', 'Transport and directions']).map((label, index) => <li key={label} className="flex items-center gap-3"><span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-teal-wash text-xs font-semibold text-teal-brand-dark">{index + 1}</span>{label}</li>)}</ol>
                             </div>
                         </div> : <>
-                        <aside aria-label={te ? 'ఎంచుకున్న ప్రదేశం' : 'Your chosen place'} className="rounded-t-2xl border border-hairline bg-white p-4">
-                            <div className="relative mb-4 aspect-[2/1] overflow-hidden rounded-xl">
+                        <aside aria-label={te ? 'ఎంచుకున్న ప్రదేశం' : 'Your chosen place'} className="grid grid-cols-[88px_minmax(0,1fr)] gap-x-4 rounded-t-2xl border border-hairline bg-white p-4 sm:grid-cols-[128px_minmax(0,1fr)]">
+                            <div className="relative row-span-4 aspect-square overflow-hidden rounded-xl">
                                 <PlaceImage src={selected.primary_image} alt={selected.primary_image_alt}
-                                    name={selected.short_name} category={selected.category_name} sizes="(max-width: 1024px) 90vw, 480px" />
+                                    name={selected.short_name} category={selected.category_name} sizes="(max-width: 640px) 88px, 128px" compact />
                             </div>
                             <h3 lang="en" className="font-display text-2xl">
                                 {selected.short_name}
@@ -191,7 +197,7 @@ export function BuddyJourney({
                                     ? 'ధర, సమయాలు, వివరాలు'
                                     : 'View fees, hours and visiting tips'}
                             </Link>
-                            <p className="mt-2 flex items-start gap-2 text-sm text-ink-soft"><MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />{selected.address}</p>
+                            <p className="col-start-2 mt-2 flex items-start gap-2 text-sm text-ink-soft"><MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />{selected.address}</p>
                         </aside>
                         <div className="rounded-b-2xl border border-t-0 border-hairline bg-white p-4 sm:p-5">
                         <h3 className="text-lg font-semibold text-ink">{te ? 'ఎక్కడి నుండి బయలుదేరుతారు?' : '1. Where are you starting?'}</h3>
@@ -267,9 +273,8 @@ export function BuddyJourney({
                         <button
                             type="button"
                             onClick={() => {
-                                if (mode) setMode(null)
-                                else setSelectedId(null)
-                                focusStep()
+                                if (mode) { setMode(null); focusStep() }
+                                else { setSelectedId(null); focusStep(true) }
                             }}
                             className="mt-4 inline-flex min-h-12 items-center gap-2 rounded-full px-3 font-semibold text-ink focus-visible:outline-2 focus-visible:outline-teal-brand"
                         >
