@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useId, useState, type FormEvent } from 'react'
 import { Search, MapPin, Compass, ArrowRight } from 'lucide-react'
@@ -10,6 +11,9 @@ import type { JourneyPlace } from '@/site/api/getPlacesForJourney'
 export type HeroPlace = Pick<JourneyPlace, 'id' | 'short_name' | 'slug' | 'category_id' | 'category_name' | 'short_description' | 'primary_image' | 'primary_image_alt'>
 
 export function HomeHero({cityName, places}: {cityName: string; places: HeroPlace[]}) {
+    const eluru = cityName.trim().toLowerCase() === 'eluru'
+    const buddhaPark = eluru ? places.find(place => place.slug === 'eluru-buddha-park') : undefined
+    const buddhaPhoto = buddhaPark?.primary_image?.startsWith('https://res.cloudinary.com/') ? buddhaPark.primary_image : undefined
     const router = useRouter()
     const listId = useId()
     const [query, setQuery] = useState('')
@@ -30,12 +34,17 @@ export function HomeHero({cityName, places}: {cityName: string; places: HeroPlac
         const value = String(new FormData(event.currentTarget).get('search') ?? '').trim()
         router.push(value ? `/attractions?search=${encodeURIComponent(value)}` : '/attractions')
     }
-    return <section lang={locale} className="border-b border-hairline bg-white">
-        <div className="mx-auto max-w-6xl px-5 pb-5 pt-7 sm:px-8 sm:pt-10">
+    return <section lang={locale} className="relative border-b border-hairline bg-white">
+        <div className="relative isolate">
+            {eluru && <div className="absolute inset-0 -z-10 overflow-hidden bg-ink">
+                <Image src={buddhaPhoto ?? "/images/cities/eluru-buddha-park.webp"} alt={buddhaPhoto ? (buddhaPark?.primary_image_alt ?? "Buddha Park in Eluru") : "Buddha Park in Eluru, with its statue, footbridge and lake"} fill preload sizes="100vw" className="object-cover" style={{ objectPosition: buddhaPhoto ? '50% 20%' : '42% center' }} />
+                <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+            </div>}
+        <div className={`mx-auto max-w-6xl px-5 sm:px-8 ${eluru ? 'pb-7 pt-12 sm:pb-8 sm:pt-16' : 'pb-5 pt-7 sm:pt-10'}`}>
             <div className="text-center">
-                <p className="text-sm font-semibold text-teal-brand-dark">{te ? 'మీ నగరం. మీ ప్రయాణం.' : 'Your city. Your kind of day.'}</p>
-                <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{te ? `${cityName}లో ఏం చూద్దాం?` : `Where will ${cityName} take you?`}</h1>
-                <p className="mt-3 text-base text-ink-soft">{te ? 'చూడదగిన ప్రదేశాలు, ఉపయోగకరమైన వివరాలు — మీ బడ్డీతో.' : 'Find places to explore, with a little help from your local Buddy.'}</p>
+                <p className={`text-sm font-semibold ${eluru ? 'text-white' : 'text-teal-brand-dark'}`}>{te ? 'మీ నగరం. మీ ప్రయాణం.' : 'Your city. Your kind of day.'}</p>
+                <h1 className={`mt-3 text-3xl font-semibold tracking-tight sm:text-5xl ${eluru ? 'text-white' : 'text-ink'}`}>{te ? `${cityName}లో ఏం చూద్దాం?` : `Where will ${cityName} take you?`}</h1>
+                <p className={`mx-auto mt-4 max-w-xl text-base leading-relaxed ${eluru ? 'text-white' : 'text-ink-soft'}`}>{te ? 'చూడదగిన ప్రదేశాలు, ఉపయోగకరమైన వివరాలు — మీ బడ్డీతో.' : 'Find places to explore, with a little help from your local Buddy.'}</p>
             </div>
             <form onSubmit={search} role="search" onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) { setOpen(false); setActive(-1) } }} className="relative mx-auto mt-6 flex max-w-2xl items-center gap-3 rounded-2xl border border-ink/20 bg-white p-2 shadow-card focus-within:ring-2 focus-within:ring-teal-brand sm:rounded-full sm:p-3">
                 <div className="hidden items-center gap-2 border-r border-hairline px-4 sm:flex"><MapPin className="size-5 text-teal-brand-dark" aria-hidden="true"/><span className="text-sm"><span className="block font-semibold">{te ? 'నగరం' : 'Exploring'}</span><span lang="en" className="text-ink-soft">{cityName}</span></span></div>
@@ -59,7 +68,14 @@ export function HomeHero({cityName, places}: {cityName: string; places: HeroPlac
                     <span className="sr-only" role="status">{suggestions.length} suggestions available</span>
                 </div>}
             </form>
-            <nav aria-label={te ? 'ప్రదేశాల రకాలు' : 'Explore by category'} className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
+            {eluru && <div className="mt-6 flex flex-wrap items-center justify-between gap-2 text-xs text-white">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-black/40 px-3 py-2"><MapPin className="size-3.5" aria-hidden="true" />{te ? 'బుద్ధ పార్క్, ఏలూరు' : 'Buddha Park, Eluru'}</span>
+                {!buddhaPhoto && <span className="rounded bg-black/40 px-2 py-1">Photo: <a className="underline underline-offset-2" href="https://commons.wikimedia.org/wiki/File:Panorama_of_Buddha_Park,_Eluru.jpg">IM3847 · 2017</a> · <a className="underline underline-offset-2" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · cropped &amp; resized</span>}
+            </div>}
+        </div>
+        </div>
+        <div className="mx-auto max-w-6xl px-5 pb-4 sm:px-8">
+            <nav aria-label={te ? 'ప్రదేశాల రకాలు' : 'Explore by category'} className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
                 <Link href="/attractions" className="inline-flex min-h-12 items-center gap-2 border-b-2 border-ink text-sm font-semibold text-ink focus-visible:outline-2 focus-visible:outline-teal-brand"><Compass className="size-4" aria-hidden="true"/>{te ? 'అన్ని ప్రదేశాలు' : 'All places'}</Link>
                 {categories.map(category => <Link key={category.id} href={`/attractions?categoryId=${category.id}`} lang="en" className="inline-flex min-h-12 items-center border-b-2 border-transparent text-sm font-medium text-ink-soft hover:border-ink/30 hover:text-ink focus-visible:outline-2 focus-visible:outline-teal-brand">{category.name}</Link>)}
                 <Link href="/attractions?free=1" className="inline-flex min-h-12 items-center gap-1 text-sm font-semibold text-teal-brand-dark focus-visible:outline-2 focus-visible:outline-teal-brand">{te ? 'ఉచిత ప్రవేశం' : 'Free entry'}<ArrowRight className="size-4" aria-hidden="true"/></Link>

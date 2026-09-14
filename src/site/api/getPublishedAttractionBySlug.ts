@@ -1,3 +1,4 @@
+import { resolvePlaceImage } from '@/site/lib/category-artwork'
 import { and, asc, desc, eq } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
@@ -92,5 +93,5 @@ export async function getPublishedAttractionBySlug(slug: string): Promise<{
         .where(eq(attractionImageTable.attraction_id, row.id))
         .orderBy(desc(attractionImageTable.is_primary), asc(attractionImageTable.display_order))
 
-    return { attraction: row, images }
+    return { attraction: row, images: images.map(image => ({ ...image, image_url: resolvePlaceImage(image.image_url, image.alt_text, row.category_name, row.short_name) })) }
 }

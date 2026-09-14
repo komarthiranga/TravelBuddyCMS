@@ -7,5 +7,5 @@ export const metadata = { title: 'Plan your visit — Travel Buddy' }
 export default async function GuidePage() {
     const { city } = await getSelectedCity()
     const places = await getPlacesForJourney(city?.id)
-    return <BuddyJourney cities={city ? [city] : []} places={places} />
+    return <BuddyJourney key={city?.id ?? "no-city"} cities={city ? [city] : []} places={places} />
 }

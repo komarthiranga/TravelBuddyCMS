@@ -181,6 +181,13 @@ export default async function AttractionDetailPage({
                     </div>
                 </div>
             </header>
+            {images.some(image => image.image_url.includes('/travel-buddy/commons/58884991-')) && (
+                <details className="mx-auto max-w-6xl px-5 py-2 text-xs text-ink-soft sm:px-8">
+                    <summary className="inline-flex min-h-11 cursor-pointer items-center underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-teal-brand">Photo credits</summary>
+                    <p className="pb-3 leading-relaxed"><a className="underline" href="https://commons.wikimedia.org/wiki/File:Pedestrian_Bridge_in_Brudhavan_Gardens.jpg">Pedestrian Bridge in Brudhavan Gardens</a> by IM3847 (14 May 2017), <a className="underline" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Resized and cropped for display.</p>
+                </details>
+            )}
+
 
             <div className="mx-auto w-full max-w-3xl px-5 py-6 sm:px-8">
                 <TranslationNotice />

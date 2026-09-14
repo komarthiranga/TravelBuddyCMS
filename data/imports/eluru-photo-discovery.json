@@ -1,0 +1,1523 @@
+{
+  "createdAt": "2026-09-14T09:52:51.419Z",
+  "source": "Wikimedia Commons",
+  "places": [
+    {
+      "id": "4",
+      "name": "Hospital Canteen",
+      "query": "Hospital Canteen Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "5",
+      "name": "Chapel",
+      "query": "Chapel Eluru",
+      "osmImage": null,
+      "candidates": [
+        {
+          "title": "File:Chapel at the entrance of Vatluru village.jpg",
+          "size": 9314583,
+          "width": 3375,
+          "height": 6000,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Chapel_at_the_entrance_of_Vatluru_village.jpg/1280px-Chapel_at_the_entrance_of_Vatluru_village.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 2133,
+          "responsiveUrls": {
+            "2": "https://upload.wikimedia.org/wikipedia/commons/5/50/Chapel_at_the_entrance_of_Vatluru_village.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Chapel_at_the_entrance_of_Vatluru_village.jpg/1280px-Chapel_at_the_entrance_of_Vatluru_village.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 2133,
+            "srcset": "https://upload.wikimedia.org/wikipedia/commons/5/50/Chapel_at_the_entrance_of_Vatluru_village.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Chapel_at_the_entrance_of_Vatluru_village.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Chapel_at_the_entrance_of_Vatluru_village.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=143819844",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2024-01-11 12:33:24",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Chapel at the entrance of Vatluru village",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Chapels in India|Buildings in Eluru district|Self-published work|Files with coordinates missing SDC location of creation|I.Mahesh's Quality Images|Images by User:I.Mahesh",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "quality",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "GPSLatitude": {
+              "value": "16.697189",
+              "source": "commons-desc-page"
+            },
+            "GPSLongitude": {
+              "value": "81.051749",
+              "source": "commons-desc-page"
+            },
+            "GPSMapDatum": {
+              "value": "WGS-84",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Chapel at the entrance of Vatluru village along the Mini-Bypass road",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2024-01-11 16:48:43",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "iMahesh",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        },
+        {
+          "title": "File:Presidio of San Francisco Golden Gate National Recreation Area, California, U.S. Department of the Interior, August 1992 (IA doi-report i-2958-3-g56).pdf",
+          "size": 20036057,
+          "width": 1227,
+          "height": 1793,
+          "pagecount": 193,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Presidio_of_San_Francisco_Golden_Gate_National_Recreation_Area%2C_California%2C_U.S._Department_of_the_Interior%2C_August_1992_%28IA_doi-report_i-2958-3-g56%29.pdf/page1-960px-Presidio_of_San_Francisco_Golden_Gate_National_Recreation_Area%2C_California%2C_U.S._Department_of_the_Interior%2C_August_1992_%28IA_doi-report_i-2958-3-g56%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 1754,
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Presidio_of_San_Francisco_Golden_Gate_National_Recreation_Area%2C_California%2C_U.S._Department_of_the_Interior%2C_August_1992_%28IA_doi-report_i-2958-3-g56%29.pdf/page1-960px-Presidio_of_San_Francisco_Golden_Gate_National_Recreation_Area%2C_California%2C_U.S._Department_of_the_Interior%2C_August_1992_%28IA_doi-report_i-2958-3-g56%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 1754
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Presidio_of_San_Francisco_Golden_Gate_National_Recreation_Area%2C_California%2C_U.S._Department_of_the_Interior%2C_August_1992_%28IA_doi-report_i-2958-3-g56%29.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Presidio_of_San_Francisco_Golden_Gate_National_Recreation_Area,_California,_U.S._Department_of_the_Interior,_August_1992_(IA_doi-report_i-2958-3-g56).pdf",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=196396609",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2026-07-28 20:35:31",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "<div class=\"fn\">\nPresidio of San Francisco Golden Gate National Recreation Area, California, U.S. Department of the Interior, August 1992</div>",
+              "source": "commons-desc-page"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "PD US Government|Scans from the Internet Archive/unverified|CC-PD-Mark|Scans from the Internet Archive|Books uploaded by Fæ|Books without Wikidata item|IA uploads needing categories|PD-USGov missing SDC copyright status|Reports of US Department of the Interior",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Artist": {
+              "value": "<div class=\"fn value\">\nDepartment of the Interior</div>",
+              "source": "commons-desc-page"
+            },
+            "ImageDescription": {
+              "value": "<div class=\"description\">\n<p>I 29.58/3/G56<br><br>Digitized from &lt;a href=\"<a rel=\"nofollow\" class=\"external free\" href=\"https://archive.org/details/microfiche-scan_IA1177301-07/IA1177301-07-0042/page/n0\">https://archive.org/details/microfiche-scan_IA1177301-07/IA1177301-07-0042/page/n0</a>\" rel=\"ugc nofollow\"&gt;IA1177301-07-0042&lt;/a&gt;, &lt;a href=\"<a rel=\"nofollow\" class=\"external free\" href=\"https://archive.org/details/microfiche-scan_IA1177301-07/IA1177301-07-0043/page/n0\">https://archive.org/details/microfiche-scan_IA1177301-07/IA1177301-07-0043/page/n0</a>\" rel=\"ugc nofollow\"&gt;IA1177301-07-0043&lt;/a&gt;, &lt;a href=\"<a rel=\"nofollow\" class=\"external free\" href=\"https://archive.org/details/microfiche-scan_IA1177301-07/IA1177301-07-0044/page/n0\">https://archive.org/details/microfiche-scan_IA1177301-07/IA1177301-07-0044/page/n0</a>\" rel=\"ugc nofollow\"&gt;IA1177301-07-0044&lt;/a&gt;.\n</p>\n<br>Subjects:</div>",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<dl><dd><a href=\"//archive.org/details/doi-report_i-2958-3-g56\" class=\"extiw\" title=\"iarchive:doi-report i-2958-3-g56\"><bdi class=\"description en\" lang=\"en\" dir=\"ltr\">Internet Archive identifier</bdi>: doi-report_i-2958-3-g56</a></dd>\n<dd><a rel=\"nofollow\" class=\"external free\" href=\"https://archive.org/download/doi-report_i-2958-3-g56/doi-report_i-2958-3-g56.pdf\">https://archive.org/download/doi-report_i-2958-3-g56/doi-report_i-2958-3-g56.pdf</a></dd></dl>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "Public domain",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Public domain",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Copyrighted": {
+              "value": "False",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "pd",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "application/pdf"
+        }
+      ],
+      "status": "needs_match_review"
+    },
+    {
+      "id": "6",
+      "name": "Grand Aryas Food Court",
+      "query": "Grand Aryas Food Court Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "7",
+      "name": "Grand Aryas",
+      "query": "Grand Aryas Eluru",
+      "osmImage": null,
+      "candidates": [
+        {
+          "title": "File:A view of Police quarters from Hotel Grand Arya.jpg",
+          "size": 100516,
+          "width": 960,
+          "height": 540,
+          "thumburl": "https://upload.wikimedia.org/wikipedia/commons/0/08/A_view_of_Police_quarters_from_Hotel_Grand_Arya.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "thumbwidth": 1200,
+          "thumbheight": 675,
+          "thumbattribs": {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/0/08/A_view_of_Police_quarters_from_Hotel_Grand_Arya.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 675
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/A_view_of_Police_quarters_from_Hotel_Grand_Arya.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:A_view_of_Police_quarters_from_Hotel_Grand_Arya.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=74185136",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2018-11-06 14:00:28",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "A view of Police quarters from Hotel Grand Arya",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "GFDL|Roads in Eluru|License migration redundant|Self-published work|Uploaded with MTC!",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "A view of Police quarters from Hotel Grand Arya, Eluru",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2016-08-24",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"\">Own work by the original uploader</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"https://en.wikipedia.org/wiki/User:IM3847\" class=\"extiw\" title=\"w:User:IM3847\">IM3847</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"w:\">English Wikipedia</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Attribution": {
+              "value": "<a href=\"https://en.wikipedia.org/wiki/User:IM3847\" class=\"extiw\" title=\"w:User:IM3847\">IM3847</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"w:\">English Wikipedia</a>",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ],
+      "status": "needs_match_review"
+    },
+    {
+      "id": "8",
+      "name": "Dasanjaneya Swamy Temple",
+      "query": "Dasanjaneya Swamy Temple Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "9",
+      "name": "U.S.Pizza.Co",
+      "query": "U.S.Pizza.Co Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "10",
+      "name": "Milk n More (Eluru)",
+      "query": "Milk n More (Eluru) Eluru",
+      "osmImage": "https://scontent.fmaa11-1.fna.fbcdn.net/v/t39.30808-6/228330803_226111566055490_6574917743916538508_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=T8NbrG9mZ3cAX-Sg5On&_nc_ht=scontent.fmaa11-1.fna&oh=00_AT8cmvZv4sBMvqV07DDR-QwqWj07WncQeuZcvQAmkjMt7g&oe=6",
+      "candidates": [
+        {
+          "title": "File:A handbook to the carnivora (IA b28137309).pdf",
+          "size": 16315300,
+          "width": 889,
+          "height": 1383,
+          "pagecount": 392,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/A_handbook_to_the_carnivora_%28IA_b28137309%29.pdf/page1-500px-A_handbook_to_the_carnivora_%28IA_b28137309%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 1867,
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/A_handbook_to_the_carnivora_%28IA_b28137309%29.pdf/page1-500px-A_handbook_to_the_carnivora_%28IA_b28137309%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 1867
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/A_handbook_to_the_carnivora_%28IA_b28137309%29.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:A_handbook_to_the_carnivora_(IA_b28137309).pdf",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=93482761",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2020-08-24 18:46:37",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "<div class=\"fn\">\nA handbook to the carnivora</div>",
+              "source": "commons-desc-page"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Richard Lydekker|Edward Frederick Kelaart|PD-old-100-expired|Scans from the Internet Archive/unverified|CC-PD-Mark|Scans from the Internet Archive|Books published in London|Books uploaded by Fæ|Books without Wikidata item|Medical Heritage Library",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Artist": {
+              "value": "<div class=\"fn value\">\nLydekker, Richard, 1849-1915</div>",
+              "source": "commons-desc-page"
+            },
+            "ImageDescription": {
+              "value": "<div class=\"description\">\n<p>Also published London : Allen, 1894\n</p>\n<br>Subjects: Carnivora</div>",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<dl><dd><a href=\"//archive.org/details/b28137309\" class=\"extiw\" title=\"iarchive:b28137309\"><bdi class=\"description en\" lang=\"en\" dir=\"ltr\">Internet Archive identifier</bdi>: b28137309</a></dd>\n<dd><a rel=\"nofollow\" class=\"external free\" href=\"https://archive.org/download/b28137309/b28137309.pdf\">https://archive.org/download/b28137309/b28137309.pdf</a></dd></dl>",
+              "source": "commons-desc-page"
+            },
+            "Permission": {
+              "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://creativecommons.org/publicdomain/mark/1.0/\">PDM</a> This work is available under the Creative Commons, Public Domain Mark",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseShortName": {
+              "value": "Public domain",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Public domain",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Copyrighted": {
+              "value": "False",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "pd",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "application/pdf"
+        },
+        {
+          "title": "File:Catoninetales; a domestic epic (IA catoninetalesdom00lintrich).pdf",
+          "size": 4097557,
+          "width": 810,
+          "height": 1316,
+          "pagecount": 124,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Catoninetales%3B_a_domestic_epic_%28IA_catoninetalesdom00lintrich%29.pdf/page1-500px-Catoninetales%3B_a_domestic_epic_%28IA_catoninetalesdom00lintrich%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 1950,
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Catoninetales%3B_a_domestic_epic_%28IA_catoninetalesdom00lintrich%29.pdf/page1-500px-Catoninetales%3B_a_domestic_epic_%28IA_catoninetalesdom00lintrich%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 1950
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Catoninetales%3B_a_domestic_epic_%28IA_catoninetalesdom00lintrich%29.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Catoninetales;_a_domestic_epic_(IA_catoninetalesdom00lintrich).pdf",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=94910335",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2020-10-10 03:09:34",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "<div class=\"fn\">\nCatoninetales; a domestic epic</div>",
+              "source": "commons-desc-page"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Scans from the Internet Archive/unverified|PD US expired|Scans from the Internet Archive|Books published in London|Books uploaded by Fæ|Books without Wikidata item|California Digital Library",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Artist": {
+              "value": "<div class=\"fn value\">\nLinton, W. J. (William James), 1812-1897</div>",
+              "source": "commons-desc-page"
+            },
+            "ImageDescription": {
+              "value": "<div class=\"description\">\nSubjects:</div>",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<dl><dd><a href=\"//archive.org/details/catoninetalesdom00lintrich\" class=\"extiw\" title=\"iarchive:catoninetalesdom00lintrich\"><bdi class=\"description en\" lang=\"en\" dir=\"ltr\">Internet Archive identifier</bdi>: catoninetalesdom00lintrich</a></dd>\n<dd><a rel=\"nofollow\" class=\"external free\" href=\"https://archive.org/download/catoninetalesdom00lintrich/catoninetalesdom00lintrich.pdf\">https://archive.org/download/catoninetalesdom00lintrich/catoninetalesdom00lintrich.pdf</a></dd></dl>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "Public domain",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Public domain",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Copyrighted": {
+              "value": "False",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "pd",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "application/pdf"
+        },
+        {
+          "title": "File:The American Museum journal (IA americanmuseumjo05amer).pdf",
+          "size": 14403797,
+          "width": 925,
+          "height": 1387,
+          "pagecount": 230,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/The_American_Museum_journal_%28IA_americanmuseumjo05amer%29.pdf/page1-500px-The_American_Museum_journal_%28IA_americanmuseumjo05amer%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 1799,
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/The_American_Museum_journal_%28IA_americanmuseumjo05amer%29.pdf/page1-500px-The_American_Museum_journal_%28IA_americanmuseumjo05amer%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 1799
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/The_American_Museum_journal_%28IA_americanmuseumjo05amer%29.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:The_American_Museum_journal_(IA_americanmuseumjo05amer).pdf",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97153959",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2020-11-30 13:02:39",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "<div class=\"fn\">\nThe American Museum journal</div>",
+              "source": "commons-desc-page"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Books from New York (state)|Scans from the Internet Archive/unverified|PD US expired|Scans from the Internet Archive|Books uploaded by Fæ|Books without Wikidata item|Internet Archive document americanmuseumjo05amer|The American Museum Journal (1905)",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Artist": {
+              "value": "<div class=\"fn value\">\nAmerican Museum of Natural History</div>",
+              "source": "commons-desc-page"
+            },
+            "ImageDescription": {
+              "value": "<div class=\"description\">\n<dl><dd>Has supplements: Guide leaflets, no. 1 (Oct. 1901)-no. 15 (July 1904)</dd>\n<dd>AMNH Library has 1 copy in Ref. and 1 copy of the full set in Main Stacks. Library has also a 2nd copy of v. 1-2, 4, 6, 8-12, 14-15 in Main Stacks; these are from Osborn's personal collection</dd></dl>\n<br>Subjects: Natural history</div>",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<dl><dd><a href=\"//archive.org/details/americanmuseumjo05amer\" class=\"extiw\" title=\"iarchive:americanmuseumjo05amer\"><bdi class=\"description en\" lang=\"en\" dir=\"ltr\">Internet Archive identifier</bdi>: americanmuseumjo05amer</a></dd>\n<dd><a rel=\"nofollow\" class=\"external free\" href=\"https://archive.org/download/americanmuseumjo05amer/americanmuseumjo05amer.pdf\">https://archive.org/download/americanmuseumjo05amer/americanmuseumjo05amer.pdf</a></dd></dl>",
+              "source": "commons-desc-page"
+            },
+            "Permission": {
+              "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.biodiversitylibrary.org/permissions/\">https://www.biodiversitylibrary.org/permissions/</a>",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseShortName": {
+              "value": "Public domain",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Public domain",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Copyrighted": {
+              "value": "False",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "pd",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "application/pdf"
+        },
+        {
+          "title": "File:Catoninetales; a domestic epic (IA cu31924013516996).pdf",
+          "size": 2195886,
+          "width": 702,
+          "height": 1104,
+          "pagecount": 120,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Catoninetales%3B_a_domestic_epic_%28IA_cu31924013516996%29.pdf/page1-500px-Catoninetales%3B_a_domestic_epic_%28IA_cu31924013516996%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 1887,
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Catoninetales%3B_a_domestic_epic_%28IA_cu31924013516996%29.pdf/page1-500px-Catoninetales%3B_a_domestic_epic_%28IA_cu31924013516996%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 1887
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Catoninetales%3B_a_domestic_epic_%28IA_cu31924013516996%29.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Catoninetales;_a_domestic_epic_(IA_cu31924013516996).pdf",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97577571",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2020-12-15 02:05:21",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "<div class=\"fn\">\nCatoninetales; a domestic epic</div>",
+              "source": "commons-desc-page"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "PD-old-100-expired|Scans from the Internet Archive/unverified|CC-PD-Mark|Scans from the Internet Archive|Books uploaded by Fæ|Books without Wikidata item|Scans from Cornell University Library",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Artist": {
+              "value": "<div class=\"fn value\">\nLinton, W. J. (William James), 1812-1897</div>",
+              "source": "commons-desc-page"
+            },
+            "ImageDescription": {
+              "value": "<div class=\"description\">\n<dl><dd>The metadata below describe the original scanning. Follow the \"All Files: HTTP\" link in the \"View the book\" box to the left to find XML files that contain more metadata about the original images and the derived formats (OCR results, PDF etc.). See also the <a rel=\"nofollow\" class=\"external text\" href=\"https://archive.org/about/faqs.php#140\">What is the directory structure for the texts?</a> FAQ for information about file content and naming conventions.</dd>\n<dd>Title vignette</dd></dl>\n<br>Subjects:</div>",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<dl><dd><a href=\"//archive.org/details/cu31924013516996\" class=\"extiw\" title=\"iarchive:cu31924013516996\"><bdi class=\"description en\" lang=\"en\" dir=\"ltr\">Internet Archive identifier</bdi>: cu31924013516996</a></dd>\n<dd><a rel=\"nofollow\" class=\"external free\" href=\"https://archive.org/download/cu31924013516996/cu31924013516996.pdf\">https://archive.org/download/cu31924013516996/cu31924013516996.pdf</a></dd></dl>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "Public domain",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Public domain",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Copyrighted": {
+              "value": "False",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "pd",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "application/pdf"
+        },
+        {
+          "title": "File:বাংলাদেশ গেজেট, সাপ্তাহিক, ১ম সপ্তাহ, নভেম্বর ২০১৩ - খণ্ড ৪ (পেটেন্ট অফিসের প্রজ্ঞাপন).pdf",
+          "size": 356009,
+          "width": 1275,
+          "height": 2100,
+          "pagecount": 47,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6_%E0%A6%97%E0%A7%87%E0%A6%9C%E0%A7%87%E0%A6%9F%2C_%E0%A6%B8%E0%A6%BE%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B9%E0%A6%BF%E0%A6%95%2C_%E0%A7%A7%E0%A6%AE_%E0%A6%B8%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B9%2C_%E0%A6%A8%E0%A6%AD%E0%A7%87%E0%A6%AE%E0%A7%8D%E0%A6%AC%E0%A6%B0_%E0%A7%A8%E0%A7%A6%E0%A7%A7%E0%A7%A9_-_%E0%A6%96%E0%A6%A3%E0%A7%8D%E0%A6%A1_%E0%A7%AA_%28%E0%A6%AA%E0%A7%87%E0%A6%9F%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F_%E0%A6%85%E0%A6%AB%E0%A6%BF%E0%A6%B8%E0%A7%87%E0%A6%B0_%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%AA%E0%A6%A8%29.pdf/page1-960px-thumbnail.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 1976,
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6_%E0%A6%97%E0%A7%87%E0%A6%9C%E0%A7%87%E0%A6%9F%2C_%E0%A6%B8%E0%A6%BE%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B9%E0%A6%BF%E0%A6%95%2C_%E0%A7%A7%E0%A6%AE_%E0%A6%B8%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B9%2C_%E0%A6%A8%E0%A6%AD%E0%A7%87%E0%A6%AE%E0%A7%8D%E0%A6%AC%E0%A6%B0_%E0%A7%A8%E0%A7%A6%E0%A7%A7%E0%A7%A9_-_%E0%A6%96%E0%A6%A3%E0%A7%8D%E0%A6%A1_%E0%A7%AA_%28%E0%A6%AA%E0%A7%87%E0%A6%9F%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F_%E0%A6%85%E0%A6%AB%E0%A6%BF%E0%A6%B8%E0%A7%87%E0%A6%B0_%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%AA%E0%A6%A8%29.pdf/page1-960px-thumbnail.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 1976
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6_%E0%A6%97%E0%A7%87%E0%A6%9C%E0%A7%87%E0%A6%9F%2C_%E0%A6%B8%E0%A6%BE%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B9%E0%A6%BF%E0%A6%95%2C_%E0%A7%A7%E0%A6%AE_%E0%A6%B8%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B9%2C_%E0%A6%A8%E0%A6%AD%E0%A7%87%E0%A6%AE%E0%A7%8D%E0%A6%AC%E0%A6%B0_%E0%A7%A8%E0%A7%A6%E0%A7%A7%E0%A7%A9_-_%E0%A6%96%E0%A6%A3%E0%A7%8D%E0%A6%A1_%E0%A7%AA_%28%E0%A6%AA%E0%A7%87%E0%A6%9F%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F_%E0%A6%85%E0%A6%AB%E0%A6%BF%E0%A6%B8%E0%A7%87%E0%A6%B0_%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%AA%E0%A6%A8%29.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6_%E0%A6%97%E0%A7%87%E0%A6%9C%E0%A7%87%E0%A6%9F,_%E0%A6%B8%E0%A6%BE%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B9%E0%A6%BF%E0%A6%95,_%E0%A7%A7%E0%A6%AE_%E0%A6%B8%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BE%E0%A6%B9,_%E0%A6%A8%E0%A6%AD%E0%A7%87%E0%A6%AE%E0%A7%8D%E0%A6%AC%E0%A6%B0_%E0%A7%A8%E0%A7%A6%E0%A7%A7%E0%A7%A9_-_%E0%A6%96%E0%A6%A3%E0%A7%8D%E0%A6%A1_%E0%A7%AA_(%E0%A6%AA%E0%A7%87%E0%A6%9F%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F_%E0%A6%85%E0%A6%AB%E0%A6%BF%E0%A6%B8%E0%A7%87%E0%A6%B0_%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%AA%E0%A6%A8).pdf",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=189517415",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2026-04-17 11:13:13",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "বাংলাদেশ গেজেট, সাপ্তাহিক, ১ম সপ্তাহ, নভেম্বর ২০১৩ - খণ্ড ৪ (পেটেন্ট অফিসের প্রজ্ঞাপন)",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Uploaded with pypan|Bangladesh Weekly Gazette 2013 - Patent office notifications",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Notifications etc., issued by the Patent office other than those included in part-I.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2013-11-07",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Department_of_Printing_and_Publications\" class=\"extiw\" title=\"w:en:Department of Printing and Publications\"><span title=\"Bangladesh government department\">Department of Printing and Publications</span></a>\n</bdi>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Government_of_Bangladesh\" class=\"extiw\" title=\"w:en:Government of Bangladesh\"><span title=\"National government of Bangladesh\">Government of Bangladesh</span></a>\n</bdi>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "EdictGov-Bangladesh",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "EdictGov-Bangladesh",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            }
+          },
+          "mime": "application/pdf"
+        }
+      ],
+      "status": "needs_match_review"
+    },
+    {
+      "id": "11",
+      "name": "Sri Sri Sri Kanakamahalakshmi Devasthanam",
+      "query": "Sri Sri Sri Kanakamahalakshmi Devasthanam Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "12",
+      "name": "Shivalayam , Vatluru",
+      "query": "Shivalayam , Vatluru Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "13",
+      "name": "Navayuga Fast Foods",
+      "query": "Navayuga Fast Foods Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "14",
+      "name": "Punnami Family Restaurant",
+      "query": "Punnami Family Restaurant Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "15",
+      "name": "EFOUR",
+      "query": "EFOUR Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "16",
+      "name": "Vihari Robo Restaurant",
+      "query": "Vihari Robo Restaurant Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "17",
+      "name": "Siva Grand",
+      "query": "Siva Grand Eluru",
+      "osmImage": null,
+      "candidates": [
+        {
+          "title": "File:The Indian Antiquary Vol 29.pdf",
+          "size": 121910341,
+          "width": 1356,
+          "height": 1785,
+          "pagecount": 477,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/The_Indian_Antiquary_Vol_29.pdf/page1-1280px-The_Indian_Antiquary_Vol_29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 1580,
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/The_Indian_Antiquary_Vol_29.pdf/page1-1280px-The_Indian_Antiquary_Vol_29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 1580
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/The_Indian_Antiquary_Vol_29.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:The_Indian_Antiquary_Vol_29.pdf",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=112073348",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2021-12-05 06:38:22",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "The Indian Antiquary Vol 29",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "PD-old-70-expired|The Indian Antiquary|CC-PD-Mark|PD-old missing SDC copyright status|English Books uploaded by User Hrishikes",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "The Indian Antiquary Vol 29",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "1900",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://babel.hathitrust.org/cgi/pt?id=coo.31924079325506\">https://babel.hathitrust.org/cgi/pt?id=coo.31924079325506</a>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "Richard Carnac Temple",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "Public domain",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Public domain",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Copyrighted": {
+              "value": "False",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "pd",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "application/pdf"
+        }
+      ],
+      "status": "needs_match_review"
+    },
+    {
+      "id": "18",
+      "name": "Brundavan Park",
+      "query": "Brundavan Park Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "19",
+      "name": "jesus park",
+      "query": "jesus park Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "20",
+      "name": "Laymens Evangelical Fellowship Church",
+      "query": "Laymens Evangelical Fellowship Church Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "21",
+      "name": "El-Shaddai Prayer House",
+      "query": "El-Shaddai Prayer House Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "22",
+      "name": "Maha Lakshmi Devi Temple",
+      "query": "Maha Lakshmi Devi Temple Eluru",
+      "osmImage": null,
+      "candidates": [],
+      "status": "no_candidates"
+    },
+    {
+      "id": "23",
+      "name": "Sai Baba Temple",
+      "query": "Sai Baba Temple Eluru",
+      "osmImage": null,
+      "candidates": [
+        {
+          "title": "File:Sai Baba stupam, Pedavegi (May 2019) 5.jpg",
+          "size": 8488953,
+          "width": 6000,
+          "height": 4000,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_5.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 800,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_5.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_5.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 800,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_5.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sai_Baba_stupam,_Pedavegi_(May_2019)_5.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79107015",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2019-05-21 09:50:09",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Sai Baba stupam, Pedavegi (May 2019) 5",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Self-published work|Sai Baba temples|Images by User:I.Mahesh",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Sai Baba stupam near Eluru",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2019-05-21 11:01:08",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:IM3847\" class=\"mw-redirect\" title=\"User:IM3847\">IM3847</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        },
+        {
+          "title": "File:Sai Baba stupam, Pedavegi (May 2019) 6.jpg",
+          "size": 5065121,
+          "width": 3922,
+          "height": 5887,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_6.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 1801,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_6.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_6.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 1801,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_6.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sai_Baba_stupam,_Pedavegi_(May_2019)_6.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79107023",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2019-05-21 09:50:16",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Sai Baba stupam, Pedavegi (May 2019) 6",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Self-published work|Sai Baba temples|Images by User:I.Mahesh",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Sai Baba stupam near Eluru",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2019-05-21 10:52:37",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:IM3847\" class=\"mw-redirect\" title=\"User:IM3847\">IM3847</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        },
+        {
+          "title": "File:Sai Baba stupam, Pedavegi (May 2019) 7.jpg",
+          "size": 5674064,
+          "width": 4000,
+          "height": 6000,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_7.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 1800,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_7.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_7.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 1800,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_7.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sai_Baba_stupam,_Pedavegi_(May_2019)_7.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79107027",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2019-05-21 09:50:20",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Sai Baba stupam, Pedavegi (May 2019) 7",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Self-published work|Sai Baba temples|Images by User:I.Mahesh",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Sai Baba stupam near Eluru",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2019-05-21 10:54:36",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:IM3847\" class=\"mw-redirect\" title=\"User:IM3847\">IM3847</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        },
+        {
+          "title": "File:Sai Baba stupam, Pedavegi (May 2019) 10.jpg",
+          "size": 6772197,
+          "width": 5828,
+          "height": 3883,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_10.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 800,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_10.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_10.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 800,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_10.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sai_Baba_stupam,_Pedavegi_(May_2019)_10.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79107058",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2019-05-21 09:50:40",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Sai Baba stupam, Pedavegi (May 2019) 10",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Self-published work|Sai Baba temples|Images by User:I.Mahesh",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Sai Baba stupam near Eluru",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2019-05-21 11:01:35",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:IM3847\" class=\"mw-redirect\" title=\"User:IM3847\">IM3847</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        },
+        {
+          "title": "File:Sai Baba stupam, Pedavegi (May 2019) 11.jpg",
+          "size": 8154408,
+          "width": 6000,
+          "height": 4000,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_11.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 1200,
+          "thumbheight": 800,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_11.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_11.jpg/1280px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 1200,
+            "height": 800,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_11.jpg/3840px-Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Sai_Baba_stupam%2C_Pedavegi_%28May_2019%29_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sai_Baba_stupam,_Pedavegi_(May_2019)_11.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79107063",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2019-05-21 09:50:45",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Sai Baba stupam, Pedavegi (May 2019) 11",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Self-published work|Sai Baba temples|Images by User:I.Mahesh",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Sai Baba stupam near Eluru",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2019-05-21 10:55:10",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:IM3847\" class=\"mw-redirect\" title=\"User:IM3847\">IM3847</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ],
+      "status": "needs_match_review"
+    }
+  ],
+  "review": {
+    "accepted": [
+      {
+        "place": "Brundavan Park",
+        "source": "https://commons.wikimedia.org/wiki/File:Pedestrian_Bridge_in_Brudhavan_Gardens.jpg",
+        "evidence": "Exact park and Eluru identified in description; reviewed actual image",
+        "captured": "2017-05-14"
+      }
+    ],
+    "rejected": {
+      "Chapel": "Candidate location 81.051749 differs from imported chapel at 81.0945752",
+      "Grand Aryas": "Photo depicts police quarters viewed from hotel, not hotel itself",
+      "Sai Baba Temple": "Candidates depict Pedavegi stupam, not the imported Eluru temple"
+    },
+    "remaining": "No verified reusable match from this search; keep existing images"
+  }
+}
