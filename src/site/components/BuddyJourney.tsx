@@ -29,14 +29,16 @@ export type JourneyCity = {
 export function BuddyJourney({
     cities,
     places,
+    initialPlaceSlug,
 }: {
+    initialPlaceSlug?: string
     cities: JourneyCity[]
     places: JourneyPlace[]
 }) {
     const { locale } = useChrome()
     const te = locale === 'te'
     const { startPoint } = useLocation()
-    const [selectedId, setSelectedId] = useState<number | null>(null)
+    const [selectedId, setSelectedId] = useState<number | null>(() => places.find(place => place.slug === initialPlaceSlug)?.id ?? null)
     const [mode, setMode] = useState<TravelMode | null>(null)
     const heading = useRef<HTMLHeadingElement>(null)
     const [category, setCategory] = useState<number | null>(null)
@@ -78,7 +80,7 @@ export function BuddyJourney({
                     <div>
                         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-teal-brand-dark"><Compass className="size-4" aria-hidden="true" />{te ? 'మీ స్థానిక గైడ్' : `Your local guide · ${cityName}`}</p>
                         <h1 className="mt-2 font-display text-3xl tracking-tight text-ink sm:text-4xl">{te ? 'ఈ రోజు ఎక్కడికి వెళ్దాం?' : 'Where shall we go today?'}</h1>
-                        <p className="mt-2 text-sm text-ink-soft">{te ? 'ఒక ప్రదేశాన్ని ఎంచుకోండి. అక్కడికి వెళ్లే దారిని చూద్దాం.' : 'Pick a place. Find your way. Make the day yours.'}</p>
+                        <p className="mt-2 text-sm text-ink-soft">{te ? 'ఒక ప్రదేశాన్ని ఎంచుకోండి. అక్కడికి వెళ్లే దారిని చూద్దాం.' : 'We’ll choose a place, set your starting point, then find your way there.'}</p>
                     </div>
                     <Link href="/attractions" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-hairline bg-white px-4 text-sm font-semibold text-ink hover:bg-teal-wash focus-visible:outline-2 focus-visible:outline-teal-brand">{te ? 'అన్ని వివరాలు' : 'Browse place details'}<ArrowRight className="size-4" aria-hidden="true" /></Link>
                 </header>
@@ -162,8 +164,8 @@ export function BuddyJourney({
                         {!selected ? <div className="overflow-hidden rounded-2xl border border-hairline bg-white">
                             <div className="relative aspect-[2/1] bg-teal-wash"><PlaceImage name="your next outing" category="Explore" sizes="(max-width: 1024px) 90vw, 480px" /></div>
                             <div className="p-6">
-                                <h3 className="font-display text-2xl text-ink">{te ? 'మంచి ప్రదేశంతో మొదలుపెడదాం.' : 'Every good day starts somewhere.'}</h3>
-                                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{te ? 'జాబితాలోని ప్రదేశాన్ని ఎంచుకోండి. ప్రయాణ వివరాలు ఇక్కడ కనిపిస్తాయి.' : 'Choose “Plan a visit” beside a place. We’ll put the practical details here, so you can head out with confidence.'}</p>
+                                <h3 className="font-display text-2xl text-ink">{te ? 'మంచి ప్రదేశంతో మొదలుపెడదాం.' : 'New here? Start with one place.'}</h3>
+                                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{te ? 'జాబితాలోని ప్రదేశాన్ని ఎంచుకోండి. ప్రయాణ వివరాలు ఇక్కడ కనిపిస్తాయి.' : 'You don’t need to recognise the names. Read what each place is, then choose “Plan a visit”. I’ll help you with the next step.'}</p>
                                 <ol className="mt-6 space-y-4 text-sm text-ink-soft">{(te ? ['ఒక ప్రదేశాన్ని ఎంచుకోండి', 'ప్రారంభ స్థానం ఎంచుకోండి', 'ప్రయాణ విధానం, దిశలు'] : ['A place you want to see', 'A starting point that suits you', 'Transport and directions']).map((label, index) => <li key={label} className="flex items-center gap-3"><span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-teal-wash text-xs font-semibold text-teal-brand-dark">{index + 1}</span>{label}</li>)}</ol>
                             </div>
                         </div> : <>
@@ -192,8 +194,8 @@ export function BuddyJourney({
                             <p className="mt-2 flex items-start gap-2 text-sm text-ink-soft"><MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />{selected.address}</p>
                         </aside>
                         <div className="rounded-b-2xl border border-t-0 border-hairline bg-white p-4 sm:p-5">
-                        <h3 className="text-lg font-semibold text-ink">{te ? 'ఎక్కడి నుండి బయలుదేరుతారు?' : 'Start from somewhere familiar'}</h3>
-                        <p className="mt-2 text-sm text-ink-soft">{te ? 'మీ స్థానం లేదా నగర కేంద్రాన్ని ఎంచుకోండి.' : 'Use your location, or choose the city centre. Either works.'}</p>
+                        <h3 className="text-lg font-semibold text-ink">{te ? 'ఎక్కడి నుండి బయలుదేరుతారు?' : '1. Where are you starting?'}</h3>
+                        <p className="mt-2 text-sm text-ink-soft">{te ? 'మీ స్థానం లేదా నగర కేంద్రాన్ని ఎంచుకోండి.' : 'If you’re not sure, choose the city centre for a reference route. It is not your current location.'}</p>
                         <LocationNotice className="mt-4" />
                         {!destination ? (
                             <p className="mt-4">
@@ -217,7 +219,7 @@ export function BuddyJourney({
                                 <p className="mt-5 text-base text-ink-soft">
                                     {te
                                         ? 'మీకు అనుకూలమైన విధానాన్ని ఎంచుకోండి. మార్గం, సేవల లభ్యతను మ్యాప్స్‌లో తనిఖీ చేయండి.'
-                                        : 'Choose what suits you. Route suitability and local service availability need to be checked in Maps.'}
+                                        : '2. How would you like to travel? Choose a starting point above to continue. Check the route and local service availability in Maps.'}
                                 </p>
                                 <ul className="mt-3 grid gap-3 sm:grid-cols-2">
                                     {TRAVEL_MODE_ORDER.map((option) => {

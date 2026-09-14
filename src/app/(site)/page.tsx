@@ -6,6 +6,7 @@ import { LocalText } from '@/site/components/LocalText'
 import { getPlacesForJourney } from '@/site/api/getPlacesForJourney'
 import { getFeaturedAttractions } from '@/site/api/getPublishedAttractions'
 import { AttractionCard } from '@/site/components/AttractionCard'
+import { NewVisitorStart } from '@/site/components/NewVisitorStart'
 import { HomeHero } from '@/site/components/HomeHero'
 
 export const revalidate = 60
@@ -52,10 +53,7 @@ export default async function HomePage() {
                     )}
             />
 
-            <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-5 sm:px-8">
-                <p className="text-base text-ink-soft"><LocalText en="Found a place? Let’s work out how to get there." te="ప్రదేశాన్ని ఎంచుకున్నారా? అక్కడికి వెళ్లే దారిని చూద్దాం." /></p>
-                <Link href="/guide" className="inline-flex min-h-11 items-center gap-2 rounded-lg px-2 font-semibold text-teal-brand-dark underline underline-offset-4"><LocalText en="Plan your visit" te="సందర్శనను ప్లాన్ చేయండి" /><ArrowRight className="size-4" aria-hidden="true" /></Link>
-            </div>
+            <NewVisitorStart cityName={cityName} places={places} />
 
             <section
                 id="places"
@@ -69,7 +67,7 @@ export default async function HomePage() {
                             className="font-display text-3xl leading-tight text-ink sm:text-4xl"
                         >
                             <LocalText
-                                en={`Places to discover in ${cityName}`}
+                                en={`More places in ${cityName}`}
                                 te={`${cityName}లో చూడదగిన ప్రదేశాలు`}
                             />
                         </h2>
