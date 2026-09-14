@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -19,9 +19,12 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Travel Buddy CMS",
-  description: "Manage travel content.",
+  title: "Travel Buddy",
+  description: "Your local friend for places, visiting tips and directions.",
+  appleWebApp: { capable: true, title: "Travel Buddy", statusBarStyle: "default" },
 };
+
+export const viewport: Viewport = { themeColor: "#155e57", width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

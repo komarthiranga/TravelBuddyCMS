@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { InstallApp } from '@/site/components/InstallApp'
 import { LocalText } from '@/site/components/LocalText'
 
 import { getSelectedCity } from '@/site/lib/selected-city'
@@ -36,6 +37,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
                         {children}
                     </main>
 
+                    <InstallApp />
                     <footer className="mt-8 border-t border-hairline bg-ink text-white">
                         <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.5fr_1fr_1fr]">
                             <div>

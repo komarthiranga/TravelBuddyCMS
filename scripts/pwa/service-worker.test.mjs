@@ -1,0 +1,10 @@
+import {test} from 'node:test'
+import assert from 'node:assert/strict'
+import vm from 'node:vm'
+import fs from 'node:fs'
+const source=fs.readFileSync('public/sw.js','utf8')
+function setup(fetch){const listeners={};const deleted=[];const offline=new Response('offline');vm.runInNewContext(source,{URL,Response,fetch,caches:{match:async()=>offline,keys:async()=>['unrelated-cache','travel-buddy-offline-v0','travel-buddy-offline-v1'],delete:async key=>deleted.push(key)},self:{location:{origin:'https://travel.example'},addEventListener:(name,fn)=>listeners[name]=fn,clients:{claim:async()=>{}}}});return {listeners,offline,deleted}}
+test('offline navigation to public places gets fallback',async()=>{const {listeners,offline}=setup(async()=>{throw new Error('offline')});let response;listeners.fetch({request:{url:'https://travel.example/attractions/park',method:'GET',mode:'navigate'},respondWith:p=>response=p});assert.equal(await response,offline)})
+test('CMS, API, POST, external and RSC requests stay outside worker handling',()=>{const {listeners}=setup(()=>{throw new Error('must not fetch')});for(const [path,method,mode] of [['/attraction/1','GET','navigate'],['/api/directions','GET','cors'],['/','POST','navigate'],['/attractions','GET','cors'],['https://outside.example/','GET','navigate']]){listeners.fetch({request:{url:path.startsWith('https')?path:`https://travel.example${path}`,method,mode},respondWith:()=>assert.fail('intercepted excluded request')})}})
+test('successful navigation preserves network response',async()=>{const fresh=new Response('fresh');const {listeners}=setup(async()=>fresh);let response;listeners.fetch({request:{url:'https://travel.example/',method:'GET',mode:'navigate'},respondWith:p=>response=p});assert.equal(await response,fresh)})
+test('activation only deletes older Travel Buddy offline caches',async()=>{const {listeners,deleted}=setup(()=>{});let work;listeners.activate({waitUntil:p=>work=p});await work;assert.deepEqual(deleted,['travel-buddy-offline-v0'])})
