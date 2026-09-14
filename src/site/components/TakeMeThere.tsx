@@ -160,7 +160,7 @@ export function DirectionsSummary({
                 href={googleMapsDirUrl(origin, destination, mode)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-amber-brand px-5 py-3 text-center font-semibold text-ink focus-visible:outline-2 focus-visible:outline-teal-brand"
+                className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl buddy-primary px-5 py-3 text-center font-semibold focus-visible:outline-2 focus-visible:outline-teal-brand"
             >
                 <ExternalLink className="size-4 shrink-0" aria-hidden="true" />
                 {te ? 'Google Mapsలో తెరవండి' : 'Open in Google Maps'}
@@ -174,7 +174,7 @@ export function DirectionsSummary({
                 <button
                     type="button"
                     onClick={onContinue}
-                    className="mt-4 min-h-12 w-full rounded-full border border-ink/20 px-4 font-semibold focus-visible:outline-2 focus-visible:outline-teal-brand"
+                    className="mt-4 min-h-12 w-full rounded-xl border border-ink/20 px-4 font-semibold focus-visible:outline-2 focus-visible:outline-teal-brand"
                 >
                     {continueLabel}
                 </button>

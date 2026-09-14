@@ -29,13 +29,13 @@ export default async function HomePage() {
             <HomeHero
                 cityName={cityName}
                 places={places
-                    .slice(0, 8)
                     .map(
                         ({
                             id,
                             short_name,
                             slug,
                             category_name,
+                            category_id,
                             short_description,
                             primary_image,
                             primary_image_alt,
@@ -44,6 +44,7 @@ export default async function HomePage() {
                             short_name,
                             slug,
                             category_name,
+                            category_id,
                             short_description,
                             primary_image,
                             primary_image_alt,
@@ -59,7 +60,7 @@ export default async function HomePage() {
             <section
                 id="places"
                 aria-labelledby="places-heading"
-                className="border-b border-hairline bg-white py-8 sm:py-12"
+                className="border-b border-hairline bg-cream py-8 sm:py-12"
             >
                 <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
                     <div className="flex flex-wrap items-end justify-between gap-4">
@@ -68,7 +69,7 @@ export default async function HomePage() {
                             className="font-display text-3xl leading-tight text-ink sm:text-4xl"
                         >
                             <LocalText
-                                en={`More of ${cityName}`}
+                                en={`Places to discover in ${cityName}`}
                                 te={`${cityName}లో చూడదగిన ప్రదేశాలు`}
                             />
                         </h2>

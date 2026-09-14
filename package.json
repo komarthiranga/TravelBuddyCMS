@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "places:compare": "node --env-file=.env.local scripts/compare-places.mjs",
+    "test:places": "node --test scripts/places/providers.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

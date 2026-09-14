@@ -1,3 +1,4 @@
+import { PlaceImage } from '@/site/components/PlaceImage'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -144,18 +145,8 @@ export default async function AttractionDetailPage({
             />
 
             <header className="relative isolate min-h-[28svh] overflow-hidden bg-ink text-white sm:min-h-[38svh]">
-                {hero ? (
-                    <Image
-                        src={hero.image_url}
-                        alt={hero.alt_text ?? attraction.short_name}
-                        fill
-                        preload
-                        sizes="100vw"
-                        className="object-cover"
-                    />
-                ) : (
-                    <div aria-hidden="true" className="absolute inset-0 grain" />
-                )}
+                <PlaceImage src={hero?.image_url} alt={hero?.alt_text} name={attraction.short_name}
+                    category={attraction.category_name} eager sizes="100vw" />
                 <div
                     aria-hidden="true"
                     className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/20"
@@ -197,7 +188,7 @@ export default async function AttractionDetailPage({
                     <TakeMeThere
                         destination={origin}
                         destinationName={attraction.short_name}
-                        className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-brand px-6 text-base font-semibold text-ink outline-none hover:bg-amber-brand-dark hover:text-white disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-teal-brand"
+                        className="inline-flex min-h-12 items-center gap-2 rounded-xl buddy-primary px-6 text-base font-semibold outline-none disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-teal-brand"
                     />
                     <SavePlaceButton place={{ id: attraction.id, name: attraction.short_name, slug: attraction.slug, city: attraction.city_name }} />
                     {!origin && <p className="w-full text-sm text-ink-soft"><LocalText en="Exact coordinates aren’t available. Use the address link below to find this place." te="ఖచ్చితమైన స్థానం అందుబాటులో లేదు. దిగువ చిరునామా లింక్ ఉపయోగించండి." /></p>}
@@ -307,22 +298,8 @@ export default async function AttractionDetailPage({
                                         className="group flex min-h-12 gap-4 rounded-2xl border border-hairline bg-white p-3 outline-none hover:shadow-card focus-visible:ring-2 focus-visible:ring-teal-brand"
                                     >
                                         <span className="relative size-20 shrink-0 overflow-hidden rounded-xl bg-teal-wash">
-                                            {place.primary_image ? (
-                                                <Image
-                                                    src={place.primary_image}
-                                                    alt={place.primary_image_alt ?? place.short_name}
-                                                    fill
-                                                    sizes="80px"
-                                                    className="object-cover"
-                                                />
-                                            ) : (
-                                                <span className="flex size-full items-center justify-center">
-                                                    <MapPin
-                                                        className="size-5 text-teal-brand/40"
-                                                        aria-hidden="true"
-                                                    />
-                                                </span>
-                                            )}
+                                            <PlaceImage src={place.primary_image} alt={place.primary_image_alt}
+                                                name={place.short_name} category={place.category_name} sizes="80px" compact />
                                         </span>
                                         <span className="flex min-w-0 flex-1 flex-col justify-center">
                                             <span className="text-sm font-medium text-teal-brand-dark">

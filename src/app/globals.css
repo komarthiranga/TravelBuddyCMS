@@ -102,16 +102,17 @@
   --brand-foreground: oklch(0.99 0 0);
   --brand-muted: oklch(0.95 0.02 194);
   --sand: oklch(0.97 0.017 82);
-  /* Public site palette */
-  --ink: oklch(0.21 0.025 255);
-  --ink-soft: oklch(0.32 0.022 255);
-  --amber-brand: oklch(0.74 0.155 58);
-  --amber-brand-dark: oklch(0.63 0.16 48);
-  --teal-brand: oklch(0.52 0.088 195);
-  --teal-brand-dark: oklch(0.42 0.08 197);
-  --teal-wash: oklch(0.955 0.022 195);
-  --cream: oklch(0.988 0.007 85);
-  --hairline: oklch(0.912 0.008 85);
+  /* Travel Buddy: warm surfaces, evergreen actions, sunlit accents. */
+  --ink: #202B29;
+  --ink-soft: #52615C;
+  --amber-brand: #F4A340;
+  --amber-brand-dark: #945010;
+  --teal-brand: #155E57;
+  --teal-brand-dark: #104B45;
+  --teal-wash: #EAF4F0;
+  --cream: #FFFFFF;
+  --hairline: #DDDFD7;
+
 }
 
 .dark {
@@ -622,3 +623,30 @@
 /* Keep Buddy calm while people read and choose. */
 .buddy-pose-talk, .buddy-pose-point, .buddy-shadow-talk, .buddy-shadow-point { animation: none; }
 .buddy-pose-wave, .buddy-pose-wave .buddy-mascot-arm, .buddy-shadow-wave { animation-iteration-count: 2; }
+
+/* Static colour treatment: no image download or animation required. */
+@utility buddy-welcome {
+  background-color: var(--cream);
+  background-image: radial-gradient(ellipse at 90% 15%, #DCEFF7 0%, transparent 60%),
+    linear-gradient(150deg, #FAF8F3 35%, #F5EBD4 100%);
+}
+@utility buddy-primary {
+  background-color: #155E57;
+  color: #FFFFFF;
+  border: 1px solid transparent;
+  &:hover { background-color: #104B45; }
+  &:active { background-color: #0B3934; }
+  &:focus-visible { outline: 2px solid var(--teal-brand); outline-offset: 3px; }
+}
+
+@utility buddy-selected {
+  background-color: #E4F1F7;
+  color: #163B4A;
+  border-color: #426B80;
+}
+
+@utility buddy-postcard {
+  background: #FFFFFF;
+  border: 1px solid #D8E1DF;
+  box-shadow: 0 12px 32px -18px #163B4A66;
+}

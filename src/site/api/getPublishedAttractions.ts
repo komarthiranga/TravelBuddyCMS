@@ -25,7 +25,7 @@ export type PublicAttractionCard = {
     primary_image_alt: string | null
 }
 
-export async function getPublishedAttractions(options?: {
+type PlaceFilters = {
     page?: number
     pageSize?: number
     cityId?: number
@@ -33,10 +33,9 @@ export async function getPublishedAttractions(options?: {
     search?: string
     free?: boolean
     open?: boolean
-}): Promise<{ rows: PublicAttractionCard[]; total: number; page: number; pageCount: number; pageSize: number }> {
-    const pageSize = options?.pageSize ?? 12
-    const page = Math.max(1, options?.page ?? 1)
+}
 
+function placeConditions(options?: PlaceFilters) {
     const conditions = [eq(attractionTable.status, 'PUBLISHED'), eq(attractionTable.is_active, true)]
     if (options?.cityId) conditions.push(eq(attractionTable.city_id, options.cityId))
     if (options?.categoryId) conditions.push(eq(attractionTable.category_id, options.categoryId))
@@ -59,7 +58,21 @@ export async function getPublishedAttractions(options?: {
             (${attractionTable.opening_time} > ${attractionTable.closing_time} AND (${now} >= ${attractionTable.opening_time} OR ${now} < ${attractionTable.closing_time}))
         )`)
     }
-    const where = and(...conditions)
+    return and(...conditions)
+}
+
+export async function getAttractionSuggestions(options?: PlaceFilters) {
+    return db.select({ id: attractionTable.id, name: attractionTable.short_name, category: categoryTable.name })
+        .from(attractionTable)
+        .innerJoin(categoryTable, eq(attractionTable.category_id, categoryTable.id))
+        .where(placeConditions({ ...options, search: undefined }))
+        .orderBy(attractionTable.short_name)
+}
+
+export async function getPublishedAttractions(options?: PlaceFilters): Promise<{ rows: PublicAttractionCard[]; total: number; page: number; pageCount: number; pageSize: number }> {
+    const pageSize = options?.pageSize ?? 12
+    const page = Math.max(1, options?.page ?? 1)
+    const where = placeConditions(options)
 
     const [{ total }] = await db
         .select({ total: count() })

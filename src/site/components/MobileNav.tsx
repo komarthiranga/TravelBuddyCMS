@@ -36,7 +36,7 @@ export function MobileNav() {
                                 href={item.href}
                                 aria-current={active ? 'page' : undefined}
                                 className={`flex min-h-14 flex-col items-center justify-center gap-1 text-sm font-semibold outline-none focus-visible:ring-2 focus-visible:ring-teal-brand ${
-                                    active ? 'text-ink' : 'text-ink-soft'
+                                    active ? 'bg-teal-wash text-teal-brand-dark border-t-2 border-teal-brand' : 'text-ink-soft border-t-2 border-transparent'
                                 }`}
                             >
                                 <item.icon className="size-5" aria-hidden="true" />

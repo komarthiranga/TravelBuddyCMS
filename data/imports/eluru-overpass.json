@@ -1,0 +1,7135 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-14T09:01:36Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 571470318,
+      "lat": 16.7104257,
+      "lon": 81.1153816,
+      "tags": {
+        "alt_name:hi": "एलूरु",
+        "capital": "5",
+        "name": "Eluru",
+        "name:ar": "إيلورو",
+        "name:azb": "ایلورو",
+        "name:de": "Eluru",
+        "name:en": "Eluru",
+        "name:es": "Eluru",
+        "name:fa": "ایلورو",
+        "name:fr": "Eluru",
+        "name:hi": "एलुरु",
+        "name:ja": "エルール",
+        "name:kn": "ಏಲೂರು",
+        "name:ml": "ഏലൂരു",
+        "name:mr": "एलुरु",
+        "name:or": "ଏଲୁରୁ",
+        "name:pa": "ਇਲੁਰੁ",
+        "name:ru": "Элуру",
+        "name:sr": "Елуру",
+        "name:ta": "ஏலூரு",
+        "name:te": "ఏలూరు",
+        "name:ur": "ایلورو",
+        "place": "city",
+        "population": "203780",
+        "population:date": "2011",
+        "postal_code": "534001",
+        "wikidata": "Q1003496"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1884817313,
+      "lat": 16.7181031,
+      "lon": 81.1194761,
+      "tags": {
+        "alt_name:hi": "एलूरु",
+        "internet_access": "wlan",
+        "name": "Eluru",
+        "name:ar": "إيلورو",
+        "name:azb": "ایلورو",
+        "name:de": "Eluru",
+        "name:en": "Eluru",
+        "name:es": "Eluru",
+        "name:fa": "ایلورو",
+        "name:fr": "Eluru",
+        "name:hi": "एलुरु",
+        "name:ja": "エルール",
+        "name:pa": "ਇਲੁਰੁ",
+        "name:sr": "Елуру",
+        "name:te": "ఏలూరు",
+        "name:ur": "ایلورو",
+        "network": "IR",
+        "operator": "Indian Railways",
+        "public_transport": "station",
+        "railway": "station",
+        "ref": "EE",
+        "wikidata": "Q5367926"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1884817314,
+      "lat": 16.7109509,
+      "lon": 81.1061557,
+      "tags": {
+        "name": "Powerpet",
+        "place": "suburb"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1884817315,
+      "lat": 16.7131385,
+      "lon": 81.1065788,
+      "tags": {
+        "internet_access": "no",
+        "name": "Powerpet",
+        "network": "IR",
+        "operator": "Indian Railways",
+        "railway": "halt",
+        "ref": "PRH",
+        "wikidata": "Q24943306",
+        "wikipedia": "en:Powerpet railway station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1884817316,
+      "lat": 16.7006128,
+      "lon": 81.0509733,
+      "tags": {
+        "name": "Vatluru",
+        "name:te": "వట్లూరు",
+        "place": "village",
+        "wikidata": "Q16902571"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2847481850,
+      "lat": 16.7093096,
+      "lon": 81.1170724,
+      "tags": {
+        "name": "Mastan Manyam Colony",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2847576864,
+      "lat": 16.7028736,
+      "lon": 81.1059981,
+      "tags": {
+        "name": "Main Bazar",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2851304721,
+      "lat": 16.7192869,
+      "lon": 81.1103843,
+      "tags": {
+        "name": "Aadivarapupeta",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2851304724,
+      "lat": 16.7193466,
+      "lon": 81.1041732,
+      "tags": {
+        "name": "Bada Mahalla",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2851304857,
+      "lat": 16.7215147,
+      "lon": 81.0989044,
+      "tags": {
+        "name": "Sanivarapupeta",
+        "name:te": "శనివారపుపేట",
+        "place": "neighbourhood",
+        "ref": "PMGSY:950051",
+        "source": "PMGSY",
+        "wikidata": "Q24943392"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2872067928,
+      "lat": 16.7153145,
+      "lon": 81.1128382,
+      "tags": {
+        "name": "Gun Bazar Road",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2872067929,
+      "lat": 16.7204036,
+      "lon": 81.109346,
+      "tags": {
+        "name": "Yetigattu Road",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2872141602,
+      "lat": 16.7007633,
+      "lon": 81.1166612,
+      "tags": {
+        "name": "Eastern Street",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2872141603,
+      "lat": 16.7113206,
+      "lon": 81.1266143,
+      "tags": {
+        "name": "Komadavolu",
+        "name:te": "కొమడవోలు",
+        "place": "neighbourhood",
+        "ref": "PMGSY:575486",
+        "source": "PMGSY",
+        "wikidata": "Q15693780"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2872141604,
+      "lat": 16.7095881,
+      "lon": 81.0948675,
+      "tags": {
+        "name": "Narasimha Rao Pet",
+        "name:te": "నరసింహారావుపేట",
+        "place": "neighbourhood",
+        "wikidata": "Q24884663"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2872141605,
+      "lat": 16.7022469,
+      "lon": 81.1211855,
+      "tags": {
+        "name": "Vennavalli Vari Peta",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2886954802,
+      "lat": 16.6938812,
+      "lon": 81.0443766,
+      "tags": {
+        "internet_access": "no",
+        "name": "Vatlur",
+        "network": "IR",
+        "operator": "Indian Railways",
+        "public_transport": "station",
+        "railway": "station",
+        "ref": "VAT",
+        "wikidata": "Q17100195"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3589740828,
+      "lat": 16.7100487,
+      "lon": 81.1102151,
+      "tags": {
+        "name": "chandana brothers cloth shoeroom"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4426326391,
+      "lat": 16.7056716,
+      "lon": 81.1118856,
+      "tags": {
+        "name": "Telugu",
+        "name:en": "Telugu",
+        "name:hi": "Konda",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4558045727,
+      "lat": 16.7072523,
+      "lon": 81.0894002,
+      "tags": {
+        "amenity": "bus_station",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Eluru New APSRTC Bus Station",
+        "operator": "APSRTC",
+        "operator:type": "government",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no",
+        "wheelchair": "yes",
+        "wikidata": "Q23808486",
+        "wikipedia": "en:Eluru New bus station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773374381,
+      "lat": 16.6823116,
+      "lon": 81.1409858,
+      "tags": {
+        "name": "Jalipudi",
+        "name:te": "జాలిపూడి",
+        "place": "village",
+        "wikidata": "Q15701871"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773375167,
+      "lat": 16.7534813,
+      "lon": 81.079236,
+      "tags": {
+        "name": "Vanguru",
+        "name:te": "వంగూరు",
+        "place": "village",
+        "wikidata": "Q24952399"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773375204,
+      "lat": 16.7554076,
+      "lon": 81.1372253,
+      "tags": {
+        "name": "Uppugudem",
+        "name:te": "ఉప్పుగూడెం",
+        "place": "village",
+        "wikidata": "Q48726855"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773375208,
+      "lat": 16.7507948,
+      "lon": 81.1146733,
+      "tags": {
+        "name": "Somavarappadu",
+        "name:te": "సోమవరప్పాడు",
+        "place": "village",
+        "wikidata": "Q24944040"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773375436,
+      "lat": 16.6627041,
+      "lon": 81.1079141,
+      "tags": {
+        "name": "Ponangi",
+        "name:te": "పోణంగి",
+        "place": "village",
+        "wikidata": "Q30623830"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773375437,
+      "lat": 16.6648626,
+      "lon": 81.0817787,
+      "tags": {
+        "name": "Mupparru",
+        "name:te": "ముప్పర్రు",
+        "place": "village",
+        "wikidata": "Q24943995"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773375438,
+      "lat": 16.6838183,
+      "lon": 81.0922738,
+      "tags": {
+        "name": "Burugagudem",
+        "name:te": "బూరుగుగూడెం",
+        "place": "neighbourhood",
+        "wikidata": "Q30623871"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773375439,
+      "lat": 16.6842052,
+      "lon": 81.0851475,
+      "tags": {
+        "name": "Kothuru",
+        "name:te": "కొత్తూరు",
+        "place": "village",
+        "wikidata": "Q30623878"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773375440,
+      "lat": 16.7446459,
+      "lon": 81.0592052,
+      "tags": {
+        "name": "Pinakadimi",
+        "name:te": "పినకడిమి",
+        "place": "village",
+        "wikidata": "Q24952412"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5080778189,
+      "lat": 16.7107261,
+      "lon": 81.0944733,
+      "tags": {
+        "junction": "roundabout",
+        "name": "Fire Station Junction",
+        "wikidata": "Q28173248",
+        "wikipedia": "en:Fire Station Junction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5080778198,
+      "lat": 16.7095341,
+      "lon": 81.0908275,
+      "tags": {
+        "building": "yes",
+        "name": "Panchayati raj Executive Engineer office"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5080778199,
+      "lat": 16.7097306,
+      "lon": 81.0905539,
+      "tags": {
+        "building": "yes",
+        "name": "Department of panchayati Raj, Eluru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5080778200,
+      "lat": 16.7096227,
+      "lon": 81.0903145,
+      "tags": {
+        "building": "yes",
+        "name": "Rural water suply and sanitation, sub division, eluru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5189756725,
+      "lat": 16.7138913,
+      "lon": 81.1052986,
+      "tags": {
+        "addr:housenumber": "20c-9-2",
+        "addr:postcode": "534002",
+        "addr:street": "Power Pet Station Road",
+        "amenity": "courthouse",
+        "name": "Eluru poverpata"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5485055386,
+      "lat": 16.7241974,
+      "lon": 81.1399761,
+      "tags": {
+        "name": "Malkapuram",
+        "name:te": "మల్కాపురం",
+        "place": "village",
+        "wikidata": "Q13005695"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5485055387,
+      "lat": 16.6932859,
+      "lon": 81.1420438,
+      "tags": {
+        "name": "Babukhangudem",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5485055388,
+      "lat": 16.7000573,
+      "lon": 81.1369888,
+      "tags": {
+        "name": "Chataparru",
+        "name:te": "చాటపర్రు",
+        "place": "village",
+        "wikidata": "Q5087506"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5632390084,
+      "lat": 16.679992,
+      "lon": 81.1316749,
+      "tags": {
+        "name": "Katlampudi",
+        "name:te": "కట్లంపూడి",
+        "place": "village",
+        "wikidata": "Q12992635"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5632390085,
+      "lat": 16.6873012,
+      "lon": 81.1251383,
+      "tags": {
+        "name": "Madepalle",
+        "name:te": "మాదేపల్లి",
+        "place": "village",
+        "wikidata": "Q13006115"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5632390086,
+      "lat": 16.678366,
+      "lon": 81.1244164,
+      "tags": {
+        "name": "Lingaraogudem",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5632390089,
+      "lat": 16.7028871,
+      "lon": 81.0678118,
+      "tags": {
+        "name": "Satrampadu",
+        "name:te": "సత్రంపాడు",
+        "place": "village",
+        "wikidata": "Q24943382",
+        "wikipedia": "en:Satrampadu"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5632390090,
+      "lat": 16.711488,
+      "lon": 81.0596761,
+      "tags": {
+        "name": "Kottavuru",
+        "place": "hamlet"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5632390091,
+      "lat": 16.7298565,
+      "lon": 81.070354,
+      "tags": {
+        "name": "Duggirala",
+        "name:te": "దుగ్గిరాల",
+        "place": "village",
+        "wikidata": "Q12999847",
+        "wikipedia": "te:దుగ్గిరాల (పెదవేగి మండలం)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5632390092,
+      "lat": 16.7296154,
+      "lon": 81.0808161,
+      "tags": {
+        "name": "Sanivarapupeta",
+        "name:te": "శనివారపుపేట",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5632391125,
+      "lat": 16.6683307,
+      "lon": 81.0852235,
+      "tags": {
+        "name": "Tallagudem",
+        "name:te": "తాళ్లగూడెం",
+        "place": "village",
+        "wikidata": "Q30623892"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760203493,
+      "lat": 16.6945,
+      "lon": 81.0918045,
+      "tags": {
+        "amenity": "school",
+        "name": "Mathew Memorial High School"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760203494,
+      "lat": 16.6961982,
+      "lon": 81.0938859,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Hospital Canteen"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760203495,
+      "lat": 16.696301,
+      "lon": 81.0945752,
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "chapel",
+        "denomination": "catholic",
+        "name": "Chapel",
+        "religion": "christian",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760203504,
+      "lat": 16.7115751,
+      "lon": 81.0962316,
+      "tags": {
+        "amenity": "school",
+        "name": "St Theresa's School"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760203505,
+      "lat": 16.7099015,
+      "lon": 81.093623,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Grand Aryas Food Court"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760203506,
+      "lat": 16.7099349,
+      "lon": 81.0936177,
+      "tags": {
+        "name": "Grand Aryas",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6342498988,
+      "lat": 16.7089436,
+      "lon": 81.1021072,
+      "tags": {
+        "building": "yes",
+        "name": "BSNL Office"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6372304564,
+      "lat": 16.7050129,
+      "lon": 81.0816942,
+      "tags": {
+        "addr:city": "eluru",
+        "addr:postcode": "534001",
+        "addr:street": "Grand National Trunk Road (GNT Road)",
+        "name": "crr group of institutions",
+        "office": "educational_institution",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6372307611,
+      "lat": 16.7204762,
+      "lon": 81.0874725,
+      "tags": {
+        "addr:city": "eluru",
+        "addr:postcode": "534001",
+        "addr:street": "Nuzividu - Eluru Road",
+        "amenity": "bank",
+        "atm": "yes",
+        "brand": "Andhra Bank",
+        "brand:wikidata": "Q2003476",
+        "brand:wikipedia": "en:Andhra Bank",
+        "drive_through": "yes",
+        "name": "Andhra Bank"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6372307622,
+      "lat": 16.7095853,
+      "lon": 81.0980377,
+      "tags": {
+        "addr:city": "eluru",
+        "addr:postcode": "534001",
+        "addr:street": "Power Pet Station Road",
+        "amenity": "bank",
+        "drive_through": "yes",
+        "name": "District cooperative bank"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6372328203,
+      "lat": 16.7385851,
+      "lon": 81.0630642,
+      "tags": {
+        "addr:city": "eluru",
+        "addr:postcode": "534003",
+        "addr:street": "Nuzividu - Eluru Road",
+        "amenity": "bank",
+        "atm": "yes",
+        "brand": "Indian Overseas Bank",
+        "brand:wikidata": "Q2003611",
+        "brand:wikipedia": "en:Indian Overseas Bank",
+        "drive_through": "yes",
+        "name": "Indian Overseas Bank"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6372427503,
+      "lat": 16.7453003,
+      "lon": 81.0413532,
+      "tags": {
+        "addr:city": "koppaka",
+        "addr:postcode": "GAIL check point",
+        "addr:street": "Nuzividu - Eluru Road",
+        "landuse": "military",
+        "military": "checkpoint",
+        "name": "gail check point"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6749298083,
+      "lat": 16.7119489,
+      "lon": 81.0947549,
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:district": "WEST GODAVARI",
+        "addr:full": "General Hospital Premises",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "contact:mobile": "9848177142",
+        "contact:phone": "08812 224722",
+        "email": "redcrosseluru@gmail.com",
+        "healthcare": "blood_bank",
+        "name": "Indian Red Cross Society Component Blood Bank",
+        "opening_hours": "24/7",
+        "operator:type": "charity",
+        "source": "OpenGovernmentData",
+        "website": "http://www.indianredcross.ap.org"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6749333392,
+      "lat": 16.6964834,
+      "lon": 81.0948515,
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:district": "WEST GODAVARI",
+        "addr:full": "D.No.13-1, Good Samaritan Cancer and General Hospital, Vangayagudem",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "contact:mobile": "9440470715",
+        "contact:phone": "08812 246430; 08812 246947",
+        "email": "samaritaneluru@gmail.com",
+        "healthcare": "blood_bank",
+        "name": "Good Samaritan's Blood Bank",
+        "opening_hours": "24/7",
+        "operator:type": "private",
+        "source": "OpenGovernmentData",
+        "website": "http://goodsmaritanhospitals.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6751486165,
+      "lat": 16.7367194,
+      "lon": 81.1441344,
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:district": "WEST GODAVARI",
+        "addr:full": "Ground Floor, Hospital Block, NH 5",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "contact:mobile": "07382626281; 07382626282",
+        "contact:phone": "08812 288288; 08812 288299",
+        "email": "asrams@yahoo.com",
+        "healthcare": "blood_bank",
+        "name": "Alluri Sitrarama Raju Academy of Medical Sciences' Blood Bank",
+        "opening_hours": "24/7",
+        "operator:type": "charity",
+        "source": "OpenGovernmentData",
+        "website": "https://www.asram.in/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6751543684,
+      "lat": 16.7124087,
+      "lon": 81.0954684,
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:district": "WEST GODAVARI",
+        "addr:full": "Government Headquarters Hospital, Ground Floor, R.R. Peta",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "contact:phone": "08812 220333",
+        "email": "wgbloodbank@gmail.com",
+        "healthcare": "blood_bank",
+        "name": "Government Hospital's Blood Bank",
+        "opening_hours": "24/7",
+        "operator:type": "government",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6758598414,
+      "lat": 16.7067513,
+      "lon": 81.0887964,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Near New Bus Stand , N R Pet, Eleru",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Prashanti Hospitals Uro Gyneac Infertility Centre",
+        "opening_hours": "24/7",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6758637427,
+      "lat": 16.7084256,
+      "lon": 81.0925327,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "John St, N.R. Pet, Eluru-2",
+        "addr:postcode": "534204",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "contact:phone": "08812-223060",
+        "healthcare": "hospital",
+        "name": "Siri Hospital",
+        "opening_hours": "24/7",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6758735939,
+      "lat": 16.7069985,
+      "lon": 81.0885859,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "H.No: 25-19-10, Narsimharao Pet Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "contact:phone": "8812231797",
+        "name": "Kay Vee Hospital",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6758780461,
+      "lat": 16.7087814,
+      "lon": 81.0918327,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "R.V. Rama Raostreet, Narasimharao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Shri Krishna Mother and Child Hospital",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6758795616,
+      "lat": 16.7115983,
+      "lon": 81.0999437,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "contact:phone": "8179759592",
+        "name": "Sankara Netra Chikitsalaya",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6758818877,
+      "lat": 16.7147708,
+      "lon": 81.1008435,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Bendapudivari Street, Rama Mahal Road, R.R Peta",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "contact:phone": "8812244955",
+        "name": "Bhuvaneshwari Hospital",
+        "opening_hours": "24/7",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6768567094,
+      "lat": 16.7139013,
+      "lon": 81.1004546,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Rangoon Building St, Ramchandra Rao Pet",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "contact:phone": "8812230902",
+        "name": "Mother Child Hospital",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6773465564,
+      "lat": 16.7131666,
+      "lon": 81.0999437,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Beside Ramachandra Rao Pet Park",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Vijaya Hospital",
+        "opening_hours": "24/7",
+        "phone": "08812-230500",
+        "source": "OpenGovernmentData",
+        "website": "http://vijayahospitals.in/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6782263530,
+      "lat": 16.7135545,
+      "lon": 81.1004774,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramchandra Rao Pet",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Kamala Hospitals",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6787350817,
+      "lat": 16.7129701,
+      "lon": 81.1029638,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "H.No: 23B-5/90, Edaravari Street, Ramachandra Rao Peta, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "contact:mobile": "9494230935",
+        "contact:phone": "08812-230935",
+        "fax": "240935",
+        "name": "Swaruparani Nursing Home",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6791932251,
+      "lat": 16.7109695,
+      "lon": 81.1008657,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Uppu Rama Rao St, Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Yasoda Hospital",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6798102743,
+      "lat": 16.7141761,
+      "lon": 81.1015999,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Papasaheb Street, Vijaya Vihar Centre",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Mahalakshmi Hospitals",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6804691759,
+      "lat": 16.7144574,
+      "lon": 81.1018614,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Subbamma Devi School Road, R.R.Pet, Eluru,",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "contact:phone": "08812-240063,240064",
+        "name": "Sri Maruthi Hospital",
+        "source": "OpenGovernmentData"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7125415885,
+      "lat": 16.7277575,
+      "lon": 81.0800053,
+      "tags": {
+        "amenity": "place_of_worship",
+        "name": "Dasanjaneya Swamy Temple",
+        "religion": "hindu",
+        "survey:date": "2020-01-12"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7125459785,
+      "lat": 16.7222857,
+      "lon": 81.0801109,
+      "tags": {
+        "amenity": "community_centre",
+        "name": "Saradhi Function Hall",
+        "survey:date": "2020-01-12"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769497,
+      "lat": 16.7161511,
+      "lon": 81.0961282,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Sri Sairam Multi Speciality Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769498,
+      "lat": 16.7126041,
+      "lon": 81.0984157,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "City Dental Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769499,
+      "lat": 16.70845,
+      "lon": 81.110176,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Eluru",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Satya Dental Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769500,
+      "lat": 16.7012926,
+      "lon": 81.1071464,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Paidichintapadu, Eluru",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Eluru Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769502,
+      "lat": 16.7216947,
+      "lon": 81.1096637,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Tengellamudi, Lunani Nagar, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Himaja Hospitals",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769503,
+      "lat": 16.7114282,
+      "lon": 81.099914,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Sri Vamsi Skin Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769504,
+      "lat": 16.71066,
+      "lon": 81.099987,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Sai Krishna Mother & Child Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769505,
+      "lat": 16.7156367,
+      "lon": 81.1007623,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Susrutha ENT & Skin Hospital & HCG Cancer Centre",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769506,
+      "lat": 16.714785,
+      "lon": 81.101784,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Santosh Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769507,
+      "lat": 16.7115009,
+      "lon": 81.101421,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Lakshmi Skin Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769508,
+      "lat": 16.7151865,
+      "lon": 81.0953537,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ashok Nagar, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "healthcare:speciality": "orthopaedics",
+        "name": "Prabha Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769509,
+      "lat": 16.7113832,
+      "lon": 81.1014027,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Sri Balaji Multi Speciality Dental Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769510,
+      "lat": 16.713689,
+      "lon": 81.100781,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Little Hearts Children's Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769511,
+      "lat": 16.7211671,
+      "lon": 81.1063651,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Lunani Nagar, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Padma Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769512,
+      "lat": 16.7190138,
+      "lon": 81.0912437,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ashok Nagar, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Chaitra Hospitals",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769514,
+      "lat": 16.7061539,
+      "lon": 81.1135883,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Paidichintapadu, Eluru",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Ravi Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769515,
+      "lat": 16.7132397,
+      "lon": 81.1026676,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "SS Dental Care",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769516,
+      "lat": 16.7151846,
+      "lon": 81.112584,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "health_facility:type": "dispensary",
+        "healthcare": "centre",
+        "name": "ESI Dispensary",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769517,
+      "lat": 16.7145332,
+      "lon": 81.0975306,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Vijaya Multi Speciality Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769518,
+      "lat": 16.7111947,
+      "lon": 81.101147,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "A.A Hospitals",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769519,
+      "lat": 16.71603,
+      "lon": 81.099493,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Sai Children's Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769521,
+      "lat": 16.7134216,
+      "lon": 81.0976851,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Keerthi Physiotherapy Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769522,
+      "lat": 16.7218945,
+      "lon": 81.1003915,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Thangallamudi, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Sai Lakshmi Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769523,
+      "lat": 16.713634,
+      "lon": 81.101985,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "RR Peta, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Star Dental Experts",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769524,
+      "lat": 16.705432,
+      "lon": 81.073966,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Satrampadu, Eluru",
+        "addr:postcode": "534007",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Sri Manga Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769525,
+      "lat": 16.7130705,
+      "lon": 81.0984594,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Eluru Children's Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769527,
+      "lat": 16.708916,
+      "lon": 81.091485,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Narasimharao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Sri Chaitanya Dental Care",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769529,
+      "lat": 16.714636,
+      "lon": 81.0984165,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Smile Dental Care",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769530,
+      "lat": 16.7231569,
+      "lon": 81.1110914,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Tengellamudi, Lunani Nagar, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Mukhyamantri Aarogya Kendram",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769531,
+      "lat": 16.7145352,
+      "lon": 81.100888,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Chanchaya Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769532,
+      "lat": 16.708044,
+      "lon": 81.091302,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Narasimharao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Sri Ramakrishna Dentofacial Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769534,
+      "lat": 16.7053803,
+      "lon": 81.1000237,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Near Telephone Exchange, Eluru",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Leela Vijaya Dental Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769535,
+      "lat": 16.708601,
+      "lon": 81.092084,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Narasimharao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Sri Sidhardha ENT & Dental Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769536,
+      "lat": 16.7138926,
+      "lon": 81.1006632,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "R.R Peta, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Adarsha Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769539,
+      "lat": 16.7140116,
+      "lon": 81.0994975,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Vijaya Skin Hospital & Laser Centre",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769540,
+      "lat": 16.7143112,
+      "lon": 81.0978568,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Global Multispeciality Dental Care",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769541,
+      "lat": 16.7099733,
+      "lon": 81.1142107,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Venna Valli Vari Peta, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Siddhartha Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769543,
+      "lat": 16.7104454,
+      "lon": 81.1126518,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Paidichintapadu, Eluru",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Srinivasa Children Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769544,
+      "lat": 16.7095565,
+      "lon": 81.0938273,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Narasimharao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Murali Krishna Multispeciality & Emergency Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769545,
+      "lat": 16.715114,
+      "lon": 81.103222,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534007",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Siddi Skin Care Centre",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769547,
+      "lat": 16.7108448,
+      "lon": 81.1008947,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Mulukutlavari Street, Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Dr. Bhanu Kiran Dental Care",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769548,
+      "lat": 16.7159813,
+      "lon": 81.0920944,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ameena Peta, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Bhupathi Dental Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769549,
+      "lat": 16.7000131,
+      "lon": 81.1049312,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramkrishnapuram, Paidichintapadu, Eluru",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Jaya Sri Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769550,
+      "lat": 16.714019,
+      "lon": 81.0982128,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Uma Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769551,
+      "lat": 16.71289,
+      "lon": 81.100526,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Vamsi Dental Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769552,
+      "lat": 16.7147526,
+      "lon": 81.1020664,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534003",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "Sri Dental Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769553,
+      "lat": 16.7299191,
+      "lon": 81.073868,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Duggirala, Eluru",
+        "addr:postcode": "534003",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Vamsi Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769554,
+      "lat": 16.711699,
+      "lon": 81.100539,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Sri Dwaraka Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769555,
+      "lat": 16.7166257,
+      "lon": 81.1053295,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "R.R. Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Praja Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769556,
+      "lat": 16.716451,
+      "lon": 81.109788,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Bavananjali Pradamika Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769557,
+      "lat": 16.7147696,
+      "lon": 81.0993842,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Godavari Skin Disease Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769558,
+      "lat": 16.7160059,
+      "lon": 81.1001089,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Sri Nidhi Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769560,
+      "lat": 16.711191,
+      "lon": 81.10059,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Royal ENT Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769561,
+      "lat": 16.7184272,
+      "lon": 81.1108391,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Adivarapupeta, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Dr. Krishna Baghavan General And Diabetic Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769563,
+      "lat": 16.7097094,
+      "lon": 81.1086434,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Eluru",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "dentist",
+        "name": "J.J. Dental Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769564,
+      "lat": 16.7141124,
+      "lon": 81.1027811,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Viswateja Skin & Chest Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769565,
+      "lat": 16.7126787,
+      "lon": 81.1211505,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Jayaprakash Nagar, Nagendra Colony, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Asram Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769567,
+      "lat": 16.7116813,
+      "lon": 81.0982853,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Venkatasai Gastro Super Speciality Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769568,
+      "lat": 16.714429,
+      "lon": 81.100876,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Amulya Orthopaedic Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769569,
+      "lat": 16.7129965,
+      "lon": 81.1029861,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Dr. Prabhavathi Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769570,
+      "lat": 16.7147861,
+      "lon": 81.1124973,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Prasad Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769571,
+      "lat": 16.7246452,
+      "lon": 81.0879729,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ashok Nagar, Sanivarapu Peta, Gavaravaram, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Dr. Surapaneni Krishnamurti Helapuri Lions Kanti Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769572,
+      "lat": 16.7073562,
+      "lon": 81.0972771,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Rama Krishna Puram, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "doctors",
+        "name": "Dr. P.S. Kamalakara Rao",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769574,
+      "lat": 16.7158083,
+      "lon": 81.1114689,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Sri Sai Durga Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769577,
+      "lat": 16.7123487,
+      "lon": 81.1009483,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Powerpet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Andhra Hospitals",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769578,
+      "lat": 16.706559,
+      "lon": 81.076213,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Santhi Nagar, Eluru",
+        "addr:postcode": "534007",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Tapaswi Homeo Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7791769579,
+      "lat": 16.7288528,
+      "lon": 81.0777377,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Sanivarapupeta, Eluru",
+        "addr:postcode": "534006",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "clinic",
+        "name": "Sri Srinivasa Clinic",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8387034093,
+      "lat": 16.714239,
+      "lon": 81.096889,
+      "tags": {
+        "amenity": "ice_cream",
+        "name": "Ibaco",
+        "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8387034102,
+      "lat": 16.71303,
+      "lon": 81.0974606,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "U.S.Pizza.Co"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8387034111,
+      "lat": 16.7140867,
+      "lon": 81.0968327,
+      "tags": {
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Dr.Agarwals's Eye Hospital"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8387034112,
+      "lat": 16.7139346,
+      "lon": 81.0968815,
+      "tags": {
+        "name": "Ramraj Cotton",
+        "not:brand:wikidata": "Q7131643",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8387034113,
+      "lat": 16.7167622,
+      "lon": 81.0973007,
+      "tags": {
+        "landuse": "residential",
+        "name": "Srivalli Palace",
+        "residential": "apartments"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8387034114,
+      "lat": 16.7172897,
+      "lon": 81.0975268,
+      "tags": {
+        "name": "DMart",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8791383925,
+      "lat": 16.750091,
+      "lon": 81.1157875,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Somavarappadu, Eluru",
+        "addr:postcode": "534450",
+        "addr:state": "Andhra Pradesh",
+        "description": "Primary Health Centre",
+        "healthcare": "centre",
+        "name": "Primary Health Centre, Somavarappadu",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8791401087,
+      "lat": 16.7143046,
+      "lon": 81.1005928,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Manchalavari Street, Ramachandra Rao Pet, Eluru",
+        "addr:postcode": "534002",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Sri Lakshmi Krishan Maternity and E.N.T Hospital",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8791456527,
+      "lat": 16.7081931,
+      "lon": 81.1051109,
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Ashok Nagar, Eluru",
+        "addr:postcode": "534001",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "name": "Chaitra Hospitals",
+        "source": "Local Knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9647720439,
+      "lat": 16.7061014,
+      "lon": 81.0893444,
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:postcode": "534006",
+        "addr:street": "Sai Lakshmi Nilayam, k.V. Hospital rd, N Ramachandra Rao Pet",
+        "amenity": "cafe",
+        "branch": "Milk n More (Eluru)",
+        "brand": "Milk n More",
+        "cuisine": "milk;vegetables",
+        "delivery": "yes",
+        "description": "Delivery of purest milk you could ever find (Not from dairy farms, steroid free, no adulteration & no alteration). You could get fresh milk twice-a-day\n\nMilk will be delivered to your home within 2-3 hours from milking & we directly procure milk from farm",
+        "email": "care@milknmore.org",
+        "image": "https://scontent.fmaa11-1.fna.fbcdn.net/v/t39.30808-6/228330803_226111566055490_6574917743916538508_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=T8NbrG9mZ3cAX-Sg5On&_nc_ht=scontent.fmaa11-1.fna&oh=00_AT8cmvZv4sBMvqV07DDR-QwqWj07WncQeuZcvQAmkjMt7g&oe=6",
+        "internet_access": "yes",
+        "internet_access:fee": "customers",
+        "internet_access:ssid": "milknmore",
+        "name": "Milk n More (Eluru)",
+        "opening_hours": "Mo-Su 06:00-22:30",
+        "outdoor_seating": "no",
+        "payment:cash": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+91 7989889297",
+        "takeaway": "only",
+        "website": "https://milknmore.org"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10834366056,
+      "lat": 16.7075172,
+      "lon": 81.0900178,
+      "tags": {
+        "amenity": "bus_station",
+        "bus": "yes",
+        "name": "APSRTC New Bus Station  , Eluru",
+        "public_transport": "station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10834366063,
+      "lat": 16.7113671,
+      "lon": 81.1116194,
+      "tags": {
+        "amenity": "bus_station",
+        "bus": "yes",
+        "name": "APSRTC Old Bus Station , Eluru",
+        "public_transport": "station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10834366064,
+      "lat": 16.7375495,
+      "lon": 81.1405721,
+      "tags": {
+        "amenity": "bus_station",
+        "bus": "yes",
+        "name": "Eluru ASRAM Hospital Bus Stop",
+        "public_transport": "station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10834366065,
+      "lat": 16.7370192,
+      "lon": 81.140937,
+      "tags": {
+        "amenity": "bus_station",
+        "bus": "yes",
+        "name": "Eluru ASRAM Hospital Bus Stop",
+        "public_transport": "station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11383294914,
+      "lat": 16.6628813,
+      "lon": 81.0604854,
+      "tags": {
+        "name": "Andhekhancheruvu",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11383294945,
+      "lat": 16.696029,
+      "lon": 81.0922991,
+      "tags": {
+        "name": "Vangayagudem",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11383294972,
+      "lat": 16.6929259,
+      "lon": 81.0920751,
+      "tags": {
+        "name": "Sainagar",
+        "place": "suburb"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11383294973,
+      "lat": 16.6960458,
+      "lon": 81.0930032,
+      "tags": {
+        "amenity": "bus_station",
+        "bus": "yes",
+        "name": "Vangayagudem Bus Stop",
+        "public_transport": "station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497144,
+      "lat": 16.7077199,
+      "lon": 81.0895047,
+      "tags": {
+        "brand": "Cromā",
+        "brand:wikidata": "Q5187683",
+        "check_date": "2024-02-21",
+        "name": "Cromā",
+        "shop": "electronics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497145,
+      "lat": 16.7078161,
+      "lon": 81.0897069,
+      "tags": {
+        "check_date": "2024-02-21",
+        "name": "CMR",
+        "shop": "mall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497146,
+      "lat": 16.7079635,
+      "lon": 81.0900392,
+      "tags": {
+        "check_date": "2024-02-21",
+        "name": "Malabar",
+        "shop": "jewelry"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497147,
+      "lat": 16.7103035,
+      "lon": 81.0940098,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "Bharat Petroleum",
+        "brand:wikidata": "Q854826",
+        "check_date": "2024-02-21",
+        "name": "Bharat Petroleum"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497148,
+      "lat": 16.7051834,
+      "lon": 81.0795055,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "Hindustan Petroleum",
+        "brand:wikidata": "Q1619375",
+        "check_date": "2024-02-21",
+        "name": "HP",
+        "official_name": "Hindustan Petroleum"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497149,
+      "lat": 16.7043578,
+      "lon": 81.0769185,
+      "tags": {
+        "amenity": "bank",
+        "brand": "State Bank of India",
+        "brand:wikidata": "Q1340361",
+        "check_date": "2024-02-21",
+        "name": "State Bank of India",
+        "short_name": "SBI"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497150,
+      "lat": 16.7044492,
+      "lon": 81.075615,
+      "tags": {
+        "brand": "Honda",
+        "brand:wikidata": "Q9584",
+        "check_date": "2024-02-21",
+        "name": "Honda",
+        "shop": "motorcycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497151,
+      "lat": 16.7045443,
+      "lon": 81.0749842,
+      "tags": {
+        "brand": "Hyundai",
+        "brand:wikidata": "Q55931",
+        "check_date": "2024-02-21",
+        "name": "Hyundai",
+        "shop": "car"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497152,
+      "lat": 16.7046446,
+      "lon": 81.0738495,
+      "tags": {
+        "amenity": "bank",
+        "brand": "ICICI Bank",
+        "brand:wikidata": "Q1653258",
+        "check_date": "2024-02-21",
+        "name": "ICICI Bank",
+        "short_name": "ICICI"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497153,
+      "lat": 16.7046811,
+      "lon": 81.0731482,
+      "tags": {
+        "amenity": "bank",
+        "brand": "Indian Bank",
+        "brand:wikidata": "Q2003789",
+        "check_date": "2024-02-21",
+        "name": "Indian Bank"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497154,
+      "lat": 16.7046641,
+      "lon": 81.0732842,
+      "tags": {
+        "amenity": "bank",
+        "brand": "Kotak Mahindra Bank",
+        "brand:wikidata": "Q2040404",
+        "check_date": "2024-02-21",
+        "name": "Kotak Mahindra Bank"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497155,
+      "lat": 16.7045569,
+      "lon": 81.0732585,
+      "tags": {
+        "check_date": "2024-02-21",
+        "name": "Siddhartha",
+        "office": "educational_institution"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497156,
+      "lat": 16.7039816,
+      "lon": 81.0705464,
+      "tags": {
+        "check_date": "2024-02-21",
+        "name": "Sonovision",
+        "shop": "appliance"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497157,
+      "lat": 16.701359,
+      "lon": 81.0648978,
+      "tags": {
+        "amenity": "bank",
+        "brand": "HDFC Bank",
+        "brand:wikidata": "Q631047",
+        "check_date": "2024-02-21",
+        "name": "HDFC Bank",
+        "short_name": "HDFC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497158,
+      "lat": 16.700537,
+      "lon": 81.0604649,
+      "tags": {
+        "brand": "Maruti Suzuki",
+        "brand:wikidata": "Q963718",
+        "check_date": "2024-02-21",
+        "name": "Maruti Suzuki",
+        "shop": "car"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497162,
+      "lat": 16.696162,
+      "lon": 81.0515693,
+      "tags": {
+        "amenity": "college",
+        "check_date": "2024-02-21",
+        "name": "CR Reddy Engineering"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648497163,
+      "lat": 16.6926303,
+      "lon": 81.0444293,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "Indian Oil",
+        "brand:wikidata": "Q1289348",
+        "check_date": "2024-02-21",
+        "name": "Indian Oil",
+        "operator": "G.V.S."
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927235991,
+      "lat": 16.7055755,
+      "lon": 81.0839557,
+      "tags": {
+        "amenity": "college",
+        "name": "CRR Grounds"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927235993,
+      "lat": 16.7062506,
+      "lon": 81.0866697,
+      "tags": {
+        "amenity": "college",
+        "name": "Sri CRR Inter College"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927235994,
+      "lat": 16.7068892,
+      "lon": 81.0863799,
+      "tags": {
+        "amenity": "college",
+        "name": "Sir C R Reddy (A) college canteen"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927235995,
+      "lat": 16.7066023,
+      "lon": 81.0859049,
+      "tags": {
+        "amenity": "college",
+        "name": "Sir C.R. Reddy Autonomous College"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927235996,
+      "lat": 16.7042236,
+      "lon": 81.0791333,
+      "tags": {
+        "amenity": "college",
+        "name": "Sir C.R. Reddy Public School"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927235997,
+      "lat": 16.7039322,
+      "lon": 81.0773036,
+      "tags": {
+        "amenity": "college",
+        "name": "Sir C.R. Reddy College of Pharmaceutical Sciences"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927235998,
+      "lat": 16.694254,
+      "lon": 81.0478653,
+      "tags": {
+        "name": "Showripuram",
+        "place": "hamlet"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927236011,
+      "lat": 16.6949782,
+      "lon": 81.0480255,
+      "tags": {
+        "amenity": "bus_station",
+        "bus": "yes",
+        "name": "Sir C.R.Reddy College of Engineering Bus Stop",
+        "public_transport": "station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927236054,
+      "lat": 16.6910643,
+      "lon": 81.052606,
+      "tags": {
+        "name": "APHB Colony",
+        "place": "hamlet"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927277413,
+      "lat": 16.6959023,
+      "lon": 81.0645513,
+      "tags": {
+        "amenity": "events_venue",
+        "name": "Kranthi Kalyana Vedika - Kranthi Function Hall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927277420,
+      "lat": 16.6968263,
+      "lon": 81.0676048,
+      "tags": {
+        "amenity": "events_venue",
+        "name": "Chalasani Gardens"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927277421,
+      "lat": 16.7017841,
+      "lon": 81.0782043,
+      "tags": {
+        "name": "Postal Colony",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927277422,
+      "lat": 16.7024785,
+      "lon": 81.0532489,
+      "tags": {
+        "amenity": "place_of_worship",
+        "name": "Sri Sri Sri Kanakamahalakshmi Devasthanam",
+        "religion": "hindu"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927277423,
+      "lat": 16.7020904,
+      "lon": 81.0518788,
+      "tags": {
+        "amenity": "place_of_worship",
+        "name": "Shivalayam , Vatluru",
+        "religion": "hindu"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927277443,
+      "lat": 16.6996998,
+      "lon": 81.0570162,
+      "tags": {
+        "amenity": "bus_station",
+        "bus": "yes",
+        "name": "CRR Womens College Request Bus Stop",
+        "public_transport": "station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927277453,
+      "lat": 16.7001181,
+      "lon": 81.0549983,
+      "tags": {
+        "name": "Sri Ram Nagar",
+        "place": "quarter"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927277454,
+      "lat": 16.6990926,
+      "lon": 81.0860849,
+      "tags": {
+        "name": "Hanuman Nagar",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11927277455,
+      "lat": 16.6978849,
+      "lon": 81.1209452,
+      "tags": {
+        "name": "Venkatapuram",
+        "place": "village"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11974286350,
+      "lat": 16.7133145,
+      "lon": 81.114952,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "Bharat Petroleum",
+        "brand:wikidata": "Q854826",
+        "check_date": "2024-06-12",
+        "name": "Bharat Petroleum"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11974286351,
+      "lat": 16.7102551,
+      "lon": 81.0952037,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "Bharat Petroleum",
+        "brand:wikidata": "Q854826",
+        "check_date": "2024-06-12",
+        "name": "Bharat Petroleum"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11974286352,
+      "lat": 16.7104242,
+      "lon": 81.0948665,
+      "tags": {
+        "amenity": "fast_food",
+        "check_date": "2024-06-12",
+        "name": "Navayuga Fast Foods"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11974286353,
+      "lat": 16.7096907,
+      "lon": 81.0930323,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2024-06-12",
+        "name": "Punnami Family Restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11974329715,
+      "lat": 16.7330109,
+      "lon": 81.1363009,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "Indian Oil",
+        "brand:wikidata": "Q1289348",
+        "check_date": "2024-06-12",
+        "name": "Indian Oil"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12679709778,
+      "lat": 16.7087774,
+      "lon": 81.0887571,
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:district": "Eluru",
+        "addr:postcode": "534006",
+        "addr:street": "Opp NEW RTC BUS STAND",
+        "leisure": "park",
+        "mobile": "+919293929292",
+        "name": "EFOUR",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "operator": "Jayanarayana Kureti",
+        "operator:type": "private"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12854619411,
+      "lat": 16.7034097,
+      "lon": 81.1013709,
+      "tags": {
+        "amenity": "school",
+        "name": "Ganganamma School",
+        "operator": "Department of School Education",
+        "operator:type": "government",
+        "operator:wikidata": "Q134113948"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12854619412,
+      "lat": 16.703455,
+      "lon": 81.1015348,
+      "tags": {
+        "amenity": "school",
+        "name": "Ganganamma School Ground"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12854628200,
+      "lat": 16.7027932,
+      "lon": 81.1000783,
+      "tags": {
+        "name": "Ayyappa Fancy store",
+        "shop": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13478907511,
+      "lat": 16.7222527,
+      "lon": 81.1043638,
+      "tags": {
+        "name": "Tangellamudi",
+        "place": "suburb"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13478927006,
+      "lat": 16.7244549,
+      "lon": 81.1279697,
+      "tags": {
+        "name": "Turupulakulu",
+        "place": "hamlet"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13514497291,
+      "lat": 16.6969107,
+      "lon": 81.1062438,
+      "tags": {
+        "name": "Paidichintapadu",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13514497292,
+      "lat": 16.7015364,
+      "lon": 81.0994297,
+      "tags": {
+        "name": "Westren Street",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13514497293,
+      "lat": 16.6991765,
+      "lon": 81.1072888,
+      "tags": {
+        "name": "Southern Street",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13737418585,
+      "lat": 16.7113321,
+      "lon": 81.1102582,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Vihari Robo Restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13737474459,
+      "lat": 16.7201778,
+      "lon": 81.0920334,
+      "tags": {
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Aayush Hospitals"
+      }
+    },
+    {
+      "type": "way",
+      "id": 135417080,
+      "center": {
+        "lat": 16.6734196,
+        "lon": 81.128037
+      },
+      "tags": {
+        "highway": "primary",
+        "lane_markings": "yes",
+        "lanes": "2",
+        "lit": "no",
+        "maxspeed": "50",
+        "name": "Eluru - Kaikaluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "no",
+        "ref": "SH258",
+        "smoothness": "intermediate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 135417091,
+      "center": {
+        "lat": 16.6512242,
+        "lon": 81.1765428
+      },
+      "tags": {
+        "boundary": "protected_area",
+        "leisure": "nature_reserve",
+        "name": "Kolleru WLS",
+        "protect_class": "4",
+        "wikidata": "Q17014014",
+        "wikipedia": "en:Kolleru Bird Sanctuary"
+      }
+    },
+    {
+      "type": "way",
+      "id": 178103332,
+      "center": {
+        "lat": 16.7058652,
+        "lon": 81.1050298
+      },
+      "tags": {
+        "highway": "secondary",
+        "name": "Eluru - Kaikaluru Road",
+        "network": "IN:SH:AP",
+        "ref": "MDR076"
+      }
+    },
+    {
+      "type": "way",
+      "id": 178103342,
+      "center": {
+        "lat": 16.7134067,
+        "lon": 81.11281
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "primary",
+        "lane_markings": "yes",
+        "lanes": "2",
+        "layer": "1",
+        "lit": "no",
+        "maxspeed": "50",
+        "name": "Eluru railway station Road",
+        "oneway": "no",
+        "ref": "SH258",
+        "smoothness": "intermediate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 178103348,
+      "center": {
+        "lat": 16.7103647,
+        "lon": 81.0950589
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 178103354,
+      "center": {
+        "lat": 16.6905928,
+        "lon": 81.0403597
+      },
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06"
+      }
+    },
+    {
+      "type": "way",
+      "id": 178103356,
+      "center": {
+        "lat": 16.7147697,
+        "lon": 81.1128486
+      },
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "50",
+        "name": "Jangareddy Gudem Road",
+        "ref": "MDR077"
+      }
+    },
+    {
+      "type": "way",
+      "id": 178103357,
+      "center": {
+        "lat": 16.7239706,
+        "lon": 81.1268278
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR08",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 219009917,
+      "center": {
+        "lat": 16.7399765,
+        "lon": 81.1038594
+      },
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "1",
+        "name": "Service Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 219009918,
+      "center": {
+        "lat": 16.7695885,
+        "lon": 81.1314634
+      },
+      "tags": {
+        "highway": "primary",
+        "maxspeed": "60",
+        "name": "Eluru - Jangareddigudem Road",
+        "network": "IN:SH:AP",
+        "ref": "SH26"
+      }
+    },
+    {
+      "type": "way",
+      "id": 224467943,
+      "center": {
+        "lat": 16.7054666,
+        "lon": 81.1054285
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "st.ann's women college road",
+        "oneway": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 224470109,
+      "center": {
+        "lat": 16.7108322,
+        "lon": 81.1055162
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "sub way"
+      }
+    },
+    {
+      "type": "way",
+      "id": 224470330,
+      "center": {
+        "lat": 16.7132084,
+        "lon": 81.1042894
+      },
+      "tags": {
+        "highway": "tertiary",
+        "maxspeed": "50",
+        "name": "Ramachandra Rao Pet Main Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 224470331,
+      "center": {
+        "lat": 16.712772,
+        "lon": 81.1007551
+      },
+      "tags": {
+        "highway": "tertiary",
+        "maxspeed": "50",
+        "name": "Ramachandra Rao Pet Main Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 224473792,
+      "center": {
+        "lat": 16.7094952,
+        "lon": 81.1002668
+      },
+      "tags": {
+        "industrial": "factory",
+        "landuse": "industrial",
+        "name": "Jute Mill"
+      }
+    },
+    {
+      "type": "way",
+      "id": 232850006,
+      "center": {
+        "lat": 16.6823465,
+        "lon": 81.0333284
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 245112477,
+      "center": {
+        "lat": 16.7222767,
+        "lon": 81.1244965
+      },
+      "tags": {
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 245112478,
+      "center": {
+        "lat": 16.7820841,
+        "lon": 81.3292493
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 245112483,
+      "center": {
+        "lat": 16.7353184,
+        "lon": 81.1349661
+      },
+      "tags": {
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 245112484,
+      "center": {
+        "lat": 16.7352615,
+        "lon": 81.1350779
+      },
+      "tags": {
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 245112485,
+      "center": {
+        "lat": 16.7285374,
+        "lon": 81.129681
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 245114530,
+      "center": {
+        "lat": 16.7285703,
+        "lon": 81.1295437
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 245114536,
+      "center": {
+        "lat": 16.7222823,
+        "lon": 81.1243226
+      },
+      "tags": {
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 245114538,
+      "center": {
+        "lat": 16.6824984,
+        "lon": 81.033237
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 280473332,
+      "center": {
+        "lat": 16.7123152,
+        "lon": 81.1098179
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "Chunduri Vari Choultry Street"
+      }
+    },
+    {
+      "type": "way",
+      "id": 280690192,
+      "center": {
+        "lat": 16.6954317,
+        "lon": 81.1047416
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Ponangi Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 280723609,
+      "center": {
+        "lat": 16.7110517,
+        "lon": 81.1016708
+      },
+      "tags": {
+        "highway": "tertiary",
+        "maxspeed": "50",
+        "name": "Power Pet Station Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 280723942,
+      "center": {
+        "lat": 16.7128444,
+        "lon": 81.1056403
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Power Pet Station Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 281132125,
+      "center": {
+        "lat": 16.721642,
+        "lon": 81.1042479
+      },
+      "tags": {
+        "highway": "primary",
+        "maxspeed": "60",
+        "name": "Tangellamudi Main Road",
+        "ref": "SH20"
+      }
+    },
+    {
+      "type": "way",
+      "id": 281132148,
+      "center": {
+        "lat": 16.7238231,
+        "lon": 81.0985257
+      },
+      "tags": {
+        "highway": "primary",
+        "maxspeed": "50",
+        "name": "Tangellamudi Main Road",
+        "ref": "SH20"
+      }
+    },
+    {
+      "type": "way",
+      "id": 283341001,
+      "center": {
+        "lat": 16.6969607,
+        "lon": 81.1175945
+      },
+      "tags": {
+        "highway": "primary",
+        "lane_markings": "yes",
+        "lanes": "2",
+        "lit": "no",
+        "maxspeed": "50",
+        "name": "Eluru - Kaikaluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "no",
+        "ref": "SH258",
+        "smoothness": "intermediate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 325900707,
+      "center": {
+        "lat": 16.8661549,
+        "lon": 81.0186674
+      },
+      "tags": {
+        "boat": "no",
+        "name": "Tammileru",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 328436596,
+      "center": {
+        "lat": 16.7084306,
+        "lon": 81.1125823
+      },
+      "tags": {
+        "name": "Gajjala Vari Water Park",
+        "name:en": "Buddha park",
+        "natural": "water",
+        "water": "lake"
+      }
+    },
+    {
+      "type": "way",
+      "id": 328439429,
+      "center": {
+        "lat": 16.7168296,
+        "lon": 81.1308549
+      },
+      "tags": {
+        "boat": "no",
+        "name": "Tammileru",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 384286757,
+      "center": {
+        "lat": 16.7038788,
+        "lon": 81.0381023
+      },
+      "tags": {
+        "highway": "secondary",
+        "name": "Vatluru Road",
+        "ref": "MDR017"
+      }
+    },
+    {
+      "type": "way",
+      "id": 457823356,
+      "center": {
+        "lat": 16.7132147,
+        "lon": 81.1060682
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Ramachandra Rao Pet Main Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 457823706,
+      "center": {
+        "lat": 16.7097428,
+        "lon": 81.0967431
+      },
+      "tags": {
+        "highway": "tertiary",
+        "maxspeed": "50",
+        "name": "Power Pet Station Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 457824209,
+      "center": {
+        "lat": 16.7130637,
+        "lon": 81.1061113
+      },
+      "tags": {
+        "highway": "tertiary",
+        "maxspeed": "50",
+        "name": "Power Pet Station Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 457824210,
+      "center": {
+        "lat": 16.7133202,
+        "lon": 81.1068035
+      },
+      "tags": {
+        "highway": "tertiary",
+        "maxspeed": "50",
+        "name": "Power Pet Station Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 457825002,
+      "center": {
+        "lat": 16.7180824,
+        "lon": 81.1197949
+      },
+      "tags": {
+        "name": "Eluru Railway station 2nd Platform",
+        "railway": "rail"
+      }
+    },
+    {
+      "type": "way",
+      "id": 457825356,
+      "center": {
+        "lat": 16.7176708,
+        "lon": 81.1195888
+      },
+      "tags": {
+        "name": "Eluru railway Station siding",
+        "railway": "rail"
+      }
+    },
+    {
+      "type": "way",
+      "id": 457825357,
+      "center": {
+        "lat": 16.7201891,
+        "lon": 81.1223102
+      },
+      "tags": {
+        "name": "Eluru Railway Station Siding",
+        "railway": "rail"
+      }
+    },
+    {
+      "type": "way",
+      "id": 457825942,
+      "center": {
+        "lat": 16.7294579,
+        "lon": 81.1328982
+      },
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459402301,
+      "center": {
+        "lat": 16.7184112,
+        "lon": 81.1162945
+      },
+      "tags": {
+        "leisure": "stadium",
+        "name": "Alluri Sitarama Raju Stadium",
+        "name:etymology:wikidata": "Q3633008"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459416260,
+      "center": {
+        "lat": 16.7179282,
+        "lon": 81.1197921
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Eluru Railway Station 3rd Platform",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459416264,
+      "center": {
+        "lat": 16.7212725,
+        "lon": 81.1234099
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459416268,
+      "center": {
+        "lat": 16.7213938,
+        "lon": 81.1233405
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459416269,
+      "center": {
+        "lat": 16.7180824,
+        "lon": 81.1197949
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Eluru Railway station 1st platform",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459417789,
+      "center": {
+        "lat": 16.7192001,
+        "lon": 81.1194895
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "3",
+        "maxspeed": "60",
+        "name": "Eluru Railway Station Road",
+        "ref": "MDR06"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459417790,
+      "center": {
+        "lat": 16.7182267,
+        "lon": 81.1126277
+      },
+      "tags": {
+        "highway": "tertiary",
+        "maxspeed": "40",
+        "name": "ASR Stadium Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459419419,
+      "center": {
+        "lat": 16.7019754,
+        "lon": 81.0642388
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459420926,
+      "center": {
+        "lat": 16.7098103,
+        "lon": 81.1062894
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "3",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt",
+        "turn:lanes": "through|through|through"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459596012,
+      "center": {
+        "lat": 16.7124649,
+        "lon": 81.1053352
+      },
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:street": "Power Pet Station Road",
+        "building": "yes",
+        "name": "Powerpet Railway Station",
+        "operator": "Indian Railways"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459596384,
+      "center": {
+        "lat": 16.7113442,
+        "lon": 81.1116977
+      },
+      "tags": {
+        "access": "no",
+        "bus": "yes",
+        "highway": "residential",
+        "name": "APSRTC Eluru Old Bus Station Inner Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459596926,
+      "center": {
+        "lat": 16.715443,
+        "lon": 81.1144109
+      },
+      "tags": {
+        "highway": "secondary",
+        "name": "Jangareddy Gudem Road",
+        "ref": "MDR077"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459597991,
+      "center": {
+        "lat": 16.7339215,
+        "lon": 81.1378262
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459597992,
+      "center": {
+        "lat": 16.7354845,
+        "lon": 81.139523
+      },
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459598029,
+      "center": {
+        "lat": 16.722345,
+        "lon": 81.1250668
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "5",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR08",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459598030,
+      "center": {
+        "lat": 16.7134012,
+        "lon": 81.1144944
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR08",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459598082,
+      "center": {
+        "lat": 16.7240081,
+        "lon": 81.126009
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "3",
+        "maxspeed": "60",
+        "name": "Eluru Railway station Road",
+        "ref": "MDR06"
+      }
+    },
+    {
+      "type": "way",
+      "id": 459598083,
+      "center": {
+        "lat": 16.7221533,
+        "lon": 81.1235174
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "3",
+        "layer": "1",
+        "maxspeed": "60",
+        "name": "Eluru Railway station Road",
+        "ref": "MDR06"
+      }
+    },
+    {
+      "type": "way",
+      "id": 460128807,
+      "center": {
+        "lat": 16.720026,
+        "lon": 81.1092891
+      },
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "60",
+        "name": "Jangareddygudem Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 460128808,
+      "center": {
+        "lat": 16.7121178,
+        "lon": 81.0967484
+      },
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "3",
+        "maxspeed": "50",
+        "name": "Ramachandra Rao Pet Main Road",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 473770192,
+      "center": {
+        "lat": 16.7082148,
+        "lon": 81.0924643
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "Dr John Street"
+      }
+    },
+    {
+      "type": "way",
+      "id": 481804368,
+      "center": {
+        "lat": 16.7077095,
+        "lon": 81.0896579
+      },
+      "tags": {
+        "access": "no",
+        "bus": "yes",
+        "highway": "service",
+        "name": "APSRTC Eluru Bus Station Inner Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494301854,
+      "center": {
+        "lat": 16.7090915,
+        "lon": 81.0911397
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494301855,
+      "center": {
+        "lat": 16.707501,
+        "lon": 81.0874529
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "5",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494302769,
+      "center": {
+        "lat": 16.7066253,
+        "lon": 81.0948881
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "2",
+        "maxspeed": "60",
+        "name": "Mini-Bypass Road",
+        "ref": "MDR080",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494302770,
+      "center": {
+        "lat": 16.7046835,
+        "lon": 81.088152
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "3",
+        "layer": "1",
+        "maxspeed": "60",
+        "name": "Mini-Bypass Road",
+        "ref": "MDR080",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494303278,
+      "center": {
+        "lat": 16.6876583,
+        "lon": 81.10627
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Ponangi Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494303279,
+      "center": {
+        "lat": 16.6805671,
+        "lon": 81.1079294
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "name": "Ponangi Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494485016,
+      "center": {
+        "lat": 16.7166453,
+        "lon": 81.0955304
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "RR Peta Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494512355,
+      "center": {
+        "lat": 16.7141203,
+        "lon": 81.0963457
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "Islampet Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 496232472,
+      "center": {
+        "lat": 16.6552053,
+        "lon": 81.0543336
+      },
+      "tags": {
+        "alt_name": "Satyavolu Road",
+        "highway": "primary",
+        "lanes": "2",
+        "name": "Eluru - Perikeedu Road",
+        "network": "IN:SH:AP",
+        "ref": "SH260",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 496232473,
+      "center": {
+        "lat": 16.6853401,
+        "lon": 81.0821272
+      },
+      "tags": {
+        "alt_name": "Satyavolu Road",
+        "highway": "primary",
+        "lanes": "2",
+        "name": "Eluru - Perikeedu Road",
+        "network": "IN:SH:AP",
+        "ref": "SH260",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 496232474,
+      "center": {
+        "lat": 16.6763375,
+        "lon": 81.073576
+      },
+      "tags": {
+        "alt_name": "Satyavolu Road",
+        "bridge": "yes",
+        "highway": "primary",
+        "lanes": "2",
+        "layer": "1",
+        "name": "Eluru - Perikeedu Road",
+        "network": "IN:SH:AP",
+        "ref": "SH260",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 496347056,
+      "center": {
+        "lat": 16.6711072,
+        "lon": 81.1076353
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Ponangi Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 498304679,
+      "center": {
+        "lat": 16.70812,
+        "lon": 81.0824111
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "ref": "SH209"
+      }
+    },
+    {
+      "type": "way",
+      "id": 498304681,
+      "center": {
+        "lat": 16.7133212,
+        "lon": 81.0856804
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "ref": "SH209"
+      }
+    },
+    {
+      "type": "way",
+      "id": 498304682,
+      "center": {
+        "lat": 16.7171735,
+        "lon": 81.0872208
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "ref": "SH209"
+      }
+    },
+    {
+      "type": "way",
+      "id": 498304701,
+      "center": {
+        "lat": 16.743533,
+        "lon": 81.0487923
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "ref": "SH209"
+      }
+    },
+    {
+      "type": "way",
+      "id": 499143788,
+      "center": {
+        "lat": 16.7081826,
+        "lon": 81.0790088
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "14th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504028274,
+      "center": {
+        "lat": 16.7094393,
+        "lon": 81.0814231
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "9th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504028277,
+      "center": {
+        "lat": 16.7099456,
+        "lon": 81.0819664
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "Ramalayam Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504028279,
+      "center": {
+        "lat": 16.7100295,
+        "lon": 81.0831841
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "Chakala Veedhi"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504028282,
+      "center": {
+        "lat": 16.7085338,
+        "lon": 81.0794516
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "7th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504028283,
+      "center": {
+        "lat": 16.7067692,
+        "lon": 81.0758613
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "13th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504028284,
+      "center": {
+        "lat": 16.7076082,
+        "lon": 81.0785713
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "5th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504028285,
+      "center": {
+        "lat": 16.7069679,
+        "lon": 81.0775848
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "4th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504028286,
+      "center": {
+        "lat": 16.7060346,
+        "lon": 81.0771505
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "2nd Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504028287,
+      "center": {
+        "lat": 16.7065695,
+        "lon": 81.0779313
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "3rd Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504231590,
+      "center": {
+        "lat": 16.707911,
+        "lon": 81.0791536
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "6th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504231591,
+      "center": {
+        "lat": 16.7066454,
+        "lon": 81.0792414
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "10th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504231592,
+      "center": {
+        "lat": 16.7089981,
+        "lon": 81.080677
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "8th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504231603,
+      "center": {
+        "lat": 16.7067473,
+        "lon": 81.0772568
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "12th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504231604,
+      "center": {
+        "lat": 16.7054774,
+        "lon": 81.0779347
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "1st Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 504231611,
+      "center": {
+        "lat": 16.7059723,
+        "lon": 81.0759153
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "1st Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521435950,
+      "center": {
+        "lat": 16.7103938,
+        "lon": 81.0918679
+      },
+      "tags": {
+        "amenity": "library",
+        "name": "Library"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521435951,
+      "center": {
+        "lat": 16.7109999,
+        "lon": 81.0916868
+      },
+      "tags": {
+        "amenity": "bank",
+        "name": "State Bank of India, Eluru"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521435952,
+      "center": {
+        "lat": 16.7109856,
+        "lon": 81.0912906
+      },
+      "tags": {
+        "building": "stadium",
+        "name": "Gymnasium"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521435954,
+      "center": {
+        "lat": 16.7101779,
+        "lon": 81.0904707
+      },
+      "tags": {
+        "name": "District Guest House",
+        "office": "government"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521435955,
+      "center": {
+        "lat": 16.7099883,
+        "lon": 81.0901118
+      },
+      "tags": {
+        "name": "Eluru mandal parishath office",
+        "office": "government"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521435956,
+      "center": {
+        "lat": 16.7095664,
+        "lon": 81.0905853
+      },
+      "tags": {
+        "building": "yes",
+        "name": "zilla parishath office",
+        "office": "government"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521435957,
+      "center": {
+        "lat": 16.7114569,
+        "lon": 81.0887321
+      },
+      "tags": {
+        "name": "district surve office",
+        "office": "government"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521435958,
+      "center": {
+        "lat": 16.7115581,
+        "lon": 81.089082
+      },
+      "tags": {
+        "name": "district bc welfare office",
+        "office": "government"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521435959,
+      "center": {
+        "lat": 16.7109286,
+        "lon": 81.0891497
+      },
+      "tags": {
+        "name": "district collector office",
+        "office": "government"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521439215,
+      "center": {
+        "lat": 16.7099696,
+        "lon": 81.0905384
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "Collector office Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521439217,
+      "center": {
+        "lat": 16.7107171,
+        "lon": 81.0938234
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Fire Station",
+        "office": "government"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521439225,
+      "center": {
+        "lat": 16.7122471,
+        "lon": 81.0929716
+      },
+      "tags": {
+        "amenity": "courthouse",
+        "building": "yes",
+        "name": "District Court"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521444231,
+      "center": {
+        "lat": 16.7138709,
+        "lon": 81.0915963
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "Private road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521444266,
+      "center": {
+        "lat": 16.7104326,
+        "lon": 81.0935916
+      },
+      "tags": {
+        "building": "yes",
+        "name": "departmental store"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521444267,
+      "center": {
+        "lat": 16.7103798,
+        "lon": 81.093315
+      },
+      "tags": {
+        "building": "yes",
+        "name": "departmental store"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521444268,
+      "center": {
+        "lat": 16.7108702,
+        "lon": 81.0935929
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Police Station",
+        "office": "government"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521444299,
+      "center": {
+        "lat": 16.7117023,
+        "lon": 81.0911648
+      },
+      "tags": {
+        "highway": "raceway",
+        "name": "Roller skating track",
+        "sport": "motor"
+      }
+    },
+    {
+      "type": "way",
+      "id": 538531735,
+      "center": {
+        "lat": 16.7135787,
+        "lon": 81.1069486
+      },
+      "tags": {
+        "building": "yes",
+        "name": "1255/35"
+      }
+    },
+    {
+      "type": "way",
+      "id": 538988914,
+      "center": {
+        "lat": 16.7112639,
+        "lon": 81.1038556
+      },
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:housenumber": "22B",
+        "addr:postcode": "534002",
+        "addr:street": "Gadhevari Street",
+        "building": "house",
+        "name": "VenuGopal House"
+      }
+    },
+    {
+      "type": "way",
+      "id": 539003883,
+      "center": {
+        "lat": 16.7112404,
+        "lon": 81.111062
+      },
+      "tags": {
+        "highway": "primary",
+        "lane_markings": "yes",
+        "lanes": "2",
+        "lit": "no",
+        "maxspeed": "50",
+        "name": "Eluru railway station Road",
+        "oneway": "no",
+        "ref": "SH258",
+        "smoothness": "intermediate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 539003884,
+      "center": {
+        "lat": 16.7161391,
+        "lon": 81.1152014
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "3",
+        "maxspeed": "60",
+        "name": "Eluru Railway station Road",
+        "ref": "MDR",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 539003886,
+      "center": {
+        "lat": 16.7097594,
+        "lon": 81.1062761
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "2",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt",
+        "turn:lanes": "through|through"
+      }
+    },
+    {
+      "type": "way",
+      "id": 539011370,
+      "center": {
+        "lat": 16.7104082,
+        "lon": 81.0950687
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 539011376,
+      "center": {
+        "lat": 16.7091439,
+        "lon": 81.0911421
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 539011383,
+      "center": {
+        "lat": 16.710726,
+        "lon": 81.0944721
+      },
+      "tags": {
+        "highway": "secondary",
+        "junction": "roundabout",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06"
+      }
+    },
+    {
+      "type": "way",
+      "id": 545884581,
+      "center": {
+        "lat": 16.7125359,
+        "lon": 81.0972339
+      },
+      "tags": {
+        "amenity": "restaurant",
+        "building": "yes",
+        "cuisine": "regional",
+        "name": "Siva Grand"
+      }
+    },
+    {
+      "type": "way",
+      "id": 545884583,
+      "center": {
+        "lat": 16.7128845,
+        "lon": 81.0970804
+      },
+      "tags": {
+        "addr:housename": "Reliance mart",
+        "addr:street": "VenuGopal House",
+        "building": "yes",
+        "building:levels": "3",
+        "building:material": "plaster",
+        "name": "Reliance Mart",
+        "roof:levels": "0",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 563509936,
+      "center": {
+        "lat": 16.6979562,
+        "lon": 81.0519805
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Vatluru Railway Station Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 563509937,
+      "center": {
+        "lat": 16.6974639,
+        "lon": 81.0511103
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Vatluru Railway Station Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 582235396,
+      "center": {
+        "lat": 16.7403396,
+        "lon": 81.1037417
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Service Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 592993703,
+      "center": {
+        "lat": 16.7369017,
+        "lon": 81.1454151
+      },
+      "tags": {
+        "amenity": "college",
+        "name": "Alluri Sitarama Raju Academy of Medical Sciences",
+        "name:etymology:wikidata": "Q3633008"
+      }
+    },
+    {
+      "type": "way",
+      "id": 592993707,
+      "center": {
+        "lat": 16.7354595,
+        "lon": 81.1481255
+      },
+      "tags": {
+        "building": "yes",
+        "name": "C"
+      }
+    },
+    {
+      "type": "way",
+      "id": 592993710,
+      "center": {
+        "lat": 16.7356618,
+        "lon": 81.1479228
+      },
+      "tags": {
+        "building": "yes",
+        "name": "B"
+      }
+    },
+    {
+      "type": "way",
+      "id": 592993712,
+      "center": {
+        "lat": 16.7358435,
+        "lon": 81.1477044
+      },
+      "tags": {
+        "building": "yes",
+        "name": "A"
+      }
+    },
+    {
+      "type": "way",
+      "id": 592993714,
+      "center": {
+        "lat": 16.736806,
+        "lon": 81.1473708
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Godavari Block",
+        "tourism": "hostel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 592993724,
+      "center": {
+        "lat": 16.7365033,
+        "lon": 81.1436241
+      },
+      "tags": {
+        "addr:district": "West Godavari",
+        "addr:full": "Bypass Road, Malkapuram, Eluru",
+        "addr:postcode": "534005",
+        "addr:state": "Andhra Pradesh",
+        "amenity": "hospital",
+        "building": "yes",
+        "contact:phone": "08812-288288, 288299",
+        "name": "Asram Hospital",
+        "opening_hours": "24/7",
+        "source": "OpenGovernmentData",
+        "website": "https://www.asram.in/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 592993731,
+      "center": {
+        "lat": 16.7371912,
+        "lon": 81.1460112
+      },
+      "tags": {
+        "amenity": "library",
+        "name": "APJ Abdul Kalam Library",
+        "name:etymology:wikidata": "Q9513"
+      }
+    },
+    {
+      "type": "way",
+      "id": 592993735,
+      "center": {
+        "lat": 16.7377732,
+        "lon": 81.1454276
+      },
+      "tags": {
+        "building": "yes",
+        "name": "B Module"
+      }
+    },
+    {
+      "type": "way",
+      "id": 592993739,
+      "center": {
+        "lat": 16.7370995,
+        "lon": 81.1449284
+      },
+      "tags": {
+        "building": "yes",
+        "name": "A Module"
+      }
+    },
+    {
+      "type": "way",
+      "id": 593050437,
+      "center": {
+        "lat": 16.7195862,
+        "lon": 81.0491936
+      },
+      "tags": {
+        "amenity": "college",
+        "name": "Eluru College of Engineering & Technology"
+      }
+    },
+    {
+      "type": "way",
+      "id": 607903215,
+      "center": {
+        "lat": 16.6966015,
+        "lon": 81.0947147
+      },
+      "tags": {
+        "amenity": "hospital",
+        "name": "Good Samaritan Cancer Hospital"
+      }
+    },
+    {
+      "type": "way",
+      "id": 628500690,
+      "center": {
+        "lat": 16.7075705,
+        "lon": 81.0878364
+      },
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "70",
+        "name": "Grand National Trunk Road (GNT Road)",
+        "ref": "MDR",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 647837228,
+      "center": {
+        "lat": 16.698133,
+        "lon": 81.1049227
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Ponangi Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 647837237,
+      "center": {
+        "lat": 16.7005715,
+        "lon": 81.0980897
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Eluru - Perikeedu Road",
+        "ref": "SH260"
+      }
+    },
+    {
+      "type": "way",
+      "id": 662348890,
+      "center": {
+        "lat": 16.6968288,
+        "lon": 81.0676759
+      },
+      "tags": {
+        "amenity": "events_venue",
+        "building": "yes",
+        "name": "Chalasani Gardens"
+      }
+    },
+    {
+      "type": "way",
+      "id": 665131445,
+      "center": {
+        "lat": 16.61831,
+        "lon": 80.9209349
+      },
+      "tags": {
+        "name": "Eluru Kaaluva",
+        "name:en": "Eluru Canal",
+        "name:ta": "ஏலூர் கால்வாய்",
+        "name:te": "ఏలూరు కాలువ",
+        "waterway": "canal"
+      }
+    },
+    {
+      "type": "way",
+      "id": 675618352,
+      "center": {
+        "lat": 16.712279,
+        "lon": 81.0996473
+      },
+      "tags": {
+        "building": "temple",
+        "name": "Venkateswara Swamy Temple",
+        "religion": "hindu"
+      }
+    },
+    {
+      "type": "way",
+      "id": 675621766,
+      "center": {
+        "lat": 16.7156584,
+        "lon": 81.0970818
+      },
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:postcode": "534007",
+        "leisure": "park",
+        "name": "Brundavan Park",
+        "opening_hours": "Mo-Sa 07:00-20:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 677360983,
+      "center": {
+        "lat": 16.7150363,
+        "lon": 81.0965547
+      },
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:postcode": "534007",
+        "amenity": "marketplace",
+        "name": "Raithu bazaar-2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 677361816,
+      "center": {
+        "lat": 16.7118421,
+        "lon": 81.0950823
+      },
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "3",
+        "maxspeed": "50",
+        "name": "Ramachandra Rao Pet Main Road",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 677361823,
+      "center": {
+        "lat": 16.7133436,
+        "lon": 81.0951087
+      },
+      "tags": {
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "healthcare:speciality": "general",
+        "name": "District GOVT. Hospital"
+      }
+    },
+    {
+      "type": "way",
+      "id": 677363559,
+      "center": {
+        "lat": 16.7144093,
+        "lon": 81.1121389
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 677363562,
+      "center": {
+        "lat": 16.7124747,
+        "lon": 81.1053521
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Platform number: 1",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 677363566,
+      "center": {
+        "lat": 16.7143505,
+        "lon": 81.1121692
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 677363570,
+      "center": {
+        "lat": 16.7124225,
+        "lon": 81.1053685
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Platform number :2",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 677363581,
+      "center": {
+        "lat": 16.7820079,
+        "lon": 81.3292578
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680387438,
+      "center": {
+        "lat": 16.6953532,
+        "lon": 81.0508033
+      },
+      "tags": {
+        "amenity": "college",
+        "education": "crr group of institutions",
+        "name": "Sir C.R.Reddy College of Engineering,Eluru",
+        "name:etymology:wikidata": "Q5054050"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680553855,
+      "center": {
+        "lat": 16.7122863,
+        "lon": 81.0900682
+      },
+      "tags": {
+        "addr:city": "eluru",
+        "addr:postcode": "534001",
+        "addr:street": "Collector office Road",
+        "building": "service",
+        "government": "administrative",
+        "name": "District Collector office",
+        "office": "government",
+        "opening_hours": "Mo-Fr 09:00-17:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680553864,
+      "center": {
+        "lat": 16.7135777,
+        "lon": 81.0924927
+      },
+      "tags": {
+        "addr:street": "Ashoknagar road",
+        "amenity": "school",
+        "education": "school",
+        "name": "Suresh Chandra Bahuguna Police E.M. School"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680553865,
+      "center": {
+        "lat": 16.7192518,
+        "lon": 81.0869444
+      },
+      "tags": {
+        "addr:city": "eluru",
+        "addr:postcode": "534001",
+        "addr:street": "Nuzividu - Eluru Road",
+        "building": "school",
+        "layer": "1",
+        "name": "St.Anns group of institutions",
+        "office": "educational_institution"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680553867,
+      "center": {
+        "lat": 16.7111236,
+        "lon": 81.0956345
+      },
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:postcode": "534007",
+        "name": "st.Theresa educational institution",
+        "office": "educational_institution",
+        "opening_hours": "Mo-Fr 09:00-17:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680556121,
+      "center": {
+        "lat": 16.7399431,
+        "lon": 81.0622032
+      },
+      "tags": {
+        "amenity": "college",
+        "name": "st joseph group of institiutions"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680556122,
+      "center": {
+        "lat": 16.7388987,
+        "lon": 81.0624465
+      },
+      "tags": {
+        "addr:city": "eluru",
+        "addr:postcode": "534003",
+        "addr:street": "Nuzividu - Eluru Road",
+        "building": "hospital",
+        "name": "st joseph dental hospital"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680556123,
+      "center": {
+        "lat": 16.7405533,
+        "lon": 81.0604757
+      },
+      "tags": {
+        "addr:postcode": "534003",
+        "addr:street": "Nuzividu - Eluru Road",
+        "amenity": "school",
+        "name": "Silvio pasquali e.m school"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680556124,
+      "center": {
+        "lat": 16.740944,
+        "lon": 81.0593584
+      },
+      "tags": {
+        "addr:street": "Nuzividu - Eluru Road",
+        "landuse": "religious",
+        "name": "jesus park",
+        "religion": "christian",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680577860,
+      "center": {
+        "lat": 16.7426313,
+        "lon": 81.0467094
+      },
+      "tags": {
+        "name": "fish pond",
+        "natural": "water",
+        "water": "pond"
+      }
+    },
+    {
+      "type": "way",
+      "id": 683494761,
+      "center": {
+        "lat": 16.7183237,
+        "lon": 81.0940894
+      },
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "name": "Laymens Evangelical Fellowship Church",
+        "religion": "christian"
+      }
+    },
+    {
+      "type": "way",
+      "id": 683496339,
+      "center": {
+        "lat": 16.7167337,
+        "lon": 81.0939421
+      },
+      "tags": {
+        "building": "school",
+        "name": "Providence School"
+      }
+    },
+    {
+      "type": "way",
+      "id": 712228945,
+      "center": {
+        "lat": 16.737302,
+        "lon": 81.1330471
+      },
+      "tags": {
+        "dual_carriageway": "yes",
+        "expressway": "yes",
+        "highway": "trunk",
+        "int_ref": "AH45",
+        "lanes": "3",
+        "motorroad": "no",
+        "name": "NH16",
+        "oneway": "yes",
+        "ref": "NH16",
+        "ref:old": "NH5",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 790626560,
+      "center": {
+        "lat": 16.7168117,
+        "lon": 81.0945584
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Somayajulu Residency"
+      }
+    },
+    {
+      "type": "way",
+      "id": 790626561,
+      "center": {
+        "lat": 16.716707,
+        "lon": 81.0944263
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Uma Towers"
+      }
+    },
+    {
+      "type": "way",
+      "id": 845968200,
+      "center": {
+        "lat": 16.6682571,
+        "lon": 81.065011
+      },
+      "tags": {
+        "alt_name": "Satyavolu Road",
+        "bridge": "yes",
+        "highway": "primary",
+        "lanes": "2",
+        "layer": "1",
+        "name": "Eluru - Perikeedu Road",
+        "network": "IN:SH:AP",
+        "ref": "SH260",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 845968201,
+      "center": {
+        "lat": 16.6723828,
+        "lon": 81.0692241
+      },
+      "tags": {
+        "alt_name": "Satyavolu Road",
+        "highway": "primary",
+        "lanes": "2",
+        "name": "Eluru - Perikeedu Road",
+        "network": "IN:SH:AP",
+        "ref": "SH260",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 845968202,
+      "center": {
+        "lat": 16.6648224,
+        "lon": 81.0620315
+      },
+      "tags": {
+        "alt_name": "Satyavolu Road",
+        "highway": "primary",
+        "lanes": "2",
+        "name": "Eluru - Perikeedu Road",
+        "network": "IN:SH:AP",
+        "ref": "SH260",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 845968203,
+      "center": {
+        "lat": 16.6613962,
+        "lon": 81.0590437
+      },
+      "tags": {
+        "alt_name": "Satyavolu Road",
+        "bridge": "yes",
+        "highway": "primary",
+        "lanes": "2",
+        "layer": "1",
+        "name": "Eluru - Perikeedu Road",
+        "network": "IN:SH:AP",
+        "ref": "SH260",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 846390306,
+      "center": {
+        "lat": 16.7478741,
+        "lon": 81.0772863
+      },
+      "tags": {
+        "highway": "primary",
+        "maxspeed": "60",
+        "name": "Eluru - Medisettivaripalem Road",
+        "network": "IN:SH:AP",
+        "ref": "SH20"
+      }
+    },
+    {
+      "type": "way",
+      "id": 847115493,
+      "center": {
+        "lat": 16.6876929,
+        "lon": 81.123364
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "primary",
+        "lane_markings": "yes",
+        "lanes": "2",
+        "layer": "1",
+        "lit": "no",
+        "maxspeed": "50",
+        "name": "Eluru - Kaikaluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "no",
+        "ref": "SH258",
+        "smoothness": "intermediate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 847115494,
+      "center": {
+        "lat": 16.6905835,
+        "lon": 81.1218411
+      },
+      "tags": {
+        "highway": "primary",
+        "lane_markings": "yes",
+        "lanes": "2",
+        "lit": "no",
+        "maxspeed": "50",
+        "name": "Eluru - Kaikaluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "no",
+        "ref": "SH258",
+        "smoothness": "intermediate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 847387123,
+      "center": {
+        "lat": 16.7319674,
+        "lon": 81.0713717
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "yes",
+        "ref": "SH209",
+        "source": "maxar"
+      }
+    },
+    {
+      "type": "way",
+      "id": 847387124,
+      "center": {
+        "lat": 16.7319674,
+        "lon": 81.0713717
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "yes",
+        "ref": "SH209"
+      }
+    },
+    {
+      "type": "way",
+      "id": 847387125,
+      "center": {
+        "lat": 16.7240175,
+        "lon": 81.0843124
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "yes",
+        "ref": "SH209"
+      }
+    },
+    {
+      "type": "way",
+      "id": 847389287,
+      "center": {
+        "lat": 16.694994,
+        "lon": 81.0459627
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Vatluru Railway Station Road",
+        "source": "maxar"
+      }
+    },
+    {
+      "type": "way",
+      "id": 847408868,
+      "center": {
+        "lat": 16.6997461,
+        "lon": 81.0512399
+      },
+      "tags": {
+        "highway": "secondary",
+        "name": "Vatluru Road",
+        "ref": "MDR017"
+      }
+    },
+    {
+      "type": "way",
+      "id": 847504739,
+      "center": {
+        "lat": 16.6985607,
+        "lon": 81.067908
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "3",
+        "maxspeed": "60",
+        "name": "Mini-Bypass Road",
+        "ref": "MDR080",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 847504741,
+      "center": {
+        "lat": 16.6979438,
+        "lon": 81.0526521
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "5",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 848275228,
+      "center": {
+        "lat": 16.6990782,
+        "lon": 81.054772
+      },
+      "tags": {
+        "highway": "secondary",
+        "name": "Vatluru Road",
+        "ref": "MDR017",
+        "source": "maxar"
+      }
+    },
+    {
+      "type": "way",
+      "id": 849764534,
+      "center": {
+        "lat": 16.6970525,
+        "lon": 81.0942038
+      },
+      "tags": {
+        "alt_name": "Satyavolu Road",
+        "highway": "primary",
+        "lanes": "2",
+        "name": "Eluru - Perikeedu Road",
+        "network": "IN:SH:AP",
+        "ref": "SH260",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 849764535,
+      "center": {
+        "lat": 16.6945135,
+        "lon": 81.0908331
+      },
+      "tags": {
+        "alt_name": "Satyavolu Road",
+        "bridge": "yes",
+        "highway": "primary",
+        "lanes": "2",
+        "layer": "1",
+        "name": "Eluru - Perikeedu Road",
+        "network": "IN:SH:AP",
+        "ref": "SH260",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850423798,
+      "center": {
+        "lat": 16.7208356,
+        "lon": 81.0874838
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "yes",
+        "ref": "SH209"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850423799,
+      "center": {
+        "lat": 16.7240491,
+        "lon": 81.0843495
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "yes",
+        "ref": "SH209",
+        "source": "maxar"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850423800,
+      "center": {
+        "lat": 16.7281459,
+        "lon": 81.0783759
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "ref": "SH209"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850423801,
+      "center": {
+        "lat": 16.7200921,
+        "lon": 81.0879447
+      },
+      "tags": {
+        "highway": "primary",
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "yes",
+        "ref": "SH209"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850476582,
+      "center": {
+        "lat": 16.7399887,
+        "lon": 81.0756217
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "NH16 Service Road",
+        "source": "maxar"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850574735,
+      "center": {
+        "lat": 16.7133503,
+        "lon": 81.114481
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR08",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850574736,
+      "center": {
+        "lat": 16.7188792,
+        "lon": 81.1214218
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR08",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850578646,
+      "center": {
+        "lat": 16.7084906,
+        "lon": 81.1014262
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "2",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850768259,
+      "center": {
+        "lat": 16.7050548,
+        "lon": 81.0771563
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "11th Road",
+        "source": "maxar"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850768275,
+      "center": {
+        "lat": 16.7075612,
+        "lon": 81.0897777
+      },
+      "tags": {
+        "highway": "service",
+        "name": "APSRTC Eluru Bus Staion Inner Road",
+        "source": "maxar"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850768279,
+      "center": {
+        "lat": 16.7047698,
+        "lon": 81.0746319
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "5",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850768280,
+      "center": {
+        "lat": 16.7060111,
+        "lon": 81.0808995
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850831736,
+      "center": {
+        "lat": 16.7022301,
+        "lon": 81.1119939
+      },
+      "tags": {
+        "highway": "primary",
+        "lane_markings": "yes",
+        "lanes": "2",
+        "lit": "no",
+        "maxspeed": "50",
+        "name": "Eluru - Kaikaluru Road",
+        "network": "IN:SH:AP",
+        "oneway": "no",
+        "ref": "SH258",
+        "smoothness": "intermediate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850868125,
+      "center": {
+        "lat": 16.7090311,
+        "lon": 81.0980298
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "2",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850868126,
+      "center": {
+        "lat": 16.708619,
+        "lon": 81.0997232
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "2",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850898841,
+      "center": {
+        "lat": 16.7074462,
+        "lon": 81.0874632
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "5",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "source": "maxar",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850898842,
+      "center": {
+        "lat": 16.7059438,
+        "lon": 81.0809115
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "source": "maxar",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850898843,
+      "center": {
+        "lat": 16.7047243,
+        "lon": 81.0746373
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "5",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "source": "maxar",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850898844,
+      "center": {
+        "lat": 16.7046072,
+        "lon": 81.0731098
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "source": "maxar",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850898845,
+      "center": {
+        "lat": 16.7046364,
+        "lon": 81.073111
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "oneway": "yes",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850957109,
+      "center": {
+        "lat": 16.7085776,
+        "lon": 81.0958765
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850957110,
+      "center": {
+        "lat": 16.7054683,
+        "lon": 81.0878819
+      },
+      "tags": {
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "layer": "1",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850957111,
+      "center": {
+        "lat": 16.7054328,
+        "lon": 81.0878903
+      },
+      "tags": {
+        "bridge": "yes",
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "layer": "1",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 850957112,
+      "center": {
+        "lat": 16.7085357,
+        "lon": 81.0958898
+      },
+      "tags": {
+        "electrified": "contact_line",
+        "frequency": "50",
+        "gauge": "1676",
+        "name": "Howrah - Chennai Main Line",
+        "name:ur": "ہاوڑہ - چنئی مین لائن",
+        "passenger_lines": "2",
+        "railway": "rail",
+        "usage": "main",
+        "voltage": "25000"
+      }
+    },
+    {
+      "type": "way",
+      "id": 851429688,
+      "center": {
+        "lat": 16.7171741,
+        "lon": 81.1109682
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "layer": "1",
+        "maxspeed": "50",
+        "name": "Jangareddy Gudem Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 851429689,
+      "center": {
+        "lat": 16.7185412,
+        "lon": 81.1102882
+      },
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "50",
+        "name": "Jangareddy Gudem Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 851429696,
+      "center": {
+        "lat": 16.7204011,
+        "lon": 81.1088043
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "layer": "1",
+        "maxspeed": "60",
+        "name": "Jangareddygudem Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 851429697,
+      "center": {
+        "lat": 16.7206539,
+        "lon": 81.1086269
+      },
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "60",
+        "name": "Jangareddygudem Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 903262644,
+      "center": {
+        "lat": 16.7160643,
+        "lon": 81.1121677
+      },
+      "tags": {
+        "air_conditioning": "yes",
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "denomination": "protestant",
+        "name": "El-Shaddai Prayer House",
+        "religion": "christian"
+      }
+    },
+    {
+      "type": "way",
+      "id": 987791351,
+      "center": {
+        "lat": 16.7872748,
+        "lon": 81.3893934
+      },
+      "tags": {
+        "name": "Eluru Kaaluva",
+        "name:en": "Eluru Canal",
+        "name:ta": "ஏலூர் கால்வாய்",
+        "name:te": "ఏలూరు కాలువ",
+        "waterway": "canal"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1014206264,
+      "center": {
+        "lat": 16.7111104,
+        "lon": 81.1131046
+      },
+      "tags": {
+        "addr:city": "eluru",
+        "addr:housenumber": "34 sivaram",
+        "addr:postcode": "534005",
+        "building": "house",
+        "building:levels": "2",
+        "building:material": "plaster",
+        "name": "sivaram",
+        "roof:levels": "0"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1088712184,
+      "center": {
+        "lat": 16.7340212,
+        "lon": 81.0765382
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Sanivarapupeta Zilla Parishad High School / ZPHS / ZP High School",
+        "name:te": "శనివారపుపేట జిల్లా పరిషత్ ఉన్నత పాఠశాల (హైస్కూల్)",
+        "office": "educational_institution"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1094053965,
+      "center": {
+        "lat": 16.7173496,
+        "lon": 81.0509227
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Service Road",
+        "oneway": "yes",
+        "source": "maxar"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1104210780,
+      "center": {
+        "lat": 16.6993561,
+        "lon": 81.0558513
+      },
+      "tags": {
+        "embankment": "yes",
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1104210781,
+      "center": {
+        "lat": 16.6958693,
+        "lon": 81.049319
+      },
+      "tags": {
+        "embankment": "yes",
+        "highway": "secondary",
+        "lanes": "5",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1111245217,
+      "center": {
+        "lat": 16.7172374,
+        "lon": 81.0501899
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Service Road",
+        "oneway": "yes",
+        "source": "maxar"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1164902315,
+      "center": {
+        "lat": 16.7091098,
+        "lon": 81.0897874
+      },
+      "tags": {
+        "highway": "service",
+        "name": "APSRTC Eluru Bus Depot Inner  Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1165579796,
+      "center": {
+        "lat": 16.7090415,
+        "lon": 81.0897686
+      },
+      "tags": {
+        "highway": "service",
+        "name": "APSRTC Eluru Bus Depot Inner Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1187973946,
+      "center": {
+        "lat": 16.7046883,
+        "lon": 81.0999129
+      },
+      "tags": {
+        "highway": "secondary",
+        "name": "Eluru - Kaikaluru Road",
+        "network": "IN:SH:AP",
+        "ref": "MDR078"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1187973955,
+      "center": {
+        "lat": 16.6983725,
+        "lon": 81.0524807
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Vatluru Railway Station Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1196755433,
+      "center": {
+        "lat": 16.709441,
+        "lon": 81.0969822
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "2",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285484054,
+      "center": {
+        "lat": 16.7098517,
+        "lon": 81.09604
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "2",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285484055,
+      "center": {
+        "lat": 16.70963,
+        "lon": 81.0965077
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "2",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285484056,
+      "center": {
+        "lat": 16.7091692,
+        "lon": 81.0976697
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "2",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285484057,
+      "center": {
+        "lat": 16.7092517,
+        "lon": 81.0974573
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "lanes": "2",
+        "layer": "1",
+        "maxspeed": "70",
+        "name": "Eluru Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285815577,
+      "center": {
+        "lat": 16.7052356,
+        "lon": 81.081846
+      },
+      "tags": {
+        "amenity": "college",
+        "name": "Sir C.R.R. College Of Education",
+        "name:etymology:wikidata": "Q5054050"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285815580,
+      "center": {
+        "lat": 16.6961531,
+        "lon": 81.0471559
+      },
+      "tags": {
+        "landuse": "residential",
+        "name": "Railway Quaters"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285815589,
+      "center": {
+        "lat": 16.7160417,
+        "lon": 81.103713
+      },
+      "tags": {
+        "landuse": "residential",
+        "name": "Eluru Urban"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285815590,
+      "center": {
+        "lat": 16.6958938,
+        "lon": 81.0648035
+      },
+      "tags": {
+        "amenity": "events_venue",
+        "building": "yes",
+        "name": "Kranthi Kalyana Vedika - Kranthi Function Hall"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285815592,
+      "center": {
+        "lat": 16.7012769,
+        "lon": 81.05648
+      },
+      "tags": {
+        "amenity": "college",
+        "name": "Sir CR.Reddy Womens College",
+        "name:etymology:wikidata": "Q5054050"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1285815593,
+      "center": {
+        "lat": 16.7044687,
+        "lon": 81.0589417
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "Siddhartha Quest CBSE School"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1306892601,
+      "center": {
+        "lat": 16.7405039,
+        "lon": 81.0765397
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Service Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1306958614,
+      "center": {
+        "lat": 16.7387917,
+        "lon": 81.141037
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Service Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1306958620,
+      "center": {
+        "lat": 16.7386135,
+        "lon": 81.1411784
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Service Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312675690,
+      "center": {
+        "lat": 16.7085792,
+        "lon": 81.0755374
+      },
+      "tags": {
+        "building": "house",
+        "house": "detached",
+        "name": "Krishnakunj"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312675692,
+      "center": {
+        "lat": 16.7053276,
+        "lon": 81.0766619
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "12th Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312675693,
+      "center": {
+        "lat": 16.7060181,
+        "lon": 81.0768974
+      },
+      "tags": {
+        "highway": "residential",
+        "name": "1st Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312677416,
+      "center": {
+        "lat": 16.7117495,
+        "lon": 81.0859981
+      },
+      "tags": {
+        "addr:district": "Xavier Nagar",
+        "amenity": "bank",
+        "atm": "yes",
+        "brand": "Indian Overseas Bank",
+        "brand:wikidata": "Q2003611",
+        "building": "yes",
+        "name": "Indian Overseas Bank",
+        "opening_hours": "Mo-Fr 10:00-16:00; Sa 10:00-14:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1324235692,
+      "center": {
+        "lat": 16.7410744,
+        "lon": 81.0774253
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "name": "Service Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1324235693,
+      "center": {
+        "lat": 16.7416708,
+        "lon": 81.0783593
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Service Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1369016898,
+      "center": {
+        "lat": 16.7091208,
+        "lon": 81.0888101
+      },
+      "tags": {
+        "addr:city": "Eluru",
+        "addr:district": "Eluru",
+        "addr:postcode": "534006",
+        "addr:street": "Opp NEW RTC BUS STAND",
+        "leisure": "park",
+        "mobile": "+919293929292",
+        "name": "EFOUR",
+        "opening_hours": "Mo-Su 10:00-23:00",
+        "operator": "Jayanarayana Kureti",
+        "operator:type": "private"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1388687081,
+      "center": {
+        "lat": 16.7022581,
+        "lon": 81.0991421
+      },
+      "tags": {
+        "amenity": "events_venue",
+        "building": "yes",
+        "name": "Cj Sounds"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1388687086,
+      "center": {
+        "lat": 16.702606,
+        "lon": 81.0992193
+      },
+      "tags": {
+        "addr:housename": "mhalliswari general store",
+        "addr:street": "Eluru - Kaikaluru Road",
+        "building": "yes",
+        "building:levels": "1",
+        "building:material": "plaster",
+        "name": "Malliswari General store",
+        "roof:levels": "0",
+        "shop": "general"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1388687090,
+      "center": {
+        "lat": 16.7028369,
+        "lon": 81.0996417
+      },
+      "tags": {
+        "addr:housename": "sri sai baba clinic",
+        "addr:street": "Eluru - Kaikaluru Road",
+        "amenity": "clinic",
+        "building": "yes",
+        "building:levels": "1",
+        "building:material": "plaster",
+        "healthcare": "clinic",
+        "name": "Sri sai baba clinic",
+        "roof:levels": "0"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1388687093,
+      "center": {
+        "lat": 16.7029166,
+        "lon": 81.0998995
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Sudha General store",
+        "shop": "general"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1388687099,
+      "center": {
+        "lat": 16.7023565,
+        "lon": 81.0992703
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Satya Krishna pan shop",
+        "shop": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1388687106,
+      "center": {
+        "lat": 16.7019629,
+        "lon": 81.0988664
+      },
+      "tags": {
+        "area": "yes",
+        "artwork_type": "statue",
+        "name": "Ambedkar Statue",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1388687107,
+      "center": {
+        "lat": 16.702291,
+        "lon": 81.0978283
+      },
+      "tags": {
+        "addr:housename": "maha lakshmi devi temple",
+        "addr:street": "Eluru - Kaikaluru Road",
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "building:levels": "1",
+        "building:material": "plaster",
+        "name": "Maha Lakshmi Devi Temple",
+        "religion": "hindu",
+        "roof:levels": "0"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1388687108,
+      "center": {
+        "lat": 16.7024791,
+        "lon": 81.0978055
+      },
+      "tags": {
+        "addr:housename": "sai baba temple",
+        "addr:street": "Eluru - Kaikaluru Road",
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "building:levels": "1",
+        "building:material": "plaster",
+        "name": "Sai Baba Temple",
+        "religion": "hindu",
+        "roof:levels": "0"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1415873272,
+      "center": {
+        "lat": 16.7091295,
+        "lon": 81.089703
+      },
+      "tags": {
+        "barrier": "wall",
+        "depot": "bus",
+        "industrial": "depot",
+        "landuse": "industrial",
+        "name": "APSRTC Bus Depot , Eluru",
+        "operator": "APSRTC",
+        "operator:wikidata": "Q4754395"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434129890,
+      "center": {
+        "lat": 16.7185907,
+        "lon": 81.1188911
+      },
+      "tags": {
+        "highway": "secondary",
+        "name": "Eluru Railway Station Road",
+        "ref": "MDR06"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434129891,
+      "center": {
+        "lat": 16.7155666,
+        "lon": 81.1146366
+      },
+      "tags": {
+        "highway": "secondary",
+        "lanes": "3",
+        "maxspeed": "60",
+        "name": "Eluru Railway station Road",
+        "ref": "MDR06",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434129893,
+      "center": {
+        "lat": 16.7162664,
+        "lon": 81.1111806
+      },
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "50",
+        "name": "Jangareddy Gudem Road"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434555536,
+      "center": {
+        "lat": 16.7123469,
+        "lon": 81.0981084
+      },
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "3",
+        "maxspeed": "50",
+        "name": "Ramachandra Rao Pet Main Road",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444104411,
+      "center": {
+        "lat": 16.7004446,
+        "lon": 81.1193229
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Sree Nilayam"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1500233585,
+      "center": {
+        "lat": 16.7112308,
+        "lon": 81.1102723
+      },
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Hotel Aditya Prince"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1522268390,
+      "center": {
+        "lat": 16.7131397,
+        "lon": 81.0971096
+      },
+      "tags": {
+        "building": "retail",
+        "name": "More Retail Store"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1522300081,
+      "center": {
+        "lat": 16.7173521,
+        "lon": 81.0972978
+      },
+      "tags": {
+        "building": "retail",
+        "name": "South India Shopping Mall"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1522687240,
+      "center": {
+        "lat": 16.7120525,
+        "lon": 81.0973219
+      },
+      "tags": {
+        "building": "retail",
+        "name": "G.V. Mall",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1526081020,
+      "center": {
+        "lat": 16.7377139,
+        "lon": 81.1276045
+      },
+      "tags": {
+        "dual_carriageway": "yes",
+        "expressway": "yes",
+        "highway": "trunk",
+        "int_ref": "AH45",
+        "lanes": "3",
+        "motorroad": "no",
+        "name": "NH16",
+        "oneway": "yes",
+        "ref": "NH16",
+        "ref:old": "NH5",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1526081024,
+      "center": {
+        "lat": 16.737494,
+        "lon": 81.1313036
+      },
+      "tags": {
+        "highway": "tertiary",
+        "name": "Service Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1526081025,
+      "center": {
+        "lat": 16.7375938,
+        "lon": 81.1298689
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "name": "Service Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 335146,
+      "center": {
+        "lat": 17.6631061,
+        "lon": 83.3938781
+      },
+      "tags": {
+        "name": "Old National Highway 5",
+        "network": "IN:NH",
+        "ref:old": "NH5",
+        "route": "road",
+        "type": "route"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 1270434,
+      "center": {
+        "lat": 14.8583768,
+        "lon": 81.0322957
+      },
+      "tags": {
+        "name": "Kommamuru Canal",
+        "name:te": "కొమ్మమూరు కాలువ",
+        "network": "IN:NW",
+        "ref": "NW4",
+        "type": "waterway",
+        "waterway": "canal",
+        "wikidata": "Q72523405",
+        "wikipedia": "te:కొమ్మమూరు కాలువ"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 2898201,
+      "center": {
+        "lat": 17.3485711,
+        "lon": 83.391653
+      },
+      "tags": {
+        "name": "Old National Highway 5 north",
+        "network": "IN:NH",
+        "ref:old": "NH5",
+        "route": "road",
+        "type": "route"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 2898289,
+      "center": {
+        "lat": 17.3479528,
+        "lon": 83.3927824
+      },
+      "tags": {
+        "name": "Old National Highway 5 south",
+        "network": "IN:NH",
+        "ref:old": "NH5",
+        "route": "road",
+        "type": "route"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 5699337,
+      "center": {
+        "lat": 17.8410013,
+        "lon": 84.093188
+      },
+      "tags": {
+        "from": "Howrah Junction",
+        "name": "East Coast main railway line",
+        "route": "railway",
+        "to": "Chennai",
+        "type": "route",
+        "wikidata": "Q5922477",
+        "wikipedia": "en:Howrah–Chennai main line"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 5943740,
+      "center": {
+        "lat": 17.5843549,
+        "lon": 83.2666617
+      },
+      "tags": {
+        "int_ref": "AH45",
+        "name": "Asian Highway AH45",
+        "network": "AsianHighway",
+        "ref": "AH45",
+        "route": "road",
+        "type": "route",
+        "wikidata": "Q4651735",
+        "wikipedia": "en:AH45"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 9173349,
+      "center": {
+        "lat": 16.7622065,
+        "lon": 80.9729776
+      },
+      "tags": {
+        "name": "Nuzividu - Eluru Road",
+        "network": "IN:SH:AP",
+        "operator": "APRDC",
+        "ref": "SH",
+        "route": "road",
+        "type": "route"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 10143865,
+      "center": {
+        "lat": 16.7800825,
+        "lon": 81.1756181
+      },
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Denduluru",
+        "name:te": "దెందులూరు",
+        "ref:LGD:subdistrict": "4967",
+        "type": "boundary",
+        "wikidata": "Q60021449"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 10143866,
+      "center": {
+        "lat": 16.6760335,
+        "lon": 81.1734606
+      },
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Eluru",
+        "name:ar": "إيلورو",
+        "name:azb": "ایلورو",
+        "name:de": "Eluru",
+        "name:es": "Eluru",
+        "name:fa": "ایلورو",
+        "name:fr": "Eluru",
+        "name:pa": "ਇਲੁਰੁ",
+        "name:sr": "Елуру",
+        "name:te": "ఏలూరు",
+        "name:ur": "ایلورو",
+        "type": "boundary",
+        "wikidata": "Q58284276"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 10143867,
+      "center": {
+        "lat": 16.6431472,
+        "lon": 81.0335845
+      },
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Pedapadu",
+        "name:te": "పెదపాడు",
+        "ref:LGD:subdistrict": "4965",
+        "type": "boundary",
+        "wikidata": "Q60021455"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 10143868,
+      "center": {
+        "lat": 16.8050909,
+        "lon": 81.0936439
+      },
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Pedavegi",
+        "name:te": "పెదవేగి",
+        "ref:LGD:subdistrict": "4964",
+        "type": "boundary",
+        "wikidata": "Q60021456"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 11298772,
+      "center": {
+        "lat": 17.8410018,
+        "lon": 84.0929043
+      },
+      "tags": {
+        "from": "Chennai Central",
+        "name": "Coromandel Express: Chennai => Howrah",
+        "route": "train",
+        "to": "Howrah Junction",
+        "type": "route"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 11299100,
+      "center": {
+        "lat": 17.8409838,
+        "lon": 84.0929296
+      },
+      "tags": {
+        "from": "Howrah Junction",
+        "name": "Coromandel Express: Howrah => Chennai",
+        "route": "train",
+        "to": "Chennai Central",
+        "type": "route"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 13271901,
+      "center": {
+        "lat": 16.7294679,
+        "lon": 81.1772944
+      },
+      "tags": {
+        "name": "Eluru Kaaluva",
+        "name:en": "Eluru Canal",
+        "name:ta": "ஏலூர் கால்வாய்",
+        "name:te": "ఏలూరు కాలువ",
+        "type": "waterway",
+        "waterway": "canal"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 13999189,
+      "center": {
+        "lat": 17.0143633,
+        "lon": 81.1830243
+      },
+      "tags": {
+        "admin_level": "5",
+        "boundary": "administrative",
+        "name": "Eluru",
+        "name:ar": "إيلورو",
+        "name:azb": "ایلورو",
+        "name:de": "Eluru",
+        "name:en": "Eluru",
+        "name:es": "Eluru",
+        "name:fa": "ایلورو",
+        "name:fr": "Eluru",
+        "name:pa": "ਇਲੁਰੁ",
+        "name:sr": "Елуру",
+        "name:te": "ఏలూరు",
+        "name:ur": "ایلورو",
+        "official_name": "Eluru District",
+        "official_name:te": "ఏలూరు జిల్లా",
+        "ref:LGD:district": "748",
+        "type": "boundary",
+        "wikidata": "Q110714851"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 15689130,
+      "center": {
+        "lat": 16.9273738,
+        "lon": 81.024423
+      },
+      "tags": {
+        "destination": "Budameru",
+        "name": "Tammileru",
+        "name:de": "Tammileru",
+        "name:fr": "Tammileru",
+        "type": "waterway",
+        "waterway": "river",
+        "wikidata": "Q7681550",
+        "wikipedia": "en:Tammileru"
+      }
+    }
+  ]
+}

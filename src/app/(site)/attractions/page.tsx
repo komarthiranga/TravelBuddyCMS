@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Search } from 'lucide-react'
 
 import { getCategoriesWithAttractionCount } from '@/site/api/getCategoriesWithAttractionCount'
-import { getPublishedAttractions } from '@/site/api/getPublishedAttractions'
+import { getPublishedAttractions, getAttractionSuggestions } from '@/site/api/getPublishedAttractions'
 import { AttractionCard } from '@/site/components/AttractionCard'
 import { AttractionFilters } from '@/site/components/AttractionFilters'
 import { LocationNotice } from '@/site/components/LocationNotice'
@@ -41,9 +41,10 @@ export default async function AttractionsPage({
     const open = params.open === '1'
 
     const { city: homeCity } = await getSelectedCity()
-    const [result, categories] = await Promise.all([
+    const [result, categories, suggestions] = await Promise.all([
         getPublishedAttractions({ page, cityId: homeCity?.id, categoryId, search, pageSize: 12, free, open }),
         getCategoriesWithAttractionCount(homeCity?.id),
+        getAttractionSuggestions({ cityId: homeCity?.id, categoryId, free, open }),
     ])
 
     const { rows, total, pageCount, page: currentPage } = result
@@ -95,6 +96,7 @@ export default async function AttractionsPage({
             <AttractionFilters
                 key={`${search ?? ""}-${categoryId ?? ""}-${free}-${open}`}
                 search={search}
+                suggestions={suggestions}
                 chips={chips}
                 buildSearchHref={buildHref({ search })}
                 hiddenFields={{

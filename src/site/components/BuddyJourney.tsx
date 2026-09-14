@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useRef, useState } from 'react'
-import Image from 'next/image'
+import { PlaceImage } from './PlaceImage'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import type { JourneyPlace } from '@/site/api/getPlacesForJourney'
@@ -170,20 +170,10 @@ export function BuddyJourney({
                 ) : (
                     <div className="mt-5 max-w-3xl">
                         <div className="rounded-2xl border border-hairline bg-white p-5">
-                            {selected.primary_image && (
-                                <div className="relative mb-4 aspect-[3/1] overflow-hidden rounded-xl">
-                                    <Image
-                                        src={selected.primary_image}
-                                        alt={
-                                            selected.primary_image_alt ??
-                                            selected.short_name
-                                        }
-                                        fill
-                                        sizes="(max-width: 768px) 90vw, 720px"
-                                        className="object-cover"
-                                    />
-                                </div>
-                            )}
+                            <div className="relative mb-4 aspect-[3/1] overflow-hidden rounded-xl">
+                                <PlaceImage src={selected.primary_image} alt={selected.primary_image_alt}
+                                    name={selected.short_name} category={selected.category_name} sizes="(max-width: 768px) 90vw, 720px" />
+                            </div>
                             <h3 lang="en" className="font-display text-2xl">
                                 {selected.short_name}
                             </h3>

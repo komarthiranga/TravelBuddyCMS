@@ -92,7 +92,7 @@ export function SavePlaceButton({
                         : [...places, place]
                     setError(next.length > 100 || !save(next))
                 }}
-                className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-brand ${saved ? 'border-teal-brand/25 bg-teal-wash text-teal-brand-dark' : 'border-ink/15 bg-white text-ink hover:bg-cream'}`}
+                className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-brand ${saved ? 'border-teal-brand/25 bg-teal-wash text-teal-brand-dark' : 'border-ink/15 bg-white text-ink hover:bg-cream'}`}
             >
                 {saved ? (
                     <Check className="size-4" aria-hidden="true" />
