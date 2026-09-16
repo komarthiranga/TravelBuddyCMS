@@ -1,12 +1,10 @@
+import { pageMetadata } from '@/site/seo/metadata'
 import Link from 'next/link'
 import { ArrowRight, ArrowUpRight, Bus, Car, Footprints, MapPin } from 'lucide-react'
 import { getSelectedCity } from '@/site/lib/selected-city'
 import { LocalText } from '@/site/components/LocalText'
 
-export const metadata = {
-    title: 'Getting around — TravelBuddy',
-    description: 'Plan a journey and check transport details before setting out.',
-}
+export const metadata = pageMetadata('/transport', 'Getting Around | TravelBuddy', 'Plan a journey and check transport details before setting out.')
 
 const options = [
     { title: 'Walking', te: 'నడక', icon: Footprints, text: 'Considering a short walk? Check the actual walking route, crossings, weather and your comfort before setting off.', textTe: 'దగ్గరలో నడిచి వెళ్లాలా? ముందుగా నడక మార్గం, రోడ్డు దాటే చోటులు, వాతావరణం, మీ సౌకర్యం చూసుకోండి.' },

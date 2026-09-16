@@ -20,7 +20,7 @@ export function MobileNav() {
             match: (path: string) => path === '/' || path.startsWith('/attractions') || path === '/food' || path === '/hotels' || path === '/transport',
         },
         { href: '/guide', label: locale === 'te' ? 'ప్రయాణం' : 'Guide', icon: Route, match: (path: string) => path === '/guide' },
-        { href: '/help', label: t.help, icon: LifeBuoy, match: (path: string) => path === '/help' },
+        { href: '/help', label: t.help, icon: LifeBuoy, match: (path: string) => ['/help', '/emergency', '/services'].includes(path) },
     ]
 
     return (

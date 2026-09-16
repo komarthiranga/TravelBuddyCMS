@@ -46,11 +46,12 @@ export function HelpContent({ emergency = false }: { emergency?: boolean }) {
                         : 'Police, fire and medical emergency assistance.'}
                 </p>
             </section>
+            <Link href="/services" className="mt-5 inline-flex min-h-12 items-center rounded-xl border border-hairline bg-white px-4 font-semibold text-teal-brand-dark focus-visible:outline-2 focus-visible:outline-teal-brand">{te ? 'ఆసుపత్రులు, స్థానిక సేవలు' : 'Hospitals & local services'}</Link>
             {emergency ? (
                 <p className="mt-6 text-base leading-relaxed text-ink-soft">
                     {te
-                        ? 'స్థానిక ఆసుపత్రులు, ఫార్మసీల నిర్ధారించిన వివరాలు ఇంకా అందుబాటులో లేవు.'
-                        : 'Verified local hospital and pharmacy contacts are not available yet.'}
+                        ? 'స్థానిక ఆసుపత్రులు, ప్రజా సేవల వివరాలను అధికారిక మూలాలతో చూడండి. ఇది అత్యవసర సేవలకు ప్రత్యామ్నాయం కాదు.'
+                        : 'Find local hospitals and public services with official source links. The directory is not an emergency-dispatch service.'}
                 </p>
             ) : (
                 <section className="mt-8">

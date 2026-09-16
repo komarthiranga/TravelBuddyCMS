@@ -1,6 +1,10 @@
+import { collectionMetadata } from '@/site/seo/metadata'
 import { PlacesCollection, type SearchParams } from '@/site/components/PlacesCollection'
 
-export const metadata = { title: 'Explore places - TravelBuddy' }
+export async function generateMetadata({ searchParams }: { searchParams: Promise<SearchParams> }) {
+    return collectionMetadata('/attractions', 'Places to Visit | TravelBuddy', 'Browse places to visit, photos and practical visiting details in your selected city.', await searchParams)
+}
+
 export default function Page({ searchParams }: { searchParams: Promise<SearchParams> }) {
     return <PlacesCollection searchParams={searchParams} />
 }

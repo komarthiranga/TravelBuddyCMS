@@ -1,3 +1,4 @@
+import { siteUrl, preview } from "@/site/seo/metadata";
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -19,6 +20,8 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  robots: { index: !preview, follow: true },
   title: "Travel Buddy",
   description: "Your local friend for places, visiting tips and directions.",
   appleWebApp: { capable: true, title: "Travel Buddy", statusBarStyle: "default" },

@@ -99,6 +99,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
                                             <LocalText en="Getting around" te="రవాణా" />
                                         </Link>
                                     </li>
+                                    <li><Link href="/services" className="inline-flex min-h-11 items-center hover:text-white focus-visible:underline"><LocalText en="Local services" te="స్థానిక సేవలు" /></Link></li>
                                     <li>
                                         <Link href="/emergency" className="hover:text-white">
                                             <LocalText en="Emergency help" te="అత్యవసర సహాయం" />

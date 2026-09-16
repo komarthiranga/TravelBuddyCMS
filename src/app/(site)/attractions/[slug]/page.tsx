@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/site/seo/metadata'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -22,18 +23,24 @@ export async function generateMetadata({
 }): Promise<Metadata> {
     const { slug } = await params
     const data = await getPublishedAttractionBySlug(slug)
-    if (!data) return { title: 'Not found — TravelBuddy' }
+    if (!data) return { title: 'Not found — TravelBuddy', robots: { index: false } }
 
     const { attraction, images } = data
+    const title = `${attraction.short_name}, ${attraction.city_name} — TravelBuddy`
+    const image = images[0]?.image_url ?? '/share-image'
     return {
+        ...pageMetadata(`/attractions/${attraction.slug}`, title, attraction.short_description),
+        twitter: { card: 'summary_large_image', title, description: attraction.short_description, images: [image] },
         title: `${attraction.short_name}, ${attraction.city_name} — TravelBuddy`,
         description: attraction.short_description,
         alternates: { canonical: `/attractions/${attraction.slug}` },
         openGraph: {
-            type: 'article',
+            type: 'website',
+            url: `/attractions/${attraction.slug}`,
+            siteName: 'TravelBuddy',
             title: attraction.short_name,
             description: attraction.short_description,
-            images: images[0] ? [images[0].image_url] : undefined,
+            images: [image],
         },
     }
 }

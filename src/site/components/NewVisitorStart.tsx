@@ -53,6 +53,7 @@ export function NewVisitorStart({cityName,places}: {cityName:string; places:(Her
                 </div>
             </article>)}</div>
             <Link href={need === 'food' ? '/food' : need === 'stay' ? '/hotels' : '/attractions'} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded text-sm font-semibold text-teal-brand-dark underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-teal-brand">{te ? 'అన్ని ఎంపికలు చూడండి' : need === 'food' ? 'See all food spots' : need === 'stay' ? 'See all stays' : 'See all places'}<ArrowRight className="size-4" aria-hidden="true" /></Link>
+            <p className="mt-2 text-sm text-ink-soft"><Link href="/services" className="inline-flex min-h-11 items-center rounded font-semibold text-teal-brand-dark underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-teal-brand">{te ? 'ఆసుపత్రులు, స్థానిక సేవలు కావాలా?' : 'Need hospitals or local services?'}</Link></p>
             <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-cream p-4 text-sm text-ink-soft"><p className="flex items-center gap-2"><MapPin className="size-4 shrink-0" aria-hidden="true" />{te?'ప్రదేశాన్ని ఎంచుకున్నారా? అక్కడికి ఎలా వెళ్లాలో చూద్దాం.':'Found your place? Let’s work out how to get there.'}</p><Link href="/guide" className="inline-flex min-h-11 items-center rounded font-semibold text-teal-brand-dark underline focus-visible:outline-2 focus-visible:outline-teal-brand">{te?'ప్రయాణం ప్లాన్ చేయండి':'Plan my visit'}</Link></div>
         </div>
     </section>
