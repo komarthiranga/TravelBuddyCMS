@@ -1,3 +1,5 @@
+
+import { requireCmsAdmin } from '@/lib/cms-auth'
 import { eq } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
@@ -6,6 +8,7 @@ import { categoryTable } from '@/master/category/schema'
 import { cityTable } from '@/master/city/schema'
 
 export async function getAttractionById(id: number) {
+    await requireCmsAdmin()
     const [row] = await db
         .select({
             id: attractionTable.id,

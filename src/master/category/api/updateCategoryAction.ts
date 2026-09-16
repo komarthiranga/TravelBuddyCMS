@@ -1,4 +1,6 @@
 'use server'
+import { requireCmsAdmin } from '@/lib/cms-auth'
+
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
@@ -29,6 +31,7 @@ export async function updateCategoryAction(
     _prevState: UpdateCategoryState,
     formData: FormData
 ): Promise<UpdateCategoryState> {
+    await requireCmsAdmin()
     const id = parseCategoryId(readString(formData, 'id'))
 
     if (!id) {

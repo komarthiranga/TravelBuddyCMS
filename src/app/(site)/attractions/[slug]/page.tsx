@@ -6,7 +6,8 @@ import { PlaceImage } from '@/site/components/PlaceImage'
 import { isCategoryIllustration } from '@/site/lib/category-artwork'
 import { getNearbyAttractions } from '@/site/api/getNearbyAttractions'
 import { getPublishedAttractionBySlug } from '@/site/api/getPublishedAttractionBySlug'
-import { formatFee } from '@/site/components/AttractionCard'
+import { priceLabel, pricingKind } from '@/site/verification/model'
+import { VerificationBadge } from '@/site/components/VerificationBadge'
 import { LocalText, TranslationNotice } from '@/site/components/LocalText'
 import { DistanceBadge } from '@/site/components/DistanceBadge'
 import { SavePlaceButton } from '@/site/components/SavedPlaces'
@@ -52,10 +53,11 @@ export default async function AttractionDetailPage({params}: {params: Promise<{s
     const origin = toCoords(attraction.latitude, attraction.longitude)
     const nearby = await getNearbyAttractions(attraction.id, attraction.city_id, origin, 3)
     const imported = /Imported map data, not a verified local recommendation/.test(attraction.full_description ?? '')
-    const unverifiedFee = imported && /prices.*unverified/i.test(attraction.instructions ?? '')
-    const fee = unverifiedFee ? 'Not confirmed' : formatFee(attraction.entry_fee, attraction.currency_code)
+    const fee = priceLabel(attraction)
+    const checkedAdmission = pricingKind(attraction.category_name) === 'admission' && attraction.verification.checks.some(check => check.field === 'admission')
+    const checkedHours = attraction.verification.checks.some(check => check.field === 'hours')
     const opening = formatTime(attraction.opening_time), closing = formatTime(attraction.closing_time)
-    const hours = opening && closing ? `${opening} – ${closing}` : 'Not confirmed'
+    const hours = checkedHours && opening && closing ? `${opening} – ${closing}` : 'Check with the venue'
     const realPhotos = images.filter(image => !isCategoryIllustration(image.image_url, image.alt_text))
     const displayImages = realPhotos.length ? realPhotos : images.slice(0, 1)
     const hero = displayImages[0]
@@ -66,7 +68,7 @@ export default async function AttractionDetailPage({params}: {params: Promise<{s
     const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(origin ? `${origin.lat},${origin.lng}` : `${attraction.full_name}, ${attraction.address}`)}`
     const jsonLd = {'@context':'https://schema.org','@type':'Place',name:attraction.full_name,description:attraction.short_description,
         ...(realPhotos.length ? {image:realPhotos.map(image=>image.image_url)} : {}),
-        ...(!unverifiedFee && Number.isFinite(Number.parseFloat(attraction.entry_fee)) ? {isAccessibleForFree:Number.parseFloat(attraction.entry_fee)===0} : {}),
+        ...(checkedAdmission && Number.isFinite(Number.parseFloat(attraction.entry_fee)) ? {isAccessibleForFree:Number.parseFloat(attraction.entry_fee)===0} : {}),
         ...(origin ? {geo:{'@type':'GeoCoordinates',latitude:origin.lat,longitude:origin.lng}} : {})}
     return <article className="bg-cream pb-12">
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(jsonLd).replace(/</g,'\\u003c')}} />
@@ -76,6 +78,7 @@ export default async function AttractionDetailPage({params}: {params: Promise<{s
                 <div><p className="text-sm font-semibold text-teal-brand-dark">{attraction.category_name} · {attraction.city_name}</p><h1 className="mt-2 font-display text-3xl tracking-tight text-ink sm:text-5xl">{attraction.short_name}</h1><p className="mt-3 flex items-center gap-2 text-sm text-ink-soft"><MapPin className="size-4" aria-hidden="true" />{attraction.address}</p></div>
                 <SavePlaceButton place={{id:attraction.id,name:attraction.short_name,slug:attraction.slug,city:attraction.city_name}} />
             </header>
+            {attraction.verification.checks.length > 0 && <div className="mb-4"><VerificationBadge verification={attraction.verification} compact /></div>}
             <TranslationNotice />
             <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.85fr)]">
                 <div className="min-w-0">
@@ -84,12 +87,14 @@ export default async function AttractionDetailPage({params}: {params: Promise<{s
                 </div>
                 <aside aria-label="Plan your visit" className="rounded-2xl border border-hairline bg-white p-5 sm:p-6">
                     <h2 className="text-xl font-semibold text-ink"><LocalText en="Plan your visit" te="సందర్శనను ప్లాన్ చేయండి" /></h2>
-                    {imported && <p className="mt-3 rounded-xl bg-amber-50 p-3 text-sm leading-relaxed text-ink"><LocalText en="This listing comes from map data. Visiting details still need local confirmation." te="ఈ సమాచారం మ్యాప్ నుండి తీసుకున్నది. సందర్శన వివరాలను స్థానికంగా నిర్ధారించాలి." /></p>}
+
                     <dl className="mt-4 divide-y divide-hairline text-sm">
-                        <div className="flex justify-between gap-4 py-4"><dt className="text-ink-soft"><LocalText en="Opening hours" te="ప్రారంభ సమయాలు" /></dt><dd className="text-right font-semibold text-ink">{hours}</dd></div>
-                        <div className="flex justify-between gap-4 py-4"><dt className="text-ink-soft"><LocalText en="Entry fee" te="ప్రవేశ రుసుము" /></dt><dd className="text-right font-semibold text-ink">{fee}</dd></div>
+                        <div className="flex justify-between gap-4 py-4"><dt className="text-ink-soft"><LocalText en="Opening hours" te="ప్రారంభ సమయాలు" /></dt><dd className="text-right font-semibold text-ink"><LocalText en={hours} te={checkedHours ? hours : 'నిర్వాహకులతో తెలుసుకోండి'} /></dd></div>
+                        <div className="flex justify-between gap-4 py-4"><dt className="text-ink-soft"><LocalText en={pricingKind(attraction.category_name) === 'admission' ? 'Entry fee' : 'Pricing'} te="ధరలు" /></dt><dd className="text-right font-semibold text-ink"><LocalText en={fee.en === 'Entry fee not confirmed' ? 'Check with the venue' : fee.en} te={fee.en === 'Entry fee not confirmed' ? 'నిర్వాహకులతో తెలుసుకోండి' : fee.te} /></dd></div>
                         {attraction.best_time_to_visit && <div className="py-4"><dt className="text-ink-soft">Best time to visit</dt><dd className="mt-1 text-ink">{attraction.best_time_to_visit}</dd></div>}
                     </dl>
+                    {!attraction.verification.checks.some(check => check.field === 'coordinates') && <p className="mt-2 text-xs leading-relaxed text-ink-soft"><LocalText en="Exact entrance pin not checked yet. Review the location in Maps before travelling." te="ఖచ్చితమైన ప్రవేశ స్థానం ఇంకా తనిఖీ చేయలేదు. ప్రయాణానికి ముందు మ్యాప్‌లో చూడండి." /></p>}
+                    <VerificationBadge verification={attraction.verification} />
                     <TakeMeThere destination={origin} destinationName={attraction.short_name} className="buddy-primary mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl px-4 font-semibold disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-teal-brand" />
                     <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded text-sm font-semibold text-teal-brand-dark underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-teal-brand"><LocalText en="View location in Google Maps" te="Google Mapsలో చూడండి" /><ArrowUpRight className="size-4" aria-hidden="true" /><span className="sr-only"> (opens a new tab)</span></a>
                     <details className="mt-3 border-t border-hairline pt-2"><summary className="min-h-11 cursor-pointer rounded py-3 text-sm font-semibold text-ink focus-visible:outline-2 focus-visible:outline-teal-brand"><LocalText en="How far is it from me?" te="నా నుండి ఎంత దూరం?" /></summary><LocationNotice className="mb-3" /><DistanceBadge latitude={attraction.latitude} longitude={attraction.longitude} /></details>

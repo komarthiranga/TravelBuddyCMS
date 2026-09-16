@@ -6,9 +6,11 @@ import { useChrome } from './locale-provider'
 
 export function LocationNotice({
     tone = 'day',
+    embedded = false,
     className = '',
 }: {
     tone?: 'day' | 'night'
+    embedded?: boolean
     className?: string
 }) {
     const { startPoint, cityCentre, status, request, chooseCentre, clear } =
@@ -45,9 +47,9 @@ export function LocationNotice({
     return (
         <div
             lang={locale}
-            className={`rounded-2xl border p-4 ${tone === 'night' ? 'border-white/20 bg-ink text-white' : 'border-hairline bg-white text-ink'} ${className}`}
+            className={`${embedded ? '' : 'rounded-2xl border p-4'} ${tone === 'night' ? 'border-white/20 bg-ink text-white' : 'border-hairline bg-white text-ink'} ${className}`}
         >
-            <p role="status" className="text-base leading-relaxed">
+            <p role="status" className={embedded && !startPoint && status === 'idle' ? 'sr-only' : 'text-base leading-relaxed'}>
                 {message}
             </p>
             <div className="mt-3 flex flex-wrap gap-2">

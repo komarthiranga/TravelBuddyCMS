@@ -1,3 +1,5 @@
+
+import { requireCmsAdmin } from '@/lib/cms-auth'
 import { eq } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
@@ -7,6 +9,7 @@ export async function updateCategory(
     id: number,
     category: { name: string; category_type: string; code: string }
 ) {
+    await requireCmsAdmin()
     return db
         .update(categoryTable)
         .set({

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useId, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useChrome } from './locale-provider'
-import { Search, Check } from 'lucide-react'
+import { Search, Check, SlidersHorizontal } from 'lucide-react'
 
 export type FilterChip = {
     href: string
@@ -17,11 +17,12 @@ export function AttractionFilters({
     chips,
     hiddenFields,
     suggestions,
+    basePath = '/attractions',
 }: {
     suggestions: { id: number; name: string; category: string }[]
     search?: string
     chips: FilterChip[]
-    buildSearchHref: string
+    basePath?: '/attractions' | '/food' | '/hotels'
     hiddenFields?: Record<string, string>
 }) {
     const { locale } = useChrome()
@@ -36,12 +37,12 @@ export function AttractionFilters({
         setValue(name); setExpanded(false); setActive(-1)
         const params = new URLSearchParams(hiddenFields)
         params.set('search', name)
-        router.push(`/attractions?${params}`)
+        router.push(`${basePath}?${params}`)
     }
     return (
         <div lang={locale} className="mt-5">
             <form
-                action="/attractions"
+                action={basePath}
                 method="GET"
                 role="search"
                 onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) { setExpanded(false); setActive(-1) } }}
@@ -104,15 +105,22 @@ export function AttractionFilters({
                 </div>}
             </form>
 
-            <p className="mt-4 text-sm font-semibold text-ink-soft">{te ? 'ప్రదేశం రకం' : 'Type of place'}</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-                {chips.filter(chip => chip.label !== 'Free entry' && chip.label !== 'Open now').map((chip) => (
-                    <Chip key={chip.href + chip.label} chip={chip} />
-                ))}
-            </div>
-            <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label={te ? 'మరిన్ని ఫిల్టర్లు' : 'Additional filters'}>
-                {chips.filter(chip => chip.label === 'Free entry' || chip.label === 'Open now').map(chip => <Chip key={chip.label} chip={chip} />)}
-            </div>
+            <details open={chips.some(chip => chip.active && chip.label !== 'All')} className="mt-3 rounded-xl border border-hairline bg-white px-3">
+                <summary className="flex min-h-12 cursor-pointer list-none items-center gap-2 rounded text-sm font-semibold text-ink focus-visible:outline-2 focus-visible:outline-teal-brand">
+                    <SlidersHorizontal className="size-4" aria-hidden="true" />
+                    {te ? 'ఫిల్టర్లు' : 'Filter places'}
+                    <span className="ml-auto text-xs font-normal text-ink-soft">{chips.filter(chip => chip.active && chip.label !== 'All').length || (te ? 'అన్ని రకాలు' : 'All types')} <span aria-hidden="true">⌄</span></span>
+                </summary>
+                <div className="border-t border-hairline pb-3">
+                    <p className="mt-3 text-sm font-semibold text-ink-soft">{te ? 'ప్రదేశం రకం' : 'Type of place'}</p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                        {chips.filter(chip => chip.label !== 'Free entry' && chip.label !== 'Open now').map(chip => <Chip key={chip.href + chip.label} chip={chip} />)}
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label={te ? 'మరిన్ని ఫిల్టర్లు' : 'Additional filters'}>
+                        {chips.filter(chip => chip.label === 'Free entry' || chip.label === 'Open now').map(chip => <Chip key={chip.label} chip={chip} />)}
+                    </div>
+                </div>
+            </details>
 
         </div>
     )

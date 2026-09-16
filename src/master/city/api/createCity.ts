@@ -1,3 +1,5 @@
+
+import { requireCmsAdmin } from '@/lib/cms-auth'
 import { db } from '@/lib/db'
 import { cityTable } from '@/master/city/schema'
 
@@ -10,5 +12,6 @@ export async function createCity(city: {
     longitude: string | null
     is_active: boolean
 }) {
+    await requireCmsAdmin()
     return db.insert(cityTable).values(city)
 }

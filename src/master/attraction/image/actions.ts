@@ -1,4 +1,6 @@
 'use server'
+import { requireCmsAdmin } from '@/lib/cms-auth'
+
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
@@ -26,6 +28,7 @@ export async function createAttractionImageAction(
     _prevState: AttractionImageFormState,
     formData: FormData
 ): Promise<AttractionImageFormState> {
+    await requireCmsAdmin()
     const result = validateAttractionImageInput({
         attraction_id: readString(formData, 'attraction_id'),
         image_url: readString(formData, 'image_url'),
@@ -67,6 +70,7 @@ export async function updateAttractionImageAction(
     _prevState: AttractionImageFormState,
     formData: FormData
 ): Promise<AttractionImageFormState> {
+    await requireCmsAdmin()
     const id = Number(readString(formData, 'id'))
 
     if (!Number.isInteger(id) || id < 1) {

@@ -1,4 +1,6 @@
 'use server'
+import { requireCmsAdmin } from '@/lib/cms-auth'
+
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
@@ -29,6 +31,7 @@ export async function createCategoryAction(
     _prevState: CreateCategoryState,
     formData: FormData
 ): Promise<CreateCategoryState> {
+    await requireCmsAdmin()
     const result = validateCategoryInput({
         name: readString(formData, 'name'),
         type: readString(formData, 'type'),

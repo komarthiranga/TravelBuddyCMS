@@ -1,4 +1,6 @@
 'use server'
+import { requireCmsAdmin } from '@/lib/cms-auth'
+
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
@@ -26,6 +28,7 @@ export async function createCityAction(
     _prevState: CreateCityState,
     formData: FormData
 ): Promise<CreateCityState> {
+    await requireCmsAdmin()
     const result = validateCityInput({
         name: readString(formData, 'name'),
         code: readString(formData, 'code'),

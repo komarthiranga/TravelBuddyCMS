@@ -1,4 +1,6 @@
 'use server'
+import { requireCmsAdmin } from '@/lib/cms-auth'
+
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
@@ -27,6 +29,7 @@ export async function updateCityAction(
     _prevState: UpdateCityState,
     formData: FormData
 ): Promise<UpdateCityState> {
+    await requireCmsAdmin()
     const id = parseCityId(readString(formData, 'id'))
 
     if (!id) {

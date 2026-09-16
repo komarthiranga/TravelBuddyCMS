@@ -1,4 +1,6 @@
 'use server'
+import { requireCmsAdmin } from '@/lib/cms-auth'
+
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
@@ -7,6 +9,7 @@ import { deleteAttractionImage, getAttractionImageById } from '@/master/attracti
 import { parseAttractionImageId } from '@/master/attraction/image/ids'
 
 export async function deleteAttractionImageAction(formData: FormData) {
+    await requireCmsAdmin()
     const id = parseAttractionImageId(readString(formData, 'id'))
 
     if (!id) {

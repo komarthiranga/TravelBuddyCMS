@@ -86,17 +86,17 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
                                 <ul className="mt-4 space-y-2.5 text-base text-white/85">
                                     <li>
                                         <Link href="/food" className="hover:text-white">
-                                            <LocalText en="Food" te="ఆహారం — త్వరలో" />
+                                            <LocalText en="Food" te="ఆహారం" />
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="/hotels" className="hover:text-white">
-                                            <LocalText en="Hotels" te="హోటళ్లు — త్వరలో" />
+                                            <LocalText en="Hotels" te="హోటళ్లు" />
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="/transport" className="hover:text-white">
-                                            <LocalText en="Getting around" te="రవాణా — త్వరలో" />
+                                            <LocalText en="Getting around" te="రవాణా" />
                                         </Link>
                                     </li>
                                     <li>

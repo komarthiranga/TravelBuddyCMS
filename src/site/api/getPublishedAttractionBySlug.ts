@@ -1,3 +1,5 @@
+import { withVerification } from '@/site/verification/load'
+import type { Verification } from '@/site/verification/model'
 import { resolvePlaceImage } from '@/site/lib/category-artwork'
 import { and, asc, desc, eq } from 'drizzle-orm'
 
@@ -9,6 +11,7 @@ import { cityTable } from '@/master/city/schema'
 
 export type PublicAttractionDetail = {
     id: number
+    verification: Verification
     short_name: string
     full_name: string
     slug: string
@@ -93,5 +96,6 @@ export async function getPublishedAttractionBySlug(slug: string): Promise<{
         .where(eq(attractionImageTable.attraction_id, row.id))
         .orderBy(desc(attractionImageTable.is_primary), asc(attractionImageTable.display_order))
 
-    return { attraction: row, images: images.map(image => ({ ...image, image_url: resolvePlaceImage(image.image_url, image.alt_text, row.category_name, row.short_name) })) }
+    const [reviewed] = await withVerification([row])
+    return { attraction: reviewed, images: images.map(image => ({ ...image, image_url: resolvePlaceImage(image.image_url, image.alt_text, row.category_name, row.short_name) })) }
 }

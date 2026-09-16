@@ -29,6 +29,7 @@ const ICONS: Record<string, LucideIcon> = {
     WILDLIFE: PawPrint,
     ADVENTURE: Tent,
     MARKET: ShoppingBag,
+    MILK_GROCERY_DELIVERY: ShoppingBag,
     TEA_PLANTATION: Leaf,
     RESTAURANT: UtensilsCrossed,
     HOTEL: BedDouble,

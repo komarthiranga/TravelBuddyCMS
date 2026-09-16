@@ -1,4 +1,6 @@
 'use server'
+import { requireCmsAdmin } from '@/lib/cms-auth'
+
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
@@ -26,6 +28,7 @@ export async function createAttractionAction(
     _prevState: AttractionFormState,
     formData: FormData
 ): Promise<AttractionFormState> {
+    await requireCmsAdmin()
     const result = validateAttractionInput({
         short_name: readString(formData, 'short_name'),
         full_name: readString(formData, 'full_name'),

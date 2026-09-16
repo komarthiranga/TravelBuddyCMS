@@ -1,3 +1,5 @@
+
+import { requireCmsAdmin } from '@/lib/cms-auth'
 import { eq } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
@@ -15,6 +17,7 @@ export async function updateCity(
         is_active: boolean
     }
 ) {
+    await requireCmsAdmin()
     return db
         .update(cityTable)
         .set({

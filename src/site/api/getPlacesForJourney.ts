@@ -1,3 +1,5 @@
+import { withVerification } from '@/site/verification/load'
+import type { Verification } from '@/site/verification/model'
 import { and, asc, eq } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
@@ -9,6 +11,7 @@ import { cityTable } from '@/master/city/schema'
 /** Everything the buddy needs to talk about a place and travel you to it. */
 export type JourneyPlace = {
     id: number
+    verification: Verification
     short_name: string
     slug: string
     address: string
@@ -20,6 +23,8 @@ export type JourneyPlace = {
     category_type: string
     latitude: string | null
     longitude: string | null
+    opening_time: string | null
+    closing_time: string | null
     entry_fee: string
     currency_code: string
     travel_modes: string[]
@@ -40,7 +45,7 @@ export async function getPlacesForJourney(cityId?: number): Promise<JourneyPlace
         .where(eq(attractionImageTable.is_primary, true))
         .as('primary_images')
 
-    return db
+    const rows = await db
         .select({
             id: attractionTable.id,
             short_name: attractionTable.short_name,
@@ -53,6 +58,8 @@ export async function getPlacesForJourney(cityId?: number): Promise<JourneyPlace
             category_type: categoryTable.category_type,
             latitude: attractionTable.latitude,
             longitude: attractionTable.longitude,
+            opening_time: attractionTable.opening_time,
+            closing_time: attractionTable.closing_time,
             entry_fee: attractionTable.entry_fee,
             currency_code: attractionTable.currency_code,
             travel_modes: attractionTable.travel_modes,
@@ -67,4 +74,5 @@ export async function getPlacesForJourney(cityId?: number): Promise<JourneyPlace
         .leftJoin(primaryImages, eq(attractionTable.id, primaryImages.attraction_id))
         .where(and(eq(attractionTable.status, 'PUBLISHED'), eq(attractionTable.is_active, true), cityId ? eq(attractionTable.city_id, cityId) : undefined))
         .orderBy(asc(categoryTable.name), asc(attractionTable.short_name))
+    return withVerification(rows)
 }

@@ -1,3 +1,5 @@
+
+import { requireCmsAdmin } from '@/lib/cms-auth'
 import { db } from '@/lib/db'
 import { attractionTable } from '@/master/attraction/schema'
 
@@ -22,5 +24,6 @@ export async function createAttraction(attraction: {
     status: string
     is_active: boolean
 }) {
+    await requireCmsAdmin()
     return db.insert(attractionTable).values(attraction)
 }

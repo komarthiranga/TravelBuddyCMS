@@ -1,3 +1,5 @@
+
+import { requireCmsAdmin } from '@/lib/cms-auth'
 import { count, desc } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
@@ -9,6 +11,7 @@ import {
 } from '@/master/list-pagination'
 
 export async function getCategories(options?: { page?: number; pageSize?: number }) {
+    await requireCmsAdmin()
     const requestedSize = options?.pageSize ?? MASTER_PAGE_SIZE
     const pageSize = (MASTER_PAGE_SIZES as readonly number[]).includes(requestedSize)
         ? requestedSize

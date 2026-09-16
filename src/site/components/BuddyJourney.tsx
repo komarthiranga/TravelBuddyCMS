@@ -1,5 +1,7 @@
 'use client'
 
+import { VerificationBadge } from './VerificationBadge'
+
 import { useMemo, useRef, useState } from 'react'
 import { PlaceImage } from './PlaceImage'
 import Link from 'next/link'
@@ -42,6 +44,7 @@ export function BuddyJourney({
     const [mode, setMode] = useState<TravelMode | null>(null)
     const heading = useRef<HTMLHeadingElement>(null)
     const browseHeading = useRef<HTMLHeadingElement>(null)
+    const travelHeading = useRef<HTMLHeadingElement>(null)
     const [category, setCategory] = useState<number | null>(null)
     const [query, setQuery] = useState('')
     const categories = Array.from(new Map(places.map(place => [place.category_id, place.category_name])))
@@ -67,9 +70,9 @@ export function BuddyJourney({
         [places, startPoint],
     )
     const visible = ordered.filter(({place}) => (!category || place.category_id === category) && `${place.short_name} ${place.category_name}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()))
-    function focusStep(browse = false) {
+    function focusStep(browse = false, travel = false) {
         requestAnimationFrame(() => {
-            const target = browse ? browseHeading.current : heading.current
+            const target = travel ? travelHeading.current : browse ? browseHeading.current : heading.current
             target?.focus({preventScroll:true})
             target?.scrollIntoView({block:'start', behavior:'instant'})
         })
@@ -77,20 +80,20 @@ export function BuddyJourney({
     return (
         <section
             lang={locale}
-            aria-labelledby="journey-heading"
+            aria-labelledby="guide-title"
             className="min-h-[75vh] bg-cream pb-16 pt-6 sm:pt-8"
         >
             <div className="mx-auto max-w-6xl px-5 sm:px-8">
                 <header className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-hairline pb-6">
                     <div>
                         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-teal-brand-dark"><Compass className="size-4" aria-hidden="true" />{te ? 'మీ స్థానిక గైడ్' : `Your local guide · ${cityName}`}</p>
-                        <h1 className="mt-2 font-display text-3xl tracking-tight text-ink sm:text-4xl">{te ? 'ఈ రోజు ఎక్కడికి వెళ్దాం?' : 'Where shall we go today?'}</h1>
+                        <h1 id="guide-title" className="mt-2 font-display text-3xl tracking-tight text-ink sm:text-4xl">{te ? 'ఈ రోజు ఎక్కడికి వెళ్దాం?' : 'Where shall we go today?'}</h1>
                         <p className="mt-2 text-sm text-ink-soft">{te ? 'ఒక ప్రదేశాన్ని ఎంచుకోండి. అక్కడికి వెళ్లే దారిని చూద్దాం.' : 'We’ll choose a place, set your starting point, then find your way there.'}</p>
                     </div>
                     <Link href="/attractions" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-hairline bg-white px-4 text-sm font-semibold text-ink hover:bg-teal-wash focus-visible:outline-2 focus-visible:outline-teal-brand">{te ? 'అన్ని వివరాలు' : 'Browse place details'}<ArrowRight className="size-4" aria-hidden="true" /></Link>
                 </header>
                 <TranslationNotice />
-                <div className={selected ? "mx-auto max-w-3xl" : "grid items-start gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)]"}>
+                <div className="mx-auto max-w-3xl">
                     <div className={selected ? "hidden" : "min-w-0"}>
                         <h2 ref={browseHeading} tabIndex={-1} className="scroll-mt-6 text-lg font-semibold text-ink focus:outline-none">{te ? 'ప్రదేశాన్ని కనుగొనండి' : 'Find your next stop'}</h2>
                         <div className="mt-3 flex flex-col-reverse gap-3">
@@ -130,7 +133,7 @@ export function BuddyJourney({
                                     </h3>
                                     <p
                                         lang="en"
-                                        className="mt-1 hidden line-clamp-2 text-sm leading-relaxed text-ink-soft sm:block"
+                                        className="mt-1 line-clamp-2 text-sm leading-relaxed text-ink-soft"
                                     >
                                         {place.short_description}
                                     </p>
@@ -164,17 +167,10 @@ export function BuddyJourney({
                         </ul>
                         {ordered.length > 0 && visible.length === 0 && <div className="mt-5 rounded-2xl border border-dashed border-hairline bg-white p-8 text-center"><p className="text-ink-soft">{te ? 'ఈ ఎంపికలకు ప్రదేశాలు లేవు.' : 'No places match just yet. Try another category or name.'}</p><button onClick={() => { setCategory(null); setQuery('') }} className="mt-3 min-h-11 rounded-lg px-4 font-semibold text-teal-brand-dark underline focus-visible:outline-2 focus-visible:outline-teal-brand">{te ? 'ఫిల్టర్లు తొలగించండి' : 'Show all places'}</button></div>}
                     </div>
-                    <div className={selected ? "min-w-0" : "hidden min-w-0 lg:block"}>
+                    <div className={selected ? "min-w-0" : "hidden"}>
                         <h2 id="journey-heading" ref={heading} tabIndex={-1} className="mb-3 scroll-mt-6 text-2xl font-semibold text-ink focus:outline-none">{te ? 'మీ సందర్శన' : 'Your visit'}</h2>
                         {selected && <button type="button" onClick={() => {setSelectedId(null);setMode(null);focusStep(true)}} className="mb-4 inline-flex min-h-11 items-center gap-2 rounded-lg text-sm font-semibold text-teal-brand-dark underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-teal-brand"><ArrowLeft className="size-4" aria-hidden="true" />{te ? 'ప్రదేశం మార్చండి' : 'Change place'}</button>}
-                        {!selected ? <div className="overflow-hidden rounded-2xl border border-hairline bg-white">
-                            <div className="relative aspect-[2/1] bg-teal-wash"><PlaceImage name="your next outing" category="Explore" sizes="480px" /></div>
-                            <div className="p-6">
-                                <h3 className="font-display text-2xl text-ink">{te ? 'మంచి ప్రదేశంతో మొదలుపెడదాం.' : 'New here? Start with one place.'}</h3>
-                                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{te ? 'జాబితాలోని ప్రదేశాన్ని ఎంచుకోండి. ప్రయాణ వివరాలు ఇక్కడ కనిపిస్తాయి.' : 'You don’t need to recognise the names. Read what each place is, then choose “Plan a visit”. I’ll help you with the next step.'}</p>
-                                <ol className="mt-6 space-y-4 text-sm text-ink-soft">{(te ? ['ఒక ప్రదేశాన్ని ఎంచుకోండి', 'ప్రారంభ స్థానం ఎంచుకోండి', 'ప్రయాణ విధానం, దిశలు'] : ['A place you want to see', 'A starting point that suits you', 'Transport and directions']).map((label, index) => <li key={label} className="flex items-center gap-3"><span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-teal-wash text-xs font-semibold text-teal-brand-dark">{index + 1}</span>{label}</li>)}</ol>
-                            </div>
-                        </div> : <>
+                        {selected && <>
                         <aside aria-label={te ? 'ఎంచుకున్న ప్రదేశం' : 'Your chosen place'} className="grid grid-cols-[88px_minmax(0,1fr)] gap-x-4 rounded-t-2xl border border-hairline bg-white p-4 sm:grid-cols-[128px_minmax(0,1fr)]">
                             <div className="relative row-span-4 aspect-square overflow-hidden rounded-xl">
                                 <PlaceImage src={selected.primary_image} alt={selected.primary_image_alt}
@@ -197,12 +193,14 @@ export function BuddyJourney({
                                     ? 'ధర, సమయాలు, వివరాలు'
                                     : 'View fees, hours and visiting tips'}
                             </Link>
+                            <div className="col-span-2"><VerificationBadge verification={selected.verification} /></div>
                             <p className="col-start-2 mt-2 flex items-start gap-2 text-sm text-ink-soft"><MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />{selected.address}</p>
                         </aside>
                         <div className="rounded-b-2xl border border-t-0 border-hairline bg-white p-4 sm:p-5">
                         <h3 className="text-lg font-semibold text-ink">{te ? 'ఎక్కడి నుండి బయలుదేరుతారు?' : '1. Where are you starting?'}</h3>
                         <p className="mt-2 text-sm text-ink-soft">{te ? 'మీ స్థానం లేదా నగర కేంద్రాన్ని ఎంచుకోండి.' : 'If you’re not sure, choose the city centre for a reference route. It is not your current location.'}</p>
-                        <LocationNotice className="mt-4" />
+                        <LocationNotice className="mt-4" embedded />
+                        {destination && <h3 ref={travelHeading} tabIndex={-1} className="mt-6 scroll-mt-6 text-lg font-semibold text-ink focus:outline-none">{mode ? (te ? 'మీ మార్గం' : '2. Your route') : (te ? 'ప్రయాణ విధానం ఎంచుకోండి' : '2. Choose your transport')}</h3>}
                         {!destination ? (
                             <p className="mt-4">
                                 {te
@@ -225,9 +223,9 @@ export function BuddyJourney({
                                 <p className="mt-5 text-base text-ink-soft">
                                     {te
                                         ? 'మీకు అనుకూలమైన విధానాన్ని ఎంచుకోండి. మార్గం, సేవల లభ్యతను మ్యాప్స్‌లో తనిఖీ చేయండి.'
-                                        : '2. How would you like to travel? Choose a starting point above to continue. Check the route and local service availability in Maps.'}
+                                        : startPoint ? 'Choose how you would like to travel. Check local service availability in Maps.' : 'Choose a starting point above to see travel options.'}
                                 </p>
-                                <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+                                {startPoint && <ul className="mt-3 grid gap-3 sm:grid-cols-2">
                                     {TRAVEL_MODE_ORDER.map((option) => {
                                         const Icon = TRAVEL_MODES[option].icon
                                         return (
@@ -237,7 +235,7 @@ export function BuddyJourney({
                                                     disabled={!startPoint}
                                                     onClick={() => {
                                                         setMode(option)
-                                                        focusStep()
+                                                        focusStep(false, true)
                                                     }}
                                                     className="flex min-h-14 w-full items-center gap-3 rounded-2xl border border-ink/20 bg-white p-4 text-left text-ink disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-teal-brand"
                                                 >
@@ -267,13 +265,13 @@ export function BuddyJourney({
                                             </li>
                                         )
                                     })}
-                                </ul>
+                                </ul>}
                             </>
                         )}
                         <button
                             type="button"
                             onClick={() => {
-                                if (mode) { setMode(null); focusStep() }
+                                if (mode) { setMode(null); focusStep(false, true) }
                                 else { setSelectedId(null); focusStep(true) }
                             }}
                             className="mt-4 inline-flex min-h-12 items-center gap-2 rounded-full px-3 font-semibold text-ink focus-visible:outline-2 focus-visible:outline-teal-brand"

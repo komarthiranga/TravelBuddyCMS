@@ -1,3 +1,5 @@
+import { withVerification } from '@/site/verification/load'
+import type { Verification } from '@/site/verification/model'
 import { and, count, desc, eq, ilike, or, sql } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
@@ -8,12 +10,14 @@ import { cityTable } from '@/master/city/schema'
 
 export type PublicAttractionCard = {
     id: number
+    verification: Verification
     short_name: string
     slug: string
     city_name: string
     city_id: number
     category_name: string
     category_id: number
+    address: string
     entry_fee: string
     currency_code: string
     opening_time: string | null
@@ -26,6 +30,7 @@ export type PublicAttractionCard = {
 }
 
 type PlaceFilters = {
+    collection?: 'food' | 'stay'
     page?: number
     pageSize?: number
     cityId?: number
@@ -37,6 +42,11 @@ type PlaceFilters = {
 
 function placeConditions(options?: PlaceFilters) {
     const conditions = [eq(attractionTable.status, 'PUBLISHED'), eq(attractionTable.is_active, true)]
+    if (options?.collection) {
+        const pattern = options.collection === 'food' ? 'restaurant|cafe|café|quick bites|food' : 'hotel|stay|guest house'
+        conditions.push(sql`EXISTS (SELECT 1 FROM category c WHERE c.id=${attractionTable.category_id}
+            AND c.name ~* ${pattern} AND c.name !~* 'grocer|milk.*delivery')`)
+    }
     if (options?.cityId) conditions.push(eq(attractionTable.city_id, options.cityId))
     if (options?.categoryId) conditions.push(eq(attractionTable.category_id, options.categoryId))
     if (options?.search) {
@@ -48,11 +58,22 @@ function placeConditions(options?: PlaceFilters) {
         )
     }
     if (options?.free) {
-        conditions.push(sql`cast(${attractionTable.entry_fee} as numeric) = 0`)
+        conditions.push(sql`cast(${attractionTable.entry_fee} as numeric) = 0 AND EXISTS (
+            SELECT 1 FROM place_verification v
+            WHERE v.attraction_id = ${attractionTable.id} AND v.field = 'admission' AND v.status = 'verified'
+            AND v.checked_at <= CURRENT_TIMESTAMP AND v.review_due_at > CURRENT_TIMESTAMP
+            AND v.value = jsonb_build_array(${attractionTable.entry_fee}::text, ${attractionTable.currency_code}::text)
+            AND NOT EXISTS (SELECT 1 FROM place_verification newer WHERE newer.attraction_id=v.attraction_id AND newer.field=v.field AND newer.checked_at>v.checked_at)
+        ) AND EXISTS (SELECT 1 FROM category c WHERE c.id=${attractionTable.category_id} AND c.name !~* 'restaurant|cafe|café|quick bites|food|hotel|stay|guest house|grocer|milk.*delivery')`)
     }
 
     if (options?.open) {
         const now = sql`(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Kolkata')::time`
+        conditions.push(sql`EXISTS (SELECT 1 FROM place_verification v
+            WHERE v.attraction_id=${attractionTable.id} AND v.field='hours' AND v.status='verified'
+            AND v.checked_at <= CURRENT_TIMESTAMP AND v.review_due_at > CURRENT_TIMESTAMP
+            AND v.value=jsonb_build_array(${attractionTable.opening_time}::text, ${attractionTable.closing_time}::text)
+            AND NOT EXISTS (SELECT 1 FROM place_verification newer WHERE newer.attraction_id=v.attraction_id AND newer.field=v.field AND newer.checked_at>v.checked_at))`)
         conditions.push(sql`${attractionTable.opening_time} IS NOT NULL AND ${attractionTable.closing_time} IS NOT NULL AND (
             (${attractionTable.opening_time} < ${attractionTable.closing_time} AND ${now} >= ${attractionTable.opening_time} AND ${now} < ${attractionTable.closing_time}) OR
             (${attractionTable.opening_time} > ${attractionTable.closing_time} AND (${now} >= ${attractionTable.opening_time} OR ${now} < ${attractionTable.closing_time}))
@@ -106,6 +127,7 @@ export async function getPublishedAttractions(options?: PlaceFilters): Promise<{
             city_id: attractionTable.city_id,
             category_name: categoryTable.name,
             category_id: attractionTable.category_id,
+            address: attractionTable.address,
             entry_fee: attractionTable.entry_fee,
             currency_code: attractionTable.currency_code,
             opening_time: attractionTable.opening_time,
@@ -125,7 +147,7 @@ export async function getPublishedAttractions(options?: PlaceFilters): Promise<{
         .limit(pageSize)
         .offset((safePage - 1) * pageSize)
 
-    return { rows, total: totalNum, page: safePage, pageCount, pageSize }
+    return { rows: await withVerification(rows), total: totalNum, page: safePage, pageCount, pageSize }
 }
 
 export async function getFeaturedAttractions(limit = 6, cityId?: number): Promise<PublicAttractionCard[]> {
@@ -139,7 +161,7 @@ export async function getFeaturedAttractions(limit = 6, cityId?: number): Promis
         .where(eq(attractionImageTable.is_primary, true))
         .as('primary_images')
 
-    return db
+    const rows = await db
         .select({
             id: attractionTable.id,
             short_name: attractionTable.short_name,
@@ -148,6 +170,7 @@ export async function getFeaturedAttractions(limit = 6, cityId?: number): Promis
             city_id: attractionTable.city_id,
             category_name: categoryTable.name,
             category_id: attractionTable.category_id,
+            address: attractionTable.address,
             entry_fee: attractionTable.entry_fee,
             currency_code: attractionTable.currency_code,
             opening_time: attractionTable.opening_time,
@@ -165,4 +188,5 @@ export async function getFeaturedAttractions(limit = 6, cityId?: number): Promis
         .where(and(eq(attractionTable.status, 'PUBLISHED'), eq(attractionTable.is_active, true), cityId ? eq(attractionTable.city_id, cityId) : undefined))
         .orderBy(desc(attractionTable.id))
         .limit(limit)
+    return withVerification(rows)
 }

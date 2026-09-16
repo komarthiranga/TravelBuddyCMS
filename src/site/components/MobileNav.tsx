@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import { Fragment } from 'react'
 import { SavedPlacesButton } from './SavedPlaces'
 import { usePathname } from 'next/navigation'
-import { Compass, LifeBuoy } from 'lucide-react'
+import { Compass, LifeBuoy, Route } from 'lucide-react'
 
 import { useChrome } from '@/site/components/locale-provider'
 
@@ -16,8 +17,9 @@ export function MobileNav() {
             href: '/',
             label: t.explore,
             icon: Compass,
-            match: (path: string) => path === '/' || path.startsWith('/attractions') || path === '/guide',
+            match: (path: string) => path === '/' || path.startsWith('/attractions') || path === '/food' || path === '/hotels' || path === '/transport',
         },
+        { href: '/guide', label: locale === 'te' ? 'ప్రయాణం' : 'Guide', icon: Route, match: (path: string) => path === '/guide' },
         { href: '/help', label: t.help, icon: LifeBuoy, match: (path: string) => path === '/help' },
     ]
 
@@ -27,11 +29,13 @@ export function MobileNav() {
             lang={locale}
             className="fixed inset-x-0 bottom-0 z-50 border-t border-hairline bg-cream/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden"
         >
-            <ul className="mx-auto grid max-w-lg grid-cols-3">
-                {items.map((item, index) => {
+            <ul className="mx-auto grid max-w-lg grid-cols-4">
+                {items.map((item) => {
                     const active = item.match(pathname)
                     return (
-                        <li key={item.href} className={index === 1 ? "col-start-3 row-start-1" : "col-start-1 row-start-1"}>
+                        <Fragment key={item.href}>
+                        {item.href === "/help" && <li><SavedPlacesButton mobile /></li>}
+                        <li>
                             <Link
                                 href={item.href}
                                 aria-current={active ? 'page' : undefined}
@@ -43,9 +47,9 @@ export function MobileNav() {
                                 {item.label}
                             </Link>
                         </li>
+                        </Fragment>
                     )
                 })}
-                <li className="col-start-2 row-start-1"><SavedPlacesButton mobile /></li>
             </ul>
         </nav>
     )

@@ -1,9 +1,12 @@
+
+import { requireCmsAdmin } from '@/lib/cms-auth'
 import { eq } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
 import { categoryTable } from '@/master/category/schema'
 
 export async function getCategoryById(id: number) {
+    await requireCmsAdmin()
     const [row] = await db
         .select()
         .from(categoryTable)

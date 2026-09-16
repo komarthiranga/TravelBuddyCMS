@@ -1,9 +1,12 @@
+
+import { requireCmsAdmin } from '@/lib/cms-auth'
 import { and, asc, desc, eq, ne } from 'drizzle-orm'
 
 import { db } from '@/lib/db'
 import { attractionImageTable } from '@/master/attraction/image/schema'
 
 export async function getAttractionImages(attractionId: number) {
+    await requireCmsAdmin()
     return db
         .select()
         .from(attractionImageTable)
@@ -12,6 +15,7 @@ export async function getAttractionImages(attractionId: number) {
 }
 
 export async function getAttractionImageById(id: number) {
+    await requireCmsAdmin()
     const [row] = await db
         .select()
         .from(attractionImageTable)
@@ -49,6 +53,7 @@ export async function createAttractionImage(image: {
     display_order: number
     is_primary: boolean
 }) {
+    await requireCmsAdmin()
     if (image.is_primary) {
         await clearPrimary(image.attraction_id)
     }
@@ -67,6 +72,7 @@ export async function updateAttractionImage(
         is_primary: boolean
     }
 ) {
+    await requireCmsAdmin()
     if (image.is_primary) {
         await clearPrimary(image.attraction_id, id)
     }
@@ -81,5 +87,6 @@ export async function updateAttractionImage(
 }
 
 export async function deleteAttractionImage(id: number) {
+    await requireCmsAdmin()
     return db.delete(attractionImageTable).where(eq(attractionImageTable.id, id))
 }

@@ -1,6 +1,8 @@
 import { SidebarNav } from '@/components/cms/sidebar-nav'
+import { requireCmsAdmin } from '@/lib/cms-auth'
 
-function CMSLayout({ children }: { children: React.ReactNode }) {
+async function CMSLayout({ children }: { children: React.ReactNode }) {
+    await requireCmsAdmin()
     return (
         <div className="flex min-h-full flex-col bg-background md:flex-row">
             <SidebarNav />

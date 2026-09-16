@@ -1,3 +1,5 @@
+import { priceLabel } from '@/site/verification/model'
+import { VerificationBadge } from './VerificationBadge'
 import { PlaceImage } from './PlaceImage'
 import { SavePlaceButton } from './SavedPlaces'
 import { LocalText } from './LocalText'
@@ -7,14 +9,6 @@ import { ArrowUpRight, MapPin } from 'lucide-react'
 import type { PublicAttractionCard } from '@/site/api/getPublishedAttractions'
 import { DistanceBadge } from '@/site/components/DistanceBadge'
 
-export function formatFee(fee: string, currency: string) {
-    const amount = Number.parseFloat(fee)
-    if (!Number.isFinite(amount) || amount < 0) return 'Fee unavailable'
-    if (amount === 0) return 'Free entry'
-    if (currency === 'INR') return `₹${amount.toLocaleString('en-IN')}`
-    return `${currency} ${amount.toLocaleString()}`
-}
-
 export function AttractionCard({
     attraction,
     eager = false,
@@ -22,7 +16,8 @@ export function AttractionCard({
     attraction: PublicAttractionCard
     eager?: boolean
 }) {
-    const isFree = Number.parseFloat(attraction.entry_fee) === 0
+    const price = priceLabel(attraction)
+    const isFree = price.en === 'Free entry'
 
     return (
         <article className="group relative flex h-full flex-col bg-white">
@@ -35,22 +30,7 @@ export function AttractionCard({
                     {attraction.category_name}
                 </span>
 
-                <span
-                    className={`absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur-md ${
-                        isFree
-                            ? 'bg-emerald-700 text-white'
-                            : 'bg-ink/85 text-white'
-                    }`}
-                >
-                    {isFree ? (
-                        <LocalText en="Free entry" te="ఉచిత ప్రవేశం" />
-                    ) : (
-                        formatFee(
-                            attraction.entry_fee,
-                            attraction.currency_code,
-                        )
-                    )}
-                </span>
+
             </div>
 
             <div className="flex flex-1 flex-col px-1 pt-3 pb-2">
@@ -73,6 +53,9 @@ export function AttractionCard({
                         {attraction.short_name}
                     </Link>
                 </h3>
+
+                <VerificationBadge verification={attraction.verification} compact />
+                <p className={`mt-2 text-sm font-medium ${isFree ? 'text-teal-brand-dark' : 'text-ink-soft'}`}><LocalText en={price.en} te={price.te} /></p>
 
                 <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-ink-soft">
                     {attraction.short_description}
