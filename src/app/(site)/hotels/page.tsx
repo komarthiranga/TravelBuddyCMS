@@ -1,11 +1,14 @@
-import { collectionMetadata } from '@/site/seo/metadata'
-import { PlacesCollection, type SearchParams } from '@/site/components/PlacesCollection'
+import { readStaySearch, todayInIndia, type StaySearchParams } from '@/site/stay/search'
+import { pageMetadata } from '@/site/seo/metadata'
+import { getSelectedCity } from '@/site/lib/selected-city'
+import { getStays } from '@/site/stay/data'
+import { StayDirectory } from '@/site/stay/StayDirectory'
 
-export async function generateMetadata({ searchParams }: { searchParams: Promise<SearchParams> }) {
-    return collectionMetadata('/hotels', 'Hotels and Places to Stay | TravelBuddy', 'Explore local hotels and places to stay. Check rooms and rates directly with the property.', await searchParams)
-}
-
-
-export default function Page({ searchParams }: { searchParams: Promise<SearchParams> }) {
-    return <PlacesCollection collection="stay" searchParams={searchParams} />
+export const metadata = pageMetadata('/hotels', 'Find a Stay | TravelBuddy', 'Find hotels, OYO rooms, hostels and individual rooms. Your local buddy helps you compare stays and get there.')
+export default async function Page({ searchParams }: { searchParams: Promise<StaySearchParams> }) {
+ const today = todayInIndia()
+ const search = readStaySearch(await searchParams, today)
+ const { city } = await getSelectedCity()
+ const stays = await getStays(city?.id)
+ return <StayDirectory stays={stays} cityName={city?.name ?? 'your city'} today={today} search={search} />
 }

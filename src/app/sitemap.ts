@@ -10,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         select a.slug, a.updated_at from attraction a join city c on c.id=a.city_id
         where a.status='PUBLISHED' and a.is_active=true and c.is_active=true order by a.id`
     return [
-        ...['/','/attractions','/food','/hotels','/guide','/transport','/services','/help','/emergency'].map(path => ({url:absoluteUrl(path)})),
+        ...['/','/attractions','/food','/hotels','/guide','/transport','/essentials','/services','/help','/emergency'].map(path => ({url:absoluteUrl(path)})),
         ...places.map(place => ({url:absoluteUrl(`/attractions/${encodeURIComponent(place.slug)}`),lastModified:place.updated_at})),
     ]
 }

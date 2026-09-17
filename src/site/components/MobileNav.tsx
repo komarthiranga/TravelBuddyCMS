@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Fragment } from 'react'
 import { SavedPlacesButton } from './SavedPlaces'
 import { usePathname } from 'next/navigation'
-import { Compass, LifeBuoy, Route } from 'lucide-react'
+import { House, LifeBuoy, Route } from 'lucide-react'
 
 import { useChrome } from '@/site/components/locale-provider'
 
@@ -15,12 +15,12 @@ export function MobileNav() {
     const items = [
         {
             href: '/',
-            label: t.explore,
-            icon: Compass,
-            match: (path: string) => path === '/' || path.startsWith('/attractions') || path === '/food' || path === '/hotels' || path === '/transport',
+            label: locale === 'te' ? 'హోమ్' : 'Home',
+            icon: House,
+            match: (path: string) => path === '/',
         },
         { href: '/guide', label: locale === 'te' ? 'ప్రయాణం' : 'Guide', icon: Route, match: (path: string) => path === '/guide' },
-        { href: '/help', label: t.help, icon: LifeBuoy, match: (path: string) => ['/help', '/emergency', '/services'].includes(path) },
+        { href: '/help', label: locale === 'te' ? t.help : 'Get help', icon: LifeBuoy, match: (path: string) => ['/help', '/emergency'].includes(path) },
     ]
 
     return (

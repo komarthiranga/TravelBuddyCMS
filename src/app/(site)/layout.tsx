@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { BuddyNavigation } from '@/site/components/BuddyNavigation'
 import { InstallApp } from '@/site/components/InstallApp'
 import { LocalText } from '@/site/components/LocalText'
 
@@ -34,6 +35,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
                     <SiteHeader cities={cities} activeCityName={city?.name ?? 'Eluru'} />
 
                     <main id="main" className="flex-1">
+                        <BuddyNavigation />
                         {children}
                     </main>
 
@@ -86,19 +88,20 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
                                 <ul className="mt-4 space-y-2.5 text-base text-white/85">
                                     <li>
                                         <Link href="/food" className="hover:text-white">
-                                            <LocalText en="Food" te="ఆహారం" />
+                                            <LocalText en="Eat" te="ఆహారం" />
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="/hotels" className="hover:text-white">
-                                            <LocalText en="Hotels" te="హోటళ్లు" />
+                                            <LocalText en="Stay" te="హోటళ్లు" />
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="/transport" className="hover:text-white">
-                                            <LocalText en="Getting around" te="రవాణా" />
+                                            <LocalText en="Travel" te="రవాణా" />
                                         </Link>
                                     </li>
+                                    <li><Link href="/essentials" className="inline-flex min-h-11 items-center hover:text-white focus-visible:underline"><LocalText en="Essentials" te="రోజువారీ అవసరాలు" /></Link></li>
                                     <li><Link href="/services" className="inline-flex min-h-11 items-center hover:text-white focus-visible:underline"><LocalText en="Local services" te="స్థానిక సేవలు" /></Link></li>
                                     <li>
                                         <Link href="/emergency" className="hover:text-white">
