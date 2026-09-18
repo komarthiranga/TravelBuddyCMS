@@ -62,17 +62,17 @@ export function HelpContent({ emergency = false }: { emergency?: boolean }) {
                         <li>
                             {te
                                 ? 'పైన నగరం, భాషను ఎంచుకోండి.'
-                                : 'Choose your city and language at the top of the page.'}
+                                : 'Search for an Indian city at the top of the page.'}
                         </li>
                         <li>
                             {te
                                 ? 'ప్రదేశాన్ని ఎంచుకుని ధర, సమయాలు, సూచనలు చూడండి.'
-                                : 'Choose a place and check its fee, hours and visiting tips.'}
+                                : 'Choose a category, then open a place for online details and photos.'}
                         </li>
                         <li>
                             {te
                                 ? 'మీ స్థానం లేదా నగర కేంద్రాన్ని ప్రారంభ స్థానంగా ఎంచుకోండి.'
-                                : 'Use your location or choose the city centre as your starting point.'}
+                                : 'Sign in with Google to save or like places across your devices.'}
                         </li>
                         <li>
                             {te

@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+TravelBuddy uses Google Places for India-only city and place discovery, and Google sign-in for database-backed saves and likes. Public discovery no longer depends on the CMS master tables.
+
+See [online discovery setup and verification](docs/online-discovery.md) for credentials, the user-data migration, OAuth callbacks, request limits and launch requirements.
 
 ## Getting Started
 

@@ -1,7 +1,5 @@
-import { notFound } from 'next/navigation'
-import { OnlinePlacesPreview } from '@/site/components/OnlinePlacesPreview'
-export const metadata = { title: 'Online places preview — Travel Buddy', robots: { index: false, follow: false } }
-export default function OnlinePage() {
-    if (process.env.NODE_ENV === 'production') notFound()
-    return <OnlinePlacesPreview />
-}
+import { DiscoveryPage } from '@/site/online/DiscoveryPage'
+import { pageMetadata } from '@/site/seo/metadata'
+
+export const metadata = pageMetadata('/online', 'Online | TravelBuddy', 'Discover places online in cities across India. Save and like places for your next trip.')
+export default function Page() { return <DiscoveryPage category="attractions" home={false} /> }

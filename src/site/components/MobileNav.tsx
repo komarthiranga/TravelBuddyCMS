@@ -1,56 +1,19 @@
 'use client'
 
 import Link from 'next/link'
-import { Fragment } from 'react'
-import { SavedPlacesButton } from './SavedPlaces'
-import { usePathname } from 'next/navigation'
-import { House, LifeBuoy, Route } from 'lucide-react'
-
-import { useChrome } from '@/site/components/locale-provider'
+import { usePathname, useRouter } from 'next/navigation'
+import { Compass, Bookmark, LocateFixed, LifeBuoy } from 'lucide-react'
+import { useOnline } from '@/site/online/OnlineProvider'
+import styles from '@/site/online/discovery.module.css'
 
 export function MobileNav() {
-    const pathname = usePathname()
-    const { t, locale } = useChrome()
-
-    const items = [
-        {
-            href: '/',
-            label: locale === 'te' ? 'హోమ్' : 'Home',
-            icon: House,
-            match: (path: string) => path === '/',
-        },
-        { href: '/guide', label: locale === 'te' ? 'ప్రయాణం' : 'Guide', icon: Route, match: (path: string) => path === '/guide' },
-        { href: '/help', label: locale === 'te' ? t.help : 'Get help', icon: LifeBuoy, match: (path: string) => ['/help', '/emergency'].includes(path) },
-    ]
-
-    return (
-        <nav
-            aria-label="Mobile"
-            lang={locale}
-            className="fixed inset-x-0 bottom-0 z-50 border-t border-hairline bg-cream/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden"
-        >
-            <ul className="mx-auto grid max-w-lg grid-cols-4">
-                {items.map((item) => {
-                    const active = item.match(pathname)
-                    return (
-                        <Fragment key={item.href}>
-                        {item.href === "/help" && <li><SavedPlacesButton mobile /></li>}
-                        <li>
-                            <Link
-                                href={item.href}
-                                aria-current={active ? 'page' : undefined}
-                                className={`flex min-h-14 flex-col items-center justify-center gap-1 text-sm font-semibold outline-none focus-visible:ring-2 focus-visible:ring-teal-brand ${
-                                    active ? 'bg-teal-wash text-teal-brand-dark border-t-2 border-teal-brand' : 'text-ink-soft border-t-2 border-transparent'
-                                }`}
-                            >
-                                <item.icon className="size-5" aria-hidden="true" />
-                                {item.label}
-                            </Link>
-                        </li>
-                        </Fragment>
-                    )
-                })}
-            </ul>
-        </nav>
-    )
+    const path = usePathname()
+    const router = useRouter()
+    const { requestLocation, locating } = useOnline()
+    return <nav className={styles.mobileNav} aria-label="Mobile navigation">
+        <Link href="/" aria-current={!['/saved','/help','/emergency'].includes(path) ? 'page' : undefined}><Compass/>Discover</Link>
+        <button onClick={() => { requestLocation(); router.push('/') }} disabled={locating}><LocateFixed/>{locating ? 'Locating…' : 'Near me'}</button>
+        <Link href="/saved" aria-current={path === '/saved' ? 'page' : undefined}><Bookmark/>Collection</Link>
+        <Link href="/help" aria-current={['/help','/emergency'].includes(path) ? 'page' : undefined}><LifeBuoy/>Help</Link>
+    </nav>
 }

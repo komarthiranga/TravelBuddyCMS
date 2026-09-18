@@ -1,10 +1,5 @@
-import { collectionMetadata } from '@/site/seo/metadata'
-import { PlacesCollection, type SearchParams } from '@/site/components/PlacesCollection'
+import { DiscoveryPage } from '@/site/online/DiscoveryPage'
+import { pageMetadata } from '@/site/seo/metadata'
 
-export async function generateMetadata({ searchParams }: { searchParams: Promise<SearchParams> }) {
-    return collectionMetadata('/attractions', 'Places to Visit | TravelBuddy', 'Browse places to visit, photos and practical visiting details in your selected city.', await searchParams)
-}
-
-export default function Page({ searchParams }: { searchParams: Promise<SearchParams> }) {
-    return <PlacesCollection searchParams={searchParams} />
-}
+export const metadata = pageMetadata('/attractions', 'Attractions | TravelBuddy', 'Discover places online in cities across India. Save and like places for your next trip.')
+export default function Page() { return <DiscoveryPage category="attractions" home={false} /> }

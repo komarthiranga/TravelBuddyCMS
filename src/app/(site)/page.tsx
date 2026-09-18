@@ -1,15 +1,5 @@
-import { readStaySearch, todayInIndia, type StaySearchParams } from '@/site/stay/search'
+import { DiscoveryPage } from '@/site/online/DiscoveryPage'
 import { pageMetadata } from '@/site/seo/metadata'
-import { getSelectedCity } from '@/site/lib/selected-city'
-import { getStays } from '@/site/stay/data'
-import { StayHome } from '@/site/stay/StayHome'
 
-export const metadata = pageMetadata('/', 'Feel at Home in a New City | TravelBuddy', 'Your local buddy for a new city. Find a stay, discover food, plan travel and explore everyday essentials, places and help.')
-
-export default async function HomePage({ searchParams }: { searchParams: Promise<StaySearchParams> }) {
-    const today = todayInIndia()
-    const search = readStaySearch(await searchParams, today)
-    const { city } = await getSelectedCity()
-    const stays = await getStays(city?.id)
-    return <StayHome stays={stays} cityName={city?.name ?? 'your city'} today={today} search={search} />
-}
+export const metadata = pageMetadata('/', 'Explore India with TravelBuddy', 'Discover places online in cities across India. Save and like places for your next trip.')
+export default function Page() { return <DiscoveryPage category="attractions" home={true} /> }

@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "places:compare": "node --env-file=.env.local scripts/compare-places.mjs",
-    "test:places": "node --test scripts/places/providers.test.mjs"
+    "test:places": "node --test scripts/places/providers.test.mjs",
+    "db:online": "node --env-file=.env.local scripts/online/migrate.mjs",
+    "test:online": "node --experimental-strip-types --test scripts/online/model.test.mjs",
+    "test:online:integration": "node --env-file=.env.local --test scripts/online/integration.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -18,6 +21,7 @@
     "leaflet": "^1.9.4",
     "lucide-react": "^1.38.0",
     "next": "16.3.3",
+    "next-auth": "^5.0.0-beta.32",
     "postgres": "^3.4.9",
     "react": "19.2.8",
     "react-dom": "19.2.8",

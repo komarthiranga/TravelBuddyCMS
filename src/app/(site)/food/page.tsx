@@ -1,17 +1,5 @@
-import { collectionMetadata } from '@/site/seo/metadata'
-import type { SearchParams } from '@/site/components/PlacesCollection'
-import { getPublishedAttractions } from '@/site/api/getPublishedAttractions'
-import { getSelectedCity } from '@/site/lib/selected-city'
-import { FoodDirectory } from '@/site/food/FoodDirectory'
+import { DiscoveryPage } from '@/site/online/DiscoveryPage'
+import { pageMetadata } from '@/site/seo/metadata'
 
-export async function generateMetadata({ searchParams }: { searchParams: Promise<SearchParams> }) {
-    return collectionMetadata('/food', 'Restaurants and Cafes | TravelBuddy', 'Find restaurants and food stops, with photos and visiting details.', await searchParams)
-}
-
-
-export default async function Page() {
-    const { city } = await getSelectedCity()
-    const first = city ? await getPublishedAttractions({ cityId: city.id, collection: 'food', pageSize: 100 }) : null
-    const remaining = first && first.pageCount > 1 ? await Promise.all(Array.from({ length: first.pageCount - 1 }, (_, index) => getPublishedAttractions({ cityId: city!.id, collection: 'food', pageSize: 100, page: index + 2 }))) : []
-    return <FoodDirectory places={[...(first?.rows ?? []), ...remaining.flatMap(page => page.rows)]} cityName={city?.name ?? 'your city'} />
-}
+export const metadata = pageMetadata('/food', 'Food | TravelBuddy', 'Discover places online in cities across India. Save and like places for your next trip.')
+export default function Page() { return <DiscoveryPage category="food" home={false} /> }
